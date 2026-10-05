@@ -776,6 +776,65 @@ body.editing .slide .frag{opacity:1;transform:none;}
   font:600 14px "Avenir Next","Segoe UI",sans-serif;color:#073D28;background:#FFFDF6;
   border:2px solid #B89A5A;border-radius:6px;box-shadow:0 8px 24px -8px rgba(7,61,40,.5);outline:none;}
 </style>
+<style>
+/* two physicians comparison */
+.twodocs .tdSame{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.2em;margin-top:1.6cqh;max-width:1180px;}
+.twodocs .tdSameLbl{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-right:.6em;}
+.twodocs .tdSame .pill{font-size:clamp(.66rem,.9cqw,.8rem);padding:.4em 1em;margin:.2em;}
+.twodocs .tdRow{display:flex;align-items:stretch;justify-content:center;gap:1.2cqw;margin-top:2.4cqh;width:min(1180px,92cqw);}
+.twodocs .tdCard{flex:1;position:relative;border-radius:16px;padding:2.6cqh 1.8cqw 2.2cqh;text-align:left;
+  box-shadow:0 30px 60px -30px rgba(7,61,40,.32),0 6px 16px -10px rgba(7,61,40,.18);}
+.twodocs .tdB{background:rgba(255,255,255,.6);border:1px solid rgba(156,58,46,.35);}
+.twodocs .tdS{background:linear-gradient(160deg,var(--emerald),var(--emerald-deep));border:1px solid var(--emerald-deep);color:var(--ivory);}
+.twodocs .tdCard::before{content:"";position:absolute;inset:-1.5px;border-radius:16px;pointer-events:none;opacity:0;}
+.twodocs .tdB::before{border:2px solid rgba(156,58,46,.85);box-shadow:0 0 26px rgba(156,58,46,.45);}
+.twodocs .tdS::before{border:2px solid rgba(22,140,94,.95);box-shadow:0 0 34px rgba(22,140,94,.75);}
+.active.twodocs .tdCard.on::before{animation:panelGlowAnim 3.2s ease-in-out 1.6s infinite;}
+.twodocs .tdHead{display:flex;align-items:center;gap:14px;margin-bottom:1.8cqh;}
+.twodocs .tdAv{width:54px;height:54px;border-radius:50%;flex:0 0 54px;display:flex;align-items:center;justify-content:center;
+  font-family:"Cormorant Garamond",Georgia,serif;font-size:1.9rem;font-weight:600;line-height:1;}
+.twodocs .tdB .tdAv{background:rgba(156,58,46,.08);border:1.5px solid rgba(156,58,46,.55);color:var(--red);}
+.twodocs .tdS .tdAv{background:rgba(212,184,120,.14);border:1.5px solid var(--gold-bright);color:var(--gold-bright);}
+.twodocs .tdHead h3{font-size:clamp(1.05rem,1.6cqw,1.4rem);font-weight:700;margin:0;}
+.twodocs .tdB h3{color:var(--red);} .twodocs .tdS h3{color:var(--ivory);}
+.twodocs .tdTag{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;}
+.twodocs .tdB .tdTag{color:var(--muted);} .twodocs .tdS .tdTag{color:var(--gold-bright);}
+.twodocs .tdBar{display:flex;height:40px;border-radius:9px;overflow:hidden;background:rgba(0,0,0,.06);}
+.twodocs .tdS .tdBar{background:rgba(255,255,255,.1);}
+.twodocs .tdBar .seg{display:flex;align-items:center;justify-content:center;font-style:normal;width:0;overflow:hidden;white-space:nowrap;
+  font-size:clamp(.62rem,.85cqw,.76rem);font-weight:700;letter-spacing:.03em;transition:width 1.4s cubic-bezier(.22,.61,.36,1) .35s;}
+.twodocs .tdCard.on .seg{width:var(--w);}
+.twodocs .tdS .tdCard.on .seg.wl{transition-delay:.9s;}
+.twodocs .tdB .seg.inv{background:linear-gradient(90deg,#C9BFA6,#B3A88C);color:#3c372c;}
+.twodocs .tdS .seg.inv{background:rgba(250,246,236,.85);color:#073D28;}
+.twodocs .tdS .seg.wl{background:linear-gradient(90deg,#D4B878,#B89A5A);color:#073D28;border-left:2px solid var(--emerald-deep);}
+.twodocs .tdList{list-style:none;margin:2cqh 0 0;padding:0;display:flex;flex-direction:column;gap:1.3cqh;}
+.twodocs .tdList li{position:relative;padding-left:34px;font-size:clamp(.8rem,1.08cqw,.98rem);line-height:1.4;}
+.twodocs .tdB .tdList li{color:var(--ink);}
+.twodocs .tdS .tdList li{color:rgba(250,246,236,.9);font-weight:400;}
+.twodocs .tdS .tdList b{color:var(--gold-bright);}
+.twodocs .tdB .tdList b{color:var(--red);}
+.twodocs .tdList li::before{position:absolute;left:0;top:-1px;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;}
+.twodocs .tdList li.x::before{content:"\2715";background:rgba(156,58,46,.12);color:var(--red);border:1px solid rgba(156,58,46,.45);}
+.twodocs .tdList li.ok::before{content:"\2713";background:rgba(212,184,120,.18);color:var(--gold-bright);border:1px solid rgba(212,184,120,.6);}
+.twodocs .tdList li{opacity:0;transform:translateX(-8px);transition:opacity .5s ease,transform .5s ease;}
+.twodocs .tdCard.on .tdList li{opacity:1;transform:none;}
+.twodocs .tdCard.on .tdList li:nth-child(1){transition-delay:1.2s;}
+.twodocs .tdCard.on .tdList li:nth-child(2){transition-delay:1.5s;}
+.twodocs .tdCard.on .tdList li:nth-child(3){transition-delay:1.8s;}
+.twodocs .tdFoot{margin-top:2.2cqh;padding-top:1.4cqh;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;}
+.twodocs .tdB .tdFoot{border-top:1px solid rgba(156,58,46,.25);color:var(--red);}
+.twodocs .tdS .tdFoot{border-top:1px solid rgba(212,184,120,.35);color:var(--gold-bright);}
+.twodocs .tdVs{align-self:center;flex:0 0 auto;}
+.twodocs .tdVs span{display:flex;width:52px;height:52px;border-radius:50%;align-items:center;justify-content:center;
+  background:var(--ivory);border:1.5px solid var(--gold);color:var(--gold);font-family:"Cormorant Garamond",Georgia,serif;font-size:1.25rem;font-weight:700;
+  box-shadow:0 8px 20px -8px rgba(7,61,40,.35);}
+body.editing .twodocs .tdBar .seg{width:var(--w);}
+body.editing .twodocs .tdList li{opacity:1;transform:none;}
+body.darkMode .twodocs .tdB{background:rgba(255,255,255,.05);}
+body.darkMode .twodocs .tdB .tdList li{color:#D4CFC0;}
+body.darkMode .twodocs .tdVs span{background:#111A14;}
+</style>
 </head>
 <body>
 <!-- Realistic smoke SVG filter: turbulence displacement breaks smooth blobs into misty wisps -->
@@ -850,7 +909,7 @@ body.editing .slide .frag{opacity:1;transform:none;}
     <div class="qrow frag"><div class="qnum">02</div><p>Do you know exactly what happens to the money <b>inside your corporation</b> at death?</p></div>
     <div class="qrow frag"><div class="qnum">03</div><p>You&rsquo;ve heard of the <b>CDA</b>. But is it clear how it actually works?</p></div>
     <div class="qrow frag"><div class="qnum">04</div><p>Have your accountant, lawyer &amp; advisor ever planned <b>together</b>, in one conversation?</p></div>
-    <div class="qrow frag"><div class="qnum">05</div><p>Two identical businesses, one planned ten years earlier. <b>Same result for the family?</b></p></div>
+    <div class="qrow frag"><div class="qnum">05</div><p>Two identical physicians, one decision apart. <b>Same result for the family?</b></p></div>
   </div>
   <p class="tagline serif frag" style="margin-top:2.4cqh;">The goal isn&rsquo;t to change what you have. It&rsquo;s to find the gaps before they get expensive.</p>
 </section>
@@ -1529,24 +1588,40 @@ body.editing .slide .frag{opacity:1;transform:none;}
   <div class="note">Equimax Wealth Accumulator illustration, current dividend scale, premium offset at year 20. Dividends are not guaranteed.</div>
 </section>
 
-<!-- 15. BUSINESS A vs BUSINESS B -->
-<section class="slide">
-  <div class="kicker">Same Success &middot; Different Outcome</div>
-  <h2 class="head serif">Business A vs. Business B</h2>
-  <p class="sub">Same revenue. Same corporation. Same family. Same net worth.<br>One planned ten years earlier.</p>
-  <div class="cards" style="margin-top:2.4cqh;max-width:1080px;">
-    <div class="card em frag zoom" style="max-width:38cqw;">
-      <div class="num" style="color:var(--gold-bright);">A</div>
-      <h3 style="color:var(--gold-bright);">Planned Early</h3>
-      <p style="color:rgba(250,246,236,.85);text-align:left;line-height:1.95;">CDA built and growing<br>Family protected from day one<br>Compounding works <b style="color:var(--ivory);">for</b> the estate<br>Wealth transfers tax free</p>
+<!-- 15. A TALE OF TWO PHYSICIANS -->
+<section class="slide twodocs">
+  <div class="kicker">A Tale of Two Physicians</div>
+  <h2 class="head serif">Dr. Brown vs. Dr. Smith</h2>
+  <p class="sub">Same age. Same income. Same savings. <b>One decision apart.</b></p>
+  <div class="tdSame frag">
+    <span class="tdSameLbl">Identical on paper</span>
+    <span class="pill">Age 50</span><span class="pill">$750K income</span><span class="pill">$2.5M home &middot; no debt</span><span class="pill">$500K RRSP</span><span class="pill">$1.2M in the corporation</span><span class="pill">Saves $250K/yr &middot; 20 yrs &middot; 6%</span>
+  </div>
+  <div class="tdRow">
+    <div class="tdCard tdB frag zoom">
+      <div class="tdHead"><div class="tdAv">B</div><div><h3>Dr. Brown</h3><span class="tdTag">All in on investments</span></div></div>
+      <div class="tdAlloc"><div class="tdBar"><i class="seg inv" style="--w:100%;"><span>$250K &middot; stocks &amp; bonds</span></i></div></div>
+      <ul class="tdList">
+        <li class="x">Investment growth taxed <b>every year</b> inside the corporation</li>
+        <li class="x">At death, shares are <b>deemed sold</b>: capital gains tax</li>
+        <li class="x">Paid out to heirs as <b>taxable dividends</b>: taxed again</li>
+      </ul>
+      <div class="tdFoot">Estate exposed to multiple layers of tax</div>
     </div>
-    <div class="card frag zoom glowR" style="max-width:38cqw;border-color:rgba(156,58,46,.4);">
-      <div class="num" style="color:var(--red);">B</div>
-      <h3 style="color:var(--red);">Waited</h3>
-      <p style="text-align:left;line-height:1.95;">The CDA sits empty<br>Estate exposed to tax<br>Compounding works <b>against</b> the estate<br>Up to half lost at death</p>
+    <div class="tdVs frag"><span>VS</span></div>
+    <div class="tdCard tdS frag zoom">
+      <div class="tdHead"><div class="tdAv">S</div><div><h3>Dr. Smith</h3><span class="tdTag">Diversified with whole life</span></div></div>
+      <div class="tdAlloc"><div class="tdBar"><i class="seg inv" style="--w:60%;"><span>$150K &middot; investments</span></i><i class="seg wl" style="--w:40%;"><span>$100K &middot; whole life</span></i></div></div>
+      <ul class="tdList">
+        <li class="ok">Policy cash value grows <b>tax-sheltered</b> and stays accessible</li>
+        <li class="ok">Death benefit paid to the corporation <b>tax-free</b></li>
+        <li class="ok">Flows to the family through the <b>CDA</b>, largely tax-free</li>
+      </ul>
+      <div class="tdFoot">Estate protected by design</div>
     </div>
   </div>
-  <p class="tagline serif frag" style="margin-top:2.8cqh;">Same success, same corporation, a very different outcome because of planning.</p>
+  <p class="tagline serif frag" style="margin-top:2.6cqh;">Same doctor. Same dollars. A very different inheritance. <b style="font-style:normal;color:var(--gold);">Which doctor are you?</b></p>
+  <div class="note">Scenario adapted from Levine Financial Group, &ldquo;A Tale of Two Physicians.&rdquo; For illustration only; outcomes depend on individual circumstances and current tax law.</div>
 </section>
 
 <!-- 16. THANK YOU -->
