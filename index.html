@@ -847,6 +847,19 @@ body.editing .twodocs .tdTbar{width:var(--tw);}
 .twodocs .tdFoot{margin-top:2.2cqh;padding-top:1.4cqh;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;}
 .twodocs .tdB .tdFoot{border-top:1px solid rgba(156,58,46,.25);color:var(--red);}
 .twodocs .tdS .tdFoot{border-top:1px solid rgba(212,184,120,.35);color:var(--gold-bright);}
+.twodocs .tdLost{display:flex;align-items:center;gap:1.6cqw;margin-top:2.2cqh;}
+.twodocs .tdRing{width:clamp(110px,10cqw,150px);height:auto;flex:0 0 auto;transform:rotate(-90deg);}
+.twodocs .tdRing circle{fill:none;stroke-width:14;}
+.twodocs .tdRing .arc{stroke-linecap:round;stroke-dasharray:var(--c);stroke-dashoffset:var(--c);transition:stroke-dashoffset 1.8s cubic-bezier(.22,.61,.36,1) .9s;}
+.twodocs .tdCard.on .tdRing .arc,body.editing .twodocs .tdRing .arc{stroke-dashoffset:var(--off);}
+.twodocs .bad .trk{stroke:rgba(11,92,61,.18);} .twodocs .bad .arc{stroke:var(--red);}
+.twodocs .good .trk{stroke:rgba(250,246,236,.22);} .twodocs .good .arc{stroke:#E8A091;}
+.twodocs .tdPct{font-family:"Montserrat","Avenir Next",sans-serif;font-size:clamp(2.6rem,4.6cqw,3.8rem);font-weight:700;line-height:1.05;letter-spacing:-.02em;}
+.twodocs .bad .tdPct{color:var(--red);} .twodocs .good .tdPct{color:var(--gold-bright);}
+.twodocs .tdLostLbl{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;margin-top:1.2cqh;}
+.twodocs .bad .tdLostLbl{color:var(--red);} .twodocs .good .tdLostLbl{color:rgba(250,246,236,.85);}
+.twodocs .tdKept{font-size:clamp(.82rem,1.1cqw,.98rem);margin-top:.8cqh;}
+.twodocs .bad .tdKept{color:var(--muted);} .twodocs .good .tdKept{color:var(--gold-bright);font-weight:600;}
 .twodocs .tdVs{align-self:center;flex:0 0 auto;}
 .twodocs .note{left:50%;right:auto;transform:translateX(-50%);width:min(980px,80cqw);}
 .twodocs .tdVs span{display:flex;width:52px;height:52px;border-radius:50%;align-items:center;justify-content:center;
@@ -1624,29 +1637,23 @@ body.darkMode .twodocs .tdVs span{background:#111A14;}
     <div class="tdCard tdB frag zoom">
       <div class="tdHead"><div class="tdAv">B</div><div><h3>Dr. Brown</h3><span class="tdTag">All in on investments</span></div></div>
       <div class="tdAlloc"><div class="tdBar"><i class="seg inv" style="--w:100%;"><span>$250K &middot; stocks &amp; bonds</span></i></div></div>
-      <div class="tdTax">
-        <div class="tdTr"><span>Tax while alive <small>on investment growth</small></span><b><span class="count" data-count="5.14" data-pre="$" data-suf="M" data-dec="2" data-dur="1.6">$0M</span></b></div>
-        <div class="tdTr"><span>Tax at death <small>no estate plan</small></span><b><span class="count" data-count="13.15" data-pre="$" data-suf="M" data-dec="2" data-dur="1.6">$0M</span></b></div>
-        <div class="tdTbar" style="--tw:100%;"><i class="life" style="--sw:28%;"></i><i class="death" style="--sw:72%;"></i></div>
-        <div class="tdTotal"><span>Total tax paid</span><b><span class="count" data-count="18.29" data-pre="$" data-suf="M" data-dec="2" data-dur="1.6">$0M</span></b></div>
+      <div class="tdLost bad">
+        <svg viewBox="0 0 140 140" class="tdRing" style="--off:95.0;--c:339.3;"><circle cx="70" cy="70" r="54" class="trk"/><circle cx="70" cy="70" r="54" class="arc"/></svg>
+        <div class="tdLostTxt"><div class="tdPct"><span class="count" data-count="72" data-suf="%" data-dur="1.6">0%</span></div><div class="tdLostLbl">of the estate lost to tax</div><div class="tdKept">28% reaches the family</div></div>
       </div>
     </div>
     <div class="tdVs frag"><span>VS</span></div>
     <div class="tdCard tdS frag zoom">
       <div class="tdHead"><div class="tdAv">S</div><div><h3>Dr. Smith</h3><span class="tdTag">Diversified with whole life</span></div></div>
       <div class="tdAlloc"><div class="tdBar"><i class="seg inv" style="--w:60%;"><span>$150K &middot; investments</span></i><i class="seg wl" style="--w:40%;"><span>$100K &middot; whole life</span></i></div></div>
-      <div class="tdTax">
-        <div class="tdTr"><span>Tax while alive <small>on investment growth</small></span><b><span class="count" data-count="3.68" data-pre="$" data-suf="M" data-dec="2" data-dur="1.6">$0M</span></b></div>
-        <div class="tdTr"><span>Tax at death <small>no estate plan</small></span><b><span class="count" data-count="9.23" data-pre="$" data-suf="M" data-dec="2" data-dur="1.6">$0M</span></b></div>
-        <div class="tdTr zero"><span>Tax on policy growth <small>paid out tax-free via the CDA</small></span><b>$0</b></div>
-        <div class="tdTbar" style="--tw:70.6%;"><i class="life" style="--sw:28.5%;"></i><i class="death" style="--sw:71.5%;"></i></div>
-        <div class="tdTotal"><span>Total tax paid</span><b><span class="count" data-count="12.91" data-pre="$" data-suf="M" data-dec="2" data-dur="1.6">$0M</span></b></div>
+      <div class="tdLost good">
+        <svg viewBox="0 0 140 140" class="tdRing" style="--off:281.6;--c:339.3;"><circle cx="70" cy="70" r="54" class="trk"/><circle cx="70" cy="70" r="54" class="arc"/></svg>
+        <div class="tdLostTxt"><div class="tdPct"><span class="count" data-count="17" data-suf="%" data-dur="1.6">0%</span></div><div class="tdLostLbl">of the estate lost to tax</div><div class="tdKept">83% reaches the family</div></div>
       </div>
     </div>
   </div>
-  <div class="tdDiff frag zoom"><span class="count" data-count="5.39" data-pre="$" data-suf="M" data-dec="2" data-dur="2">$0M</span><span class="tdDiffTxt">less tax for Dr. Smith. The policy&rsquo;s death benefit still reaches the family tax-free.</span></div>
-  <p class="tagline serif frag" style="margin-top:1.4cqh;">Same doctor. Same dollars. A very different inheritance. <b style="font-style:normal;color:var(--gold);">Which doctor are you?</b></p>
-  <div class="note">Scenario adapted from Levine Financial Group, &ldquo;A Tale of Two Physicians.&rdquo; Illustrative estimate: 6% return (half taxed yearly), approx. BC top rates, saves ages 50&ndash;69, death at 85, no post-mortem planning. Tax on corporate investments only.</div>
+  <p class="tagline serif frag" style="margin-top:2.6cqh;">Same doctor. Same dollars. A very different inheritance. <b style="font-style:normal;color:var(--gold);">Which doctor are you?</b></p>
+  <div class="note">Scenario adapted from Levine Financial Group, &ldquo;A Tale of Two Physicians.&rdquo; Individual results will vary with circumstances and tax law.</div>
 </section>
 
 <!-- 16. THANK YOU -->
