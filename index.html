@@ -50,7 +50,7 @@ body{
 .slide{contain:layout style;
   position:absolute;inset:0;z-index:1;
   display:flex;flex-direction:column;justify-content:center;align-items:center;
-  padding:4.5vh 4.5vw 12vh;
+  padding:4.5cqh 4.5cqw 12cqh;
   opacity:0;visibility:hidden;transform:translateY(10px) scale(var(--z,1));transform-origin:center center;
   transition:opacity .72s cubic-bezier(.16,1,.3,1), transform .72s cubic-bezier(.16,1,.3,1), visibility .72s;
 }
@@ -62,9 +62,9 @@ body{
 
 /* persistent chrome */
 .chrome{position:fixed;left:0;right:0;z-index:50;pointer-events:none;
-  display:flex;justify-content:space-between;align-items:center;padding:0 3vw;}
-.chrome.top{top:2.6vh;}
-.chrome.bottom{bottom:4.4vh;visibility:hidden;}
+  display:flex;justify-content:space-between;align-items:center;padding:0 3cqw;}
+.chrome.top{top:2.6cqh;}
+.chrome.bottom{bottom:4.4cqh;visibility:hidden;}
 .brand{font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--emerald);font-weight:600;}
 .brand b{color:var(--gold);font-weight:700;}
 .internal{font-size:.6rem;letter-spacing:.34em;text-transform:uppercase;color:var(--muted);margin-right:52px;}
@@ -72,14 +72,14 @@ body{
 .progress{position:fixed;bottom:30px;left:0;height:3px;background:linear-gradient(90deg,var(--emerald),var(--gold));width:0;z-index:60;transition:width .5s ease;}
 
 /* hairline rules */
-.rule-gold{width:74px;height:1.5px;background:linear-gradient(90deg,transparent,#8a6d2f 14%,#EBD08E 50%,#8a6d2f 86%,transparent);margin:1.7vh auto;box-shadow:0 0 6px rgba(235,208,142,.4);}
+.rule-gold{width:74px;height:1.5px;background:linear-gradient(90deg,transparent,#8a6d2f 14%,#EBD08E 50%,#8a6d2f 86%,transparent);margin:1.7cqh auto;box-shadow:0 0 6px rgba(235,208,142,.4);}
 
 /* ============ TYPE ============ */
-.kicker{font-size:.74rem;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:1.8vh;text-align:center;}
-h1.title{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(2.5rem,5.9vw,5rem);font-weight:600;line-height:1.02;letter-spacing:.005em;color:var(--emerald-deep);text-align:center;position:relative;z-index:2;}
-h2.head{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(1.9rem,4.1vw,3.4rem);font-weight:600;line-height:1.05;letter-spacing:.005em;color:var(--emerald-deep);text-align:center;margin-bottom:1.2vh;}
-.sub{font-size:clamp(.9rem,1.3vw,1.15rem);color:var(--muted);text-align:center;max-width:62ch;line-height:1.55;}
-.tagline{font-style:italic;color:var(--emerald);font-size:clamp(1rem,1.7vw,1.5rem);text-align:center;}
+.kicker{font-size:.74rem;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:1.8cqh;text-align:center;}
+h1.title{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(2.5rem,5.9cqw,5rem);font-weight:600;line-height:1.02;letter-spacing:.005em;color:var(--emerald-deep);text-align:center;position:relative;z-index:2;}
+h2.head{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(1.9rem,4.1cqw,3.4rem);font-weight:600;line-height:1.05;letter-spacing:.005em;color:var(--emerald-deep);text-align:center;margin-bottom:1.2cqh;}
+.sub{font-size:clamp(.9rem,1.3cqw,1.15rem);color:var(--muted);text-align:center;max-width:62ch;line-height:1.55;}
+.tagline{font-style:italic;color:var(--emerald);font-size:clamp(1rem,1.7cqw,1.5rem);text-align:center;}
 .serif.tagline{letter-spacing:.01em;}
 
 /* ============ FRAGMENTS (staged reveals) ============ */
@@ -89,10 +89,10 @@ h2.head{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(1.9rem,4.
 .frag.zoom.on{transform:scale(1);}
 
 /* ============ CARDS / GRIDS ============ */
-.cards{display:flex;gap:1.6vw;justify-content:center;align-items:stretch;width:100%;}
+.cards{display:flex;gap:1.6cqw;justify-content:center;align-items:stretch;width:100%;}
 .card{
   background:rgba(255,255,255,.55);border:1px solid rgba(184,154,90,.35);
-  border-radius:14px;padding:3vh 1.8vw;flex:1;max-width:24vw;
+  border-radius:14px;padding:3cqh 1.8cqw;flex:1;max-width:24cqw;
   box-shadow:0 30px 60px -30px rgba(7,61,40,.32), 0 6px 16px -10px rgba(7,61,40,.18), inset 0 1px 0 rgba(255,255,255,.65), inset 0 -1px 0 rgba(7,61,40,.06);
   text-align:center;
   position:relative;
@@ -110,18 +110,18 @@ h2.head{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(1.9rem,4.
 .active .card:nth-child(2)::before{animation-delay:1.7s;}
 .active .card:nth-child(3)::before{animation-delay:2.3s;}
 .card .num{font-family:'Cormorant Garamond',Georgia,serif;font-size:2.4rem;color:var(--gold);line-height:1;}
-.card h3{font-size:clamp(.95rem,1.45vw,1.3rem);color:var(--emerald-deep);margin:1.2vh 0 .8vh;font-weight:600;}
-.card p{font-size:clamp(.72rem,1vw,.95rem);color:var(--muted);line-height:1.5;}
+.card h3{font-size:clamp(.95rem,1.45cqw,1.3rem);color:var(--emerald-deep);margin:1.2cqh 0 .8cqh;font-weight:600;}
+.card p{font-size:clamp(.72rem,1cqw,.95rem);color:var(--muted);line-height:1.5;}
 .card.em{background:linear-gradient(160deg,var(--emerald),var(--emerald-deep));border-color:var(--emerald-deep);}
 .card.em h3,.card.em .num{color:var(--ivory);}
 .card.em .num{color:var(--gold-bright);}
 .card.em p{color:rgba(250,246,236,.78);}
 
 /* question list (slide 1) */
-.qlist{display:flex;flex-direction:column;gap:2.6vh;max-width:880px;width:100%;}
-.qrow{display:flex;align-items:center;gap:2vw;}
+.qlist{display:flex;flex-direction:column;gap:2.6cqh;max-width:880px;width:100%;}
+.qrow{display:flex;align-items:center;gap:2cqw;}
 .qrow .qnum{font-family:'Cormorant Garamond',Georgia,serif;font-size:2.6rem;color:var(--gold);min-width:64px;text-align:right;line-height:1;}
-.qrow p{font-size:clamp(1rem,1.7vw,1.45rem);color:var(--ink);line-height:1.4;}
+.qrow p{font-size:clamp(1rem,1.7cqw,1.45rem);color:var(--ink);line-height:1.4;}
 
 /* ============ CHARTS ============ */
 .chartwrap{width:100%;display:flex;justify-content:center;}
@@ -249,19 +249,19 @@ body.dark #tocBtn{background:rgba(250,246,236,.06);}
 .count{font-variant-numeric:tabular-nums;}
 
 /* pills */
-.pill{display:inline-block;padding:.5em 1.1em;border-radius:999px;font-size:clamp(.68rem,.95vw,.88rem);
+.pill{display:inline-block;padding:.5em 1.1em;border-radius:999px;font-size:clamp(.68rem,.95cqw,.88rem);
   border:1px solid rgba(184,154,90,.4);background:rgba(255,255,255,.5);color:var(--ink);margin:.25em;}
 
 /* check / cross table */
-table.vs{border-collapse:collapse;width:min(960px,88vw);background:rgba(255,255,255,.5);border-radius:14px;overflow:hidden;box-shadow:0 18px 40px -22px rgba(7,61,40,.25);}
-table.vs th,table.vs td{padding:1.6vh 1.4vw;font-size:clamp(.75rem,1.15vw,1.05rem);text-align:center;border-bottom:1px solid rgba(184,154,90,.25);}
+table.vs{border-collapse:collapse;width:min(960px,88cqw);background:rgba(255,255,255,.5);border-radius:14px;overflow:hidden;box-shadow:0 18px 40px -22px rgba(7,61,40,.25);}
+table.vs th,table.vs td{padding:1.6cqh 1.4cqw;font-size:clamp(.75rem,1.15cqw,1.05rem);text-align:center;border-bottom:1px solid rgba(184,154,90,.25);}
 table.vs th{background:var(--emerald);color:var(--ivory);font-weight:600;letter-spacing:.06em;}
 table.vs td:first-child{text-align:left;color:var(--ink);font-weight:500;}
 .ok{color:var(--emerald-bright);font-weight:700;font-size:1.15em;}
 .no{color:var(--red);font-weight:700;font-size:1.15em;}
 
 /* footer note */
-.note{position:absolute;bottom:7vh;left:0;right:0;text-align:center;font-size:.62rem;color:var(--muted);letter-spacing:.08em;}
+.note{position:absolute;bottom:7cqh;left:0;right:0;text-align:center;font-size:.62rem;color:var(--muted);letter-spacing:.08em;}
 
 /* ============ SMOKE LIVE BACKGROUND ============ */
 .livebg{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:-1;
@@ -274,25 +274,25 @@ table.vs td:first-child{text-align:left;color:var(--ink);font-weight:500;}
 }
 @keyframes fogroll{to{transform:translateX(var(--fd,1200px));}}
 @keyframes fogbreathe{from{opacity:var(--fo,.5);}to{opacity:calc(var(--fo,.5)*.55);}}
-.livebg i:nth-child(1){height:34vh;bottom:-6vh;--ft:75s;--fb:11s;--fd:1200px;--fo:.55;
+.livebg i:nth-child(1){height:34cqh;bottom:-6cqh;--ft:75s;--fb:11s;--fd:1200px;--fo:.55;
   background-image:radial-gradient(ellipse 55% 90% at 25% 100%,rgba(250,246,236,.5) 0%,transparent 68%),radial-gradient(ellipse 45% 75% at 72% 100%,rgba(250,246,236,.34) 0%,transparent 70%);
   background-size:1200px 100%;}
-.livebg i:nth-child(2){height:26vh;bottom:-4vh;--ft:48s;--fb:9s;--fd:-1200px;--fo:.42;
+.livebg i:nth-child(2){height:26cqh;bottom:-4cqh;--ft:48s;--fb:9s;--fd:-1200px;--fo:.42;
   background-image:radial-gradient(ellipse 50% 95% at 40% 100%,rgba(250,246,236,.46) 0%,transparent 66%),radial-gradient(ellipse 38% 70% at 85% 100%,rgba(250,246,236,.3) 0%,transparent 72%);
   background-size:1200px 100%;}
-.livebg i:nth-child(3){height:44vh;bottom:-10vh;--ft:110s;--fb:16s;--fd:1200px;--fo:.34;
+.livebg i:nth-child(3){height:44cqh;bottom:-10cqh;--ft:110s;--fb:16s;--fd:1200px;--fo:.34;
   background-image:radial-gradient(ellipse 60% 85% at 55% 100%,rgba(250,246,236,.38) 0%,transparent 70%),radial-gradient(ellipse 42% 65% at 8% 100%,rgba(250,246,236,.26) 0%,transparent 74%);
   background-size:1200px 100%;}
-.livebg i:nth-child(4){height:19vh;bottom:-2vh;--ft:34s;--fb:7.5s;--fd:-1200px;--fo:.5;
+.livebg i:nth-child(4){height:19cqh;bottom:-2cqh;--ft:34s;--fb:7.5s;--fd:-1200px;--fo:.5;
   background-image:radial-gradient(ellipse 44% 100% at 62% 100%,rgba(250,246,236,.52) 0%,transparent 64%),radial-gradient(ellipse 34% 80% at 15% 100%,rgba(250,246,236,.36) 0%,transparent 70%);
   background-size:1200px 100%;}
-.livebg i:nth-child(5){height:56vh;bottom:-14vh;--ft:150s;--fb:21s;--fd:1200px;--fo:.2;
+.livebg i:nth-child(5){height:56cqh;bottom:-14cqh;--ft:150s;--fb:21s;--fd:1200px;--fo:.2;
   background-image:radial-gradient(ellipse 65% 80% at 35% 100%,rgba(250,246,236,.3) 0%,transparent 72%),radial-gradient(ellipse 50% 60% at 80% 100%,rgba(250,246,236,.2) 0%,transparent 76%);
   background-size:1200px 100%;}
 .livebg i:nth-child(n+6){display:none;}
 /* gold dust embers floating on dark title slides */
 .dust{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:-1;}
-.dust b{position:absolute;bottom:-2vh;width:5px;height:5px;border-radius:50%;
+.dust b{position:absolute;bottom:-2cqh;width:5px;height:5px;border-radius:50%;
   background:radial-gradient(circle,rgba(244,221,168,.95) 0%,rgba(212,184,120,.4) 55%,transparent 75%);
   opacity:0;
   animation:dustrise var(--dt,16s) linear var(--dd,0s) infinite, dusttwinkle 2.6s ease-in-out var(--dd,0s) infinite alternate;}
@@ -300,20 +300,20 @@ table.vs td:first-child{text-align:left;color:var(--ink);font-weight:500;}
   0%{transform:translate(0,0) ;opacity:0;}
   8%{opacity:var(--do,.7);}
   85%{opacity:calc(var(--do,.7)*.5);}
-  100%{transform:translate(var(--dx,3vw),-104vh);opacity:0;}}
+  100%{transform:translate(var(--dx,3cqw),-104cqh);opacity:0;}}
 @keyframes dusttwinkle{from{opacity:var(--do,.7);}to{opacity:calc(var(--do,.7)*.35);}}
-.dust b:nth-child(1){left:8%;--dt:17s;--dd:0s;--dx:4vw;--do:.75;}
-.dust b:nth-child(2){left:18%;width:3px;height:3px;--dt:23s;--dd:3s;--dx:-3vw;--do:.55;}
-.dust b:nth-child(3){left:29%;--dt:14s;--dd:6s;--dx:5vw;--do:.7;}
-.dust b:nth-child(4){left:38%;width:4px;height:4px;--dt:26s;--dd:1.5s;--dx:-2vw;--do:.5;}
-.dust b:nth-child(5){left:49%;width:3px;height:3px;--dt:19s;--dd:9s;--dx:3vw;--do:.65;}
-.dust b:nth-child(6){left:58%;--dt:15s;--dd:4.5s;--dx:-4vw;--do:.75;}
-.dust b:nth-child(7){left:67%;width:4px;height:4px;--dt:24s;--dd:11s;--dx:2vw;--do:.5;}
-.dust b:nth-child(8){left:76%;width:3px;height:3px;--dt:18s;--dd:7s;--dx:5vw;--do:.6;}
-.dust b:nth-child(9){left:85%;--dt:21s;--dd:2s;--dx:-3vw;--do:.7;}
-.dust b:nth-child(10){left:93%;width:3px;height:3px;--dt:16s;--dd:12.5s;--dx:-2vw;--do:.55;}
-.dust b:nth-child(11){left:13%;width:4px;height:4px;--dt:28s;--dd:14s;--dx:6vw;--do:.45;}
-.dust b:nth-child(12){left:63%;width:3px;height:3px;--dt:20s;--dd:16s;--dx:-5vw;--do:.6;}
+.dust b:nth-child(1){left:8%;--dt:17s;--dd:0s;--dx:4cqw;--do:.75;}
+.dust b:nth-child(2){left:18%;width:3px;height:3px;--dt:23s;--dd:3s;--dx:-3cqw;--do:.55;}
+.dust b:nth-child(3){left:29%;--dt:14s;--dd:6s;--dx:5cqw;--do:.7;}
+.dust b:nth-child(4){left:38%;width:4px;height:4px;--dt:26s;--dd:1.5s;--dx:-2cqw;--do:.5;}
+.dust b:nth-child(5){left:49%;width:3px;height:3px;--dt:19s;--dd:9s;--dx:3cqw;--do:.65;}
+.dust b:nth-child(6){left:58%;--dt:15s;--dd:4.5s;--dx:-4cqw;--do:.75;}
+.dust b:nth-child(7){left:67%;width:4px;height:4px;--dt:24s;--dd:11s;--dx:2cqw;--do:.5;}
+.dust b:nth-child(8){left:76%;width:3px;height:3px;--dt:18s;--dd:7s;--dx:5cqw;--do:.6;}
+.dust b:nth-child(9){left:85%;--dt:21s;--dd:2s;--dx:-3cqw;--do:.7;}
+.dust b:nth-child(10){left:93%;width:3px;height:3px;--dt:16s;--dd:12.5s;--dx:-2cqw;--do:.55;}
+.dust b:nth-child(11){left:13%;width:4px;height:4px;--dt:28s;--dd:14s;--dx:6cqw;--do:.45;}
+.dust b:nth-child(12){left:63%;width:3px;height:3px;--dt:20s;--dd:16s;--dx:-5cqw;--do:.6;}
 
 /* ============ FACT TICKER ============ */
 .ticker{position:fixed;left:0;right:0;bottom:0;height:30px;z-index:66;overflow:hidden;
@@ -352,8 +352,6 @@ table.vs td:first-child{text-align:left;color:var(--ink);font-weight:500;}
   background:rgba(184,154,90,.28);position:relative;transition:background .25s;}
 .smToggle::after{content:"";position:absolute;top:3px;left:3px;width:14px;height:14px;
   border-radius:50%;background:#B89A5A;transition:left .25s,background .25s;}
-body.darkMode .smToggle{background:rgba(18,122,82,.65);}
-body.darkMode .smToggle::after{left:19px;background:#D4B878;}
 /* zoom stepper in settings menu */
 .zoomCtl{margin-left:auto;display:flex;align-items:center;gap:8px;}
 .zoomCtl button{width:24px;height:24px;border-radius:6px;border:1px solid rgba(184,154,90,.55);
@@ -531,7 +529,7 @@ body.darkMode [style*="color:var(--emerald-deep)"] { color: #EDE8D8 !important; 
 body.darkMode [style*="color:var(--muted)"]        { color: #8C8880 !important; }
 body.darkMode [style*="color:var(--ink)"]          { color: #EDE8D8 !important; }
 to{box-shadow:0 0 0 12px rgba(11,92,61,0);}}
-.hint{position:fixed;right:3vw;bottom:6.6vh;z-index:55;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);opacity:.7;}
+.hint{position:fixed;right:3cqw;bottom:6.6cqh;z-index:55;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);opacity:.7;}
 
 /* ivory section title slides — green stage fog */
 .livebg.lite{background:linear-gradient(155deg,var(--ivory) 0%,#ede8d8 45%,var(--ivory-deep) 70%,var(--ivory) 100%);}
@@ -549,11 +547,11 @@ to{box-shadow:0 0 0 12px rgba(11,92,61,0);}}
   filter:blur(28px);opacity:0;
   animation:wisp var(--wt,20s) ease-in var(--wd,0s) infinite;
 }
-.decksmoke i:nth-child(1){width:80px;height:180px;background:rgba(11,92,61,.10);left:8%;bottom:15%;--wt:20s;--wd:0s;--wx:3vw;}
-.decksmoke i:nth-child(2){width:55px;height:130px;background:rgba(11,92,61,.08);left:30%;bottom:8%;--wt:26s;--wd:7s;--wx:-2vw;}
-.decksmoke i:nth-child(3){width:90px;height:200px;background:rgba(18,122,82,.07);left:54%;bottom:20%;--wt:18s;--wd:3.5s;--wx:4vw;}
-.decksmoke i:nth-child(4){width:65px;height:150px;background:rgba(11,92,61,.09);left:74%;bottom:12%;--wt:23s;--wd:10s;--wx:-3vw;}
-.decksmoke i:nth-child(5){width:50px;height:120px;background:rgba(18,122,82,.07);left:90%;bottom:28%;--wt:16s;--wd:5s;--wx:2vw;}
+.decksmoke i:nth-child(1){width:80px;height:180px;background:rgba(11,92,61,.10);left:8%;bottom:15%;--wt:20s;--wd:0s;--wx:3cqw;}
+.decksmoke i:nth-child(2){width:55px;height:130px;background:rgba(11,92,61,.08);left:30%;bottom:8%;--wt:26s;--wd:7s;--wx:-2cqw;}
+.decksmoke i:nth-child(3){width:90px;height:200px;background:rgba(18,122,82,.07);left:54%;bottom:20%;--wt:18s;--wd:3.5s;--wx:4cqw;}
+.decksmoke i:nth-child(4){width:65px;height:150px;background:rgba(11,92,61,.09);left:74%;bottom:12%;--wt:23s;--wd:10s;--wx:-3cqw;}
+.decksmoke i:nth-child(5){width:50px;height:120px;background:rgba(18,122,82,.07);left:90%;bottom:28%;--wt:16s;--wd:5s;--wx:2cqw;}
 
 /* ============ PIE ARC ANIMATION ============ */
 .arc{stroke-dashoffset:220;}
@@ -575,14 +573,14 @@ body.laser #laser{display:block;}
 
 
 /* ============ REAL CLIENT RESULTS ============ */
-.rcgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1vw;width:min(1180px,96vw);margin-top:1vh;}
+.rcgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1cqw;width:min(1180px,96cqw);margin-top:1cqh;}
 .rccard{background:#EEEDEC;border-radius:12px;padding:6px 6px 4px;box-shadow:0 14px 34px -20px rgba(7,61,40,.5);border:1px solid rgba(184,154,90,.35);}
 .rctag{text-align:center;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#17458F;padding:4px 0 2px;}
-.rcstrip{display:flex;align-items:center;gap:2vw;width:min(1180px,96vw);margin-top:1.6vh;
-  background:rgba(212,184,120,.1);border:1.5px solid rgba(184,154,90,.5);border-radius:14px;padding:1.1vh 1.6vw;}
+.rcstrip{display:flex;align-items:center;gap:2cqw;width:min(1180px,96cqw);margin-top:1.6cqh;
+  background:rgba(212,184,120,.1);border:1.5px solid rgba(184,154,90,.5);border-radius:14px;padding:1.1cqh 1.6cqw;}
 .rcstatement{flex:0 0 auto;max-width:52%;}
 .rcstatement img{display:block;width:100%;max-width:520px;border-radius:8px;box-shadow:0 8px 22px -12px rgba(0,0,0,.45);border:1px solid #d8d5cf;}
-.rcnote{font-size:clamp(.95rem,1.5vw,1.35rem);font-weight:600;color:var(--emerald-deep);}
+.rcnote{font-size:clamp(.95rem,1.5cqw,1.35rem);font-weight:600;color:var(--emerald-deep);}
 .rcnote b{color:var(--gold);font-size:1.25em;}
 /* dark mode: statement screenshots stay light (they are photos), only chrome adapts */
 body.darkMode .rccard{border-color:rgba(184,154,90,.4);}
@@ -591,10 +589,10 @@ body.darkMode .rcnote{color:#EDE8D8;}
 
 
 /* ============ NEEDS MET (animated checkmarks) ============ */
-.nmgrid{display:flex;flex-wrap:wrap;justify-content:center;gap:1.2vh 1vw;width:min(1200px,96vw);margin-top:1.3vh;}
-.nmcard{display:flex;align-items:center;gap:12px;text-align:left;flex:0 1 268px;max-width:300px;padding:1.35vh 1vw;}
-.nmcard .nmtext h3{margin:0 0 2px;font-size:clamp(.92rem,1.35vw,1.15rem);}
-.nmcard .nmtext p{margin:0;font-size:clamp(.7rem,1vw,.88rem);line-height:1.3;}
+.nmgrid{display:flex;flex-wrap:wrap;justify-content:center;gap:1.2cqh 1cqw;width:min(1200px,96cqw);margin-top:1.3cqh;}
+.nmcard{display:flex;align-items:center;gap:12px;text-align:left;flex:0 1 268px;max-width:300px;padding:1.35cqh 1cqw;}
+.nmcard .nmtext h3{margin:0 0 2px;font-size:clamp(.92rem,1.35cqw,1.15rem);}
+.nmcard .nmtext p{margin:0;font-size:clamp(.7rem,1cqw,.88rem);line-height:1.3;}
 .nmcheck{flex:0 0 auto;}
 .nmcheck .chk{stroke-dasharray:44;stroke-dashoffset:44;}
 .frag.on .nmcheck .chk{animation:chkDraw .55s cubic-bezier(.6,.1,.3,1) forwards .15s;}
@@ -605,22 +603,22 @@ body.darkMode .rcnote{color:#EDE8D8;}
 body.darkMode .nmcheck .chk{stroke:#5EC884;}
 /* ============ BIG STAT SLIDE ============ */
 .bignum{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;color:var(--emerald);line-height:.95;
-  font-size:clamp(3.4rem,11vw,8.8rem);letter-spacing:-.01em;text-align:center;}
+  font-size:clamp(3.4rem,11cqw,8.8rem);letter-spacing:-.01em;text-align:center;}
 .bignum .cur{color:var(--gold);}
-.statchips{display:flex;gap:1.4vw;flex-wrap:wrap;justify-content:center;margin-top:2vh;width:min(1040px,94vw);}
+.statchips{display:flex;gap:1.4cqw;flex-wrap:wrap;justify-content:center;margin-top:2cqh;width:min(1040px,94cqw);}
 .statchip{flex:1 1 260px;max-width:340px;background:rgba(255,255,255,.5);border:1px solid rgba(184,154,90,.4);
-  border-radius:14px;padding:1.6vh 1.4vw;box-shadow:0 16px 38px -24px rgba(7,61,40,.4);}
-.statchip .sc{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:clamp(1.5rem,3vw,2.3rem);color:var(--emerald);}
+  border-radius:14px;padding:1.6cqh 1.4cqw;box-shadow:0 16px 38px -24px rgba(7,61,40,.4);}
+.statchip .sc{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:clamp(1.5rem,3cqw,2.3rem);color:var(--emerald);}
 .statchip .sc.gd{color:var(--gold);}
-.statchip p{margin:.4vh 0 0;font-size:clamp(.72rem,1vw,.9rem);color:var(--muted);line-height:1.3;}
+.statchip p{margin:.4cqh 0 0;font-size:clamp(.72rem,1cqw,.9rem);color:var(--muted);line-height:1.3;}
 body.darkMode .statchip{background:rgba(255,255,255,.05);border-color:rgba(184,154,90,.3);}
 body.darkMode .statchip p{color:#8C8880;}
 
 
 /* ============ THANK-YOU QR ============ */
-.qrcard{position:relative;margin-top:3vh;display:inline-flex;flex-direction:column;align-items:center;gap:9px;
+.qrcard{position:relative;margin-top:3cqh;display:inline-flex;flex-direction:column;align-items:center;gap:9px;
   background:#fff;border-radius:16px;padding:15px 15px 11px;box-shadow:0 16px 44px -14px rgba(0,0,0,.6);}
-.qrcard img{width:clamp(118px,13.5vw,160px);height:auto;display:block;border-radius:4px;}
+.qrcard img{width:clamp(118px,13.5cqw,160px);height:auto;display:block;border-radius:4px;}
 .qrlabel{font-family:sans-serif;font-weight:800;letter-spacing:.3em;font-size:.78rem;color:#0B5C3D;text-transform:uppercase;}
 .qrcard::before{content:"";position:absolute;inset:-3px;border-radius:19px;border:2px solid rgba(212,184,120,.9);
   box-shadow:0 0 24px rgba(212,184,120,.6);opacity:0;pointer-events:none;}
@@ -651,7 +649,7 @@ body.darkMode .illusTip{background:rgba(6,26,17,.97);}
 
 
 /* ============ GLOWING WORD DUST (title slides) ============ */
-.worddust{position:absolute;left:50%;top:20%;transform:translateX(-50%);width:min(1120px,92vw);height:44%;pointer-events:none;z-index:3;overflow:visible;}
+.worddust{position:absolute;left:50%;top:20%;transform:translateX(-50%);width:min(1120px,92cqw);height:44%;pointer-events:none;z-index:3;overflow:visible;}
 .worddust b{position:absolute;width:5px;height:5px;border-radius:50%;
   background:radial-gradient(circle,rgba(255,244,214,.98),rgba(212,184,120,.55) 52%,transparent 74%);
   box-shadow:0 0 6px 2px rgba(244,221,168,.55);opacity:0;will-change:transform,opacity;
@@ -681,10 +679,10 @@ body.darkMode .illusTip{background:rgba(6,26,17,.97);}
 
 
 /* ============ PREPARED FOR (personalization) ============ */
-.preparedFor{margin-top:1.6vh;text-align:center;line-height:1.35;}
-.preparedFor .pfLabel{display:block;font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);opacity:.9;margin-bottom:.4vh;}
+.preparedFor{margin-top:1.6cqh;text-align:center;line-height:1.35;}
+.preparedFor .pfLabel{display:block;font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);opacity:.9;margin-bottom:.4cqh;}
 .preparedFor .pfName{font-family:'Montserrat',-apple-system,"Segoe UI",sans-serif;font-weight:700;text-transform:uppercase;
-  letter-spacing:.32em;padding-left:.32em;font-size:clamp(1rem,1.75vw,1.5rem);
+  letter-spacing:.32em;padding-left:.32em;font-size:clamp(1rem,1.75cqw,1.5rem);
   background:linear-gradient(180deg,#EBD08E 0%,#CBA85C 55%,#B0893F 100%);-webkit-background-clip:text;background-clip:text;
   color:#C6A15B;-webkit-text-fill-color:transparent;}
 .slide:has(.livebg:not(.lite)) .preparedFor .pfName{color:#C6A15B;}
@@ -719,10 +717,64 @@ body.darkMode .prepField input{border-color:rgba(184,154,90,.5);background:rgba(
 body.dark .brand{color:#FFFFFF;}
 body.dark .internal,body.dark .pageno,body.dark .hint{color:rgba(250,246,236,.65);}
 
-@media (max-width:900px){
-  .cards{flex-direction:column;align-items:center;}
-  .card{max-width:80vw;width:100%;}
+</style>
+<style>
+/* ============ RESPONSIVE STAGE ============
+   The deck is laid out on a fixed-height canvas (900px tall, width follows
+   the screen's aspect ratio between 4:3 and 2.2:1) and scaled to fit, so
+   every screen — phone, laptop, projector, TV — shows the same composition.
+   Slide sizing uses container units (cqw/cqh) relative to this canvas. */
+.deck{position:fixed;inset:auto;left:50%;top:50%;
+  width:var(--cw,1440px);height:var(--ch,900px);
+  transform:translate(-50%,-50%) scale(var(--fit,1));transform-origin:center center;
+  container-type:size;overflow:hidden;}
+body.dark:not(.darkMode){background:#052a1b;}
+#rotateHint{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:95;
+  display:none;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;
+  background:rgba(7,61,40,.92);color:#FAF6EC;font-size:.72rem;letter-spacing:.06em;
+  box-shadow:0 10px 30px -10px rgba(0,0,0,.5);pointer-events:none;white-space:nowrap;}
+body.portrait #rotateHint{display:flex;}
+body.editing #rotateHint{display:none;}
+
+/* ============ EDIT MODE ============ */
+body.darkMode #smTogglePill{background:rgba(18,122,82,.65);}
+body.darkMode #smTogglePill::after{left:19px;background:#D4B878;}
+body.editing #smEditPill{background:rgba(18,122,82,.65);}
+body.editing #smEditPill::after{left:19px;background:#D4B878;}
+
+#editBar{position:fixed;top:10px;left:50%;transform:translateX(-50%);z-index:100;
+  display:none;align-items:center;gap:6px;padding:6px 8px 6px 14px;max-width:calc(100vw - 110px);
+  background:rgba(250,246,236,.97);border:1px solid rgba(184,154,90,.6);border-radius:12px;
+  box-shadow:0 16px 40px -14px rgba(7,61,40,.45);
+  font-family:"Avenir Next","Segoe UI",system-ui,sans-serif;font-size:.76rem;color:#073D28;}
+body.editing #editBar{display:flex;}
+#editBar .ebTitle{font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.66rem;color:#B89A5A;white-space:nowrap;}
+#editBar .ebSep{width:1px;align-self:stretch;background:rgba(184,154,90,.35);margin:0 4px;}
+#editBar .ebNum{min-width:52px;text-align:center;font-variant-numeric:tabular-nums;white-space:nowrap;}
+#editBar button{height:28px;min-width:28px;padding:0 10px;border-radius:7px;cursor:pointer;
+  border:1px solid rgba(184,154,90,.5);background:rgba(184,154,90,.1);color:#073D28;
+  font:inherit;font-size:.74rem;white-space:nowrap;transition:background .15s;}
+#editBar button:hover{background:rgba(184,154,90,.28);}
+#editBar button.primary{background:#0B5C3D;border-color:#0B5C3D;color:#FAF6EC;}
+#editBar button.primary:hover{background:#127A52;}
+#editBar .ebStatus{font-size:.66rem;color:#6E6A5E;min-width:44px;white-space:nowrap;}
+body.darkMode #editBar{background:rgba(12,22,16,.97);color:#EDE8D8;}
+body.darkMode #editBar button{color:#EDE8D8;}
+@media (max-width:760px){
+  #editBar{top:auto;bottom:10px;flex-wrap:wrap;justify-content:center;max-width:calc(100vw - 20px);}
+  #editBar .ebTitle,#editBar .ebStatus{display:none;}
 }
+
+body.editing .slide [contenteditable]{outline:1px dashed rgba(184,154,90,.6);outline-offset:3px;border-radius:2px;cursor:text;}
+body.editing .slide [contenteditable]:hover{outline-color:#B89A5A;background-color:rgba(212,184,120,.08);}
+body.editing .slide [contenteditable]:focus{outline:2px solid #B89A5A;background-color:rgba(212,184,120,.12);}
+body.editing .slide svg [data-eid]{cursor:text;}
+body.editing .slide svg [data-eid]:hover{filter:drop-shadow(0 0 3px rgba(212,184,120,.95));}
+/* keep everything visible and still while editing */
+body.editing .slide .frag{opacity:1;transform:none;}
+#svgEditInput{position:fixed;z-index:110;display:none;min-width:120px;padding:4px 8px;
+  font:600 14px "Avenir Next","Segoe UI",sans-serif;color:#073D28;background:#FFFDF6;
+  border:2px solid #B89A5A;border-radius:6px;box-shadow:0 8px 24px -8px rgba(7,61,40,.5);outline:none;}
 </style>
 </head>
 <body>
@@ -751,70 +803,26 @@ body.dark .internal,body.dark .pageno,body.dark .hint{color:rgba(250,246,236,.65
   <div class="pageno" id="pageno" style="display:none;"></div>
 </div>
 <div class="progress" id="progress"></div>
-<button id="settingsBtn" title="Settings" aria-label="Settings">&#9881;</button>
-<div id="settingsMenu" role="menu">
-  <div class="smItem" id="smFS">
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M1 5V1h4M11 1h4v4M15 11v4h-4M5 15H1v-4"/></svg>
-    <span id="smFSLabel">Enter Full Screen</span>
-  </div>
-  <div class="smDivider"></div>
-  <div class="smItem" id="smRestart">
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8a5.5 5.5 0 1 0 1.1-3.3"/><path d="M1 3.5l2.5 1.5L5 2.5"/></svg>
-    Restart Presentation
-  </div>
-  <div class="smDivider"></div>
-  <div class="smItem" id="smDark">
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M8 1v1M8 14v1M1 8H0M16 8h-1M3.05 3.05l.7.7M12.25 12.25l.7.7M3.75 12.25l-.7.7M12.95 3.75l-.7-.7"/><circle cx="8" cy="8" r="3.5"/></svg>
-    <span>Light / Dark Mode</span>
-    <div class="smToggle" id="smTogglePill"></div>
-  </div>
-  <div class="smDivider"></div>
-  <div class="smItem" id="smZoomRow" style="cursor:default;">
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="7" cy="7" r="5"/><path d="M11 11l4 4M5 7h4M7 5v4"/></svg>
-    <span>Zoom</span>
-    <div class="zoomCtl">
-      <button type="button" id="smZoomOut" aria-label="Zoom out">&minus;</button>
-      <span id="smZoomVal">100%</span>
-      <button type="button" id="smZoomIn" aria-label="Zoom in">+</button>
-    </div>
-  </div>
-  <div class="smDivider"></div>
-  <div class="smItem" id="smPrepRow" style="cursor:default;">
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="5" r="2.6"/><path d="M3 13.5c0-2.6 2.2-4.2 5-4.2s5 1.6 5 4.2"/></svg>
-    <span>Prepared For</span>
-    <div class="prepField"><input type="text" id="smPrepInput" placeholder="Client name…" autocomplete="off" spellcheck="false" maxlength="48"/></div>
-  </div>
-  <div class="smItem" id="smCompanyRow" style="cursor:default;">
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 14V4l5-2v12M7 14h7V7l-7-2M4.5 6.5h0M4.5 9h0M4.5 11.5h0M10 8h0M10 10.5h0"/></svg>
-    <span>Company</span>
-    <div class="prepField"><input type="text" id="smCompanyInput" placeholder="Corporation name…" autocomplete="off" spellcheck="false" maxlength="40"/></div>
-  </div>
-  <div class="smItem" id="smKickerRow" style="cursor:default;">
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12.5V14h1.5L13 4.5 11.5 3 2 12.5z"/><path d="M10.6 3.9l1.5 1.5"/></svg>
-    <span>Title Line</span>
-    <div class="prepField"><input type="text" id="smKickerInput" placeholder="Event or subtitle…" autocomplete="off" spellcheck="false" maxlength="60"/></div>
-  </div>
-</div>
 <style>
 /* continuous gold-coin stream on the CDA two-bucket slide */
 .slide.buckets .frag.on .coin{animation:coinFall 1.5s cubic-bezier(.45,.05,.8,1) var(--cd,0s) infinite !important;}
 /* three rules of money: single dense slide */
 .slide.threerules{justify-content:center;}
-.threerules .trHead{text-align:center;margin-bottom:.6vh;}
-.threerules .tr-row{display:flex;align-items:center;gap:2vw;width:min(1420px,96vw);margin:0 auto;padding:1.3vh 0;border-top:1px solid rgba(184,154,90,.3);}
+.threerules .trHead{text-align:center;margin-bottom:.6cqh;}
+.threerules .tr-row{display:flex;align-items:center;gap:2cqw;width:min(1420px,96cqw);margin:0 auto;padding:1.3cqh 0;border-top:1px solid rgba(184,154,90,.3);}
 .threerules .tr-row.first{border-top:none;}
 .threerules .tr-label{flex:0 0 224px;display:flex;align-items:center;gap:12px;text-align:left;}
 .threerules .tr-num{font-family:'Cormorant Garamond',Georgia,serif;font-size:2.3rem;color:var(--gold);line-height:1;}
-.threerules .tr-label h3{font-size:clamp(.95rem,1.4vw,1.3rem);color:var(--emerald-deep);margin:0 0 3px;font-weight:600;}
+.threerules .tr-label h3{font-size:clamp(.95rem,1.4cqw,1.3rem);color:var(--emerald-deep);margin:0 0 3px;font-weight:600;}
 .threerules .tr-label .tr-sub{font-size:.72rem;color:var(--muted);line-height:1.3;}
-.threerules .tr-viz{flex:1;display:flex;align-items:center;gap:1.6vw;justify-content:center;}
-.threerules .tr-viz.tr-three{justify-content:space-around;gap:1vw;}
+.threerules .tr-viz{flex:1;display:flex;align-items:center;gap:1.6cqw;justify-content:center;}
+.threerules .tr-viz.tr-three{justify-content:space-around;gap:1cqw;}
 .threerules .tr-mini{display:flex;flex-direction:column;align-items:center;text-align:center;gap:3px;flex:1;max-width:230px;}
-.threerules .tr-mini .cap{font-size:clamp(.74rem,1vw,.95rem);font-weight:600;color:var(--emerald-deep);}
+.threerules .tr-mini .cap{font-size:clamp(.74rem,1cqw,.95rem);font-weight:600;color:var(--emerald-deep);}
 .threerules .tr-mini small{font-size:.62rem;color:var(--muted);line-height:1.25;letter-spacing:.02em;}
-.threerules .tr-nums{display:flex;gap:1.6vw;}
+.threerules .tr-nums{display:flex;gap:1.6cqw;}
 .threerules .tr-nums>div{text-align:center;}
-.threerules .tr-nums .big{display:block;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.4rem,2.2vw,2rem);line-height:1;}
+.threerules .tr-nums .big{display:block;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.4rem,2.2cqw,2rem);line-height:1;}
 .threerules .tr-nums .big.red{color:var(--red);}
 .threerules .tr-nums .big.em{color:var(--emerald);}
 .threerules .tr-nums .capn{font-size:.6rem;color:var(--muted);letter-spacing:.03em;line-height:1.3;display:block;margin-top:3px;}
@@ -826,7 +834,7 @@ body.dark .internal,body.dark .pageno,body.dark .hint{color:rgba(250,246,236,.65
   <div class="livebg"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="dust" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div>
   <div class="kicker" id="titleKicker">A Private Lunch &amp; Learn for Incorporated Physicians</div>
   <div class="worddust" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div>
-  <h1 class="title serif" style="font-size:clamp(3rem,7vw,6rem);">The Corporate<br>Wealth Strategy</h1>
+  <h1 class="title serif" style="font-size:clamp(3rem,7cqw,6rem);">The Corporate<br>Wealth Strategy</h1>
   <div class="rule-gold"></div>
   <p class="sub frag on" style="letter-spacing:.18em;text-transform:uppercase;font-size:.82rem;">Estate Planning · Tax Efficiency · Generational Wealth</p>
   <div class="preparedFor frag on" id="prepTitle" style="display:none;"></div>
@@ -837,14 +845,14 @@ body.dark .internal,body.dark .pageno,body.dark .hint{color:rgba(250,246,236,.65
   <div class="kicker">Before We Introduce Anything &middot; Let&rsquo;s Talk</div>
   <h2 class="head serif">Five Questions to Start</h2>
   <div class="rule-gold"></div>
-  <div class="qlist" style="max-width:1020px;margin-top:1.8vh;gap:2vh;">
+  <div class="qlist" style="max-width:1020px;margin-top:1.8cqh;gap:2cqh;">
     <div class="qrow frag"><div class="qnum">01</div><p>Has your medical corporation ever been reviewed for <b>estate</b> planning, not just tax filing?</p></div>
     <div class="qrow frag"><div class="qnum">02</div><p>Do you know exactly what happens to the money <b>inside your corporation</b> at death?</p></div>
     <div class="qrow frag"><div class="qnum">03</div><p>You&rsquo;ve heard of the <b>CDA</b>. But is it clear how it actually works?</p></div>
     <div class="qrow frag"><div class="qnum">04</div><p>Have your accountant, lawyer &amp; advisor ever planned <b>together</b>, in one conversation?</p></div>
     <div class="qrow frag"><div class="qnum">05</div><p>Two identical businesses, one planned ten years earlier. <b>Same result for the family?</b></p></div>
   </div>
-  <p class="tagline serif frag" style="margin-top:2.4vh;">The goal isn&rsquo;t to change what you have. It&rsquo;s to find the gaps before they get expensive.</p>
+  <p class="tagline serif frag" style="margin-top:2.4cqh;">The goal isn&rsquo;t to change what you have. It&rsquo;s to find the gaps before they get expensive.</p>
 </section>
 
 <!-- 3. FUNDAMENTALS OVERVIEW (original) -->
@@ -852,24 +860,24 @@ body.dark .internal,body.dark .pageno,body.dark .hint{color:rgba(250,246,236,.65
   <div class="kicker">Why We Are Here</div>
   <h2 class="head serif">Educating You on the Fundamentals</h2>
   <div class="rule-gold"></div>
-  <div class="qlist" style="max-width:900px;margin-top:1.5vh;gap:2.4vh;">
-    <div class="qrow frag"><div class="qnum">01</div><p style="font-size:clamp(1.1rem,1.9vw,1.6rem);">Save <b style="color:var(--emerald);">10%</b> of what your corporation keeps.</p></div>
-    <div class="qrow frag"><div class="qnum">02</div><p style="font-size:clamp(1.1rem,1.9vw,1.6rem);">Apply the <b style="color:var(--emerald);">three rules</b> of money.</p></div>
-    <div class="qrow frag"><div class="qnum">03</div><p style="font-size:clamp(1.1rem,1.9vw,1.6rem);">Achieve the <b style="color:var(--emerald);">three goals</b> of money.</p></div>
+  <div class="qlist" style="max-width:900px;margin-top:1.5cqh;gap:2.4cqh;">
+    <div class="qrow frag"><div class="qnum">01</div><p style="font-size:clamp(1.1rem,1.9cqw,1.6rem);">Save <b style="color:var(--emerald);">10%</b> of what your corporation keeps.</p></div>
+    <div class="qrow frag"><div class="qnum">02</div><p style="font-size:clamp(1.1rem,1.9cqw,1.6rem);">Apply the <b style="color:var(--emerald);">three rules</b> of money.</p></div>
+    <div class="qrow frag"><div class="qnum">03</div><p style="font-size:clamp(1.1rem,1.9cqw,1.6rem);">Achieve the <b style="color:var(--emerald);">three goals</b> of money.</p></div>
   </div>
-  <div class="frag" style="display:flex;gap:2.5vw;margin-top:4vh;align-items:center;">
+  <div class="frag" style="display:flex;gap:2.5cqw;margin-top:4cqh;align-items:center;">
     <span class="pill" style="font-size:1.05rem;padding:.7em 1.6em;background:var(--emerald);color:var(--ivory);border-color:var(--emerald);">Corporate Benefits</span>
     <span class="serif" style="color:var(--gold);font-size:1.4rem;">+</span>
     <span class="pill" style="font-size:1.05rem;padding:.7em 1.6em;">Personal Benefits</span>
   </div>
-  <p class="tagline serif frag" style="margin-top:2.5vh;">We fill in the gaps for both. Today is a corporate focused session.</p>
+  <p class="tagline serif frag" style="margin-top:2.5cqh;">We fill in the gaps for both. Today is a corporate focused session.</p>
 </section>
 
 <!-- 4. WHY 10% -->
 <section class="slide">
   <h2 class="head serif">Why 10%?</h2>
   <div class="rule-gold"></div>
-  <p class="sub" style="margin-bottom:.5vh;font-size:clamp(1rem,1.7vw,1.4rem);">Small enough to preserve operations. Large enough to create real, protected wealth.</p>
+  <p class="sub" style="margin-bottom:.5cqh;font-size:clamp(1rem,1.7cqw,1.4rem);">Small enough to preserve operations. Large enough to create real, protected wealth.</p>
   <div class="chartwrap play">
     <svg class="chart" width="1020" height="400" viewBox="0 0 1020 400">
       <line x1="100" y1="348" x2="920" y2="348" class="axis"/>
@@ -884,7 +892,7 @@ body.dark .internal,body.dark .pageno,body.dark .hint{color:rgba(250,246,236,.65
       <text x="510" y="392" text-anchor="middle" class="lbl big" style="font-size:34px;fill:#0B5C3D;font-weight:700;">10%</text>
     </svg>
   </div>
-  <p class="tagline serif frag" style="font-size:clamp(1.3rem,2.2vw,1.85rem);">Small input. Compounding output.</p>
+  <p class="tagline serif frag" style="font-size:clamp(1.3rem,2.2cqw,1.85rem);">Small input. Compounding output.</p>
 </section>
 
 
@@ -892,7 +900,7 @@ body.dark .internal,body.dark .pageno,body.dark .hint{color:rgba(250,246,236,.65
 <section class="slide threerules">
   <div class="trHead">
     <div class="kicker">How Money Behaves</div>
-    <h2 class="head serif" style="margin-bottom:.2vh;">The Three Rules of Money</h2>
+    <h2 class="head serif" style="margin-bottom:.2cqh;">The Three Rules of Money</h2>
   </div>
 
   <div class="tr-row first frag">
@@ -959,30 +967,30 @@ body.dark .internal,body.dark .pageno,body.dark .hint{color:rgba(250,246,236,.65
 <section class="slide">
   <h2 class="head serif">The Three Goals of Money</h2>
   <div class="rule-gold"></div>
-  <div class="cards" style="margin-top:2.6vh;max-width:1200px;">
-    <div class="card frag zoom" style="max-width:28vw;">
+  <div class="cards" style="margin-top:2.6cqh;max-width:1200px;">
+    <div class="card frag zoom" style="max-width:28cqw;">
       <div style="display:flex;justify-content:center;"><svg width="48" height="48" viewBox="0 0 50 50" style="margin-bottom:2px;"><path d="M25 5 L41 11 L41 26 Q41 40 25 46 Q9 40 9 26 L9 11 Z" fill="rgba(11,92,61,.08)" stroke="#0B5C3D" stroke-width="2.5" stroke-linejoin="round"/><path d="M17 25 L23 31 L34 18" fill="none" stroke="#0B5C3D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <h3>Income Protection</h3>
       <p>If something happens to you, your family and your debts do not stop.</p>
     </div>
-    <div class="card frag zoom" style="max-width:28vw;">
+    <div class="card frag zoom" style="max-width:28cqw;">
       <div style="display:flex;justify-content:center;"><svg width="48" height="48" viewBox="0 0 50 50" style="margin-bottom:2px;"><path d="M39 25 A14 14 0 1 1 34 14" fill="none" stroke="#0B5C3D" stroke-width="2.5" stroke-linecap="round"/><path d="M34 6 L35 15 L26 16" fill="none" stroke="#0B5C3D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text x="25" y="32" text-anchor="middle" style="font-size:18px;fill:#0B5C3D;font-weight:700;font-family:sans-serif;">$</text></svg></div>
       <h3>Income Replacement</h3>
       <p>Your money starts paying you the way you have paid yourself.</p>
     </div>
-    <div class="card em frag zoom" style="max-width:28vw;">
+    <div class="card em frag zoom" style="max-width:28cqw;">
       <div style="display:flex;justify-content:center;"><svg width="48" height="48" viewBox="0 0 50 50" style="margin-bottom:2px;"><circle cx="25" cy="15" r="10" fill="rgba(212,184,120,.14)" stroke="#D4B878" stroke-width="2.5"/><path d="M25 25 L25 45 M25 33 L16 40 M25 33 L34 40" fill="none" stroke="#D4B878" stroke-width="2.5" stroke-linecap="round"/></svg></div>
       <h3>Generational Wealth</h3>
       <p style="color:rgba(250,246,236,.8);">What you have built keeps building after you are gone.</p>
     </div>
   </div>
-  <p class="sub frag" style="margin-top:3vh;">Most people manage one or two. This strategy covers all three at once.</p>
+  <p class="sub frag" style="margin-top:3cqh;">Most people manage one or two. This strategy covers all three at once.</p>
 </section>
 
 <!-- 7. 7 KEY NEEDS -->
 <section class="slide">
   <h2 class="head serif">7 Key Needs of Every Corporation</h2>
-  <div class="chartwrap" style="margin-top:3.2vh;">
+  <div class="chartwrap" style="margin-top:3.2cqh;">
     <svg class="chart" width="1160" height="530" viewBox="0 0 1160 530">
       <!-- center corp node -->
       <circle cx="580" cy="268" r="100" fill="#0B5C3D"/>
@@ -1046,7 +1054,7 @@ body.dark .internal,body.dark .pageno,body.dark .hint{color:rgba(250,246,236,.65
       </g>
     </svg>
   </div>
-  <p class="tagline serif frag" style="margin-top:.2vh;">One structure answers all seven.</p>
+  <p class="tagline serif frag" style="margin-top:.2cqh;">One structure answers all seven.</p>
 </section>
 
 <!-- 8. 3 KEY CHALLENGES -->
@@ -1054,40 +1062,40 @@ body.dark .internal,body.dark .pageno,body.dark .hint{color:rgba(250,246,236,.65
   <div class="kicker">The Obstacles Between You and Your Wealth</div>
   <h2 class="head serif">3 Key Challenges Every Incorporated Owner Faces</h2>
   <div class="rule-gold"></div>
-  <div class="cards" style="margin-top:2.2vh;max-width:1240px;">
-    <div class="card frag zoom glowR" style="max-width:30vw;">
+  <div class="cards" style="margin-top:2.2cqh;max-width:1240px;">
+    <div class="card frag zoom glowR" style="max-width:30cqw;">
       <div class="num" style="color:var(--red);">I</div>
       <h3 style="color:var(--red);">The Hidden Estate Tax</h3>
-      <div class="serif" style="font-size:clamp(2.4rem,4vw,3rem);color:var(--red);line-height:1;margin:.6vh 0 .2vh;">50%+</div>
+      <div class="serif" style="font-size:clamp(2.4rem,4cqw,3rem);color:var(--red);line-height:1;margin:.6cqh 0 .2cqh;">50%+</div>
       <p>Left unplanned, tax can claim half of everything you have built, the moment it passes to your family.</p>
     </div>
-    <div class="card frag zoom" style="max-width:30vw;">
+    <div class="card frag zoom" style="max-width:30cqw;">
       <div class="num">II</div>
       <h3>Access to Corporate Capital</h3>
       <p>Most owners pull money out the most expensive way possible. Reaching your own capital should be a design decision, never a panic.</p>
     </div>
-    <div class="card em frag zoom" style="max-width:30vw;">
+    <div class="card em frag zoom" style="max-width:30cqw;">
       <div class="num">III</div>
       <h3>Multiply &amp; Transfer Wealth</h3>
       <p>Retained earnings grow by accident and the CDA sits empty. The single most underused exit in Canadian planning.</p>
     </div>
   </div>
-  <p class="tagline serif frag" style="margin-top:2.6vh;">Three problems. One structure answers all three.</p>
+  <p class="tagline serif frag" style="margin-top:2.6cqh;">Three problems. One structure answers all three.</p>
 </section>
 
 <!-- 9. TWO BUCKETS (continuous coins) -->
 <section class="slide buckets">
   <h2 class="head serif">Two Buckets</h2>
   <p class="sub">Every corporate dollar sits in one or the other.</p>
-  <div class="cards" style="margin-top:4vh;max-width:980px;">
-    <div class="card frag zoom glowR" style="max-width:34vw;padding:5vh 2vw;">
-      <svg width="160" height="200" viewBox="0 -52 160 200" style="margin-bottom:1.5vh;">
+  <div class="cards" style="margin-top:4cqh;max-width:980px;">
+    <div class="card frag zoom glowR" style="max-width:34cqw;padding:5cqh 2cqw;">
+      <svg width="160" height="200" viewBox="0 -52 160 200" style="margin-bottom:1.5cqh;">
         <path d="M20 28 L140 28 L124 136 L36 136 Z" fill="rgba(156,58,46,.14)" stroke="#9C3A2E" stroke-width="3.5"/>
         <text x="80" y="96" text-anchor="middle" style="font-size:38px;fill:#9C3A2E;font-weight:700;">%</text>
       </svg>
       <h3 style="color:var(--red);">Taxable Money</h3><p>Taxed on the way out.</p></div>
-    <div class="card em frag zoom glowG" style="max-width:34vw;padding:5vh 2vw;">
-      <svg width="160" height="200" viewBox="0 -52 160 200" style="margin-bottom:1.5vh;overflow:visible;">
+    <div class="card em frag zoom glowG" style="max-width:34cqw;padding:5cqh 2cqw;">
+      <svg width="160" height="200" viewBox="0 -52 160 200" style="margin-bottom:1.5cqh;overflow:visible;">
         <g class="coin" style="--cd:0s;"><circle cx="60" cy="-38" r="11" fill="#D4B878" stroke="#9c7c3c" stroke-width="2"/><text x="60" y="-33" text-anchor="middle" style="font-size:13px;fill:#073D28;font-weight:700;">$</text></g>
         <g class="coin" style="--cd:.35s;"><circle cx="82" cy="-48" r="10" fill="#E3C98F" stroke="#9c7c3c" stroke-width="2"/><text x="82" y="-43" text-anchor="middle" style="font-size:12px;fill:#073D28;font-weight:700;">$</text></g>
         <g class="coin" style="--cd:.7s;"><circle cx="104" cy="-36" r="11" fill="#D4B878" stroke="#9c7c3c" stroke-width="2"/><text x="104" y="-31" text-anchor="middle" style="font-size:13px;fill:#073D28;font-weight:700;">$</text></g>
@@ -1095,13 +1103,13 @@ body.dark .internal,body.dark .pageno,body.dark .hint{color:rgba(250,246,236,.65
       </svg>
       <h3 style="color:var(--gold-bright);">Tax Free Money</h3><p style="color:rgba(250,246,236,.8);">The CDA. Money that exits the corporation tax free.</p></div>
   </div>
-  <p class="tagline serif frag" style="margin-top:3.5vh;">The strategy: move as many dollars as possible into the second bucket.</p>
+  <p class="tagline serif frag" style="margin-top:3.5cqh;">The strategy: move as many dollars as possible into the second bucket.</p>
 </section>
 
 <!-- 10. WHAT FILLS THE CDA -->
 <section class="slide">
   <h2 class="head serif">What Fills the CDA</h2>
-  <div class="chartwrap play" style="margin-top:2vh;">
+  <div class="chartwrap play" style="margin-top:2cqh;">
     <svg class="chart" width="1000" height="400" viewBox="0 0 1000 400">
       <defs><marker id="ar1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#0B5C3D"/></marker>
       <marker id="ar1g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B89A5A"/></marker>
@@ -1148,7 +1156,7 @@ body.dark .internal,body.dark .pageno,body.dark .hint{color:rgba(250,246,236,.65
 <!-- 11. ALL IN ONE STRATEGY -->
 <section class="slide">
   <h2 class="head serif" style="margin-bottom:0;">The All in One Strategy</h2>
-  <div class="chartwrap aiorev" style="margin-top:.5vh;">
+  <div class="chartwrap aiorev" style="margin-top:.5cqh;">
     <svg class="chart" width="1100" height="580" viewBox="0 0 1100 580">
       <defs>
         <marker id="arE" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#0B5C3D"/></marker>
@@ -1239,7 +1247,7 @@ body.dark .internal,body.dark .pageno,body.dark .hint{color:rgba(250,246,236,.65
 <!-- 12. ONE VEHICLE, EVERY NEED MET -->
 <section class="slide">
   <div class="kicker">The All in One Payoff</div>
-  <h2 class="head serif" style="margin-bottom:.4vh;">One Vehicle. Every Need Met.</h2>
+  <h2 class="head serif" style="margin-bottom:.4cqh;">One Vehicle. Every Need Met.</h2>
   <p class="sub">All seven corporate needs from earlier, solved by a single whole life policy.</p>
   <div class="nmgrid">
     <div class="card frag nmcard">
@@ -1313,15 +1321,15 @@ body.dark .internal,body.dark .pageno,body.dark .hint{color:rgba(250,246,236,.65
   <div class="kicker">A Real Illustration · Equimax Wealth Accumulator</div>
   <h2 class="head serif">What $50,000 a Year Actually Builds</h2>
   <p class="sub">Male, 40, non smoker · $30,000 base premium + $20,000 accelerated deposit · paid for 15 years</p>
-  <div class="cards" style="margin-top:2.5vh;max-width:1200px;">
-    <div class="card frag zoom" style="max-width:28vw;"><div class="serif count" style="font-size:2rem;color:var(--emerald);" data-count="750000" data-pre="$" data-dur="1.8">$0</div><h3>Total Out of Pocket</h3><p>15 years × $50K. After year 15 the dividends pay the premium. Not another dollar required.</p></div>
-    <div class="card frag zoom" style="max-width:28vw;"><div class="serif count" style="font-size:2rem;color:var(--emerald);" data-count="1556824" data-pre="$" data-dur="1.8">$0</div><h3>Guaranteed Protection, Day One</h3><p>$1.55M of coverage in force from the first payment. The guaranteed floor, before any dividends.</p></div>
-    <div class="card em frag zoom" style="max-width:28vw;"><div class="serif count" style="font-size:2rem;color:var(--gold-bright);" data-count="1633572" data-pre="$" data-dur="1.8">$0</div><h3>Cash Value at 65</h3><p style="color:rgba(250,246,236,.8);">More than double what was paid in. Liquid, borrowable, growing with no downside.</p></div>
+  <div class="cards" style="margin-top:2.5cqh;max-width:1200px;">
+    <div class="card frag zoom" style="max-width:28cqw;"><div class="serif count" style="font-size:2rem;color:var(--emerald);" data-count="750000" data-pre="$" data-dur="1.8">$0</div><h3>Total Out of Pocket</h3><p>15 years × $50K. After year 15 the dividends pay the premium. Not another dollar required.</p></div>
+    <div class="card frag zoom" style="max-width:28cqw;"><div class="serif count" style="font-size:2rem;color:var(--emerald);" data-count="1556824" data-pre="$" data-dur="1.8">$0</div><h3>Guaranteed Protection, Day One</h3><p>$1.55M of coverage in force from the first payment. The guaranteed floor, before any dividends.</p></div>
+    <div class="card em frag zoom" style="max-width:28cqw;"><div class="serif count" style="font-size:2rem;color:var(--gold-bright);" data-count="1633572" data-pre="$" data-dur="1.8">$0</div><h3>Cash Value at 65</h3><p style="color:rgba(250,246,236,.8);">More than double what was paid in. Liquid, borrowable, growing with no downside.</p></div>
   </div>
-  <div class="frag" style="margin-top:2.5vh;display:flex;gap:4vw;flex-wrap:wrap;justify-content:center;">
+  <div class="frag" style="margin-top:2.5cqh;display:flex;gap:4cqw;flex-wrap:wrap;justify-content:center;">
     <div style="text-align:center;"><div class="lbl" style="font-size:.68rem;letter-spacing:.18em;color:var(--muted);">AGE 70 CASH VALUE</div><div class="serif" style="font-size:1.7rem;color:var(--emerald);">$2.07M</div></div>
     <div style="text-align:center;"><div class="lbl" style="font-size:.68rem;letter-spacing:.18em;color:var(--muted);">AGE 70 DEATH BENEFIT</div><div class="serif" style="font-size:1.7rem;color:var(--gold);">$3.59M</div></div>
-    <div style="text-align:center;border-left:1px solid rgba(184,154,90,.4);padding-left:4vw;"><div class="lbl" style="font-size:.68rem;letter-spacing:.18em;color:var(--muted);">AGE 85 CASH VALUE</div><div class="serif" style="font-size:1.7rem;color:var(--emerald);">$4.24M</div></div>
+    <div style="text-align:center;border-left:1px solid rgba(184,154,90,.4);padding-left:4cqw;"><div class="lbl" style="font-size:.68rem;letter-spacing:.18em;color:var(--muted);">AGE 85 CASH VALUE</div><div class="serif" style="font-size:1.7rem;color:var(--emerald);">$4.24M</div></div>
     <div style="text-align:center;"><div class="lbl" style="font-size:.68rem;letter-spacing:.18em;color:var(--muted);">AGE 85 DEATH BENEFIT</div><div class="serif" style="font-size:1.7rem;color:var(--gold);">$5.24M</div></div>
   </div>
   <div class="note">Equimax Wealth Accumulator, current dividend scale. Dividends are not guaranteed. Illustration values shown; actual results will vary.</div>
@@ -1331,7 +1339,7 @@ body.dark .internal,body.dark .pageno,body.dark .hint{color:rgba(250,246,236,.65
 <section class="slide">
   <h2 class="head serif">The Illustration, Age by Age</h2>
   <p class="sub">Every year from 41 to 85. <b>Hover any year</b> for its exact values. Gold is the total death benefit; emerald is the total cash value.</p>
-  <div class="chartwrap play" style="margin-top:.5vh;position:relative;">
+  <div class="chartwrap play" style="margin-top:.5cqh;position:relative;">
     <div id="illusTip" class="illusTip"></div>
 <svg id="illusSvg" class="chart" width="1320" height="554" viewBox="0 0 1120 470">
 <line x1="78" y1="400" x2="1100" y2="400" class="gridline"/>
@@ -1523,19 +1531,19 @@ body.dark .internal,body.dark .pageno,body.dark .hint{color:rgba(250,246,236,.65
   <div class="kicker">Same Success &middot; Different Outcome</div>
   <h2 class="head serif">Business A vs. Business B</h2>
   <p class="sub">Same revenue. Same corporation. Same family. Same net worth.<br>One planned ten years earlier.</p>
-  <div class="cards" style="margin-top:2.4vh;max-width:1080px;">
-    <div class="card em frag zoom" style="max-width:38vw;">
+  <div class="cards" style="margin-top:2.4cqh;max-width:1080px;">
+    <div class="card em frag zoom" style="max-width:38cqw;">
       <div class="num" style="color:var(--gold-bright);">A</div>
       <h3 style="color:var(--gold-bright);">Planned Early</h3>
       <p style="color:rgba(250,246,236,.85);text-align:left;line-height:1.95;">CDA built and growing<br>Family protected from day one<br>Compounding works <b style="color:var(--ivory);">for</b> the estate<br>Wealth transfers tax free</p>
     </div>
-    <div class="card frag zoom glowR" style="max-width:38vw;border-color:rgba(156,58,46,.4);">
+    <div class="card frag zoom glowR" style="max-width:38cqw;border-color:rgba(156,58,46,.4);">
       <div class="num" style="color:var(--red);">B</div>
       <h3 style="color:var(--red);">Waited</h3>
       <p style="text-align:left;line-height:1.95;">The CDA sits empty<br>Estate exposed to tax<br>Compounding works <b>against</b> the estate<br>Up to half lost at death</p>
     </div>
   </div>
-  <p class="tagline serif frag" style="margin-top:2.8vh;">Same success, same corporation, a very different outcome because of planning.</p>
+  <p class="tagline serif frag" style="margin-top:2.8cqh;">Same success, same corporation, a very different outcome because of planning.</p>
 </section>
 
 <!-- 16. THANK YOU -->
@@ -1543,9 +1551,9 @@ body.dark .internal,body.dark .pageno,body.dark .hint{color:rgba(250,246,236,.65
   <div class="livebg"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="dust" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div>
   <div class="kicker">Team All In</div>
   <div class="worddust" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div>
-  <h1 class="title serif" style="font-size:clamp(3.2rem,7.5vw,6.5rem);">Thank You</h1>
+  <h1 class="title serif" style="font-size:clamp(3.2rem,7.5cqw,6.5rem);">Thank You</h1>
   <div class="rule-gold"></div>
-  <p class="sub" style="font-size:clamp(1rem,1.6vw,1.35rem);">Let&rsquo;s find the gaps before they become expensive.</p>
+  <p class="sub" style="font-size:clamp(1rem,1.6cqw,1.35rem);">Let&rsquo;s find the gaps before they become expensive.</p>
   <div class="preparedFor" id="prepThanks" style="display:none;"></div>
   <div class="qrcard">
     <img src="data:image/png;base64,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" alt="Scan me QR code" />
@@ -1556,6 +1564,129 @@ body.dark .internal,body.dark .pageno,body.dark .hint{color:rgba(250,246,236,.65
 </div>
 <button id="tocBtn" aria-label="Table of contents">&#8801;</button>
 <div id="tocList"></div>
+<button id="settingsBtn" title="Settings" aria-label="Settings">&#9881;</button>
+<div id="settingsMenu" role="menu">
+  <div class="smItem" id="smFS">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M1 5V1h4M11 1h4v4M15 11v4h-4M5 15H1v-4"/></svg>
+    <span id="smFSLabel">Enter Full Screen</span>
+  </div>
+  <div class="smDivider"></div>
+  <div class="smItem" id="smRestart">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8a5.5 5.5 0 1 0 1.1-3.3"/><path d="M1 3.5l2.5 1.5L5 2.5"/></svg>
+    Restart Presentation
+  </div>
+  <div class="smDivider"></div>
+  <div class="smItem" id="smEdit">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12.5V14h1.5L13 4.5 11.5 3 2 12.5z"/><path d="M10.6 3.9l1.5 1.5"/></svg>
+    <span>Edit Mode <small style="opacity:.55;">(E)</small></span>
+    <div class="smToggle" id="smEditPill"></div>
+  </div>
+  <div class="smDivider"></div>
+  <div class="smItem" id="smDark">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M8 1v1M8 14v1M1 8H0M16 8h-1M3.05 3.05l.7.7M12.25 12.25l.7.7M3.75 12.25l-.7.7M12.95 3.75l-.7-.7"/><circle cx="8" cy="8" r="3.5"/></svg>
+    <span>Light / Dark Mode</span>
+    <div class="smToggle" id="smTogglePill"></div>
+  </div>
+  <div class="smDivider"></div>
+  <div class="smItem" id="smZoomRow" style="cursor:default;">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="7" cy="7" r="5"/><path d="M11 11l4 4M5 7h4M7 5v4"/></svg>
+    <span>Zoom</span>
+    <div class="zoomCtl">
+      <button type="button" id="smZoomOut" aria-label="Zoom out">&minus;</button>
+      <span id="smZoomVal">100%</span>
+      <button type="button" id="smZoomIn" aria-label="Zoom in">+</button>
+    </div>
+  </div>
+  <div class="smDivider"></div>
+  <div class="smItem" id="smPrepRow" style="cursor:default;">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="5" r="2.6"/><path d="M3 13.5c0-2.6 2.2-4.2 5-4.2s5 1.6 5 4.2"/></svg>
+    <span>Prepared For</span>
+    <div class="prepField"><input type="text" id="smPrepInput" placeholder="Client name…" autocomplete="off" spellcheck="false" maxlength="48"/></div>
+  </div>
+  <div class="smItem" id="smCompanyRow" style="cursor:default;">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 14V4l5-2v12M7 14h7V7l-7-2M4.5 6.5h0M4.5 9h0M4.5 11.5h0M10 8h0M10 10.5h0"/></svg>
+    <span>Company</span>
+    <div class="prepField"><input type="text" id="smCompanyInput" placeholder="Corporation name…" autocomplete="off" spellcheck="false" maxlength="40"/></div>
+  </div>
+  <div class="smItem" id="smKickerRow" style="cursor:default;">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12.5V14h1.5L13 4.5 11.5 3 2 12.5z"/><path d="M10.6 3.9l1.5 1.5"/></svg>
+    <span>Title Line</span>
+    <div class="prepField"><input type="text" id="smKickerInput" placeholder="Event or subtitle…" autocomplete="off" spellcheck="false" maxlength="60"/></div>
+  </div>
+</div>
+<div id="editBar" role="toolbar" aria-label="Edit mode">
+  <span class="ebTitle">&#9998; Editing</span>
+  <span class="ebSep"></span>
+  <button type="button" id="ebPrev" aria-label="Previous slide">&#8249;</button>
+  <span class="ebNum" id="ebNum">1 / 1</span>
+  <button type="button" id="ebNext" aria-label="Next slide">&#8250;</button>
+  <span class="ebSep"></span>
+  <button type="button" id="ebBold" aria-label="Bold"><b>B</b></button>
+  <button type="button" id="ebItalic" aria-label="Italic"><i>I</i></button>
+  <span class="ebSep"></span>
+  <button type="button" id="ebSave" title="Download this presentation with your edits as a new .html file">Save Copy</button>
+  <button type="button" id="ebReset" title="Discard all edits">Reset</button>
+  <span class="ebStatus" id="ebStatus"></span>
+  <button type="button" id="ebDone" class="primary">Done</button>
+</div>
+<input type="text" id="svgEditInput" autocomplete="off" spellcheck="true" aria-label="Edit label"/>
+<div id="rotateHint">&#10227; Rotate your phone for a larger view</div>
+<script>
+/* ============ RESPONSIVE FIT + EDIT MODE (setup) ============
+   Runs before the deck engine: sizes the stage, tags every editable
+   text element with a stable data-eid, snapshots the untouched markup
+   (used by "Save Copy"), then re-applies any edits saved in this browser. */
+(function(){
+  const BASE_H=900, MIN_A=4/3, MAX_A=2.2;
+  function fit(){
+    const W=innerWidth,H=innerHeight;
+    const a=Math.min(MAX_A,Math.max(MIN_A,W/H));
+    const cw=Math.round(BASE_H*a);
+    const s=Math.min(W/cw,H/BASE_H);
+    const r=document.documentElement.style;
+    r.setProperty('--cw',cw+'px');r.setProperty('--ch',BASE_H+'px');r.setProperty('--fit',s);
+    document.body.classList.toggle('portrait',H>W&&W<900);
+  }
+  addEventListener('resize',fit);
+  addEventListener('orientationchange',()=>setTimeout(fit,150));
+  fit();
+
+  const SKIP='script,style,input,textarea,button,select,.livebg,.dust,.worddust,.preparedFor,[aria-hidden="true"]';
+  function hasText(el){for(const n of el.childNodes)if(n.nodeType===3&&n.textContent.trim())return true;return false;}
+  const eds=[];
+  function collect(root){
+    for(const el of root.children){
+      if(el.tagName.toLowerCase()==='svg'){
+        el.querySelectorAll('text').forEach(t=>{
+          if(t.closest('[aria-hidden="true"]'))return;
+          if(t.children.length)t.querySelectorAll('tspan').forEach(ts=>{if(hasText(ts))eds.push(ts);});
+          else if(t.textContent.trim())eds.push(t);
+        });
+        continue;
+      }
+      if(el.matches(SKIP))continue;
+      if(hasText(el))eds.push(el);else collect(el);
+    }
+  }
+  document.querySelectorAll('.slide').forEach(collect);
+  eds.forEach((el,k)=>{if(!el.dataset.eid)el.dataset.eid='e'+k;});
+
+  const me=document.currentScript;
+  const PRISTINE=document.documentElement.outerHTML;
+  const KEY='deckEdits:'+document.title+':'+eds.length;
+  let store={};
+  try{store=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(_){store={};}
+  function applyRec(el,rec){
+    if(!el||!rec)return;
+    if(rec.t!=null)el.textContent=rec.t;
+    else if(rec.h!=null)el.innerHTML=rec.h;
+    if(rec.a)for(const k in rec.a){if(rec.a[k]==null)el.removeAttribute(k);else el.setAttribute(k,rec.a[k]);}
+  }
+  for(const id in store)applyRec(document.querySelector('[data-eid="'+id+'"]'),store[id]);
+
+  window.DeckEdit={eds,store,KEY,PRISTINE,me,applyRec,fit};
+})();
+</script>
 <script>
 /* ============ ENGINE ============ */
 const slides=[...document.querySelectorAll('.slide')];
@@ -1820,6 +1951,194 @@ addEventListener('keydown',e=>{if(e.key==='CapsLock')setLaser(!document.body.cla
   svg.addEventListener('mouseleave',()=>{tip.style.opacity='0';hi.style.opacity='0';});
 })();
 
+</script>
+<script>
+/* ============ EDIT MODE (runtime) ============ */
+(function(){
+  const D=window.DeckEdit; if(!D)return;
+  const body=document.body, bar=document.getElementById('editBar');
+  const num=document.getElementById('ebNum'), status=document.getElementById('ebStatus');
+  const svgIn=document.getElementById('svgEditInput');
+  const isSvg=el=>el instanceof SVGElement;
+  let editing=false, saveT=null;
+
+  function fmtCount(el){
+    const end=parseFloat(el.dataset.count), dec=parseInt(el.dataset.dec||0);
+    return (el.dataset.pre||'')+end.toLocaleString('en-CA',{maximumFractionDigits:dec,minimumFractionDigits:dec})+(el.dataset.suf||'');
+  }
+  /* a typed "$1,250,000" or "12.5%" becomes the count-up target */
+  function syncCounts(el){
+    const list=[...el.querySelectorAll('[data-count]')];
+    if(el.matches('[data-count]'))list.unshift(el);
+    list.forEach(c=>{
+      const m=c.textContent.trim().match(/^([^\d\-]*)(-?[\d,]*\.?\d+)(.*)$/s);
+      if(!m)return;
+      const raw=m[2].replace(/,/g,''), dot=raw.indexOf('.');
+      c.dataset.pre=m[1]; c.dataset.suf=m[3]; c.dataset.count=raw;
+      c.dataset.dec=dot<0?0:raw.length-dot-1;
+    });
+  }
+  function cleanHTML(el){
+    const c=el.cloneNode(true);
+    const lf=[...el.querySelectorAll('.frag')], cf=[...c.querySelectorAll('.frag')];
+    cf.forEach((f,k)=>f.classList.toggle('on',!!(lf[k]&&lf[k]._initOn)));
+    c.querySelectorAll('[contenteditable]').forEach(x=>x.removeAttribute('contenteditable'));
+    c.querySelectorAll('.shimmer').forEach(x=>x.classList.remove('shimmer'));
+    c.querySelectorAll('.leaddot').forEach(x=>x.remove());
+    c.querySelectorAll('[data-count]').forEach(x=>{x.textContent=(x.dataset.pre||'')+'0'+(x.dataset.suf||'');});
+    if(el.matches('[data-count]'))return (el.dataset.pre||'')+'0'+(el.dataset.suf||'');
+    return c.innerHTML;
+  }
+  function record(el){
+    const id=el.dataset.eid; if(!id)return;
+    if(isSvg(el)){D.store[id]={t:el.textContent};}
+    else{
+      syncCounts(el);
+      const rec={h:cleanHTML(el)};
+      if(el.matches('[data-count]'))rec.a={'data-count':el.dataset.count,'data-pre':el.dataset.pre,'data-suf':el.dataset.suf,'data-dec':el.dataset.dec};
+      D.store[id]=rec;
+    }
+    persist();
+  }
+  function persist(){
+    clearTimeout(saveT);
+    status.textContent='Saving…';
+    saveT=setTimeout(()=>{
+      try{localStorage.setItem(D.KEY,JSON.stringify(D.store));status.textContent='Saved';}
+      catch(_){status.textContent='Not saved — use Save Copy';}
+    },350);
+  }
+  function updateNum(){num.textContent=(i+1)+' / '+slides.length;}
+
+  function setEdit(on){
+    if(on===editing)return;
+    editing=on;
+    body.classList.toggle('editing',on);
+    D.eds.forEach(el=>{if(isSvg(el))return; if(on){el.setAttribute('contenteditable','true');el.spellcheck=true;} else el.removeAttribute('contenteditable');});
+    if(on){
+      document.querySelectorAll('.slide .frag').forEach(f=>f.classList.add('on'));
+      document.querySelectorAll('.slide .play').forEach(p=>p.classList.add('on'));
+      document.querySelectorAll('[data-count]').forEach(c=>{c._done=true;c.classList.remove('shimmer');c.textContent=fmtCount(c);});
+      status.textContent=Object.keys(D.store).length?'Saved':'';
+      updateNum();
+    }else{
+      if(document.activeElement&&document.activeElement.isContentEditable)document.activeElement.blur();
+      closeSvg(true);
+      resetAll(); show(i);
+    }
+    document.getElementById('settingsMenu').classList.remove('open');
+    document.getElementById('settingsBtn').classList.remove('open');
+  }
+  window.setEditMode=setEdit;
+
+  /* typing, blur and paste on editable HTML text */
+  document.addEventListener('input',e=>{const el=e.target.closest&&e.target.closest('[data-eid][contenteditable]');if(el)record(el);});
+  document.addEventListener('focusout',e=>{const el=e.target.closest&&e.target.closest('[data-eid][contenteditable]');if(el)record(el);});
+  document.addEventListener('paste',e=>{
+    if(!e.target.closest||!e.target.closest('[contenteditable]'))return;
+    e.preventDefault();
+    const t=(e.clipboardData||window.clipboardData).getData('text/plain');
+    document.execCommand('insertText',false,t);
+  });
+
+  /* SVG labels: edit through a small floating field */
+  let svgEl=null;
+  function openSvg(el){
+    closeSvg(false);
+    svgEl=el;
+    const r=el.getBoundingClientRect();
+    svgIn.value=el.textContent;
+    svgIn.style.display='block';
+    svgIn.style.width=Math.max(140,r.width+40)+'px';
+    svgIn.style.left=Math.max(8,Math.min(innerWidth-svgIn.offsetWidth-8,r.left+r.width/2-svgIn.offsetWidth/2))+'px';
+    svgIn.style.top=Math.max(8,r.top+r.height/2-16)+'px';
+    svgIn.focus();svgIn.select();
+  }
+  function closeSvg(commit){
+    if(!svgEl)return;
+    if(commit&&svgIn.value!==svgEl.textContent){svgEl.textContent=svgIn.value;record(svgEl);}
+    svgEl=null;svgIn.style.display='none';
+  }
+  svgIn.addEventListener('keydown',e=>{
+    e.stopPropagation();
+    if(e.key==='Enter'){e.preventDefault();closeSvg(true);}
+    else if(e.key==='Escape'){e.preventDefault();closeSvg(false);}
+  });
+  svgIn.addEventListener('blur',()=>closeSvg(true));
+
+  const UI='#settingsBtn,#settingsMenu,#tocBtn,#tocList,#editBar,#svgEditInput';
+  /* while editing, clicks place the caret instead of advancing slides */
+  addEventListener('click',e=>{
+    if(!editing||e.target.closest(UI))return;
+    e.stopPropagation();
+    document.getElementById('settingsMenu').classList.remove('open');
+    document.getElementById('settingsBtn').classList.remove('open');
+    document.getElementById('tocList').classList.remove('open');
+    const t=e.target.closest('svg [data-eid]');
+    if(t)openSvg(t);
+  },true);
+  /* keyboard: typing never triggers deck shortcuts; E toggles edit mode */
+  addEventListener('keydown',e=>{
+    const t=e.target;
+    if(t&&t.isContentEditable){
+      if(e.key==='Escape'){e.preventDefault();t.blur();}
+      e.stopImmediatePropagation();return;
+    }
+    if(t&&/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))return;
+    if((e.key==='e'||e.key==='E')&&!e.metaKey&&!e.ctrlKey&&!e.altKey){e.preventDefault();e.stopImmediatePropagation();setEdit(!editing);return;}
+    if(!editing)return;
+    if(e.key==='Escape'){e.preventDefault();setEdit(false);e.stopImmediatePropagation();return;}
+    if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();e.stopImmediatePropagation();show(i+1);}
+    else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();e.stopImmediatePropagation();show(i-1);}
+  },true);
+
+  /* toolbar */
+  const keep=e=>e.preventDefault(); /* keep the text caret while clicking toolbar buttons */
+  bar.querySelectorAll('button').forEach(b=>b.addEventListener('mousedown',keep));
+  document.getElementById('ebPrev').onclick=()=>{show(i-1);};
+  document.getElementById('ebNext').onclick=()=>{show(i+1);};
+  document.getElementById('ebBold').onclick=()=>document.execCommand('bold');
+  document.getElementById('ebItalic').onclick=()=>document.execCommand('italic');
+  document.getElementById('ebDone').onclick=()=>setEdit(false);
+  document.getElementById('ebReset').onclick=()=>{
+    if(!confirm('Discard all text edits saved in this browser and restore the original wording?'))return;
+    try{localStorage.removeItem(D.KEY);}catch(_){}
+    location.reload();
+  };
+  document.getElementById('ebSave').onclick=saveCopy;
+  document.getElementById('smEdit').addEventListener('click',e=>{e.stopPropagation();setEdit(!editing);});
+  const baseShow=window.show; window.show=function(n){baseShow(n);if(editing)updateNum();};
+
+  /* Save Copy: original markup + current edits baked in, as a standalone .html */
+  function saveCopy(){
+    if(document.activeElement&&document.activeElement.isContentEditable)record(document.activeElement);
+    closeSvg(true);
+    const doc=new DOMParser().parseFromString(D.PRISTINE,'text/html');
+    let after=false;
+    for(const s of [...document.scripts]){
+      if(after)doc.body.appendChild(doc.importNode(s,true));
+      if(s===D.me)after=true;
+    }
+    for(const id in D.store)D.applyRec(doc.querySelector('[data-eid="'+id+'"]'),D.store[id]);
+    const html='<!DOCTYPE html>\n'+doc.documentElement.outerHTML;
+    const a=document.createElement('a');
+    a.href=URL.createObjectURL(new Blob([html],{type:'text/html'}));
+    const base=(decodeURIComponent(location.pathname.split('/').pop()||'presentation').replace(/\.html?$/i,'')||'presentation').replace(/-edited$/,'');
+    a.download=base+'-edited.html';
+    document.body.appendChild(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(a.href),4000);
+    status.textContent='Copy saved';
+  }
+
+  /* touch: swipe left/right to move through the deck */
+  let tx=null,ty=null;
+  addEventListener('touchstart',e=>{if(e.touches.length===1){tx=e.touches[0].clientX;ty=e.touches[0].clientY;}},{passive:true});
+  addEventListener('touchend',e=>{
+    if(tx===null||editing){tx=null;return;}
+    const dx=e.changedTouches[0].clientX-tx, dy=e.changedTouches[0].clientY-ty; tx=null;
+    if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*1.3){if(dx<0)next();else prev();}
+  },{passive:true});
+})();
 </script>
 </body>
 </html>
