@@ -781,8 +781,8 @@ body.editing .slide .frag{opacity:1;transform:none;}
 .twodocs .tdSame{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.2em;margin-top:1.6cqh;max-width:1180px;}
 .twodocs .tdSameLbl{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-right:.6em;}
 .twodocs .tdSame .pill{font-size:clamp(.66rem,.9cqw,.8rem);padding:.4em 1em;margin:.2em;}
-.twodocs .tdRow{display:flex;align-items:stretch;justify-content:center;gap:1.2cqw;margin-top:2.4cqh;width:min(1180px,92cqw);}
-.twodocs .tdCard{flex:1;position:relative;border-radius:16px;padding:2.6cqh 1.8cqw 2.2cqh;text-align:left;
+.twodocs .tdRow{display:flex;align-items:stretch;justify-content:center;gap:1.2cqw;margin-top:2cqh;width:min(1180px,92cqw);}
+.twodocs .tdCard{flex:1;position:relative;border-radius:16px;padding:2.2cqh 1.8cqw 2cqh;text-align:left;
   box-shadow:0 30px 60px -30px rgba(7,61,40,.32),0 6px 16px -10px rgba(7,61,40,.18);}
 .twodocs .tdB{background:rgba(255,255,255,.6);border:1px solid rgba(156,58,46,.35);}
 .twodocs .tdS{background:linear-gradient(160deg,var(--emerald),var(--emerald-deep));border:1px solid var(--emerald-deep);color:var(--ivory);}
@@ -790,7 +790,7 @@ body.editing .slide .frag{opacity:1;transform:none;}
 .twodocs .tdB::before{border:2px solid rgba(156,58,46,.85);box-shadow:0 0 26px rgba(156,58,46,.45);}
 .twodocs .tdS::before{border:2px solid rgba(22,140,94,.95);box-shadow:0 0 34px rgba(22,140,94,.75);}
 .active.twodocs .tdCard.on::before{animation:panelGlowAnim 3.2s ease-in-out 1.6s infinite;}
-.twodocs .tdHead{display:flex;align-items:center;gap:14px;margin-bottom:1.8cqh;}
+.twodocs .tdHead{display:flex;align-items:center;gap:14px;margin-bottom:1.4cqh;}
 .twodocs .tdAv{width:54px;height:54px;border-radius:50%;flex:0 0 54px;display:flex;align-items:center;justify-content:center;
   font-family:"Cormorant Garamond",Georgia,serif;font-size:1.9rem;font-weight:600;line-height:1;}
 .twodocs .tdB .tdAv{background:rgba(156,58,46,.08);border:1.5px solid rgba(156,58,46,.55);color:var(--red);}
@@ -805,6 +805,28 @@ body.editing .slide .frag{opacity:1;transform:none;}
   font-size:clamp(.62rem,.85cqw,.76rem);font-weight:700;letter-spacing:.03em;transition:width 1.4s cubic-bezier(.22,.61,.36,1) .35s;}
 .twodocs .tdCard.on .seg{width:var(--w);}
 .twodocs .tdS .tdCard.on .seg.wl{transition-delay:.9s;}
+.twodocs .tdTax{margin-top:1.8cqh;display:flex;flex-direction:column;gap:1cqh;}
+.twodocs .tdTr{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:clamp(.8rem,1.05cqw,.95rem);}
+.twodocs .tdTr small{display:block;font-size:.66rem;letter-spacing:.06em;opacity:.7;}
+.twodocs .tdTr b{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(1.25rem,1.9cqw,1.6rem);font-weight:600;line-height:1;}
+.twodocs .tdB .tdTr b{color:var(--red);} .twodocs .tdS .tdTr b{color:var(--ivory);} .twodocs .tdS .tdTr.zero b{color:var(--gold-bright);}
+.twodocs .tdB .tdTr{color:var(--ink);} .twodocs .tdS .tdTr{color:rgba(250,246,236,.9);}
+.twodocs .tdTbar{height:12px;border-radius:6px;display:flex;overflow:hidden;width:0;transition:width 1.6s cubic-bezier(.22,.61,.36,1) 1s;}
+.twodocs .tdCard.on .tdTbar{width:var(--tw);}
+.twodocs .tdTbar i{width:var(--sw);}
+.twodocs .tdB .tdTbar .life{background:#C98A7F;} .twodocs .tdB .tdTbar .death{background:var(--red);}
+.twodocs .tdS .tdTbar .life{background:rgba(250,246,236,.55);} .twodocs .tdS .tdTbar .death{background:rgba(250,246,236,.9);}
+.twodocs .tdTotal{display:flex;justify-content:space-between;align-items:baseline;padding-top:.6cqh;}
+.twodocs .tdTotal > span{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;}
+.twodocs .tdTotal b{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(1.9rem,3cqw,2.6rem);font-weight:700;line-height:1;}
+.twodocs .tdB .tdTotal > span,.twodocs .tdB .tdTotal b{color:var(--red);}
+.twodocs .tdS .tdTotal > span,.twodocs .tdS .tdTotal b{color:var(--gold-bright);}
+.twodocs .tdDiff{display:flex;align-items:center;gap:16px;margin-top:2.2cqh;padding:1.2cqh 1.8cqw;border-radius:14px;
+  background:rgba(255,255,255,.6);border:1px solid rgba(184,154,90,.5);box-shadow:0 18px 40px -22px rgba(7,61,40,.3);}
+.twodocs .tdDiff .count{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(2rem,3.2cqw,2.8rem);font-weight:700;color:var(--emerald);line-height:1;}
+.twodocs .tdDiffTxt{font-size:clamp(.82rem,1.1cqw,1rem);color:var(--ink);max-width:46ch;line-height:1.4;}
+body.darkMode .twodocs .tdDiff{background:rgba(255,255,255,.05);}
+body.editing .twodocs .tdTbar{width:var(--tw);}
 .twodocs .tdB .seg.inv{background:linear-gradient(90deg,#C9BFA6,#B3A88C);color:#3c372c;}
 .twodocs .tdS .seg.inv{background:rgba(250,246,236,.85);color:#073D28;}
 .twodocs .tdS .seg.wl{background:linear-gradient(90deg,#D4B878,#B89A5A);color:#073D28;border-left:2px solid var(--emerald-deep);}
@@ -826,6 +848,7 @@ body.editing .slide .frag{opacity:1;transform:none;}
 .twodocs .tdB .tdFoot{border-top:1px solid rgba(156,58,46,.25);color:var(--red);}
 .twodocs .tdS .tdFoot{border-top:1px solid rgba(212,184,120,.35);color:var(--gold-bright);}
 .twodocs .tdVs{align-self:center;flex:0 0 auto;}
+.twodocs .note{left:50%;right:auto;transform:translateX(-50%);width:min(980px,80cqw);}
 .twodocs .tdVs span{display:flex;width:52px;height:52px;border-radius:50%;align-items:center;justify-content:center;
   background:var(--ivory);border:1.5px solid var(--gold);color:var(--gold);font-family:"Cormorant Garamond",Georgia,serif;font-size:1.25rem;font-weight:700;
   box-shadow:0 8px 20px -8px rgba(7,61,40,.35);}
@@ -1589,7 +1612,7 @@ body.darkMode .twodocs .tdVs span{background:#111A14;}
 </section>
 
 <!-- 15. A TALE OF TWO PHYSICIANS -->
-<section class="slide twodocs">
+<section class="slide twodocs" style="padding-top:7cqh;">
   <div class="kicker">A Tale of Two Physicians</div>
   <h2 class="head serif">Dr. Brown vs. Dr. Smith</h2>
   <p class="sub">Same age. Same income. Same savings. <b>One decision apart.</b></p>
@@ -1601,27 +1624,29 @@ body.darkMode .twodocs .tdVs span{background:#111A14;}
     <div class="tdCard tdB frag zoom">
       <div class="tdHead"><div class="tdAv">B</div><div><h3>Dr. Brown</h3><span class="tdTag">All in on investments</span></div></div>
       <div class="tdAlloc"><div class="tdBar"><i class="seg inv" style="--w:100%;"><span>$250K &middot; stocks &amp; bonds</span></i></div></div>
-      <ul class="tdList">
-        <li class="x">Investment growth taxed <b>every year</b> inside the corporation</li>
-        <li class="x">At death, shares are <b>deemed sold</b>: capital gains tax</li>
-        <li class="x">Paid out to heirs as <b>taxable dividends</b>: taxed again</li>
-      </ul>
-      <div class="tdFoot">Estate exposed to multiple layers of tax</div>
+      <div class="tdTax">
+        <div class="tdTr"><span>Tax while alive <small>on investment growth</small></span><b><span class="count" data-count="5.14" data-pre="$" data-suf="M" data-dec="2" data-dur="1.6">$0M</span></b></div>
+        <div class="tdTr"><span>Tax at death <small>no estate plan</small></span><b><span class="count" data-count="13.15" data-pre="$" data-suf="M" data-dec="2" data-dur="1.6">$0M</span></b></div>
+        <div class="tdTbar" style="--tw:100%;"><i class="life" style="--sw:28%;"></i><i class="death" style="--sw:72%;"></i></div>
+        <div class="tdTotal"><span>Total tax paid</span><b><span class="count" data-count="18.29" data-pre="$" data-suf="M" data-dec="2" data-dur="1.6">$0M</span></b></div>
+      </div>
     </div>
     <div class="tdVs frag"><span>VS</span></div>
     <div class="tdCard tdS frag zoom">
       <div class="tdHead"><div class="tdAv">S</div><div><h3>Dr. Smith</h3><span class="tdTag">Diversified with whole life</span></div></div>
       <div class="tdAlloc"><div class="tdBar"><i class="seg inv" style="--w:60%;"><span>$150K &middot; investments</span></i><i class="seg wl" style="--w:40%;"><span>$100K &middot; whole life</span></i></div></div>
-      <ul class="tdList">
-        <li class="ok">Policy cash value grows <b>tax-sheltered</b> and stays accessible</li>
-        <li class="ok">Death benefit paid to the corporation <b>tax-free</b></li>
-        <li class="ok">Flows to the family through the <b>CDA</b>, largely tax-free</li>
-      </ul>
-      <div class="tdFoot">Estate protected by design</div>
+      <div class="tdTax">
+        <div class="tdTr"><span>Tax while alive <small>on investment growth</small></span><b><span class="count" data-count="3.68" data-pre="$" data-suf="M" data-dec="2" data-dur="1.6">$0M</span></b></div>
+        <div class="tdTr"><span>Tax at death <small>no estate plan</small></span><b><span class="count" data-count="9.23" data-pre="$" data-suf="M" data-dec="2" data-dur="1.6">$0M</span></b></div>
+        <div class="tdTr zero"><span>Tax on policy growth <small>paid out tax-free via the CDA</small></span><b>$0</b></div>
+        <div class="tdTbar" style="--tw:70.6%;"><i class="life" style="--sw:28.5%;"></i><i class="death" style="--sw:71.5%;"></i></div>
+        <div class="tdTotal"><span>Total tax paid</span><b><span class="count" data-count="12.91" data-pre="$" data-suf="M" data-dec="2" data-dur="1.6">$0M</span></b></div>
+      </div>
     </div>
   </div>
-  <p class="tagline serif frag" style="margin-top:2.6cqh;">Same doctor. Same dollars. A very different inheritance. <b style="font-style:normal;color:var(--gold);">Which doctor are you?</b></p>
-  <div class="note">Scenario adapted from Levine Financial Group, &ldquo;A Tale of Two Physicians.&rdquo; For illustration only; outcomes depend on individual circumstances and current tax law.</div>
+  <div class="tdDiff frag zoom"><span class="count" data-count="5.39" data-pre="$" data-suf="M" data-dec="2" data-dur="2">$0M</span><span class="tdDiffTxt">less tax for Dr. Smith. The policy&rsquo;s death benefit still reaches the family tax-free.</span></div>
+  <p class="tagline serif frag" style="margin-top:1.4cqh;">Same doctor. Same dollars. A very different inheritance. <b style="font-style:normal;color:var(--gold);">Which doctor are you?</b></p>
+  <div class="note">Scenario adapted from Levine Financial Group, &ldquo;A Tale of Two Physicians.&rdquo; Illustrative estimate: 6% return (half taxed yearly), approx. BC top rates, saves ages 50&ndash;69, death at 85, no post-mortem planning. Tax on corporate investments only.</div>
 </section>
 
 <!-- 16. THANK YOU -->
