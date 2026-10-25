@@ -46,15 +46,15 @@ def strip_tags(s):
 TIMING = """| Slides | Segment | Speaker | Minutes | Finish by |
 | --- | --- | --- | --- | --- |
 | 1–2 | Welcome and reflection | Host | 2 | 2:00 |
-| 3–11 | Cancer by the numbers | Host | 5 | 7:00 |
-| 12 | Foresters Financial | Foresters partner | 2 | 9:00 |
-| 13 | The preparedness gap | Host | 1 | 10:00 |
-| 14 | Today's 8 challenges | Host | 3 | 13:00 |
-| 15 | Amplified 10x | Host | 2 | 15:00 |
-| 16 | Live client story | Client on Zoom | 6 | 21:00 |
-| 17–19 | Prepared vs unprepared family | Host | 2 | 23:00 |
-| 20–21 | Mission and transition | Host | 2 | 25:00 |
-| | **Total** | | **25** | |
+| 3–12 | Cancer by the numbers | Host | 6 | 8:00 |
+| 13 | Foresters Financial | Foresters partner | 2 | 10:00 |
+| 14 | The preparedness gap | Host | 1 | 11:00 |
+| 15 | Today's 8 challenges | Host | 2 | 13:00 |
+| 16 | Amplified 10x | Host | 1 | 14:00 |
+| 17 | Live client story | Client on Zoom | 4 | 18:00 |
+| 18–20 | Prepared vs unprepared family | Host | 2 | 20:00 |
+| 21–22 | Mission and transition | Host | 1 | 21:00 |
+| | **Total** | | **21** | |
 """
 
 KEYS = """| Key | Action |
@@ -124,6 +124,16 @@ def build_notes(text):
         "- Canadian Cancer Statistics 2021 release notice, Public Health Agency of Canada (about 64% five-year net survival): https://www.canada.ca/en/public-health/services/reports-publications/health-promotion-chronic-disease-prevention-canada-research-policy-practice/vol-41-no-11-2021/canadian-cancer-statistics-2021.html",
         "- Canadian Cancer Society and Angus Reid Institute survey, February 4, 2025 (nearly $33,000; 80%, 66%, 28%; Steven Hodges's story): https://cancer.ca/en/about-us/media-releases/2025/new-canadian-cancer-society-survey-reveals-working-age",
         "- iA Financial Group, Transition critical illness insurance client guide (F13-1195A): distribution of critical illness claims paid, cancer 69%, heart attack 10%, stroke 4%, citing the Munich Re individual insurance survey, 2022; cancer, heart attack, stroke and coronary bypass = 85% of claims paid. “All other illnesses” (17%) is the remainder: https://ia.ca/individuals/-/media/files/ia/formulaires/assind/en/f13-1195a-transition-client-guide_20230518.pdf",
+        "- Canadian Cancer Society, Prostate cancer statistics (2025: about 1 in 9 men; 30,400 diagnosed; 5,200 deaths; second leading cause of cancer death in men): https://cancer.ca/en/cancer-information/cancer-types/prostate/statistics",
+        "- Canadian Cancer Society, Breast cancer statistics (about 1 in 8 women; 2026: 32,400 diagnosed, about 89 a day; 5,400 deaths, about 15 a day; 89% five-year net survival): https://cancer.ca/en/cancer-information/cancer-types/breast/statistics",
+        "- Public Health Agency of Canada, Cancer in Young People in Canada program (925 to 1,000 children under 15 diagnosed each year; about 84% five-year survival): https://www.canada.ca/en/public-health/services/chronic-diseases/cancer/cancer-young-people-canada-program.html",
+        "- Public Health Agency of Canada, Trends in the incidence of childhood cancer in Canada, 1992–2006 (cancer is the leading cause of disease-related death in children aged 1 to 14): https://www.canada.ca/en/public-health/services/reports-publications/health-promotion-chronic-disease-prevention-canada-research-policy-practice/vol-32-no-3-2012/trends-incidence-childhood-cancer-canada-1992-2006.html",
+        "- Canadian Institute of Actuaries, Critical illness morbidity study, policy years 2012–2020, 11 insurers including iA (cancer 67% of claims by lives insured; average benefit paid $86,518), as reported by Insurance Portal: https://insurance-portal.ca/article/critical-illness-insurance-cancer-and-heart-attack-dominate-claims/",
+        "- iA Financial Group, Transition (25 critical illnesses and 5 childhood illnesses covered): https://ia.ca/individuals/insurance/health-disability-insurance/critical-illness-insurance/transition-en",
+        "- Manulife, Lifecheque covered conditions (up to 25 conditions): https://www.manulife.ca/personal/support/insurance/lifecheque-covered-conditions.html",
+        "- Foresters Financial, Canada Protection Plan critical illness advisor brochure (top 8 conditions covered make up more than 90% of critical illness claims): https://ezbizcanada.foresters.com/-/media/ezbiz-ca/documents/english/critical-illness-insurance/506591-can-1025-cpp-critical-illness-insurance-advisor-brochure.pdf",
+        "- Equitable, EquiLiving critical illness insurance, advisor piece 1828_EN (2026/03/15): Equitable claims data January 2013 to December 2025 (average claim $70,600; average age at claim 49; 60% of claimants aged 30 to 55; example claims by age). Also cites Heart and Stroke Foundation (a stroke every 5 minutes; 80% of stroke survivors live with impairment). Marked “Advisor use only”.",
+        "- Equitable, EquiLiving Critical Illness Insurance for children, 1287 (2023/07/20): 26 adult conditions plus 5 childhood conditions covered to age 25; 1 in 3,600 children born in Canada has cystic fibrosis (Cystic Fibrosis Canada).",
         "- Canada Life client story, “Anyone can get sick: Sandra's story” (Sandra and Warren). The original page is no longer online; confirm with the partner before showing names.",
         "",
         "### Fact-check notes",
@@ -131,6 +141,9 @@ def build_notes(text):
         "- “1 in 2 Canadians will develop cancer” and “1 in 4 will die from cancer” are from Canadian Cancer Statistics 2017. The current estimates are 42% (about 2 in 5) and 22% (more than 1 in 5), which the deck uses.",
         "- Cancer is the leading cause of death in Canada (Statistics Canada, 2023).",
         "- Nearly 700 diagnoses a day is 254,100 ÷ 365 ≈ 696.",
+        "- Prostate: “1 in 8 men” is the 2024 figure; the Canadian Cancer Society's 2025 figure is about 1 in 9.",
+        "- Childhood: the national count is a range (925 to 1,000 a year); the slide says “up to 1,000”. The leading-cause finding comes from a 2012 PHAC analysis of 1992–2005 deaths.",
+        "- Critical illness benefits are generally tax-free when the policy is personally owned and premiums are paid personally.",
         "",
     ]
     (ROOT / "speaker-notes.md").write_text("\n".join(out), encoding="utf-8")
