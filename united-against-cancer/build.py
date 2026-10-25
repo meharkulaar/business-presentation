@@ -26,6 +26,7 @@ def build_html():
         "FONT_FIG500": b64(fonts / "figtree-latin-500-normal.woff2"),
         "FONT_FIG600": b64(fonts / "figtree-latin-600-normal.woff2"),
         "FORESTERS_LOGO": "data:image/webp;base64," + b64(SRC / "foresters-logo.webp"),
+        "WFG_LOGO": "data:image/png;base64," + b64(SRC / "wfg-logo.png"),
     }
     for key, value in subs.items():
         text = text.replace("{{" + key + "}}", value)
@@ -45,14 +46,14 @@ def strip_tags(s):
 TIMING = """| Slides | Segment | Speaker | Minutes | Finish by |
 | --- | --- | --- | --- | --- |
 | 1–2 | Welcome and reflection | Host | 2 | 2:00 |
-| 3–8 | Cancer by the numbers | Host | 3 | 5:00 |
-| 9 | Foresters Financial | Foresters partner | 2 | 7:00 |
-| 10 | The preparedness gap | Host | 2 | 9:00 |
-| 11 | Today's 8 challenges | Host | 4 | 13:00 |
-| 12 | Amplified 10x | Host | 2 | 15:00 |
-| 13 | Live client story | Client on Zoom | 6 | 21:00 |
-| 14–16 | Prepared vs unprepared family | Host | 2 | 23:00 |
-| 17–18 | Mission and transition | Host | 2 | 25:00 |
+| 3–11 | Cancer by the numbers | Host | 5 | 7:00 |
+| 12 | Foresters Financial | Foresters partner | 2 | 9:00 |
+| 13 | The preparedness gap | Host | 1 | 10:00 |
+| 14 | Today's 8 challenges | Host | 3 | 13:00 |
+| 15 | Amplified 10x | Host | 2 | 15:00 |
+| 16 | Live client story | Client on Zoom | 6 | 21:00 |
+| 17–19 | Prepared vs unprepared family | Host | 2 | 23:00 |
+| 20–21 | Mission and transition | Host | 2 | 25:00 |
 | | **Total** | | **25** | |
 """
 
@@ -62,13 +63,13 @@ KEYS = """| Key | Action |
 | Left, Up, PageUp | Back one step |
 | S | Presenter view (current and next, notes, timers) |
 | E | Edit mode: click any text to change it; Save copy downloads an edited file |
-| T | Table of contents (also the button at top right) |
+| T | Table of contents (button at top right); the eye icon on each row hides or shows that slide |
 | + / − / 0 | Zoom in, out, reset |
 | Caps Lock | Laser pointer |
 | Gear (bottom left) | Full screen, restart, presenter view, edit mode, motion, zoom |
 | A | Reveal every build on the current slide |
 | G, then number, then Enter | Go to slide |
-| Z | Jump to the live Zoom slide (13) |
+| Z | Jump to the live Zoom story slide |
 | B / W | Black screen / resume |
 | F | Fullscreen |
 | M | Motion on or off |
@@ -116,13 +117,20 @@ def build_notes(text):
     out += [
         "## Sources",
         "",
-        "- Canadian Cancer Society, Cancer statistics, and Canadian Cancer Statistics 2025 (42% lifetime probability, about 2 in 5): https://cancer.ca/en/research/cancer-statistics",
-        "- Brenner et al., “Projected estimates of cancer in Canada in 2026”, CMAJ 198(14), April 13, 2026 (254,100 new cases and 87,900 deaths projected for 2026): https://www.cmaj.ca/content/198/14/E526",
+        "- Canadian Cancer Society, Canadian Cancer Statistics 2025 (42% lifetime probability of diagnosis, about 2 in 5; 22% lifetime probability of dying from cancer): https://cancer.ca/en/research/cancer-statistics",
+        "- Brenner et al., “Projected estimates of cancer in Canada in 2026”, CMAJ 198(14), April 13, 2026 (254,100 new cases and 87,900 deaths; lung 32,900, breast 32,700, prostate 29,300, colorectal 25,300 new cases; top four = 47%; lung 19,300, colorectal 9,200, pancreas 6,500 deaths): https://www.cmaj.ca/content/198/14/E526",
+        "- Canadian Cancer Society, Bladder cancer statistics (12,600 new cases estimated for 2025; fifth most common cancer): https://cancer.ca/en/cancer-information/cancer-types/bladder/statistics",
+        "- Statistics Canada, Leading causes of death, 2023, released March 5, 2025 (malignant neoplasms 84,629 deaths, rank 1; diseases of the heart 57,890, rank 2): https://www150.statcan.gc.ca/n1/daily-quotidien/250305/t001a-eng.htm",
         "- Canadian Cancer Statistics 2021 release notice, Public Health Agency of Canada (about 64% five-year net survival): https://www.canada.ca/en/public-health/services/reports-publications/health-promotion-chronic-disease-prevention-canada-research-policy-practice/vol-41-no-11-2021/canadian-cancer-statistics-2021.html",
         "- Canadian Cancer Society and Angus Reid Institute survey, February 4, 2025 (nearly $33,000; 80%, 66%, 28%; Steven Hodges's story): https://cancer.ca/en/about-us/media-releases/2025/new-canadian-cancer-society-survey-reveals-working-age",
-        "- RBC Insurance poll conducted by Ipsos, 2,001 Canadians aged 18+, August 18–21, 2025 (9% have critical illness insurance; 57% worried about serious illness): https://www.rbcinsurance.com/en-ca/advice-learning/newsroom/whats-the-plan-when-life-happens-most-canadians-dont-have-one-rbc-insurance-poll/",
-        "- RBC Emergency Readiness Poll, July 16, 2026 (32% have no emergency fund; 38% for households under $100,000; 76% cite cost of living): https://www.newswire.ca/news-releases/no-emergency-fund-rbc-poll-finds-over-40-of-canadians-worry-even-one-major-unexpected-expense-could-derail-their-finances-811532406.html",
+        "- iA Financial Group, Transition critical illness insurance client guide (F13-1195A): distribution of critical illness claims paid, cancer 69%, heart attack 10%, stroke 4%, citing the Munich Re individual insurance survey, 2022; cancer, heart attack, stroke and coronary bypass = 85% of claims paid. “All other illnesses” (17%) is the remainder: https://ia.ca/individuals/-/media/files/ia/formulaires/assind/en/f13-1195a-transition-client-guide_20230518.pdf",
         "- Canada Life client story, “Anyone can get sick: Sandra's story” (Sandra and Warren). The original page is no longer online; confirm with the partner before showing names.",
+        "",
+        "### Fact-check notes",
+        "",
+        "- “1 in 2 Canadians will develop cancer” and “1 in 4 will die from cancer” are from Canadian Cancer Statistics 2017. The current estimates are 42% (about 2 in 5) and 22% (more than 1 in 5), which the deck uses.",
+        "- Cancer is the leading cause of death in Canada (Statistics Canada, 2023).",
+        "- Nearly 700 diagnoses a day is 254,100 ÷ 365 ≈ 696.",
         "",
     ]
     (ROOT / "speaker-notes.md").write_text("\n".join(out), encoding="utf-8")
