@@ -61,6 +61,11 @@ KEYS = """| Key | Action |
 | Right, Down, Space, PageDown | Next build step, then next slide |
 | Left, Up, PageUp | Back one step |
 | S | Presenter view (current and next, notes, timers) |
+| E | Edit mode: click any text to change it; Save copy downloads an edited file |
+| T | Table of contents (also the button at top right) |
+| + / − / 0 | Zoom in, out, reset |
+| Caps Lock | Laser pointer |
+| Gear (bottom left) | Full screen, restart, presenter view, edit mode, motion, zoom |
 | A | Reveal every build on the current slide |
 | G, then number, then Enter | Go to slide |
 | Z | Jump to the live Zoom slide (13) |
@@ -88,9 +93,9 @@ def build_notes(text):
     ]
     sections = re.findall(r'<section class="slide[^"]*"([^>]*)>(.*?)</section>', text, re.S)
     for n, (attrs, body) in enumerate(sections, 1):
-        a = dict(re.findall(r'data-([a-z]+)="([^"]*)"', attrs))
+        a = {k: html.unescape(v) for k, v in re.findall(r'data-([a-z]+)="([^"]*)"', attrs)}
         heading = re.search(r"<h[12][^>]*>(.*?)</h[12]>", body, re.S)
-        title = strip_tags(heading.group(1)) if heading else "Foresters Financial (logo only)"
+        title = a.get("title") or (strip_tags(heading.group(1)) if heading else f"Slide {n}")
         notes = re.search(r'<aside class="notes">(.*?)</aside>', body, re.S)
         steps = int(a.get("steps", "0"))
         out.append(f"### {n}. {title}")

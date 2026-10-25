@@ -24,6 +24,11 @@ November 1, 2026 · Team ALL IN with Foresters Financial · 25 minutes
 | Right, Down, Space, PageDown | Next build step, then next slide |
 | Left, Up, PageUp | Back one step |
 | S | Presenter view (current and next, notes, timers) |
+| E | Edit mode: click any text to change it; Save copy downloads an edited file |
+| T | Table of contents (also the button at top right) |
+| + / − / 0 | Zoom in, out, reset |
+| Caps Lock | Laser pointer |
+| Gear (bottom left) | Full screen, restart, presenter view, edit mode, motion, zoom |
 | A | Reveal every build on the current slide |
 | G, then number, then Enter | Go to slide |
 | Z | Jump to the live Zoom slide (13) |
@@ -68,7 +73,7 @@ Click 4: "This year alone, about 254,100 people in Canada are expected to be dia
 
 > Sources: Canadian Cancer Society, Cancer statistics (Canadian Cancer Statistics 2025: 42% lifetime probability). 2026 projection: Brenner et al., “Projected estimates of cancer in Canada in 2026”, CMAJ, April 2026.
 
-### 5. Foresters Financial (logo only)
+### 5. About 64% survive five years
 
 *Host · Cancer by the numbers · 2 clicks · finish by 5:00*
 
@@ -78,7 +83,7 @@ Click 2: let the question land. "Survival is the goal. But survival takes time, 
 
 > Source: Canadian Cancer Statistics 2021, Public Health Agency of Canada (about 64% five-year net survival; Canadian Cancer Statistics 2025 reports the same figure).
 
-### 6. Foresters Financial (logo only)
+### 6. Nearly $33,000
 
 *Host · Cancer by the numbers · 2 clicks · finish by 5:00*
 
@@ -110,7 +115,7 @@ Then hand to the Foresters partner: "Our partner from Foresters Financial is her
 
 > Sources: RBC Insurance poll conducted by Ipsos, 2,001 Canadians, August 2025. RBC Emergency Readiness Poll, July 2026.
 
-### 9. Foresters Financial (logo only)
+### 9. Foresters Financial
 
 *Foresters partner · Foresters Financial · 0 clicks · finish by 7:00*
 
@@ -178,7 +183,7 @@ Before the event, confirm with the partner that Sandra and Warren's names can be
 
 > Steven's story: Canadian Cancer Society, February 2025. Sandra and Warren's story: Canada Life client story. [OPTIONAL: replace or add a Foresters client story]
 
-### 15. Foresters Financial (logo only)
+### 15. Steven's words
 
 *Host · Prepared vs unprepared family · 0 clicks · finish by 23:00*
 
