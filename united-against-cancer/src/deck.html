@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>United Against Cancer · Part 1</title>
+<style id="deck-style">
+@font-face{font-family:'Gloock';font-weight:400;font-style:normal;src:url(data:font/woff2;base64,{{FONT_GLOOCK}}) format('woff2');}
+@font-face{font-family:'Figtree';font-weight:400;font-style:normal;src:url(data:font/woff2;base64,{{FONT_FIG400}}) format('woff2');}
+@font-face{font-family:'Figtree';font-weight:500;font-style:normal;src:url(data:font/woff2;base64,{{FONT_FIG500}}) format('woff2');}
+@font-face{font-family:'Figtree';font-weight:600;font-style:normal;src:url(data:font/woff2;base64,{{FONT_FIG600}}) format('woff2');}
+
+:root{
+  --bark:#22171C;      /* night bark: main background */
+  --bark-2:#2C1E24;    /* raised surfaces */
+  --ember:#B4432A;     /* affected leaves */
+  --ember-text:#E06A45;/* ember lifted for AA text contrast on bark */
+  --gold:#D9A441;
+  --maple:#7E2A22;
+  --oat:#EFE2CC;
+  --oat-soft:rgba(239,226,204,.74);
+  --lavender:#B9A3D6;
+  --sprout:#A9C27E;    /* spring only, slide 18 */
+  --leaf-ease:cubic-bezier(.22,.61,.36,1);
+  --serif:'Gloock',Georgia,serif;
+  --sans:'Figtree','Segoe UI',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;background:#000;overflow:hidden;color:var(--oat);font-family:var(--sans)}
+#viewport{position:fixed;inset:0;background:#000}
+#stage{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;overflow:hidden;
+  background:radial-gradient(ellipse 90% 80% at 50% 40%,#2B1D23 0%,var(--bark) 60%,#1A1115 100%)}
+#grain{position:absolute;inset:0;pointer-events:none;z-index:50;opacity:.09;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 .9 0 0 0 0 .8 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+#fall{position:absolute;inset:0;width:1920px;height:1080px;z-index:1;pointer-events:none;opacity:0;transition:opacity .9s var(--leaf-ease)}
+#fall.show{opacity:1}
+
+/* ---------- slides ---------- */
+.slide{position:absolute;inset:0;z-index:2;opacity:0;visibility:hidden;transition:opacity .5s var(--leaf-ease),visibility 0s linear .5s}
+.slide.active{opacity:1;visibility:visible;transition:opacity .5s var(--leaf-ease),visibility 0s}
+.slide .notes{display:none}
+.slide.notrans,.slide.notrans *{transition:none!important}
+.nomotion .slide,.nomotion .slide *{transition-duration:0s!important;animation:none!important}
+
+h1,h2,.serif{font-family:var(--serif);font-weight:400;letter-spacing:-.005em;line-height:1.08}
+.h-xl{font-size:140px}
+.h-lg{font-size:104px}
+.h-md{font-size:80px}
+.h-sm{font-size:72px}
+.body{font-size:40px;line-height:1.35;color:var(--oat)}
+.body-lg{font-size:52px;line-height:1.3}
+.soft{color:var(--oat-soft)}
+.center{position:absolute;left:0;right:0;text-align:center}
+.source{position:absolute;left:120px;right:120px;bottom:48px;font-size:26px;color:rgba(239,226,204,.72);line-height:1.35}
+.num{font-family:var(--serif);color:var(--ember-text);font-variant-numeric:lining-nums tabular-nums;line-height:.95}
+
+/* generic build: fade + small float */
+[data-b]{opacity:0;transform:translateY(18px);transition:opacity .9s var(--leaf-ease),transform .9s var(--leaf-ease)}
+[data-b].on{opacity:1;transform:none}
+.nob[data-b]{transform:none}
+
+/* leaf drawing */
+.leaf{display:block;overflow:visible}
+use{fill:currentColor}
+
+/* falling build: an element drifts down and lands */
+.fall-in[data-b]{transform:none;transition:none}
+.fall-in[data-b].on{animation:land 1.9s cubic-bezier(.45,.05,.35,1) both}
+.fall-in[data-b].on.done{animation:none}
+@keyframes land{
+  0%{opacity:0;transform:translate(-70px,-560px) rotate(-38deg)}
+  18%{opacity:1}
+  32%{transform:translate(60px,-360px) rotate(16deg)}
+  58%{transform:translate(-36px,-150px) rotate(-11deg)}
+  80%{transform:translate(14px,-30px) rotate(5deg)}
+  100%{opacity:1;transform:translate(0,0) rotate(0)}
+}
+
+/* ---------- slide 1 · title ---------- */
+.s1 .title{top:200px}
+.s1 .date{top:390px;font-size:48px;color:var(--gold);font-family:var(--sans);font-weight:500}
+.s1 .hero{position:absolute;left:900px;top:470px;width:120px;height:130px;color:var(--ember)}
+.s1 .hero svg{width:120px;height:130px;filter:drop-shadow(0 10px 18px rgba(0,0,0,.45))}
+.s1 .hero.play{animation:heroFall 6.2s cubic-bezier(.4,.1,.3,1) both}
+.s1 .hero.play svg{animation:heroIdle 7s ease-in-out 6.2s infinite}
+@keyframes heroFall{
+  0%{transform:translate(-160px,-640px) rotate(-50deg);opacity:0}
+  8%{opacity:1}
+  25%{transform:translate(140px,-470px) rotate(22deg)}
+  45%{transform:translate(-110px,-290px) rotate(-18deg)}
+  65%{transform:translate(70px,-130px) rotate(12deg)}
+  84%{transform:translate(-18px,-24px) rotate(-5deg)}
+  100%{transform:translate(0,0) rotate(-4deg);opacity:1}
+}
+@keyframes heroIdle{0%,100%{transform:rotate(0)}50%{transform:rotate(5deg)}}
+.s1 .presented{top:700px;font-size:36px;color:var(--oat-soft)}
+.s1 .logos{position:absolute;left:0;right:0;top:790px;display:flex;align-items:center;justify-content:center;gap:56px}
+.s1 .wordmark{font-family:var(--serif);font-size:84px;color:var(--oat);white-space:nowrap}
+.s1 .divider{width:2px;height:120px;background:rgba(239,226,204,.3)}
+.plate{background:var(--oat);border-radius:26px;padding:24px 38px;box-shadow:0 18px 50px rgba(0,0,0,.35)}
+.plate img{display:block;height:120px;width:auto}
+
+/* ---------- slide 2 · reflection ---------- */
+.s2 .ask{top:330px;padding:0 200px;transition:opacity 1.6s var(--leaf-ease)}
+.s2.st-1 .ask{opacity:0}
+.s2 .ribbon{position:absolute;left:870px;top:280px;width:180px;height:320px;opacity:0;transition:opacity 2.4s var(--leaf-ease) .6s}
+.s2.st-1 .ribbon{opacity:1}
+.s2 .ribbon svg{width:180px;height:320px;overflow:visible}
+.s2.st-1 .ribbon svg{animation:glow 5s ease-in-out infinite}
+@keyframes glow{0%,100%{filter:drop-shadow(0 0 10px rgba(185,163,214,.35))}50%{filter:drop-shadow(0 0 34px rgba(185,163,214,.75))}}
+.s2 .caption{top:680px;font-size:44px;color:var(--oat);transition-delay:1.4s;transition-duration:2s}
+
+/* ---------- slide 3 · section ---------- */
+.section-title{top:380px}
+.section-sub{top:560px;font-size:44px;color:var(--gold);font-weight:500}
+
+/* ---------- slide 4 · 2 in 5 ---------- */
+.s4 .row{position:absolute;left:0;right:0;top:170px;display:flex;justify-content:center;gap:70px}
+.s4 .row .p{width:230px;height:260px}
+.s4 .row .p svg{width:230px;height:260px;color:var(--oat);transition:color 1.6s var(--leaf-ease)}
+.s4 .row .p.on svg{animation:sway 5.5s ease-in-out infinite}
+.s4 .row .p:nth-child(2) svg{animation-delay:-1.2s}.s4 .row .p:nth-child(3) svg{animation-delay:-2.6s}
+.s4 .row .p:nth-child(4) svg{animation-delay:-.6s}.s4 .row .p:nth-child(5) svg{animation-delay:-3.4s}
+.s4.st-2 .row .p.turn svg{color:var(--ember)}
+.s4.st-2 .row .p.turn2 svg{transition-delay:1.1s}
+@keyframes sway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+.s4 .headline{top:510px;padding:0 180px}
+.s4 .headline .num{color:var(--ember-text)}
+.s4 .more{top:790px;font-size:40px;padding:0 220px}
+.s4 .more strong{color:var(--gold);font-weight:600}
+
+/* ---------- slide 5 · survival / slide 6 · cost ---------- */
+.bigstat .lead{top:150px;font-size:56px;color:var(--oat-soft)}
+.bigstat .big{top:220px;font-size:220px}
+.bigstat .desc{top:470px;padding:0 260px;font-size:48px;line-height:1.3}
+.s5 .big{color:var(--gold)}
+.s5 .follow{top:700px;padding:0 240px;font-size:52px;line-height:1.3;font-family:var(--serif)}
+.s5 .follow em{font-style:normal;color:var(--gold)}
+.s6 .lead{top:220px}
+.s6 .big{top:290px}
+.s6 .desc{top:540px;padding:0 380px}
+.s6 .chips{top:740px}
+.chips{position:absolute;left:300px;right:300px;display:flex;flex-wrap:wrap;justify-content:center;gap:26px 30px}
+.chip{font-size:32px;font-weight:500;color:var(--oat);padding:14px 28px;border:2px solid rgba(217,164,65,.7);border-radius:999px;background:rgba(44,30,36,.85);white-space:nowrap}
+.s6 .chip:nth-child(2){transition-delay:.15s}.s6 .chip:nth-child(3){transition-delay:.3s}
+.s6 .chip:nth-child(4){transition-delay:.45s}.s6 .chip:nth-child(5){transition-delay:.6s}.s6 .chip:nth-child(6){transition-delay:.75s}
+
+/* ---------- slide 7 · fears ---------- */
+.s7 h2{top:90px}
+.fear{position:absolute;left:180px;right:160px;display:flex;align-items:center;gap:44px}
+.fear svg{flex:0 0 96px;width:96px;height:108px;color:var(--ember)}
+.fear .num{flex:0 0 300px;font-size:128px;text-align:right}
+.fear p{font-size:42px;line-height:1.3}
+.f1{top:260px}.f2{top:500px}.f3{top:740px}
+
+/* ---------- slide 8 · preparedness numbers ---------- */
+.s8 h2{top:80px}
+.card{position:absolute;top:250px;width:850px;height:640px;background:rgba(44,30,36,.78);border:2px solid rgba(239,226,204,.12);border-radius:32px;padding:56px 56px 0}
+.card.c1{left:80px}.card.c2{left:990px}
+.card .num{font-size:180px}
+.card.c1 .num{color:var(--gold)}
+.card p{font-size:40px;line-height:1.3;margin-top:18px;max-width:380px}
+.grid{position:absolute;right:56px;top:66px;width:340px;display:grid;grid-template-columns:repeat(10,34px);grid-auto-rows:34px}
+.grid i{display:block;width:30px;height:30px;color:rgba(239,226,204,.22);transition:color .8s var(--leaf-ease)}
+.grid i svg{width:30px;height:30px;display:block}
+.c1.on .grid i.hit{color:var(--gold);transition-delay:calc(1s + var(--k) * 90ms)}
+.c2.on .grid i.hit{color:var(--ember);transition-delay:calc(1s + var(--k) * 40ms)}
+.card .key{position:absolute;left:56px;bottom:52px;font-size:32px;color:var(--oat-soft);display:flex;align-items:center;gap:14px}
+.card .key svg{width:30px;height:30px}
+
+/* ---------- slide 9 · Foresters ---------- */
+.s9 .plate{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);padding:56px 84px;border-radius:40px}
+.s9 .plate img{height:260px}
+
+/* ---------- slide 10 · question ---------- */
+.s10 .q{top:300px;padding:0 220px}
+.s10 .sub{top:690px;padding:0 300px;font-size:44px;line-height:1.35;color:var(--oat-soft)}
+
+/* ---------- slides 11 & 12 · challenge leaves ---------- */
+.s11 h2,.s12 h2{top:80px}
+.cleaf{position:absolute;width:440px;height:270px;transform:rotate(var(--r))}
+.cl-in{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.cl-in svg{position:absolute;inset:0;width:440px;height:270px;color:var(--c);transition:color 1.2s var(--leaf-ease);filter:drop-shadow(0 14px 22px rgba(0,0,0,.35))}
+.cl-in span{position:relative;font-size:33px;font-weight:600;line-height:1.15;text-align:center;color:var(--bark);max-width:280px;margin-left:-26px;transition:color 1.2s var(--leaf-ease)}
+.s12 .cleaf{transition:opacity 1.2s var(--leaf-ease)}
+.s12.st-1 .cl-in{transform:scale(1.07)}
+.s12.st-1 .cl-in svg{color:var(--ember);transition-delay:calc(var(--x) * .7s)}
+.s12.st-1 .cl-in span{color:var(--oat);transition-delay:calc(var(--x) * .7s)}
+.s12.gust .cl-in{animation:gust 1.8s var(--leaf-ease) calc(var(--x) * .7s) both}
+@keyframes gust{
+  0%{transform:scale(1) rotate(0)}
+  15%{transform:scale(1.03) translateX(26px) rotate(7deg)}
+  32%{transform:scale(1.05) translateX(-18px) rotate(-6deg)}
+  50%{transform:scale(1.09) translateX(14px) rotate(4deg)}
+  70%{transform:scale(1.08) translateX(-6px) rotate(-2deg)}
+  100%{transform:scale(1.07) rotate(0)}
+}
+.s12.st-2 .cleaf{opacity:.13}
+.s12 .x10{position:absolute;left:0;top:280px;width:1920px;text-align:center;font-family:var(--serif);font-size:300px;line-height:1;color:var(--oat);
+  text-shadow:0 0 40px rgba(34,23,28,.95);opacity:0;transform:scale(.6);transition:opacity 1s var(--leaf-ease) .5s,transform 1.4s var(--leaf-ease) .5s}
+.s12 .x10 span{display:inline-block;padding:70px 150px;border-radius:50%;background:radial-gradient(ellipse at center,rgba(34,23,28,.97) 0%,rgba(34,23,28,.92) 45%,rgba(34,23,28,0) 72%)}
+.s12.st-1 .x10{opacity:1;transform:scale(1)}
+.s12.st-2 .x10{transform:translate(620px,-20px) scale(.82);transition-delay:0s}
+.s12 .lines{position:absolute;left:150px;top:280px;width:1180px}
+.s12 .lines p{font-size:40px;line-height:1.32;margin-bottom:42px}
+.s12 .lines b{font-weight:600;color:var(--gold)}
+
+/* ---------- slide 13 · Zoom ---------- */
+.s13 .frame{position:absolute;left:260px;top:220px;width:1400px;height:640px;border:2px solid rgba(239,226,204,.16);border-radius:40px;background:rgba(44,30,36,.55)}
+.s13 h2{top:430px}
+.live{position:absolute;left:0;right:0;top:620px;display:flex;justify-content:center;align-items:center;gap:18px;font-size:36px;font-weight:500;color:var(--oat)}
+.live i{width:22px;height:22px;border-radius:50%;background:var(--ember-text);box-shadow:0 0 0 0 rgba(224,106,69,.6);animation:pulse 2.2s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(224,106,69,.6)}80%,100%{box-shadow:0 0 0 22px rgba(224,106,69,0)}}
+
+/* ---------- slide 14 · two families ---------- */
+.s14 h2{top:56px;font-size:76px}
+.half{position:absolute;top:190px;width:900px;height:800px}
+.half.l{left:50px}.half.r{left:990px}
+.s14 .split{position:absolute;left:959px;top:200px;width:2px;height:760px;background:rgba(239,226,204,.14)}
+.half .tag{font-size:34px;font-weight:600}
+.half.l .tag{color:var(--ember-text)}.half.r .tag{color:var(--gold)}
+.half h3{font-family:var(--serif);font-weight:400;font-size:58px;line-height:1.05;margin-top:4px}
+.half .tree{position:absolute;left:0;top:150px;width:270px;height:420px;overflow:visible}
+.half ul{position:absolute;left:290px;top:150px;width:600px;list-style:none}
+.half li{font-size:32px;line-height:1.28;margin-bottom:22px;padding-left:28px;position:relative}
+.half li::before{content:"";position:absolute;left:0;top:14px;width:12px;height:12px;border-radius:50% 0;transform:rotate(45deg)}
+.half.l li::before{background:var(--ember)}.half.r li::before{background:var(--gold)}
+.tree .tl{transform-box:fill-box;transform-origin:50% 100%;transition:transform 2.6s cubic-bezier(.4,.1,.5,1),opacity 2.2s ease-in;transition-delay:calc(var(--d) * 120ms)}
+.s14.st-1 .lt .g1,.s14.st-2 .lt .g2,.s14.st-3 .lt .g3,.s14.st-4 .lt .g4,.s14.st-5 .lt .g5{transform:translate(var(--bx),var(--by)) rotate(var(--br));opacity:0}
+.rt .canopy{transition:filter 1.6s var(--leaf-ease)}
+.s14.st-6 .rt .canopy{filter:drop-shadow(0 0 22px rgba(217,164,65,.55))}
+.s14.st-6 .rt .tl{animation:treeSway 6s ease-in-out infinite;animation-delay:calc(var(--d) * -400ms)}
+@keyframes treeSway{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+.s14 .source{bottom:30px;font-size:24px}
+.ph{display:inline-block;border:3px dashed var(--gold);border-radius:12px;padding:2px 14px;color:var(--gold);background:rgba(217,164,65,.08);font-weight:600}
+
+/* ---------- slide 15 · quote ---------- */
+.s15{background:radial-gradient(ellipse 90% 90% at 50% 45%,#8A3026 0%,var(--maple) 55%,#5E1F19 100%)}
+.s15 .mark{position:absolute;left:220px;top:150px;font-family:var(--serif);font-size:320px;line-height:1;color:rgba(239,226,204,.22)}
+.s15 blockquote{position:absolute;left:300px;right:260px;top:340px;font-family:var(--serif);font-size:112px;line-height:1.1;color:var(--oat)}
+.s15 cite{position:absolute;left:300px;top:720px;font-style:normal;font-size:44px;color:var(--oat);font-weight:500}
+
+/* ---------- slide 16 · lesson ---------- */
+.s16 .top{top:120px;padding:0 200px}
+.pair{position:absolute;top:430px;width:360px;text-align:center}
+.pair svg{width:200px;height:220px;display:block;margin:0 auto 18px}
+.pair b{font-size:44px;font-weight:600}
+.pair.a{left:560px}.pair.b{left:1000px}
+.pair.a svg{color:var(--gold)}.pair.b svg{color:var(--ember)}
+.pair.a b{color:var(--gold)}.pair.b b{color:var(--ember-text)}
+.pair[data-b]{transition:opacity 1.2s var(--leaf-ease),transform 1.8s var(--leaf-ease)}
+.pair.a[data-b]{transform:translateX(-380px) rotate(-14deg)}
+.pair.b[data-b]{transform:translateX(380px) rotate(14deg)}
+.pair[data-b].on{transform:none}
+.s16 .close{top:800px;padding:0 260px;font-size:44px;line-height:1.35}
+
+/* ---------- slide 17 · mission ---------- */
+.s17 .top{top:100px;padding:0 220px}
+.s17 .for{top:330px;font-size:48px;color:var(--oat-soft)}
+.mleaf{position:absolute;left:0;top:0;width:220px;height:200px;margin:-100px 0 0 -110px;
+  transform:translate(var(--ax),var(--ay)) rotate(var(--ar)) scale(var(--as,1));
+  transition:transform 2.8s cubic-bezier(.45,.05,.3,1),opacity 1.2s var(--leaf-ease);transition-delay:calc(var(--k) * 32ms)}
+.mleaf .in{position:absolute;inset:0}
+.mleaf svg{position:absolute;inset:0;width:220px;height:200px;color:var(--c);transition:color 2s var(--leaf-ease);transition-delay:calc(var(--k) * 32ms + .6s)}
+.mleaf.word{width:280px;height:172px;margin:-86px 0 0 -140px}
+.mleaf.word svg{width:280px;height:172px;filter:drop-shadow(0 10px 16px rgba(0,0,0,.35))}
+.mleaf span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:600;color:var(--bark);transition:opacity .8s var(--leaf-ease);margin-left:-14px}
+.mleaf.extra{opacity:0}
+.s17.st-8 .mleaf{transform:translate(var(--bx),var(--by)) rotate(var(--br)) scale(var(--bs));opacity:1}
+.s17.st-8 .mleaf svg{color:var(--lavender)}
+.s17.st-8 .mleaf span{opacity:0}
+.s17.st-8 .ribbonglow{opacity:1}
+.ribbonglow{position:absolute;left:760px;top:340px;width:400px;height:520px;opacity:0;transition:opacity 3s var(--leaf-ease) 2.4s;
+  background:radial-gradient(ellipse at center,rgba(185,163,214,.22),rgba(185,163,214,0) 65%)}
+.s17.st-8 .for{opacity:0;transition-delay:0s}
+.s17 .final{top:880px;padding:0 280px;font-size:44px;line-height:1.35}
+
+/* ---------- slide 18 · transition ---------- */
+.s18 .q{top:200px;padding:0 220px}
+.s18 .branch{position:absolute;left:360px;top:500px;width:1200px;height:360px;overflow:visible}
+.bud{transform-box:fill-box;transform-origin:50% 100%;transform:scale(0);transition:transform 2.2s var(--leaf-ease);transition-delay:calc(var(--k) * 260ms)}
+.s18.st-1 .bud{transform:scale(1)}
+.s18 .find{top:880px;font-family:var(--serif);font-size:80px;color:var(--gold);transition-delay:2.6s;transition-duration:1.6s}
+
+/* placeholder (kept for anything still to be supplied) */
+.placeholder{border:4px dashed var(--gold);border-radius:20px;padding:20px 32px;color:var(--gold);background:rgba(217,164,65,.08)}
+
+/* ---------- overlays ---------- */
+#black{position:fixed;inset:0;background:#000;z-index:100;display:none}
+#black.on{display:block}
+#goto,#help,#toast{position:fixed;z-index:120;font-family:var(--sans);color:var(--oat);background:rgba(26,17,21,.96);border:1px solid rgba(239,226,204,.25);border-radius:14px}
+#goto{left:50%;top:40%;transform:translate(-50%,-50%);padding:22px 30px;font-size:28px;display:none}
+#goto.on{display:block}
+#goto b{color:var(--gold)}
+#help{left:50%;top:50%;transform:translate(-50%,-50%);padding:28px 40px;font-size:20px;line-height:1.7;display:none;min-width:520px}
+#help.on{display:block}
+#help kbd{display:inline-block;min-width:34px;text-align:center;border:1px solid rgba(239,226,204,.35);border-radius:6px;padding:0 8px;margin-right:12px;font-family:inherit;color:var(--gold)}
+#toast{right:24px;bottom:24px;padding:10px 18px;font-size:18px;opacity:0;transition:opacity .3s}
+#toast.on{opacity:1}
+
+/* ---------- print / PDF ---------- */
+@page{size:1920px 1080px;margin:0}
+body.print{overflow:visible;background:var(--bark)}
+body.print #viewport{position:static;background:none}
+body.print #stage{position:static;transform:none!important;width:1920px;height:auto;overflow:visible;background:none}
+body.print #fall,body.print #grain{display:none}
+body.print .slide{position:relative;width:1920px;height:1080px;opacity:1;visibility:visible;overflow:hidden;page-break-after:always;break-after:page;
+  background:radial-gradient(ellipse 90% 80% at 50% 40%,#2B1D23 0%,var(--bark) 60%,#1A1115 100%)}
+body.print .slide.s18{page-break-after:auto;break-after:auto}
+body.print .slide.s15{background:radial-gradient(ellipse 90% 90% at 50% 45%,#8A3026 0%,var(--maple) 55%,#5E1F19 100%)}
+body.print .slide::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.09;mix-blend-mode:overlay;background-image:inherit}
+</style>
+</head>
+<body>
+<!-- Leaf shapes: every leaf in the deck is drawn from these three symbols -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="maple" viewBox="0 0 100 110">
+      <path d="M50 3 L57.5 21 L66.5 16 L63.5 38 L78 27.5 L82 36 L95.5 33.5 L88.5 50 L96.5 55 L74.5 68 L77.5 78.5 L54 73.5 L53 90 L47 90 L46 73.5 L22.5 78.5 L25.5 68 L3.5 55 L11.5 50 L4.5 33.5 L18 36 L22 27.5 L36.5 38 L33.5 16 L42.5 21 Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M50 108 L50 22 M50 62 L28 40 M50 62 L72 40 M50 74 L26 64 M50 74 L74 64" stroke="rgba(34,23,28,.28)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+      <path d="M50 88 L50 108" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="oak" viewBox="0 0 100 110">
+      <path d="M50 4 C58 10 54 18 60 22 C70 20 71 30 64 34 C74 34 77 46 66 49 C77 53 74 65 64 63 C70 73 60 79 54 73 C54 80 52 86 50 92 C48 86 46 80 46 73 C40 79 30 73 36 63 C26 65 23 53 34 49 C23 46 26 34 36 34 C29 30 30 20 40 22 C46 18 42 10 50 4 Z"/>
+      <path d="M50 106 L50 14 M50 36 L62 28 M50 36 L38 28 M50 52 L64 44 M50 52 L36 44 M50 66 L60 62 M50 66 L40 62" stroke="rgba(34,23,28,.28)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+      <path d="M50 90 L50 106" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="birch" viewBox="0 0 100 110">
+      <path d="M50 5 C73 21 82 48 68 72 C61 83 55 87 50 93 C45 87 39 83 32 72 C18 48 27 21 50 5 Z"/>
+      <path d="M50 106 L50 16 M50 40 L64 30 M50 40 L36 30 M50 56 L67 46 M50 56 L33 46 M50 72 L62 66 M50 72 L38 66" stroke="rgba(34,23,28,.26)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+      <path d="M50 91 L50 106" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+    </symbol>
+    <!-- a wide, calm leaf for labels -->
+    <symbol id="wide" viewBox="0 0 440 270">
+      <path d="M18 140 C70 40 210 10 330 46 C384 62 416 100 428 138 C414 178 380 214 326 230 C206 262 70 238 18 140 Z"/>
+      <path d="M4 141 L420 138 M120 140 L170 76 M200 139 L250 62 M280 138 L320 74 M120 140 L170 204 M200 139 L250 218 M280 138 L320 206" stroke="rgba(34,23,28,.13)" stroke-width="3" stroke-linecap="round" fill="none"/>
+    </symbol>
+    <!-- awareness ribbon outline (lavender: all cancers) -->
+    <symbol id="ribbon" viewBox="0 0 100 100">
+      <path d="M28 95 L58 50 C72 30 66 8 50 8 C34 8 28 30 42 50 L72 95" fill="none" stroke="currentColor" stroke-width="11" stroke-linejoin="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div id="viewport">
+<div id="stage">
+<canvas id="fall" width="1920" height="1080" aria-hidden="true"></canvas>
+
+<!-- 1 · Title -->
+<section class="slide s1" data-id="s1" data-steps="0" data-fall="18" data-seg="Welcome and reflection" data-who="Host" data-end="2">
+  <h1 class="center title h-xl">United Against Cancer</h1>
+  <p class="center date">November 1, 2026</p>
+  <div class="hero" id="hero"><svg viewBox="0 0 100 110" class="leaf"><use href="#maple"/></svg></div>
+  <p class="center presented">Presented by Team ALL IN with Foresters Financial</p>
+  <div class="logos">
+    <span class="wordmark">Team ALL IN</span>
+    <span class="divider"></span>
+    <span class="plate"><img src="{{FORESTERS_LOGO}}" alt="Foresters Financial"></span>
+  </div>
+  <aside class="notes">Leaves fall on their own while guests are seated. When everyone is in, welcome the room: thank families for coming, and say that tonight is about something that touches all of us. Keep it warm and short.</aside>
+</section>
+
+<!-- 2 · Reflection -->
+<section class="slide s2" data-id="s2" data-steps="1" data-seg="Welcome and reflection" data-who="Host" data-end="2">
+  <h2 class="center ask h-md">Raise your hand if cancer has touched your family, or someone you love.</h2>
+  <div class="ribbon"><svg viewBox="0 0 100 100" style="color:var(--lavender)"><use href="#ribbon"/></svg></div>
+  <p class="center caption" data-b="1">For those fighting, those who survived, and those we lost.</p>
+  <aside class="notes">Read the line slowly, then raise your own hand. Pause for hands and let people look around the room.
+Click once: the text fades and the lavender ribbon appears. Lavender stands for all cancers. Hold 10 seconds of silence. Do not fill it.</aside>
+</section>
+
+<!-- 3 · Section -->
+<section class="slide s3" data-id="s3" data-steps="0" data-fall="14" data-seg="Cancer by the numbers" data-who="Host" data-end="5">
+  <h2 class="center section-title h-lg">Cancer by the numbers</h2>
+  <p class="center section-sub">What every family in Canada should know</p>
+  <aside class="notes">Gentle transition out of the silence. "Let's look at what cancer means for families in Canada, in numbers. Behind every number is a person, so on these slides every leaf is a person."</aside>
+</section>
+
+<!-- 4 · 2 in 5 -->
+<section class="slide s4" data-id="s4" data-steps="4" data-seg="Cancer by the numbers" data-who="Host" data-end="5">
+  <div class="row">
+    <div class="p nob" data-b="1"><svg viewBox="0 0 100 110" class="leaf"><use href="#maple"/></svg></div>
+    <div class="p nob turn" data-b="1"><svg viewBox="0 0 100 110" class="leaf"><use href="#maple"/></svg></div>
+    <div class="p nob" data-b="1"><svg viewBox="0 0 100 110" class="leaf"><use href="#maple"/></svg></div>
+    <div class="p nob turn turn2" data-b="1"><svg viewBox="0 0 100 110" class="leaf"><use href="#maple"/></svg></div>
+    <div class="p nob" data-b="1"><svg viewBox="0 0 100 110" class="leaf"><use href="#maple"/></svg></div>
+  </div>
+  <h2 class="center headline h-sm" data-b="3">About <span class="num">2 in 5</span> Canadians are expected to be diagnosed with cancer in their lifetime.</h2>
+  <p class="center more" data-b="4">In 2026, that's an estimated <strong>254,100 people</strong> in Canada, nearly 700 every day.</p>
+  <p class="source">Sources: Canadian Cancer Society, Cancer statistics (Canadian Cancer Statistics 2025: 42% lifetime probability). 2026 projection: Brenner et al., “Projected estimates of cancer in Canada in 2026”, CMAJ, April 2026.</p>
+  <aside class="notes">Click 1: five leaves appear. "Five leaves. Five people. Look at the four people sitting next to you."
+Click 2: two leaves turn red. "Statistically, two of the five of you will hear the word cancer."
+Click 3: headline. The 2025 report puts the lifetime probability at 42%, which is about 2 in 5.
+Click 4: "This year alone, about 254,100 people in Canada are expected to be diagnosed. That's nearly 700 people every single day." (254,100 ÷ 365 ≈ 696.)</aside>
+</section>
+
+<!-- 5 · Survival -->
+<section class="slide s5 bigstat" data-id="s5" data-steps="2" data-seg="Cancer by the numbers" data-who="Host" data-end="5">
+  <p class="center lead">About</p>
+  <div class="center big num nob" data-b="1"><span data-count="64" data-suffix="%">0%</span></div>
+  <p class="center desc">of Canadians survive at least five years after a cancer diagnosis.</p>
+  <p class="center follow" data-b="2">So the question isn't only <em>“will I survive?”</em> It's <em>“will my family's finances survive it?”</em></p>
+  <p class="source">Source: Canadian Cancer Statistics 2021, Public Health Agency of Canada (about 64% five-year net survival; Canadian Cancer Statistics 2025 reports the same figure).</p>
+  <aside class="notes">Shift to hope. Click 1: the number counts up. "Here's the good news. Most people survive. About 64% of Canadians live at least five years after a diagnosis, up from 55% in the early 1990s."
+Click 2: let the question land. "Survival is the goal. But survival takes time, and time costs money."</aside>
+</section>
+
+<!-- 6 · Cost -->
+<section class="slide s6 bigstat" data-id="s6" data-steps="2" data-seg="Cancer by the numbers" data-who="Host" data-end="5">
+  <p class="center lead">Nearly</p>
+  <div class="center big num nob" data-b="1"><span data-count="33000" data-prefix="$">$0</span></div>
+  <p class="center desc">The average cost of cancer to a Canadian patient in out-of-pocket expenses and lost income.</p>
+  <div class="chips">
+    <span class="chip" data-b="2">Prescription drugs</span>
+    <span class="chip" data-b="2">Home care</span>
+    <span class="chip" data-b="2">Travel and parking</span>
+    <span class="chip" data-b="2">Assistive devices</span>
+    <span class="chip" data-b="2">Family care</span>
+    <span class="chip" data-b="2">Lost income</span>
+  </div>
+  <p class="source">Source: Canadian Cancer Society, Canadian Cancer Statistics report, December 2024.</p>
+  <aside class="notes">Click 1: the number counts up. "Nearly $33,000. That's the average cost to a patient, in out-of-pocket expenses and lost income."
+Click 2: the chips appear. Name a few: "Medication that isn't covered. Parking at the hospital, week after week. Someone has to take time off to drive you. Home care. And the biggest one, lost income."</aside>
+</section>
+
+<!-- 7 · Fears -->
+<section class="slide s7" data-id="s7" data-steps="3" data-seg="Cancer by the numbers" data-who="Host" data-end="5">
+  <h2 class="center h-sm">What Canadians fear</h2>
+  <div class="fear f1" data-b="1"><svg viewBox="0 0 100 110" class="leaf"><use href="#maple"/></svg><span class="num">80%</span><p>Nearly 80% of working-age Canadians worry they'd struggle to save for retirement after a cancer diagnosis.</p></div>
+  <div class="fear f2" data-b="2"><svg viewBox="0 0 100 110" class="leaf"><use href="#oak"/></svg><span class="num">66%</span><p>66% expect they'd have to take significant unpaid time off work.</p></div>
+  <div class="fear f3" data-b="3"><svg viewBox="0 0 100 110" class="leaf"><use href="#birch"/></svg><span class="num">28%</span><p>28% believe they would lose their job.</p></div>
+  <p class="source">Source: Canadian Cancer Society and Angus Reid Institute survey, February 2025.</p>
+  <aside class="notes">One stat per click. Pause after each one. These are working-age Canadians, ages 18 to 64, people like the ones in this room.
+Click 1: retirement. Click 2: unpaid time off. Click 3: losing their job.</aside>
+</section>
+
+<!-- 8 · Preparedness numbers (researched; replaces the partner placeholder) -->
+<section class="slide s8" data-id="s8" data-steps="2" data-seg="Cancer by the numbers" data-who="Host" data-end="5">
+  <h2 class="center h-sm">How prepared are we?</h2>
+  <div class="card c1" data-b="1">
+    <div class="num"><span data-count="9" data-suffix="%">0%</span></div>
+    <p>of Canadians have critical illness insurance.</p>
+    <div class="grid" data-grid="9"></div>
+    <div class="key"><svg viewBox="0 0 100 110" class="leaf" style="color:var(--gold)"><use href="#maple"/></svg>Each leaf is 1 in 100 people</div>
+  </div>
+  <div class="card c2" data-b="2">
+    <div class="num"><span data-count="32" data-suffix="%">0%</span></div>
+    <p>of Canadians have no emergency fund at all.</p>
+    <div class="grid" data-grid="32"></div>
+    <div class="key"><svg viewBox="0 0 100 110" class="leaf" style="color:var(--ember)"><use href="#maple"/></svg>Each leaf is 1 in 100 people</div>
+  </div>
+  <p class="source">Sources: RBC Insurance poll conducted by Ipsos, 2,001 Canadians, August 2025. RBC Emergency Readiness Poll, July 2026.</p>
+  <aside class="notes">Click 1: "Fewer than 1 in 10 Canadians, 9%, have critical illness insurance. More than half (57%) say they are worried about becoming seriously ill. We worry, but we don't plan."
+Click 2: "And nearly 1 in 3 Canadians, 32%, have no emergency fund at all. For households earning under $100,000 it's 38%. 76% say the cost of living is what makes saving hard."
+Then hand to the Foresters partner: "Our partner from Foresters Financial is here to share more."</aside>
+</section>
+
+<!-- 9 · Foresters -->
+<section class="slide s9" data-id="s9" data-steps="0" data-fall="10" data-seg="Foresters Financial" data-who="Foresters partner" data-end="7">
+  <div class="plate"><img src="{{FORESTERS_LOGO}}" alt="Foresters Financial"></div>
+  <aside class="notes">The Foresters partner comes up and presents their own content. This slide stays up while they speak. When they finish, thank them by name and take the stage back.</aside>
+</section>
+
+<!-- 10 · Preparedness gap -->
+<section class="slide s10" data-id="s10" data-steps="1" data-seg="The preparedness gap" data-who="Host" data-end="9">
+  <h2 class="center q h-md">Do you know exactly what would happen to your income if you couldn't work for six months?</h2>
+  <p class="center sub" data-b="1">Most families aren't unprepared because they don't care. They're unprepared because everyday life is already a fight.</p>
+  <aside class="notes">Ask for a show of hands: "Who here knows exactly what would happen?" Let it be quiet. Most hands will stay down. That's the point, gently.
+Click 1: read the line with compassion. No blame.</aside>
+</section>
+
+<!-- 11 · Eight challenges -->
+<section class="slide s11" data-id="s11" data-steps="8" data-seg="Today's 8 challenges" data-who="Host" data-end="13">
+  <h2 class="center h-sm">The challenges families face every day</h2>
+  <div class="cleaves" data-mode="build"></div>
+  <aside class="notes">One leaf per click, about 30 seconds each with a relatable example. Press A to show all eight at once if time is short.
+1 High debt: mortgage, car loan, credit cards.
+2 Lack of family time: two jobs, long commutes.
+3 Limited income: one paycheque carrying a whole household.
+4 Compromised lifestyle: saying no to the kids more than we'd like.
+5 Lack of savings discipline: money left over at the end of the month rarely happens.
+6 Lack of financial education: school never taught us this.
+7 Insecure financial future: will we ever retire?
+8 Losing time for wealth creation: every year we wait costs us.
+Briefly mention that our philosophies, multi-handed income and 10% savings with the 3 rules and 3 goals of money, address these. Detail comes in Part 2.</aside>
+</section>
+
+<!-- 12 · Amplified -->
+<section class="slide s12" data-id="s12" data-steps="5" data-seg="Amplified 10x" data-who="Host" data-end="15">
+  <h2 class="center h-sm">Now add a cancer diagnosis.</h2>
+  <div class="cleaves" data-mode="static"></div>
+  <div class="x10"><span>×10</span></div>
+  <div class="lines">
+    <p data-b="2"><b>High debt:</b> the payments don't stop when the paycheque does.</p>
+    <p data-b="3"><b>Limited income:</b> often one income disappears, and the caregiver's hours drop too.</p>
+    <p data-b="4"><b>Lack of family time:</b> the little time left goes to hospitals, not memories.</p>
+    <p data-b="5"><b>Lack of savings:</b> treatment, travel and care costs go straight onto debt.</p>
+  </div>
+  <aside class="notes">Same eight leaves. "Now add a cancer diagnosis."
+Click 1: the gust. Every challenge gets ten times heavier.
+Clicks 2 to 5: one line each.
+Transition line: "I could keep describing it, but nobody can explain this better than someone who lived it."</aside>
+</section>
+
+<!-- 13 · Live story -->
+<section class="slide s13" data-id="s13" data-steps="0" data-seg="Live client story" data-who="Client on Zoom" data-end="21">
+  <div class="frame"></div>
+  <h2 class="center h-md">A story from our community</h2>
+  <div class="live"><i></i>Live</div>
+  <aside class="notes">Leave this slide up while you switch the projector to Zoom. Introduce our client warmly by first name. About 6 minutes. Afterwards, switch back to this slide (press Z to jump here) and thank her before moving on.</aside>
+</section>
+
+<!-- 14 · Two families -->
+<section class="slide s14" data-id="s14" data-steps="9" data-seg="Prepared vs unprepared family" data-who="Host" data-end="23">
+  <h2 class="center">Same disease. Two different outcomes.</h2>
+  <div class="split"></div>
+  <div class="half l">
+    <div class="tag">Unprepared</div>
+    <h3>Steven Hodges</h3>
+    <svg class="tree lt" viewBox="0 0 270 420" data-tree="bare"></svg>
+    <ul>
+      <li data-b="1">Self-employed, wife and young child</li>
+      <li data-b="2">Stage 4 throat and mouth cancer, 40 rounds of radiation plus chemotherapy</li>
+      <li data-b="3">No disability insurance; his wife's plan didn't fully cover medication</li>
+      <li data-b="4">Lost two years of steady income</li>
+      <li data-b="5">About $125,000 in costs: emptied his RRSPs and TFSAs, took a second mortgage</li>
+    </ul>
+  </div>
+  <div class="half r">
+    <div class="tag">Prepared</div>
+    <h3>Sandra and Warren</h3>
+    <svg class="tree rt" viewBox="0 0 270 420" data-tree="full"></svg>
+    <ul>
+      <li data-b="6">Married couple with an infant daughter</li>
+      <li data-b="7">Sandra was diagnosed with lymphoma</li>
+      <li data-b="8">They had critical illness insurance</li>
+      <li data-b="9">The coverage let Warren take care of Sandra and their daughter, and eased the financial and emotional strain</li>
+    </ul>
+  </div>
+  <p class="source">Steven's story: Canadian Cancer Society, February 2025. Sandra and Warren's story: Canada Life client story. <span class="ph">[OPTIONAL: replace or add a Foresters client story]</span></p>
+  <aside class="notes">Clicks 1 to 5: Steven's side, one line at a time. His tree loses leaves with every line.
+Clicks 6 to 9: Sandra and Warren. Their tree holds and glows.
+Before the event, confirm with the partner that Sandra and Warren's names can be shown (the original Canada Life page is no longer online).</aside>
+</section>
+
+<!-- 15 · Quote -->
+<section class="slide s15" data-id="s15" data-steps="0" data-seg="Prepared vs unprepared family" data-who="Host" data-end="23">
+  <div class="mark">“</div>
+  <blockquote>I didn't want to let my family down.</blockquote>
+  <cite>Steven Hodges</cite>
+  <aside class="notes">Say nothing for a few seconds. Then read it once, quietly. Let it sit.</aside>
+</section>
+
+<!-- 16 · Lesson -->
+<section class="slide s16" data-id="s16" data-steps="2" data-seg="Prepared vs unprepared family" data-who="Host" data-end="23">
+  <h2 class="center top h-sm">Steven had savings. But savings alone couldn't carry two years without income.</h2>
+  <div class="pair a" data-b="1"><svg viewBox="0 0 100 110" class="leaf"><use href="#oak"/></svg><b>Savings habit</b></div>
+  <div class="pair b" data-b="1"><svg viewBox="0 0 100 110" class="leaf"><use href="#maple"/></svg><b>Protection</b></div>
+  <p class="center close" data-b="2">Build the money. Protect it so a crisis can't take it away. That's a decision you make while you're healthy.</p>
+  <aside class="notes">Click 1: the two leaves come together. Savings and protection belong together.
+Click 2: "That's a decision you make while you're healthy." Slow down on "while you're healthy."</aside>
+</section>
+
+<!-- 17 · Mission -->
+<section class="slide s17" data-id="s17" data-steps="9" data-seg="Mission and transition" data-who="Host" data-end="25">
+  <h2 class="center top h-sm">This is a mission. No family in our community should face this unprepared.</h2>
+  <p class="center for" data-b="1">We're not doing this for ourselves. We're doing it for our…</p>
+  <div class="ribbonglow"></div>
+  <div class="mleaves"></div>
+  <p class="center final" data-b="9">Everyone in this room now knows something most families don't. That's our shared responsibility.</p>
+  <aside class="notes">Click 1: "We're not doing this for ourselves. We're doing it for our…"
+Clicks 2 to 7: one word per click: kids, siblings, spouses, parents, friends, loved ones.
+Click 8: all the leaves gather into the lavender ribbon. Pause. Let the room see it.
+Click 9: "Everyone in this room now knows something most families don't. That's our shared responsibility."</aside>
+</section>
+
+<!-- 18 · Transition -->
+<section class="slide s18" data-id="s18" data-steps="1" data-seg="Mission and transition" data-who="Host" data-end="25">
+  <h2 class="center q h-md">So how does a family become the prepared family?</h2>
+  <svg class="branch" viewBox="0 0 1200 360" data-branch></svg>
+  <p class="center find" data-b="1">Let's find out.</p>
+  <aside class="notes">Click 1: the bare branch sprouts new leaves. Spring after autumn. Say "Let's find out" and hand to the main presenter for Part 2.</aside>
+</section>
+
+</div>
+<div id="grain"></div>
+</div>
+
+<div id="black"></div>
+<div id="goto">Go to slide: <b id="gotoNum"></b></div>
+<div id="help">
+  <div><kbd>→</kbd>Next (also Space, ↓, PageDown)</div>
+  <div><kbd>←</kbd>Previous (also ↑, PageUp)</div>
+  <div><kbd>S</kbd>Presenter view</div>
+  <div><kbd>A</kbd>Reveal all builds on this slide</div>
+  <div><kbd>G</kbd>Go to slide (number, then Enter)</div>
+  <div><kbd>Z</kbd>Jump to the live Zoom slide</div>
+  <div><kbd>B</kbd>Black screen &nbsp; <kbd>W</kbd>Resume</div>
+  <div><kbd>F</kbd>Fullscreen &nbsp; <kbd>M</kbd>Motion on or off</div>
+  <div><kbd>?</kbd>Show or hide this help</div>
+</div>
+<div id="toast"></div>
+
+<script>
+(function(){
+'use strict';
+const W=1920,H=1080;
+const params=new URLSearchParams(location.search);
+const PRINT=params.has('print');
+const stage=document.getElementById('stage');
+const slides=[...document.querySelectorAll('.slide')];
+const NS='http://www.w3.org/2000/svg';
+const ZOOM_SLIDE=slides.findIndex(s=>s.dataset.id==='s13');
+const reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+const state={i:0,step:0,motion:!reduce&&!params.has('still')};
+let pres=null;
+const timers={deck:Date.now(),slide:Date.now()};
+
+/* ---------- small helpers ---------- */
+const rand=(a,b)=>a+Math.random()*(b-a);
+function seeded(seed){return function(){seed=(seed*16807)%2147483647;return (seed-1)/2147483646;};}
+function svgEl(tag,attrs){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);return e;}
+function useLeaf(shape){const s=svgEl('svg',{viewBox:'0 0 100 110',class:'leaf'});s.appendChild(svgEl('use',{href:'#'+shape}));return s;}
+
+/* ---------- build generated content ---------- */
+// Slide 8 grids: 100 leaves, the first N highlighted, in a spread-out order
+document.querySelectorAll('[data-grid]').forEach(g=>{
+  const n=+g.dataset.grid, rnd=seeded(n*7+3), order=[...Array(100).keys()].sort(()=>rnd()-.5);
+  const hits=new Map(order.slice(0,n).map((v,k)=>[v,k]));
+  for(let i=0;i<100;i++){const it=document.createElement('i');it.appendChild(useLeaf('maple'));
+    if(hits.has(i)){it.className='hit';it.style.setProperty('--k',hits.get(i));} g.appendChild(it);}
+});
+
+// Slides 11 and 12: the same eight leaves in the same places
+const CHALLENGES=['High debt','Lack of family time','Limited income','Compromised lifestyle','Lack of savings discipline','Lack of financial education','Insecure financial future','Losing time for wealth creation'];
+const CPOS=[[90,250,-7],[560,300,5],[1020,240,-3],[1440,290,8],[130,640,4],[580,710,-6],[1010,650,7],[1450,720,-4]];
+const CCOL=['#EFE2CC','#D9A441','#E6C98F','#EFE2CC','#D9A441','#EFE2CC','#E6C98F','#D9A441'];
+document.querySelectorAll('.cleaves').forEach(box=>{
+  const build=box.dataset.mode==='build';
+  CHALLENGES.forEach((label,i)=>{
+    const [x,y,r]=CPOS[i];
+    const o=document.createElement('div');o.className='cleaf';
+    o.style.cssText=`left:${x}px;top:${y}px;--r:${r}deg;--c:${CCOL[i]};--x:${(x/1920).toFixed(3)}`;
+    const inn=document.createElement('div');inn.className='cl-in';
+    const s=svgEl('svg',{viewBox:'0 0 440 270'});s.appendChild(svgEl('use',{href:'#wide'}));
+    const t=document.createElement('span');t.textContent=label;
+    inn.append(s,t);o.appendChild(inn);
+    if(build){inn.classList.add('fall-in');inn.dataset.b=i+1;}
+    box.appendChild(o);
+  });
+});
+
+// Slide 14 trees
+function drawTree(svg,full){
+  const trunk='#5B4038';
+  svg.appendChild(svgEl('path',{d:'M135 420 C132 360 140 300 134 240 C130 200 112 170 84 140 M134 250 C150 210 176 180 206 150 M136 300 C112 280 84 270 56 250 M134 210 C136 170 140 130 132 90 M152 220 C190 210 214 196 236 176',stroke:trunk,'stroke-width':10,fill:'none','stroke-linecap':'round'}));
+  const pts=[[84,128],[60,150],[104,100],[132,80],[160,92],[196,128],[222,150],[240,176],[52,232],[80,212],[118,150],[150,140],[180,170],[210,190],[100,180],[60,196],[140,112],[170,118],[230,120],[34,214],[116,206],[200,96],[92,64],[176,60]];
+  const g=svgEl('g',{class:'canopy'}); svg.appendChild(g);
+  const rnd=seeded(full?11:5);
+  pts.forEach(([x,y],k)=>{
+    const shape=['maple','oak','birch'][k%3];
+    const u=svgEl('use',{href:'#'+shape,x:x-17,y:y-19,width:34,height:38,class:'tl'});
+    const col=full?(k%3===0?'#E6C98F':'#D9A441'):(k%3===0?'#B4432A':k%3===1?'#D9A441':'#7E2A22');
+    u.style.fill=col;u.style.color=col;
+    u.style.setProperty('--d',k%5);
+    if(!full){ // which click blows this leaf away; a few stay on the branch
+      const grp=k<22?(k%5)+1:0;
+      if(grp){u.classList.add('g'+grp);
+        u.style.setProperty('--bx',(420+rnd()*520)+'px');u.style.setProperty('--by',(-60+rnd()*360)+'px');u.style.setProperty('--br',(200+rnd()*400)+'deg');}
+    }
+    g.appendChild(u);
+  });
+}
+document.querySelectorAll('[data-tree]').forEach(s=>drawTree(s,s.dataset.tree==='full'));
+
+// Slide 18 branch with buds
+(function(){
+  const svg=document.querySelector('[data-branch]'); if(!svg)return;
+  svg.appendChild(svgEl('path',{d:'M0 300 C220 280 380 240 560 210 C740 180 900 170 1200 120 M380 245 C430 190 470 150 520 110 M760 180 C800 130 850 100 900 80 M980 150 C1010 210 1050 240 1100 260',stroke:'#6A4B42','stroke-width':12,fill:'none','stroke-linecap':'round'}));
+  const buds=[[210,280,-30],[330,250,20],[460,150,-20],[515,108,10],[620,200,-25],[700,186,30],[840,104,-15],[905,76,15],[960,160,-35],[1040,226,25],[1100,258,40],[1160,124,-10]];
+  buds.forEach(([x,y,r],k)=>{
+    const g=svgEl('g',{transform:`translate(${x} ${y}) rotate(${r})`});
+    const u=svgEl('use',{href:'#birch',x:-22,y:-52,width:44,height:50,class:'bud'});
+    u.style.fill=k%3===2?'#D9A441':'#A9C27E';u.style.color=u.style.fill;u.style.setProperty('--k',k);
+    g.appendChild(u);svg.appendChild(g);
+  });
+})();
+
+// Slide 17: word leaves + extra leaves, with a ribbon-shaped target for each
+(function(){
+  const box=document.querySelector('.mleaves'); if(!box)return;
+  const words=['kids','siblings','spouses','parents','friends','loved ones'];
+  const path=svgEl('path',{d:'M28 95 L58 50 C72 30 66 8 50 8 C34 8 28 30 42 50 L72 95'});
+  const tmp=svgEl('svg',{width:0,height:0});tmp.style.position='absolute';tmp.appendChild(path);document.body.appendChild(tmp);
+  const L=path.getTotalLength(), N=40, S=5, OX=960, OY=380;
+  const rnd=seeded(42);
+  // spread the word leaves over the ribbon so they each travel a short way
+  const wordSlots=[2,9,16,23,30,37];
+  for(let k=0;k<N;k++){
+    const d=(k+.5)/N*L, p=path.getPointAtLength(d), q=path.getPointAtLength(Math.min(L,d+1));
+    const ang=Math.atan2(q.y-p.y,q.x-p.x)*180/Math.PI;
+    const bx=OX+(p.x-50)*S+rand(-6,6), by=OY+(p.y-8)*S+rand(-6,6);
+    const wi=wordSlots.indexOf(k);
+    const el=document.createElement('div');el.className='mleaf'+(wi<0?' extra':' word');
+    let ax,ay,ar,as;
+    if(wi>=0){ax=230+wi*292;ay=560+(wi%2?28:-12);ar=(wi%2?6:-6);as=1;el.dataset.b=wi+2;}
+    else{const side=rnd();ax=side<.5?rand(-200,2120):(rnd()<.5?-160:2080);ay=side<.5?-160:rand(100,1000);ar=rand(-180,180);as=.3;}
+    el.style.cssText=`--ax:${ax.toFixed(0)}px;--ay:${ay.toFixed(0)}px;--ar:${ar.toFixed(0)}deg;--as:${as};--bx:${bx.toFixed(0)}px;--by:${by.toFixed(0)}px;--br:${(ang+(wi>=0?0:90)+360).toFixed(0)}deg;--bs:${wi>=0?.3:.34};--k:${k};--c:${wi>=0?(wi%2?'#D9A441':'#EFE2CC'):'#D9A441'}`;
+    const inn=document.createElement('div');inn.className='in';
+    inn.appendChild(svgEl('svg',{viewBox:wi>=0?'0 0 440 270':'0 0 100 110'})).appendChild(svgEl('use',{href:'#'+(wi>=0?'wide':['maple','oak','birch'][k%3])}));
+    // word leaves land via the inner element so the outer can travel to the ribbon
+    if(wi>=0){const sp=document.createElement('span');sp.textContent=words[wi];inn.appendChild(sp);inn.classList.add('fall-in');inn.dataset.b=wi+2;delete el.dataset.b;}
+    el.appendChild(inn);box.appendChild(el);
+  }
+  tmp.remove();
+})();
+
+/* ---------- step engine ---------- */
+function fmt(el,v){const n=Math.round(v).toLocaleString('en-CA');return (el.dataset.prefix||'')+n+(el.dataset.suffix||'');}
+function runCount(el){
+  const end=+el.dataset.count,t0=performance.now(),dur=1800;
+  el._run=(el._run||0)+1;const id=el._run;
+  (function tick(t){if(el._run!==id)return;const p=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-p,3);el.textContent=fmt(el,end*e);if(p<1)requestAnimationFrame(tick);})(t0);
+}
+const hooks={
+  s12(el,step,prev,animate){
+    if(animate&&step===1&&prev===0){el.classList.remove('gust');void el.offsetWidth;el.classList.add('gust');clearTimeout(el._g);el._g=setTimeout(()=>el.classList.remove('gust'),2800);}
+    if(step===0)el.classList.remove('gust');
+  }
+};
+function applyStep(el,step,prev,animate){
+  const max=+el.dataset.steps||0;
+  if(!animate){el.classList.add('notrans');}
+  for(let k=1;k<=max;k++)el.classList.toggle('st-'+k,step>=k);
+  el.querySelectorAll('[data-b]').forEach(n=>{
+    const b=+n.dataset.b,on=step>=b;
+    if(on&&!n.classList.contains('on')){n.classList.add('on');n.classList.toggle('done',!(animate&&b===step));}
+    else if(!on){n.classList.remove('on','done');}
+  });
+  el.querySelectorAll('[data-count]').forEach(c=>{
+    const host=c.closest('[data-b]'),b=host?+host.dataset.b:0;
+    if(step>=b){if(animate&&b===step&&prev<b)runCount(c);else if(!(prev>=b&&animate)){c._run=(c._run||0)+1;c.textContent=fmt(c,+c.dataset.count);}}
+    else{c._run=(c._run||0)+1;c.textContent=fmt(c,0);}
+  });
+  if(hooks[el.dataset.id])hooks[el.dataset.id](el,step,prev,animate);
+  if(!animate){void el.offsetWidth;requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.remove('notrans')));}
+}
+
+function show(i,step,animate){
+  i=Math.max(0,Math.min(slides.length-1,i));
+  const prevSlide=state.i,prevStep=state.step;
+  if(i!==prevSlide){slides[prevSlide].classList.remove('active');timers.slide=Date.now();}
+  const el=slides[i];
+  el.classList.add('active');
+  state.i=i;state.step=step;
+  applyStep(el,step,i===prevSlide?prevStep:(animate?step-1:-1),animate&&state.motion);
+  if(i!==prevSlide){const h=document.getElementById('hero');if(i!==0&&h)h.classList.remove('play');}
+  fallFor(el);
+  try{history.replaceState(null,'','#'+(i+1));}catch(e){}
+  renderPresenter();
+}
+function next(){const el=slides[state.i],max=+el.dataset.steps||0;
+  if(state.step<max)show(state.i,state.step+1,true);
+  else if(state.i<slides.length-1)show(state.i+1,0,true);}
+function prev(){
+  if(state.step>0)show(state.i,state.step-1,false);
+  else if(state.i>0){const j=state.i-1;show(j,+slides[j].dataset.steps||0,false);}
+}
+function revealAll(){const el=slides[state.i];show(state.i,+el.dataset.steps||0,false);}
+
+/* ---------- falling leaves (one canvas, capped) ---------- */
+const cv=document.getElementById('fall'),cx=cv.getContext('2d');
+const P={maple:new Path2D('M50 3 L57.5 21 L66.5 16 L63.5 38 L78 27.5 L82 36 L95.5 33.5 L88.5 50 L96.5 55 L74.5 68 L77.5 78.5 L54 73.5 L53 90 L47 90 L46 73.5 L22.5 78.5 L25.5 68 L3.5 55 L11.5 50 L4.5 33.5 L18 36 L22 27.5 L36.5 38 L33.5 16 L42.5 21 Z'),
+  oak:new Path2D('M50 4 C58 10 54 18 60 22 C70 20 71 30 64 34 C74 34 77 46 66 49 C77 53 74 65 64 63 C70 73 60 79 54 73 C54 80 52 86 50 92 C48 86 46 80 46 73 C40 79 30 73 36 63 C26 65 23 53 34 49 C23 46 26 34 36 34 C29 30 30 20 40 22 C46 18 42 10 50 4 Z'),
+  birch:new Path2D('M50 5 C73 21 82 48 68 72 C61 83 55 87 50 93 C45 87 39 83 32 72 C18 48 27 21 50 5 Z')};
+const FALL_COLS=['#B4432A','#D9A441','#7E2A22','#C9763A','#E6C98F'];
+let flakes=[],want=0,raf=0,last=0;
+function makeFlake(top){const sh=['maple','oak','birch'][Math.floor(Math.random()*3)];
+  return {x:rand(-40,W+40),y:top?rand(-H,-60):rand(-60,H),s:rand(.28,.62),sh,c:FALL_COLS[Math.floor(Math.random()*FALL_COLS.length)],
+    vy:rand(28,60),ph:rand(0,6.28),sw:rand(.5,1.1),amp:rand(30,80),rot:rand(0,6.28),vr:rand(-.8,.8),flip:rand(0,6.28),a:rand(.45,.85)};}
+function fallFor(el){
+  want=Math.min(30,+el.dataset.fall||0);
+  cv.classList.toggle('show',want>0&&state.motion);
+  if(want>0&&state.motion&&!raf){if(!flakes.length)flakes=Array.from({length:want},()=>makeFlake(false));last=performance.now();raf=requestAnimationFrame(frame);}
+}
+function frame(t){
+  const dt=Math.min(.05,(t-last)/1000);last=t;
+  if(document.hidden||!state.motion||(want===0&&!cv.classList.contains('show')&&getComputedStyle(cv).opacity==='0')){raf=0;flakes=[];cx.clearRect(0,0,W,H);return;}
+  while(flakes.length<want)flakes.push(makeFlake(true));
+  if(flakes.length>want)flakes.length=want;
+  cx.clearRect(0,0,W,H);
+  for(const f of flakes){
+    f.ph+=dt*f.sw;f.y+=f.vy*dt;f.rot+=f.vr*dt;f.flip+=dt*1.3;
+    const x=f.x+Math.sin(f.ph)*f.amp;
+    if(f.y>H+80)Object.assign(f,makeFlake(true),{y:-80});
+    cx.save();cx.translate(x,f.y);cx.rotate(f.rot+Math.sin(f.ph)*.5);cx.scale(f.s*Math.cos(f.flip)*.9+f.s*.1*Math.sign(Math.cos(f.flip)||1),f.s);
+    cx.translate(-50,-50);cx.globalAlpha=f.a;cx.fillStyle=f.c;cx.fill(P[f.sh]);cx.restore();
+  }
+  raf=requestAnimationFrame(frame);
+}
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)fallFor(slides[state.i]);});
+
+/* ---------- scale to fit ---------- */
+function fit(){if(PRINT)return;const s=Math.min(innerWidth/W,innerHeight/H);
+  stage.style.transform=`translate(${(innerWidth-W*s)/2}px,${(innerHeight-H*s)/2}px) scale(${s})`;}
+addEventListener('resize',fit);
+
+/* ---------- keys ---------- */
+let gotoBuf=null;
+const toastEl=document.getElementById('toast');
+function toast(m){toastEl.textContent=m;toastEl.classList.add('on');clearTimeout(toastEl._t);toastEl._t=setTimeout(()=>toastEl.classList.remove('on'),1400);}
+function setMotion(on){state.motion=on;document.documentElement.classList.toggle('nomotion',!on);
+  if(!on){cv.classList.remove('show');} fallFor(slides[state.i]);toast(on?'Motion on':'Motion off');}
+function onKey(e){
+  const k=e.key;
+  if(gotoBuf!==null){
+    if(/^[0-9]$/.test(k)){gotoBuf+=k;document.getElementById('gotoNum').textContent=gotoBuf;}
+    else if(k==='Backspace'){gotoBuf=gotoBuf.slice(0,-1);document.getElementById('gotoNum').textContent=gotoBuf;}
+    else if(k==='Enter'){const n=parseInt(gotoBuf,10);gotoBuf=null;document.getElementById('goto').classList.remove('on');if(n>=1&&n<=slides.length)show(n-1,0,true);}
+    else if(k==='Escape'||k==='g'||k==='G'){gotoBuf=null;document.getElementById('goto').classList.remove('on');}
+    e.preventDefault();return;
+  }
+  const black=document.getElementById('black');
+  switch(k){
+    case 'ArrowRight':case 'ArrowDown':case ' ':case 'PageDown':case 'Enter':
+      if(black.classList.contains('on')){black.classList.remove('on');}else next();e.preventDefault();break;
+    case 'ArrowLeft':case 'ArrowUp':case 'PageUp':case 'Backspace':
+      if(black.classList.contains('on')){black.classList.remove('on');}else prev();e.preventDefault();break;
+    case 'b':case 'B':case '.':black.classList.add('on');break;
+    case 'w':case 'W':black.classList.remove('on');break;
+    case 'f':case 'F':if(!document.fullscreenElement)document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();else document.exitFullscreen();break;
+    case 's':case 'S':openPresenter();break;
+    case 'm':case 'M':setMotion(!state.motion);break;
+    case 'a':case 'A':revealAll();break;
+    case 'g':case 'G':gotoBuf='';document.getElementById('gotoNum').textContent='';document.getElementById('goto').classList.add('on');break;
+    case 'z':case 'Z':show(ZOOM_SLIDE,0,true);break;
+    case '?':case 'h':case 'H':document.getElementById('help').classList.toggle('on');break;
+    case 'Escape':document.getElementById('help').classList.remove('on');break;
+    case 'Home':show(0,0,true);break;
+    case 'End':show(slides.length-1,0,true);break;
+  }
+  renderPresenter();
+}
+document.addEventListener('keydown',onKey);
+stage.addEventListener('click',e=>{if(e.button===0)next();});
+
+/* ---------- presenter view ---------- */
+const PRES_CSS=`
+body.pv{overflow:auto;background:#140D10;color:#EFE2CC;font-family:var(--sans);padding:20px 24px;height:auto}
+.pv .top{display:flex;gap:28px;align-items:baseline;margin-bottom:14px;font-size:20px}
+.pv .clock{font-size:42px;font-variant-numeric:tabular-nums;color:#EFE2CC}
+.pv .clock small{display:block;font-size:14px;color:rgba(239,226,204,.6)}
+.pv .seg{font-size:20px;color:#D9A441}
+.pv .row{display:flex;gap:20px}
+.pv .thumb{position:relative;width:640px;height:360px;overflow:hidden;border-radius:10px;border:2px solid #D9A441;background:#22171C;flex:none}
+.pv .thumb.nx{width:448px;height:252px;border-color:rgba(239,226,204,.3)}
+.pv .thumb .inner{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0}
+.pv .thumb .slide{opacity:1;visibility:visible;transition:none}
+.pv .lbl{font-size:15px;color:rgba(239,226,204,.65);margin:6px 0 4px}
+.pv .notesbox{margin-top:16px;font-size:24px;line-height:1.5;white-space:pre-wrap;background:#22171C;border-radius:10px;padding:18px 22px;max-width:1110px}
+.pv button{font:inherit;font-size:15px;background:#2C1E24;color:#EFE2CC;border:1px solid rgba(239,226,204,.3);border-radius:8px;padding:6px 12px;cursor:pointer}
+.pv .late{color:#E06A45}`;
+function openPresenter(){
+  if(pres&&!pres.closed){pres.focus();return;}
+  pres=window.open('','uac-presenter','width=1180,height=900');
+  if(!pres){toast('Allow pop-ups to open the presenter view');return;}
+  const d=pres.document;
+  d.open();
+  d.write('<!DOCTYPE html><html><head><meta charset="utf-8"><title>Presenter view</title>'+document.getElementById('deck-style').outerHTML+'<style>'+PRES_CSS+'</style></head><body class="pv">'+
+    document.querySelector('svg[aria-hidden]').outerHTML+
+    '<div class="top"><div class="clock" id="pvTotal"></div><div class="clock" id="pvSlide"></div><div><div id="pvPos"></div><div class="seg" id="pvSeg"></div></div><button id="pvReset">Reset timers</button></div>'+
+    '<div class="row"><div><div class="lbl">Now</div><div class="thumb" id="pvNow"><div class="inner"></div></div></div>'+
+    '<div><div class="lbl" id="pvNextLbl">Next</div><div class="thumb nx" id="pvNext"><div class="inner"></div></div></div></div>'+
+    '<div class="notesbox" id="pvNotes"></div></body></html>');
+  d.close();
+  d.addEventListener('keydown',onKey);
+  d.getElementById('pvReset').onclick=()=>{timers.deck=Date.now();timers.slide=Date.now();renderPresenter();};
+  timers.deck=Date.now();timers.slide=Date.now();
+  renderPresenter();
+}
+function cloneAt(i,step){const c=slides[i].cloneNode(true);c.classList.add('active');c.removeAttribute('id');applyStep(c,step,-1,false);c.classList.remove('notrans');return c;}
+function mmss(ms){const s=Math.max(0,Math.floor(ms/1000));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
+function renderPresenter(){
+  if(!pres||pres.closed)return;
+  const d=pres.document,el=slides[state.i],max=+el.dataset.steps||0;
+  const put=(id,node,scale)=>{const inner=d.querySelector('#'+id+' .inner');inner.style.transform=`scale(${scale})`;inner.replaceChildren(d.importNode(node,true));};
+  put('pvNow',cloneAt(state.i,state.step),640/1920);
+  let lbl;
+  if(state.step<max){put('pvNext',cloneAt(state.i,state.step+1),448/1920);lbl=`Next: click ${state.step+1} of ${max}`;}
+  else if(state.i<slides.length-1){put('pvNext',cloneAt(state.i+1,0),448/1920);lbl=`Next: slide ${state.i+2}`;}
+  else{d.querySelector('#pvNext .inner').replaceChildren();lbl='End of Part 1';}
+  d.getElementById('pvNextLbl').textContent=lbl;
+  d.getElementById('pvPos').textContent=`Slide ${state.i+1} of ${slides.length}`+(max?` · click ${state.step} of ${max}`:'');
+  d.getElementById('pvSeg').textContent=`${el.dataset.seg} · ${el.dataset.who} · finish by ${el.dataset.end}:00`;
+  const n=el.querySelector('.notes');d.getElementById('pvNotes').textContent=n?n.textContent.trim():'';
+  tickPresenter();
+}
+function tickPresenter(){
+  if(!pres||pres.closed)return;
+  const d=pres.document,now=Date.now(),el=slides[state.i];
+  const total=now-timers.deck,late=total>(+el.dataset.end)*60000;
+  d.getElementById('pvTotal').innerHTML=`<small>Total</small><span class="${late?'late':''}">${mmss(total)}</span>`;
+  d.getElementById('pvSlide').innerHTML=`<small>This slide</small>${mmss(now-timers.slide)}`;
+}
+setInterval(tickPresenter,500);
+
+/* ---------- start ---------- */
+if(!state.motion)document.documentElement.classList.add('nomotion');
+if(PRINT){
+  document.body.classList.add('print');
+  state.motion=false;document.documentElement.classList.add('nomotion');
+  slides.forEach(s=>{s.classList.add('active');applyStep(s,+s.dataset.steps||0,-1,false);});
+  // per-slide build snapshots for QA: ?print&slide=N&step=K renders just that state
+}else{
+  fit();
+  let start=0;const h=parseInt(location.hash.slice(1),10);if(h>=1&&h<=slides.length)start=h-1;
+  const st=parseInt(params.get('step')||'0',10)||0;
+  state.i=start;slides[start].classList.add('active');
+  if(start===0&&state.motion&&!st)document.getElementById('hero').classList.add('play');
+  show(start,st,false);
+}
+window.__deck={show,next,prev,state,slides,revealAll,setMotion};
+})();
+</script>
+</body>
+</html>
