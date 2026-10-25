@@ -153,7 +153,7 @@ Click 1: retirement. Click 2: unpaid time off. Click 3: losing their job.
 
 ### 11. Cancer is the most common critical illness claim
 
-*Host · Cancer by the numbers · 3 clicks · finish by 8:00*
+*Host · Cancer by the numbers · 2 clicks · finish by 8:00*
 
 Our partner iA Financial Group publishes how critical illness claims break down across the industry.
 
@@ -161,17 +161,29 @@ Click 1: "Out of every 100 critical illness claims paid, 69 are for cancer. More
 
 Click 2: "Heart attack is 10, stroke is 4. Everything else, the other covered illnesses, is the remaining 17."
 
-Click 3: "And it can hit anyone. These are real claims Equitable paid: a 5-year-old who lost their speech. A 20-year-old with a stroke. A heart attack at 35. Breast cancer at 43."
-
-"The average age at claim was 49, and 60% of people who claimed were between 30 and 55. That's the age of most people in this room."
-
 iA notes that cancer, heart attack, stroke and coronary bypass together make up 85% of claims paid.
 
-If asked about stroke: someone in Canada has a stroke every 5 minutes, and 80% of stroke survivors live with some impairment or disability (Heart and Stroke Foundation, as cited by Equitable).
+> Source: iA Financial Group, Transition critical illness insurance client guide: distribution of critical illness claims paid (Munich Re individual insurance survey, 2022). “All other illnesses” is the remainder.
 
-> Sources: iA Financial Group, Transition client guide: distribution of critical illness claims paid (Munich Re individual insurance survey, 2022); “all other illnesses” is the remainder. Equitable, critical illness claims paid, January 2013 to December 2025.
+### 12. Critical illness can hit anyone, at any age
 
-### 12. Critical illness: one essential piece
+*Host · Cancer by the numbers · 3 clicks · finish by 8:00*
+
+Cancer is the biggest one, but critical illness doesn't pick its victims. These are real claims an insurer paid out.
+
+Click 1: the claims appear along a lifetime. "A 5-year-old who lost their speech. A stroke at 20. MS at 33. A heart attack at 35. Breast cancer at 43."
+
+Click 2: "60% of people who claimed were between 30 and 55." Look around the room: "That's most of us, right now."
+
+Click 3: "The average age at claim was just 49. This isn't something that happens at 80."
+
+Other real claims on the same list: kidney failure at 53, angioplasty at 47, heart valve replacement at 63.
+
+If asked about stroke: someone in Canada has a stroke every 5 minutes, and 80% of stroke survivors live with some impairment or disability (Heart and Stroke Foundation).
+
+> Source: Equitable, critical illness claims paid January 2013 to December 2025 (example claims, average age at claim, share of claimants aged 30 to 55).
+
+### 13. Critical illness: one essential piece
 
 *Host · Cancer by the numbers · 3 clicks · finish by 8:00*
 
@@ -179,7 +191,7 @@ This is the bridge to Part 2. Keep it short.
 
 Click 1: three unnamed pieces of a family's plan appear. "A family's financial plan has several pieces. We'll go through the others in the main presentation."
 
-Click 2: the critical illness piece snaps in. "Critical illness coverage is one small but essential piece. It pays a tax-free lump sum when you're diagnosed, and you decide how to use it. The average claim Equitable paid was $70,600." (Across 11 insurers, the industry study's average was $86,518.)
+Click 2: the critical illness piece snaps in. "Critical illness coverage is one small but essential piece. It pays a tax-free lump sum when you're diagnosed, and you decide how to use it. The average claim paid was $70,600." (Across 11 insurers, the industry study's average was $86,518.)
 
 "It's not an expense. It's what protects every other piece when life hits."
 
@@ -189,15 +201,15 @@ Extra facts if asked: cancer is 69% of claims paid and four illnesses make up 85
 
 Tax-free applies to individually owned policies with personally paid premiums; check the plan's details.
 
-> Sources: Equitable, EquiLiving critical illness insurance (26 covered conditions; claims data January 2013 to December 2025). iA Financial Group, Transition, and Manulife, Lifecheque (about 25 covered conditions each).
+> Sources: Equitable, EquiLiving critical illness insurance (26 covered conditions; average claim from claims paid January 2013 to December 2025). iA Financial Group, Transition, and Manulife, Lifecheque (about 25 covered conditions each).
 
-### 13. Foresters Financial
+### 14. Foresters Financial
 
 *Foresters partner · Foresters Financial · 0 clicks · finish by 10:00*
 
 The Foresters partner comes up and presents their own content. This slide stays up while they speak. When they finish, thank them by name and take the stage back.
 
-### 14. Do you know exactly what would happen to your income if you couldn't work for six months?
+### 15. Do you know exactly what would happen to your income if you couldn't work for six months?
 
 *Host · The preparedness gap · 1 click · finish by 11:00*
 
@@ -205,7 +217,7 @@ Ask for a show of hands: "Who here knows exactly what would happen?" Let it be q
 
 Click 1: read the line with compassion. No blame.
 
-### 15. The challenges families face every day
+### 16. The challenges families face every day
 
 *Host · Today's 8 challenges · 8 clicks · finish by 13:00*
 
@@ -229,7 +241,7 @@ One leaf per click, about 30 seconds each with a relatable example. Press A to s
 
 Briefly mention that our philosophies, multi-handed income and 10% savings with the 3 rules and 3 goals of money, address these. Detail comes in Part 2.
 
-### 16. Now add a cancer diagnosis.
+### 17. Now add a cancer diagnosis.
 
 *Host · Amplified 10x · 5 clicks · finish by 14:00*
 
@@ -241,13 +253,13 @@ Clicks 2 to 5: one line each.
 
 Transition line: "I could keep describing it, but nobody can explain this better than someone who lived it."
 
-### 17. A story from our community
+### 18. A story from our community
 
 *Client on Zoom · Live client story · 0 clicks · finish by 18:00*
 
 Leave this slide up while you switch the projector to Zoom. Introduce our client warmly by first name. About 6 minutes. Afterwards, switch back to this slide (press Z to jump here) and thank her before moving on.
 
-### 18. Same disease. Two different outcomes.
+### 19. Same disease. Two different outcomes.
 
 *Host · Prepared vs unprepared family · 9 clicks · finish by 20:00*
 
@@ -259,13 +271,13 @@ Before the event, confirm with the partner that Sandra and Warren's names can be
 
 > Steven's story: Canadian Cancer Society, February 2025. Sandra and Warren's story: Canada Life client story. [OPTIONAL: replace or add a Foresters client story]
 
-### 19. Steven's words
+### 20. Steven's words
 
 *Host · Prepared vs unprepared family · 0 clicks · finish by 20:00*
 
 Say nothing for a few seconds. Then read it once, quietly. Let it sit.
 
-### 20. Steven had savings. But savings alone couldn't carry two years without income.
+### 21. Steven had savings. But savings alone couldn't carry two years without income.
 
 *Host · Prepared vs unprepared family · 2 clicks · finish by 20:00*
 
@@ -273,7 +285,7 @@ Click 1: the two leaves come together. Savings and protection belong together.
 
 Click 2: "That's a decision you make while you're healthy." Slow down on "while you're healthy."
 
-### 21. This is a mission. No family in our community should face this unprepared.
+### 22. This is a mission. No family in our community should face this unprepared.
 
 *Host · Mission and transition · 9 clicks · finish by 21:00*
 
@@ -285,7 +297,7 @@ Click 8: all the leaves gather into the lavender ribbon. Pause. Let the room see
 
 Click 9: "Everyone in this room now knows something most families don't. That's our shared responsibility."
 
-### 22. So how does a family become the prepared family?
+### 23. So how does a family become the prepared family?
 
 *Host · Mission and transition · 1 click · finish by 21:00*
 

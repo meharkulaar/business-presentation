@@ -185,15 +185,15 @@ use{fill:currentColor}
 .s4c .more{top:810px}
 
 /* ---------- slide 8 · iA claims ---------- */
-.s8 h2{top:90px}
-.waffle{position:absolute;left:250px;top:205px;display:grid;grid-template-columns:repeat(10,50px);grid-auto-rows:51px}
+.s8 h2{top:110px}
+.waffle{position:absolute;left:250px;top:265px;display:grid;grid-template-columns:repeat(10,50px);grid-auto-rows:51px}
 .waffle i{display:block;width:44px;height:48px;color:rgba(244,237,225,.13);transition:color .5s var(--leaf-ease)}
 .waffle i svg{width:44px;height:48px;display:block}
 .s8.st-1 .waffle i.k0{color:var(--ember);transition-delay:calc(var(--k) * 16ms)}
 .s8.st-2 .waffle i.k1{color:var(--gold);transition-delay:calc(var(--k) * 40ms)}
 .s8.st-2 .waffle i.k2{color:var(--beige);transition-delay:calc(.5s + var(--k) * 60ms)}
 .s8.st-2 .waffle i.k3{color:rgba(244,237,225,.45);transition-delay:calc(.8s + var(--k) * 20ms)}
-.legend{position:absolute;left:880px;right:120px;top:200px}
+.legend{position:absolute;left:880px;right:120px;top:270px}
 .lrow{display:grid;grid-template-columns:56px 200px 1fr;align-items:center;gap:26px;margin-bottom:8px}
 .lrow svg{width:52px;height:58px}
 .lrow .num{font-size:76px;color:var(--oat)}
@@ -203,11 +203,31 @@ use{fill:currentColor}
 .lrow.big p{font-size:52px;font-weight:600}
 .k0 svg{color:var(--ember)}.k1 svg{color:var(--gold)}.k2 svg{color:var(--beige)}.k3 svg{color:rgba(244,237,225,.45)}
 .legend .key{font-size:30px;color:var(--oat-soft);margin-top:12px}
-.anyage{position:absolute;left:120px;right:120px;top:772px;text-align:center}
-.anyage .ttl{font-size:40px;font-weight:600;color:var(--gold);margin-bottom:22px}
-.ages{display:flex;justify-content:center;gap:22px}
-.ages span{font-size:32px;padding:12px 24px;border-radius:999px;border:2px solid rgba(217,120,79,.6);background:rgba(58,44,34,.85);white-space:nowrap}
-.ages b{color:var(--ember-text);font-weight:600;margin-right:10px}
+/* ---------- slide 8a · claims by age ---------- */
+.s8a h2{top:90px}
+.s8a .unit{top:200px}
+.tl{position:absolute;left:180px;width:1560px;top:300px;height:520px;--px:24px}
+.axis{position:absolute;left:0;right:0;top:250px;height:4px;border-radius:2px;background:rgba(244,237,225,.4)}
+.tick{position:absolute;top:268px;left:calc(var(--x) * var(--px));transform:translateX(-50%);font-size:28px;color:var(--oat-soft)}
+.band{position:absolute;top:30px;height:440px;left:calc(30 * var(--px));width:calc(25 * var(--px));border-radius:18px;background:rgba(185,138,90,.16);border:2px dashed rgba(185,138,90,.6)}
+.band[data-b]{transform:none;transition:opacity 1.2s var(--leaf-ease)}
+.band span{position:absolute;left:0;right:0;bottom:-46px;text-align:center;font-size:30px;font-weight:600;color:var(--gold)}
+.mk{position:absolute;left:calc(var(--x) * var(--px));top:252px;width:0}
+.mk i{position:absolute;left:-12px;top:-12px;width:24px;height:24px;border-radius:50%;background:var(--beige);box-shadow:0 0 0 6px rgba(43,32,25,.9)}
+.mk::before{content:"";position:absolute;left:-1px;width:2px;background:rgba(216,195,160,.55)}
+.mk.up::before{bottom:14px;height:76px}.mk.dn::before{top:14px;height:76px}
+.mk .lb{position:absolute;left:0;transform:translateX(-50%);width:250px;text-align:center;font-size:32px;line-height:1.2}
+.mk.up .lb{bottom:96px}.mk.dn .lb{top:96px}
+.mk .lb b{display:block;font-weight:600;color:var(--beige)}
+.mk.c i{background:var(--ember)}.mk.c .lb b{color:var(--ember-text)}.mk.c::before{background:rgba(194,96,62,.7)}
+.mk[data-b]{transform:translateY(-14px)}.mk[data-b].on{transform:none}
+.s8a .mk:nth-of-type(2){transition-delay:.15s}.s8a .mk:nth-of-type(3){transition-delay:.3s}.s8a .mk:nth-of-type(4){transition-delay:.45s}
+.s8a .mk:nth-of-type(5){transition-delay:.6s}.s8a .mk:nth-of-type(6){transition-delay:.75s}.s8a .mk:nth-of-type(7){transition-delay:.9s}
+.avg{position:absolute;left:calc(49 * var(--px));top:20px;height:232px;width:0;border-left:3px dashed var(--ember-text)}
+.avg[data-b]{transform:none}
+.avg span{position:absolute;top:-6px;left:14px;white-space:nowrap;font-size:30px;font-weight:600;color:var(--ember-text);background:var(--bark);padding:0 8px}
+.s8a .more{top:860px;font-size:44px;padding:0 160px}
+.s8a .more span{display:inline-block}
 
 /* ---------- slide 4d · men, women, children ---------- */
 .s4d h2{top:84px}
@@ -644,7 +664,7 @@ Click 1: retirement. Click 2: unpaid time off. Click 3: losing their job.</aside
 </section>
 
 <!-- 8 · Critical illness claims (iA Financial Group) -->
-<section class="slide s8" data-id="s8" data-title="Cancer is the most common critical illness claim" data-steps="3" data-seg="Cancer by the numbers" data-who="Host" data-end="8">
+<section class="slide s8" data-id="s8" data-title="Cancer is the most common critical illness claim" data-steps="2" data-seg="Cancer by the numbers" data-who="Host" data-end="8">
   <h2 class="center h-sm">Cancer is the most common critical illness claim.</h2>
   <div class="waffle" data-waffle="69,10,4,17"></div>
   <div class="legend">
@@ -654,24 +674,38 @@ Click 1: retirement. Click 2: unpaid time off. Click 3: losing their job.</aside
     <div class="lrow k3" data-b="2"><svg viewBox="0 0 100 110" class="leaf"><use href="#maple"/></svg><span class="num"><span data-count="17" data-suffix="%">0%</span></span><p>All other illnesses</p></div>
     <p class="key">Out of every 100 critical illness claims paid</p>
   </div>
-  <div class="anyage" data-b="3">
-    <p class="ttl">And it can hit anyone, at any age. Real claims paid by Equitable:</p>
-    <div class="ages">
-      <span><b>Age 5</b> Loss of speech</span>
-      <span><b>Age 20</b> Stroke</span>
-      <span><b>Age 35</b> Heart attack</span>
-      <span><b>Age 43</b> Breast cancer</span>
-      <span><b>Age 51</b> Parkinson's</span>
-    </div>
-  </div>
-  <p class="source">Sources: iA Financial Group, Transition client guide: distribution of critical illness claims paid (Munich Re individual insurance survey, 2022); “all other illnesses” is the remainder. Equitable, critical illness claims paid, January 2013 to December 2025.</p>
+  <p class="source">Source: iA Financial Group, Transition critical illness insurance client guide: distribution of critical illness claims paid (Munich Re individual insurance survey, 2022). “All other illnesses” is the remainder.</p>
   <aside class="notes">Our partner iA Financial Group publishes how critical illness claims break down across the industry.
 Click 1: "Out of every 100 critical illness claims paid, 69 are for cancer. More than two out of three."
 Click 2: "Heart attack is 10, stroke is 4. Everything else, the other covered illnesses, is the remaining 17."
-Click 3: "And it can hit anyone. These are real claims Equitable paid: a 5-year-old who lost their speech. A 20-year-old with a stroke. A heart attack at 35. Breast cancer at 43."
-"The average age at claim was 49, and 60% of people who claimed were between 30 and 55. That's the age of most people in this room."
-iA notes that cancer, heart attack, stroke and coronary bypass together make up 85% of claims paid.
-If asked about stroke: someone in Canada has a stroke every 5 minutes, and 80% of stroke survivors live with some impairment or disability (Heart and Stroke Foundation, as cited by Equitable).</aside>
+iA notes that cancer, heart attack, stroke and coronary bypass together make up 85% of claims paid.</aside>
+</section>
+
+<!-- 8a · Claims by age -->
+<section class="slide s8a" data-id="s8a" data-title="Critical illness can hit anyone, at any age" data-steps="3" data-seg="Cancer by the numbers" data-who="Host" data-end="8">
+  <h2 class="center h-sm">Critical illness can hit anyone, at any age.</h2>
+  <p class="center unit">Real critical illness claims paid, by age at diagnosis</p>
+  <div class="tl">
+    <div class="band" data-b="2"><span>60% of claims</span></div>
+    <div class="axis"></div>
+    <span class="tick" style="--x:0">0</span><span class="tick" style="--x:10">10</span><span class="tick" style="--x:20">20</span><span class="tick" style="--x:30">30</span><span class="tick" style="--x:40">40</span><span class="tick" style="--x:50">50</span><span class="tick" style="--x:60">60</span>
+    <div class="mk up" style="--x:5" data-b="1"><i></i><div class="lb"><b>Age 5</b>Loss of speech</div></div>
+    <div class="mk dn" style="--x:20" data-b="1"><i></i><div class="lb"><b>Age 20</b>Stroke</div></div>
+    <div class="mk up" style="--x:33" data-b="1"><i></i><div class="lb"><b>Age 33</b>MS</div></div>
+    <div class="mk dn" style="--x:35" data-b="1"><i></i><div class="lb"><b>Age 35</b>Heart attack</div></div>
+    <div class="mk up c" style="--x:43" data-b="1"><i></i><div class="lb"><b>Age 43</b>Breast cancer</div></div>
+    <div class="mk dn" style="--x:51" data-b="1"><i></i><div class="lb"><b>Age 51</b>Parkinson's</div></div>
+    <div class="mk up c" style="--x:58" data-b="1"><i></i><div class="lb"><b>Age 58</b>Cancer</div></div>
+    <div class="avg" data-b="3"><span>Average age at claim: 49</span></div>
+  </div>
+  <p class="center more"><span data-b="2">60% of claims are paid to people between 30 and 55.</span> <span data-b="3">The average age is just 49.</span></p>
+  <p class="source">Source: Equitable, critical illness claims paid January 2013 to December 2025 (example claims, average age at claim, share of claimants aged 30 to 55).</p>
+  <aside class="notes">Cancer is the biggest one, but critical illness doesn't pick its victims. These are real claims an insurer paid out.
+Click 1: the claims appear along a lifetime. "A 5-year-old who lost their speech. A stroke at 20. MS at 33. A heart attack at 35. Breast cancer at 43."
+Click 2: "60% of people who claimed were between 30 and 55." Look around the room: "That's most of us, right now."
+Click 3: "The average age at claim was just 49. This isn't something that happens at 80."
+Other real claims on the same list: kidney failure at 53, angioplasty at 47, heart valve replacement at 63.
+If asked about stroke: someone in Canada has a stroke every 5 minutes, and 80% of stroke survivors live with some impairment or disability (Heart and Stroke Foundation).</aside>
 </section>
 
 <!-- 8c · Critical illness: one piece of the plan -->
@@ -690,15 +724,15 @@ If asked about stroke: someone in Canada has a stroke every 5 minutes, and 80% o
     <ul>
       <li data-b="2">Covers cancer, heart attack and stroke, and many more, from MS to Parkinson's to kidney failure</li>
       <li data-b="2">Pays you a tax-free lump sum on diagnosis, to spend on anything: the mortgage, treatment, time off</li>
-      <li data-b="2">The average claim Equitable paid: $70,600</li>
+      <li data-b="2">The average critical illness claim paid: $70,600</li>
       <li data-b="2">Not an expense: it protects everything else you're building</li>
     </ul>
   </div>
   <p class="center close" data-b="3">One small piece. Without it, the whole plan can fall apart.</p>
-  <p class="source">Sources: Equitable, EquiLiving critical illness insurance (26 covered conditions; claims data January 2013 to December 2025). iA Financial Group, Transition, and Manulife, Lifecheque (about 25 covered conditions each).</p>
+  <p class="source">Sources: Equitable, EquiLiving critical illness insurance (26 covered conditions; average claim from claims paid January 2013 to December 2025). iA Financial Group, Transition, and Manulife, Lifecheque (about 25 covered conditions each).</p>
   <aside class="notes">This is the bridge to Part 2. Keep it short.
 Click 1: three unnamed pieces of a family's plan appear. "A family's financial plan has several pieces. We'll go through the others in the main presentation."
-Click 2: the critical illness piece snaps in. "Critical illness coverage is one small but essential piece. It pays a tax-free lump sum when you're diagnosed, and you decide how to use it. The average claim Equitable paid was $70,600." (Across 11 insurers, the industry study's average was $86,518.)
+Click 2: the critical illness piece snaps in. "Critical illness coverage is one small but essential piece. It pays a tax-free lump sum when you're diagnosed, and you decide how to use it. The average claim paid was $70,600." (Across 11 insurers, the industry study's average was $86,518.)
 "It's not an expense. It's what protects every other piece when life hits."
 Click 3: "One small piece. Without it, the whole plan can fall apart. The full picture is what we'll show you next, in the main presentation."
 Extra facts if asked: cancer is 69% of claims paid and four illnesses make up 85% (iA). Foresters says the top 8 conditions it covers make up more than 90% of critical illness claims.
