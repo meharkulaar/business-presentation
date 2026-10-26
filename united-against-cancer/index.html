@@ -296,35 +296,44 @@ use{fill:currentColor}
 .cl-in{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
 .cl-in svg{position:absolute;inset:0;width:440px;height:270px;color:var(--c);transition:color 1.2s var(--leaf-ease);filter:drop-shadow(0 14px 22px rgba(0,0,0,.35))}
 .cl-in span{position:relative;font-size:33px;font-weight:600;line-height:1.15;text-align:center;color:var(--bark);max-width:280px;margin-left:-26px;transition:color 1.2s var(--leaf-ease)}
-.s11 .fall-in[data-b].on{animation:landQuick .75s cubic-bezier(.2,.8,.3,1) both}
-.s11 .fall-in[data-b].on.done{animation:none}
+.s11 .fall-in[data-b].on,.s17 .fall-in[data-b].on{animation:landQuick .75s cubic-bezier(.2,.8,.3,1) both}
+.s11 .fall-in[data-b].on.done,.s17 .fall-in[data-b].on.done{animation:none}
 @keyframes landQuick{
   0%{opacity:0;transform:translate(-24px,-200px) rotate(-16deg) scale(.88)}
   35%{opacity:1}
   70%{transform:translate(6px,8px) rotate(3deg) scale(1.03)}
   100%{opacity:1;transform:none}
 }
-.s12 .cleaf{transition:opacity 1.2s var(--leaf-ease)}
-.s12.st-1 .cl-in{transform:scale(1.07)}
-.s12.st-1 .cl-in svg{color:var(--ember);transition-delay:calc(var(--x) * .7s)}
-.s12.st-1 .cl-in span{color:var(--oat);transition-delay:calc(var(--x) * .7s)}
-.s12.gust .cl-in{animation:gust 1.8s var(--leaf-ease) calc(var(--x) * .7s) both}
-@keyframes gust{
-  0%{transform:scale(1) rotate(0)}
-  15%{transform:scale(1.03) translateX(26px) rotate(7deg)}
-  32%{transform:scale(1.05) translateX(-18px) rotate(-6deg)}
-  50%{transform:scale(1.09) translateX(14px) rotate(4deg)}
-  70%{transform:scale(1.08) translateX(-6px) rotate(-2deg)}
-  100%{transform:scale(1.07) rotate(0)}
+/* slide 17: shake, turn rust, crack, crumble; reverses on the way back */
+.s12 .cl-in{--d:calc(var(--x) * .3s)}
+.s12 .frags{position:absolute;inset:0;filter:drop-shadow(0 14px 22px rgba(0,0,0,.35))}
+.s12 .cl-in .fr{filter:none;
+  transition:color .5s var(--leaf-ease) calc(var(--d) + .1s),
+    translate .25s ease-out calc(var(--d) + .85s),
+    transform 1.3s cubic-bezier(.55,0,.85,.4) calc(var(--d) + 1.05s),
+    opacity 1.1s ease-in calc(var(--d) + 1.25s)}
+.s12 .f1{clip-path:polygon(0 0,46% 0,50% 18%,44% 30%,52% 48%,30% 56%,14% 50%,0 60%)}
+.s12 .f2{clip-path:polygon(46% 0,100% 0,100% 46%,78% 52%,64% 44%,52% 48%,44% 30%,50% 18%)}
+.s12 .f3{clip-path:polygon(0 60%,14% 50%,30% 56%,52% 48%,48% 70%,56% 84%,50% 100%,0 100%)}
+.s12 .f4{clip-path:polygon(52% 48%,64% 44%,78% 52%,100% 46%,100% 100%,50% 100%,56% 84%,48% 70%)}
+.s12 .cl-in span{transition:color .5s var(--leaf-ease) var(--d),opacity .35s ease-in calc(var(--d) + .8s)}
+.s12.st-1 .cl-in .fr{color:var(--ember)}
+.s12.st-1 .cl-in span{color:var(--oat);opacity:0}
+.s12.st-1 .f1{translate:-7px -6px;transform:translate(-70px,420px) rotate(-55deg);opacity:0}
+.s12.st-1 .f2{translate:7px -6px;transform:translate(80px,460px) rotate(42deg);opacity:0}
+.s12.st-1 .f3{translate:-7px 6px;transform:translate(-40px,330px) rotate(-28deg);opacity:0}
+.s12.st-1 .f4{translate:7px 6px;transform:translate(55px,370px) rotate(64deg);opacity:0}
+.s12.gust .cl-in{animation:shake .8s ease-in-out var(--d) both}
+@keyframes shake{
+  0%,100%{transform:none}
+  15%{transform:translateX(-14px) rotate(-4deg)}
+  30%{transform:translateX(12px) rotate(4deg)}
+  45%{transform:translateX(-10px) rotate(-3deg)}
+  60%{transform:translateX(8px) rotate(2deg)}
+  80%{transform:translateX(-4px) rotate(-1deg)}
 }
-.s12.st-2 .cleaf{opacity:.13}
-.s12 .x10{position:absolute;left:0;top:280px;width:1920px;text-align:center;font-family:var(--serif);font-size:300px;line-height:1;color:var(--oat);
-  text-shadow:0 0 40px rgba(43,32,25,.95);opacity:0;transform:scale(.6);transition:opacity 1s var(--leaf-ease) .5s,transform 1.4s var(--leaf-ease) .5s}
-.s12 .x10 span{display:inline-block;padding:70px 150px;border-radius:50%;background:radial-gradient(ellipse at center,rgba(43,32,25,.97) 0%,rgba(43,32,25,.92) 45%,rgba(43,32,25,0) 72%)}
-.s12.st-1 .x10{opacity:1;transform:scale(1)}
-.s12.st-2 .x10{transform:translate(620px,-20px) scale(.82);transition-delay:0s}
-.s12 .lines{position:absolute;left:150px;top:280px;width:1180px}
-.s12 .lines p{font-size:40px;line-height:1.32;margin-bottom:42px}
+.s12 .lines{position:absolute;left:300px;right:300px;top:250px}
+.s12 .lines p{font-size:44px;line-height:1.32;margin-bottom:48px}
 .s12 .lines b{font-weight:600;color:var(--gold)}
 
 /* ---------- slide 13 · Zoom ---------- */
@@ -402,9 +411,9 @@ use{fill:currentColor}
 .s17 .for{top:330px;font-size:48px;color:var(--oat-soft)}
 .mleaf{position:absolute;left:0;top:0;width:220px;height:200px;margin:-100px 0 0 -110px;
   transform:translate(var(--ax),var(--ay)) rotate(var(--ar)) scale(var(--as,1));
-  transition:transform 2.8s cubic-bezier(.45,.05,.3,1),opacity 1.2s var(--leaf-ease);transition-delay:calc(var(--k) * 32ms)}
+  transition:transform 1.5s cubic-bezier(.45,.05,.3,1),opacity .8s var(--leaf-ease);transition-delay:calc(var(--k) * 14ms)}
 .mleaf .in{position:absolute;inset:0}
-.mleaf svg{position:absolute;inset:0;width:220px;height:200px;color:var(--c);transition:color 2s var(--leaf-ease);transition-delay:calc(var(--k) * 32ms + .6s)}
+.mleaf svg{position:absolute;inset:0;width:220px;height:200px;color:var(--c);transition:color 1s var(--leaf-ease);transition-delay:calc(var(--k) * 14ms + .3s)}
 .mleaf.word{width:280px;height:172px;margin:-86px 0 0 -140px}
 .mleaf.word svg{width:280px;height:172px;filter:drop-shadow(0 10px 16px rgba(0,0,0,.35))}
 .mleaf span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:600;color:var(--bark);transition:opacity .8s var(--leaf-ease);margin-left:-14px}
@@ -413,7 +422,7 @@ use{fill:currentColor}
 .s17.st-8 .mleaf svg{color:var(--lavender)}
 .s17.st-8 .mleaf span{opacity:0}
 .s17.st-8 .ribbonglow{opacity:1}
-.ribbonglow{position:absolute;left:760px;top:340px;width:400px;height:520px;opacity:0;transition:opacity 3s var(--leaf-ease) 2.4s;
+.ribbonglow{position:absolute;left:760px;top:340px;width:400px;height:520px;opacity:0;transition:opacity 1.6s var(--leaf-ease) 1.2s;
   background:radial-gradient(ellipse at center,rgba(185,163,214,.22),rgba(185,163,214,0) 65%)}
 .s17.st-8 .for{opacity:0;transition-delay:0s}
 .s17 .final{top:880px;padding:0 280px;font-size:44px;line-height:1.35}
@@ -831,11 +840,10 @@ Each leaf lands quickly, so you can click on as soon as you've made the point.
 Briefly mention that our philosophies, multi-handed income and 10% savings with the 3 rules and 3 goals of money, address these. Detail comes in Part 2.</aside>
 </section>
 
-<!-- 12 · Amplified -->
-<section class="slide s12" data-id="s12" data-steps="5" data-seg="Amplified 10x" data-who="Host" data-end="14">
+<!-- 12 · Add a cancer diagnosis -->
+<section class="slide s12" data-id="s12" data-steps="5" data-seg="Add a cancer diagnosis" data-who="Host" data-end="14">
   <h2 class="center h-sm">Now add a cancer diagnosis.</h2>
   <div class="cleaves" data-mode="static"></div>
-  <div class="x10"><span>×10</span></div>
   <div class="lines">
     <p data-b="2"><b>High debt:</b> the payments don't stop when the paycheque does.</p>
     <p data-b="3"><b>Limited income:</b> often one income disappears, and the caregiver's hours drop too.</p>
@@ -843,7 +851,7 @@ Briefly mention that our philosophies, multi-handed income and 10% savings with 
     <p data-b="5"><b>Lack of savings:</b> treatment, travel and care costs go straight onto debt.</p>
   </div>
   <aside class="notes">Same eight leaves. "Now add a cancer diagnosis."
-Click 1: the gust. Every challenge gets ten times heavier.
+Click 1: let it play. Every leaf shakes, turns red, cracks and crumbles. Say nothing for a moment: this is what a diagnosis does to the challenges a family was already carrying.
 Clicks 2 to 5: one line each.
 Transition line: "I could keep describing it, but nobody can explain this better than someone who lived it."</aside>
 </section>
@@ -1067,9 +1075,15 @@ document.querySelectorAll('.cleaves').forEach(box=>{
     const o=document.createElement('div');o.className='cleaf';
     o.style.cssText=`left:${x}px;top:${y}px;--r:${r}deg;--c:${CCOL[i]};--x:${(x/1920).toFixed(3)}`;
     const inn=document.createElement('div');inn.className='cl-in';
-    const s=svgEl('svg',{viewBox:'0 0 440 270'});s.appendChild(svgEl('use',{href:'#wide'}));
     const t=document.createElement('span');t.textContent=label;
-    inn.append(s,t);o.appendChild(inn);
+    if(build){const s=svgEl('svg',{viewBox:'0 0 440 270'});s.appendChild(svgEl('use',{href:'#wide'}));inn.append(s,t);}
+    else{
+      // four jagged pieces that tile the leaf exactly, so it can crack and crumble
+      const fr=document.createElement('div');fr.className='frags';
+      for(let k=1;k<=4;k++){const s=svgEl('svg',{viewBox:'0 0 440 270',class:'fr f'+k});s.appendChild(svgEl('use',{href:'#wide'}));fr.appendChild(s);}
+      inn.append(fr,t);
+    }
+    o.appendChild(inn);
     if(build){inn.classList.add('fall-in');inn.dataset.b=i+1;}
     box.appendChild(o);
   });
@@ -1163,7 +1177,7 @@ function runCount(el){
 }
 const hooks={
   s12(el,step,prev,animate){
-    if(animate&&step===1&&prev===0){el.classList.remove('gust');void el.offsetWidth;el.classList.add('gust');clearTimeout(el._g);el._g=setTimeout(()=>el.classList.remove('gust'),2800);}
+    if(animate&&step===1&&prev===0){el.classList.remove('gust');void el.offsetWidth;el.classList.add('gust');clearTimeout(el._g);el._g=setTimeout(()=>el.classList.remove('gust'),1300);}
     if(step===0)el.classList.remove('gust');
   }
 };

@@ -11,7 +11,7 @@ November 1, 2026 · Team ALL IN with Foresters Financial · 25 minutes
 | 13 | Foresters Financial | Foresters partner | 2 | 10:00 |
 | 14 | The preparedness gap | Host | 1 | 11:00 |
 | 15 | Today's 8 challenges | Host | 2 | 13:00 |
-| 16 | Amplified 10x | Host | 1 | 14:00 |
+| 16 | Add a cancer diagnosis | Host | 1 | 14:00 |
 | 17 | Live client story | Client on Zoom | 4 | 18:00 |
 | 18–20 | Prepared vs unprepared family | Host | 2 | 20:00 |
 | 21–22 | Mission and transition | Host | 1 | 21:00 |
@@ -247,11 +247,11 @@ Briefly mention that our philosophies, multi-handed income and 10% savings with 
 
 ### 17. Now add a cancer diagnosis.
 
-*Host · Amplified 10x · 5 clicks · finish by 14:00*
+*Host · Add a cancer diagnosis · 5 clicks · finish by 14:00*
 
 Same eight leaves. "Now add a cancer diagnosis."
 
-Click 1: the gust. Every challenge gets ten times heavier.
+Click 1: let it play. Every leaf shakes, turns red, cracks and crumbles. Say nothing for a moment: this is what a diagnosis does to the challenges a family was already carrying.
 
 Clicks 2 to 5: one line each.
 
