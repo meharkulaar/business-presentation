@@ -223,6 +223,8 @@ Click 1: read the line with compassion. No blame.
 
 One leaf per click, about 30 seconds each with a relatable example. Press A to show all eight at once if time is short.
 
+Each leaf lands quickly, so you can click on as soon as you've made the point.
+
 1 High debt: mortgage, car loan, credit cards.
 
 2 Lack of family time: two jobs, long commutes.
@@ -263,13 +265,13 @@ Leave this slide up while you switch the projector to Zoom. Introduce our client
 
 *Host · Prepared vs unprepared family · 9 clicks · finish by 20:00*
 
-Clicks 1 to 5: Steven's side, one line at a time. His tree loses leaves with every line.
+Clicks 1 to 5: Steven's side, one line at a time. His tree loses leaves and his family's savings bar drains with every line, until it's gone and a second mortgage appears.
 
-Clicks 6 to 9: Sandra and Warren. Their tree holds and glows.
+Clicks 6 to 9: Sandra and Warren. Their tree holds and glows, and their savings stay full: the critical illness benefit paid the bills.
 
 Before the event, confirm with the partner that Sandra and Warren's names can be shown (the original Canada Life page is no longer online).
 
-> Steven's story: Canadian Cancer Society, February 2025. Sandra and Warren's story: Canada Life client story. [OPTIONAL: replace or add a Foresters client story]
+> Steven's story: Canadian Cancer Society, February 2025. Sandra and Warren's story: Canada Life client story.
 
 ### 20. Steven's words
 
@@ -285,9 +287,11 @@ Click 1: the two leaves come together. Savings and protection belong together.
 
 Click 2: "That's a decision you make while you're healthy." Slow down on "while you're healthy."
 
-### 22. This is a mission. No family in our community should face this unprepared.
+### 22. Our mission: no family left behind
 
 *Host · Mission and transition · 9 clicks · finish by 21:00*
+
+Read the mission plainly: "This is our mission. No family left behind."
 
 Click 1: "We're not doing this for ourselves. We're doing it for our…"
 
@@ -295,7 +299,7 @@ Clicks 2 to 7: one word per click: kids, siblings, spouses, parents, friends, lo
 
 Click 8: all the leaves gather into the lavender ribbon. Pause. Let the room see it.
 
-Click 9: "Everyone in this room now knows something most families don't. That's our shared responsibility."
+Click 9: "Everyone in this room now knows something most families don't. That's our shared responsibility. No family left behind."
 
 ### 23. So how does a family become the prepared family?
 

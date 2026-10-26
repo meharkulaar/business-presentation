@@ -29,15 +29,15 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:100%;height:100%;background:#000;overflow:hidden;color:var(--oat);font-family:var(--sans)}
 #viewport{position:fixed;inset:0;background:#000}
-#stage{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;overflow:hidden;
+#stage{position:absolute;left:0;top:0;width:1920px;height:1080px;--ox:0px;--oy:0px;transform-origin:0 0;overflow:hidden;
   background:radial-gradient(ellipse 90% 80% at 50% 40%,#382A21 0%,var(--bark) 60%,#1E1611 100%)}
 #grain{position:absolute;inset:0;pointer-events:none;z-index:50;opacity:.09;mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 .9 0 0 0 0 .8 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-#fall{position:absolute;inset:0;width:1920px;height:1080px;z-index:1;pointer-events:none;opacity:0;transition:opacity .9s var(--leaf-ease)}
+#fall{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:0;transition:opacity .9s var(--leaf-ease)}
 #fall.show{opacity:1}
 
 /* ---------- slides ---------- */
-.slide{position:absolute;inset:0;z-index:2;opacity:0;visibility:hidden;transition:opacity .5s var(--leaf-ease),visibility 0s linear .5s}
+.slide{position:absolute;left:var(--ox,0px);top:var(--oy,0px);width:1920px;height:1080px;z-index:2;opacity:0;visibility:hidden;transition:opacity .5s var(--leaf-ease),visibility 0s linear .5s}
 .slide.active{opacity:1;visibility:visible;transition:opacity .5s var(--leaf-ease),visibility 0s}
 .slide .notes{display:none}
 .slide.notrans *{transition:none!important}
@@ -82,8 +82,8 @@ use{fill:currentColor}
 /* ---------- slide 1 · title ---------- */
 .s1 .title{top:200px}
 .s1 .date{top:390px;font-size:48px;color:var(--gold);font-family:var(--sans);font-weight:500}
-.s1 .hero{position:absolute;left:900px;top:470px;width:120px;height:130px;color:var(--ember)}
-.s1 .hero svg{width:120px;height:130px;filter:drop-shadow(0 10px 18px rgba(0,0,0,.45))}
+.s1 .hero{position:absolute;left:875px;top:458px;width:170px;height:187px;color:var(--ember)}
+.s1 .hero svg{width:170px;height:187px;filter:drop-shadow(0 10px 18px rgba(0,0,0,.45))}
 .s1 .hero.play{animation:heroFall 6.2s cubic-bezier(.4,.1,.3,1) both}
 .s1 .hero.play svg{animation:heroIdle 7s ease-in-out 6.2s infinite}
 @keyframes heroFall{
@@ -96,7 +96,11 @@ use{fill:currentColor}
   100%{transform:translate(0,0) rotate(-4deg);opacity:1}
 }
 @keyframes heroIdle{0%,100%{transform:rotate(0)}50%{transform:rotate(5deg)}}
-.s1 .presented{top:700px;font-size:36px;color:var(--oat-soft)}
+.bigtree{position:absolute;bottom:calc(-30px - var(--oy,0px));width:520px;height:780px;overflow:visible}
+.bt-l{left:calc(-60px - var(--ox,0px))}
+.bt-r{right:calc(-60px - var(--ox,0px));transform:scaleX(-1)}
+.bigtree .bl{transform-box:fill-box;transform-origin:50% 100%;animation:sway 7s ease-in-out infinite;animation-delay:calc(var(--d) * -700ms)}
+.s1 .presented{top:705px;font-size:36px;color:var(--oat-soft)}
 .s1 .logos{position:absolute;left:0;right:0;top:765px;display:flex;align-items:center;justify-content:center;gap:56px}
 .s1 .wordmark{font-family:var(--serif);font-size:84px;color:var(--oat);white-space:nowrap}
 .s1 .divider{width:2px;height:110px;background:rgba(244,237,225,.3)}
@@ -107,15 +111,22 @@ use{fill:currentColor}
 /* ---------- slide 2 · reflection ---------- */
 .s2 .ask{top:330px;padding:0 200px;transition:opacity 1.6s var(--leaf-ease)}
 .s2.st-1 .ask{opacity:0}
-.s2 .ribbon{position:absolute;left:870px;top:280px;width:180px;height:320px;opacity:0;transition:opacity 2.4s var(--leaf-ease) .6s}
+.s2 .ribbon{position:absolute;left:830px;top:170px;width:260px;height:470px;opacity:0;transition:opacity 2.4s var(--leaf-ease) .6s}
 .s2.st-1 .ribbon{opacity:1}
-.s2 .ribbon svg{width:180px;height:320px;overflow:visible}
+.s2 .ribbon::before{content:"";position:absolute;left:-220px;right:-220px;top:-120px;bottom:-120px;background:radial-gradient(ellipse at center,rgba(185,163,214,.2),rgba(185,163,214,0) 62%)}
+.s2 .ribbon svg{width:260px;height:470px;overflow:visible}
 .s2.st-1 .ribbon svg{animation:glow 5s ease-in-out infinite}
 @keyframes glow{0%,100%{filter:drop-shadow(0 0 10px rgba(185,163,214,.35))}50%{filter:drop-shadow(0 0 34px rgba(185,163,214,.75))}}
-.s2 .caption{top:680px;font-size:44px;color:var(--oat);transition-delay:1.4s;transition-duration:2s}
+.s2 .caption{top:720px;font-size:44px;color:var(--oat);transition-delay:1.4s;transition-duration:2s}
 
 /* ---------- slide 3 · section ---------- */
-.section-title{top:380px}
+.trio{position:absolute;left:0;right:0;top:90px;height:330px}
+.trio svg{position:absolute;filter:drop-shadow(0 16px 26px rgba(0,0,0,.4));transform-origin:50% 100%}
+.trio .t1{left:600px;top:70px;width:220px;height:242px;color:var(--gold);rotate:-28deg;animation:sway 6s ease-in-out infinite}
+.trio .t2{left:830px;top:0;width:260px;height:286px;color:var(--ember);animation:sway 7s ease-in-out -2s infinite}
+.trio .t3{left:1100px;top:70px;width:220px;height:242px;color:var(--beige);rotate:28deg;animation:sway 6.5s ease-in-out -4s infinite}
+.section-title{top:450px}
+.s3 .section-sub{top:630px}
 .section-sub{top:560px;font-size:44px;color:var(--gold);font-weight:500}
 
 /* ---------- slide 4 · 2 in 5 ---------- */
@@ -265,7 +276,7 @@ use{fill:currentColor}
 .sci .close{top:830px;font-size:44px;padding:0 160px;font-family:var(--serif);color:var(--oat)}
 
 /* watermark on every slide */
-.wm{position:absolute;right:30px;bottom:18px;z-index:6;font-size:18px;font-weight:500;letter-spacing:.03em;color:rgba(244,237,225,.5);pointer-events:none;white-space:nowrap}
+.wm{position:absolute;right:calc(30px - var(--ox,0px));bottom:calc(18px - var(--oy,0px));z-index:6;font-size:18px;font-weight:500;letter-spacing:.03em;color:rgba(244,237,225,.5);pointer-events:none;white-space:nowrap}
 
 /* ---------- slide 9 · Foresters ---------- */
 .s9 .plate{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);padding:56px 84px;border-radius:40px}
@@ -281,6 +292,14 @@ use{fill:currentColor}
 .cl-in{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
 .cl-in svg{position:absolute;inset:0;width:440px;height:270px;color:var(--c);transition:color 1.2s var(--leaf-ease);filter:drop-shadow(0 14px 22px rgba(0,0,0,.35))}
 .cl-in span{position:relative;font-size:33px;font-weight:600;line-height:1.15;text-align:center;color:var(--bark);max-width:280px;margin-left:-26px;transition:color 1.2s var(--leaf-ease)}
+.s11 .fall-in[data-b].on{animation:landQuick .75s cubic-bezier(.2,.8,.3,1) both}
+.s11 .fall-in[data-b].on.done{animation:none}
+@keyframes landQuick{
+  0%{opacity:0;transform:translate(-24px,-200px) rotate(-16deg) scale(.88)}
+  35%{opacity:1}
+  70%{transform:translate(6px,8px) rotate(3deg) scale(1.03)}
+  100%{opacity:1;transform:none}
+}
 .s12 .cleaf{transition:opacity 1.2s var(--leaf-ease)}
 .s12.st-1 .cl-in{transform:scale(1.07)}
 .s12.st-1 .cl-in svg{color:var(--ember);transition-delay:calc(var(--x) * .7s)}
@@ -313,15 +332,15 @@ use{fill:currentColor}
 
 /* ---------- slide 14 · two families ---------- */
 .s14 h2{top:56px;font-size:76px}
-.half{position:absolute;top:190px;width:900px;height:800px}
+.half{position:absolute;top:170px;width:900px;height:820px}
 .half.l{left:50px}.half.r{left:990px}
 .s14 .split{position:absolute;left:959px;top:200px;width:2px;height:760px;background:rgba(244,237,225,.14)}
 .half .tag{font-size:34px;font-weight:600}
 .half.l .tag{color:var(--ember-text)}.half.r .tag{color:var(--beige)}
 .half h3{font-family:var(--serif);font-weight:400;font-size:58px;line-height:1.05;margin-top:4px}
-.half .tree{position:absolute;left:0;top:150px;width:270px;height:420px;overflow:visible}
-.half ul{position:absolute;left:290px;top:150px;width:600px;list-style:none}
-.half li{font-size:32px;line-height:1.28;margin-bottom:22px;padding-left:28px;position:relative}
+.half .tree{position:absolute;left:-10px;top:130px;width:300px;height:466px;overflow:visible}
+.half ul{position:absolute;left:310px;top:140px;width:580px;list-style:none}
+.half li{font-size:32px;line-height:1.26;margin-bottom:14px;padding-left:28px;position:relative}
 .half li::before{content:"";position:absolute;left:0;top:14px;width:12px;height:12px;border-radius:50% 0;transform:rotate(45deg)}
 .half.l li::before{background:var(--ember)}.half.r li::before{background:var(--beige)}
 .tree .tl{transform-box:fill-box;transform-origin:50% 100%;transition:transform 2.6s cubic-bezier(.4,.1,.5,1),opacity 2.2s ease-in;transition-delay:calc(var(--d) * 120ms)}
@@ -331,10 +350,30 @@ use{fill:currentColor}
 .s14.st-6 .rt .tl{animation:treeSway 6s ease-in-out infinite;animation-delay:calc(var(--d) * -400ms)}
 @keyframes treeSway{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
 .s14 .source{bottom:44px;font-size:24px;right:320px}
+.meter{position:absolute;left:0;right:20px;top:630px;padding:22px 26px 20px;border-radius:20px;background:rgba(58,44,34,.7);border:2px solid rgba(244,237,225,.1)}
+.meter[data-b]{transform:none}
+.mrow{display:flex;justify-content:space-between;align-items:baseline;font-size:32px;margin-bottom:14px}
+.mrow span{color:var(--oat-soft)}
+.stt{display:none;font-weight:600}
+.ml .stt.s0,.mr .stt.s0{display:inline}
+.s14.st-3 .ml .s0{display:none}.s14.st-3 .ml .s1{display:inline}
+.s14.st-5 .ml .s1{display:none}.s14.st-5 .ml .s2{display:inline;color:var(--ember-text)}
+.s14.st-8 .mr .s0{display:none}.s14.st-8 .mr .s1{display:inline;color:var(--beige)}
+.mtrack{height:34px;border-radius:17px;background:rgba(244,237,225,.08);overflow:hidden}
+.mtrack i{display:block;height:100%;width:100%;border-radius:17px;background:linear-gradient(90deg,var(--gold),var(--beige));transition:width 1.6s var(--leaf-ease),background 1s}
+.s14.st-3 .ml .mtrack i{width:70%}
+.s14.st-4 .ml .mtrack i{width:32%;background:linear-gradient(90deg,var(--ember),var(--gold))}
+.s14.st-5 .ml .mtrack i{width:0}
+.debt,.safe{position:absolute;right:26px;top:-22px;font-size:28px;font-weight:600;padding:4px 16px;border-radius:999px;opacity:0;transition:opacity .9s var(--leaf-ease) .8s}
+.debt{background:var(--ember);color:var(--oat)}
+.safe{background:var(--beige);color:var(--bark)}
+.s14.st-5 .debt{opacity:1}
+.s14.st-8 .safe{opacity:1}
+.s14.st-8 .mr{border-color:rgba(216,195,160,.6);box-shadow:0 0 34px rgba(216,195,160,.25)}
 .ph{display:inline-block;border:3px dashed var(--gold);border-radius:12px;padding:2px 14px;color:var(--gold);background:rgba(185,138,90,.08);font-weight:600}
 
 /* ---------- slide 15 · quote ---------- */
-.s15{background:radial-gradient(ellipse 90% 90% at 50% 45%,#7A5038 0%,var(--maple) 55%,#3F2A1C 100%)}
+.s15::before{content:"";position:absolute;z-index:-1;left:calc(-1 * var(--ox,0px));right:calc(-1 * var(--ox,0px));top:calc(-1 * var(--oy,0px));bottom:calc(-1 * var(--oy,0px));background:radial-gradient(ellipse 90% 90% at 50% 45%,#7A5038 0%,var(--maple) 55%,#3F2A1C 100%)}
 .s15 .mark{position:absolute;left:220px;top:150px;font-family:var(--serif);font-size:320px;line-height:1;color:rgba(244,237,225,.22)}
 .s15 blockquote{position:absolute;left:300px;right:260px;top:340px;font-family:var(--serif);font-size:112px;line-height:1.1;color:var(--oat)}
 .s15 cite{position:absolute;left:300px;top:720px;font-style:normal;font-size:44px;color:var(--oat);font-weight:500}
@@ -354,7 +393,8 @@ use{fill:currentColor}
 .s16 .close{top:800px;padding:0 260px;font-size:44px;line-height:1.35}
 
 /* ---------- slide 17 · mission ---------- */
-.s17 .top{top:100px;padding:0 220px}
+.s17 .kick{top:70px;font-family:var(--serif);font-size:52px;color:var(--gold)}
+.s17 .top{top:140px;font-size:120px;padding:0 160px}
 .s17 .for{top:330px;font-size:48px;color:var(--oat-soft)}
 .mleaf{position:absolute;left:0;top:0;width:220px;height:200px;margin:-100px 0 0 -110px;
   transform:translate(var(--ax),var(--ay)) rotate(var(--ar)) scale(var(--as,1));
@@ -512,6 +552,8 @@ body.print .slide::after{content:"";position:absolute;inset:0;pointer-events:non
 <section class="slide s1" data-id="s1" data-steps="0" data-fall="18" data-seg="Welcome and reflection" data-who="Host" data-end="2">
   <h1 class="center title h-xl">United Against Cancer</h1>
   <p class="center date">November 1, 2026</p>
+  <svg class="bigtree bt-l" viewBox="0 0 480 720" data-bigtree="3" aria-hidden="true"></svg>
+  <svg class="bigtree bt-r" viewBox="0 0 480 720" data-bigtree="8" aria-hidden="true"></svg>
   <div class="hero" id="hero"><svg viewBox="0 0 100 110" class="leaf"><use href="#maple"/></svg></div>
   <p class="center presented">Presented by</p>
   <div class="logos">
@@ -533,6 +575,11 @@ Click once: the text fades and the lavender ribbon appears. Lavender stands for 
 
 <!-- 3 · Section -->
 <section class="slide s3" data-id="s3" data-steps="0" data-fall="14" data-seg="Cancer by the numbers" data-who="Host" data-end="8">
+  <div class="trio" aria-hidden="true">
+    <svg class="t1" viewBox="0 0 100 110"><use href="#oak"/></svg>
+    <svg class="t2" viewBox="0 0 100 110"><use href="#maple"/></svg>
+    <svg class="t3" viewBox="0 0 100 110"><use href="#birch"/></svg>
+  </div>
   <h2 class="center section-title h-lg">Cancer by the numbers</h2>
   <p class="center section-sub">What every family in Canada should know</p>
   <aside class="notes">Gentle transition out of the silence. "Let's look at what cancer means for families in Canada, in numbers. Behind every number is a person, so on these slides every leaf is a person."</aside>
@@ -758,6 +805,7 @@ Click 1: read the line with compassion. No blame.</aside>
   <h2 class="center h-sm">The challenges families face every day</h2>
   <div class="cleaves" data-mode="build"></div>
   <aside class="notes">One leaf per click, about 30 seconds each with a relatable example. Press A to show all eight at once if time is short.
+Each leaf lands quickly, so you can click on as soon as you've made the point.
 1 High debt: mortgage, car loan, credit cards.
 2 Lack of family time: two jobs, long commutes.
 3 Limited income: one paycheque carrying a whole household.
@@ -802,6 +850,11 @@ Transition line: "I could keep describing it, but nobody can explain this better
     <div class="tag">Unprepared</div>
     <h3>Steven Hodges</h3>
     <svg class="tree lt" viewBox="0 0 270 420" data-tree="bare"></svg>
+    <div class="meter ml">
+      <div class="mrow"><span>Family savings</span><b class="stt s0">Full</b><b class="stt s1">Draining</b><b class="stt s2">Gone</b></div>
+      <div class="mtrack"><i></i></div>
+      <span class="debt">+ a second mortgage</span>
+    </div>
     <ul>
       <li data-b="1">Self-employed, wife and young child</li>
       <li data-b="2">Stage 4 throat and mouth cancer, 40 rounds of radiation plus chemotherapy</li>
@@ -814,6 +867,11 @@ Transition line: "I could keep describing it, but nobody can explain this better
     <div class="tag">Prepared</div>
     <h3>Sandra and Warren</h3>
     <svg class="tree rt" viewBox="0 0 270 420" data-tree="full"></svg>
+    <div class="meter mr" data-b="6">
+      <div class="mrow"><span>Family savings</span><b class="stt s0">Full</b><b class="stt s1">Protected</b></div>
+      <div class="mtrack"><i></i></div>
+      <span class="safe">Critical illness benefit paid</span>
+    </div>
     <ul>
       <li data-b="6">Married couple with an infant daughter</li>
       <li data-b="7">Sandra was diagnosed with lymphoma</li>
@@ -821,9 +879,9 @@ Transition line: "I could keep describing it, but nobody can explain this better
       <li data-b="9">The coverage let Warren take care of Sandra and their daughter, and eased the financial and emotional strain</li>
     </ul>
   </div>
-  <p class="source">Steven's story: Canadian Cancer Society, February 2025. Sandra and Warren's story: Canada Life client story. <span class="ph">[OPTIONAL: replace or add a Foresters client story]</span></p>
-  <aside class="notes">Clicks 1 to 5: Steven's side, one line at a time. His tree loses leaves with every line.
-Clicks 6 to 9: Sandra and Warren. Their tree holds and glows.
+  <p class="source">Steven's story: Canadian Cancer Society, February 2025. Sandra and Warren's story: Canada Life client story.</p>
+  <aside class="notes">Clicks 1 to 5: Steven's side, one line at a time. His tree loses leaves and his family's savings bar drains with every line, until it's gone and a second mortgage appears.
+Clicks 6 to 9: Sandra and Warren. Their tree holds and glows, and their savings stay full: the critical illness benefit paid the bills.
 Before the event, confirm with the partner that Sandra and Warren's names can be shown (the original Canada Life page is no longer online).</aside>
 </section>
 
@@ -846,16 +904,18 @@ Click 2: "That's a decision you make while you're healthy." Slow down on "while 
 </section>
 
 <!-- 17 · Mission -->
-<section class="slide s17" data-id="s17" data-steps="9" data-seg="Mission and transition" data-who="Host" data-end="21">
-  <h2 class="center top h-sm">This is a mission. No family in our community should face this unprepared.</h2>
+<section class="slide s17" data-id="s17" data-title="Our mission: no family left behind" data-steps="9" data-seg="Mission and transition" data-who="Host" data-end="21">
+  <p class="center kick">This is our mission:</p>
+  <h2 class="center top">No family left behind.</h2>
   <p class="center for" data-b="1">We're not doing this for ourselves. We're doing it for our…</p>
   <div class="ribbonglow"></div>
   <div class="mleaves"></div>
   <p class="center final" data-b="9">Everyone in this room now knows something most families don't. That's our shared responsibility.</p>
-  <aside class="notes">Click 1: "We're not doing this for ourselves. We're doing it for our…"
+  <aside class="notes">Read the mission plainly: "This is our mission. No family left behind."
+Click 1: "We're not doing this for ourselves. We're doing it for our…"
 Clicks 2 to 7: one word per click: kids, siblings, spouses, parents, friends, loved ones.
 Click 8: all the leaves gather into the lavender ribbon. Pause. Let the room see it.
-Click 9: "Everyone in this room now knows something most families don't. That's our shared responsibility."</aside>
+Click 9: "Everyone in this room now knows something most families don't. That's our shared responsibility. No family left behind."</aside>
 </section>
 
 <!-- 18 · Transition -->
@@ -953,7 +1013,7 @@ Click 9: "Everyone in this room now knows something most families don't. That's 
 <script>
 (function(){
 'use strict';
-const W=1920,H=1080;
+let W=1920,H=1080; // stage size; grows past 16:9 so the background fills the screen
 const params=new URLSearchParams(location.search);
 const PRINT=params.has('print');
 const stage=document.getElementById('stage');
@@ -1023,6 +1083,20 @@ function drawTree(svg,full){
   });
 }
 document.querySelectorAll('[data-tree]').forEach(s=>drawTree(s,s.dataset.tree==='full'));
+// Title slide: two large autumn trees framing the title
+document.querySelectorAll('[data-bigtree]').forEach(svg=>{
+  const rnd=seeded(+svg.dataset.bigtree*97+1);
+  svg.appendChild(svgEl('path',{d:'M250 720 C244 640 258 560 246 470 C238 410 214 370 170 330 M248 520 C280 450 320 400 372 360 M244 430 C214 380 170 350 110 330 M250 470 C256 400 262 340 250 260 M262 400 C300 350 330 330 360 300',
+    stroke:'#5E4532','stroke-width':16,fill:'none','stroke-linecap':'round'}));
+  const cols=['#C2603E','#B98A5A','#D8C3A0','#7A4A2E','#A0603A','#E3D2B4'];
+  for(let k=0;k<56;k++){
+    const ang=rnd()*Math.PI*2,r=Math.sqrt(rnd());
+    const x=250+Math.cos(ang)*r*215,y=290+Math.sin(ang)*r*170,s=34+rnd()*30;
+    const u=svgEl('use',{href:'#'+['maple','oak','birch'][k%3],x:(x-s/2).toFixed(0),y:(y-s*.55).toFixed(0),width:s.toFixed(0),height:(s*1.1).toFixed(0),class:'bl'});
+    const c=cols[Math.floor(rnd()*cols.length)];u.style.fill=c;u.style.color=c;u.style.setProperty('--d',k%9);
+    svg.appendChild(u);
+  }
+});
 
 // Slide 18 branch with buds
 (function(){
@@ -1179,9 +1253,18 @@ function frame(t){
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)fallFor(slides[state.i]);});
 
 /* ---------- scale to fit ---------- */
-function fit(){if(PRINT)return;const s=Math.min(innerWidth/W,innerHeight/H)*zoom;
+function fit(){if(PRINT)return;
+  // widen (or heighten) the canvas to the screen's shape, within 4:3 and 2.4:1; slides stay centred
+  const a=innerWidth/innerHeight;let cw=1920,ch=1080;
+  if(a>16/9)cw=Math.round(1080*Math.min(a,2.4));else ch=Math.round(1920/Math.max(a,4/3));
+  W=cw;H=ch;stage.style.width=cw+'px';stage.style.height=ch+'px';
+  stage.style.setProperty('--ox',(cw-1920)/2+'px');stage.style.setProperty('--oy',(ch-1080)/2+'px');
+  if(cv.width!==cw||cv.height!==ch){cv.width=cw;cv.height=ch;}
+  const s=Math.min(innerWidth/W,innerHeight/H)*zoom;
   stage.style.transform=`translate(${(innerWidth-W*s)/2}px,${(innerHeight-H*s)/2}px) scale(${s})`;}
 addEventListener('resize',fit);
+addEventListener('orientationchange',()=>setTimeout(fit,150));
+document.addEventListener('fullscreenchange',()=>setTimeout(fit,60));
 
 /* ---------- keys ---------- */
 let gotoBuf=null;
