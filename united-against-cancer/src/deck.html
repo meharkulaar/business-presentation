@@ -296,7 +296,8 @@ use{fill:currentColor}
 .cl-in{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
 .cl-in svg{position:absolute;inset:0;width:440px;height:270px;color:var(--c);transition:color 1.2s var(--leaf-ease);filter:drop-shadow(0 14px 22px rgba(0,0,0,.35))}
 .cl-in span{position:relative;font-size:33px;font-weight:600;line-height:1.15;text-align:center;color:var(--bark);max-width:280px;margin-left:-26px;transition:color 1.2s var(--leaf-ease)}
-.s11 .fall-in[data-b].on,.s17 .fall-in[data-b].on{animation:landQuick .75s cubic-bezier(.2,.8,.3,1) both}
+.s11 .fall-in[data-b].on{animation:landQuick .75s cubic-bezier(.2,.8,.3,1) both}
+.s17 .fall-in[data-b].on{animation:landQuick .55s cubic-bezier(.2,.8,.3,1) both}
 .s11 .fall-in[data-b].on.done,.s17 .fall-in[data-b].on.done{animation:none}
 @keyframes landQuick{
   0%{opacity:0;transform:translate(-24px,-200px) rotate(-16deg) scale(.88)}
@@ -411,9 +412,9 @@ use{fill:currentColor}
 .s17 .for{top:330px;font-size:48px;color:var(--oat-soft)}
 .mleaf{position:absolute;left:0;top:0;width:220px;height:200px;margin:-100px 0 0 -110px;
   transform:translate(var(--ax),var(--ay)) rotate(var(--ar)) scale(var(--as,1));
-  transition:transform 1.5s cubic-bezier(.45,.05,.3,1),opacity .8s var(--leaf-ease);transition-delay:calc(var(--k) * 14ms)}
+  transition:transform 2.8s cubic-bezier(.45,.05,.3,1),opacity 1.2s var(--leaf-ease);transition-delay:calc(var(--k) * 32ms)}
 .mleaf .in{position:absolute;inset:0}
-.mleaf svg{position:absolute;inset:0;width:220px;height:200px;color:var(--c);transition:color 1s var(--leaf-ease);transition-delay:calc(var(--k) * 14ms + .3s)}
+.mleaf svg{position:absolute;inset:0;width:220px;height:200px;color:var(--c);transition:color 2s var(--leaf-ease);transition-delay:calc(var(--k) * 32ms + .6s)}
 .mleaf.word{width:280px;height:172px;margin:-86px 0 0 -140px}
 .mleaf.word svg{width:280px;height:172px;filter:drop-shadow(0 10px 16px rgba(0,0,0,.35))}
 .mleaf span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:600;color:var(--bark);transition:opacity .8s var(--leaf-ease);margin-left:-14px}
@@ -422,7 +423,7 @@ use{fill:currentColor}
 .s17.st-8 .mleaf svg{color:var(--lavender)}
 .s17.st-8 .mleaf span{opacity:0}
 .s17.st-8 .ribbonglow{opacity:1}
-.ribbonglow{position:absolute;left:760px;top:340px;width:400px;height:520px;opacity:0;transition:opacity 1.6s var(--leaf-ease) 1.2s;
+.ribbonglow{position:absolute;left:760px;top:340px;width:400px;height:520px;opacity:0;transition:opacity 3s var(--leaf-ease) 2.4s;
   background:radial-gradient(ellipse at center,rgba(185,163,214,.22),rgba(185,163,214,0) 65%)}
 .s17.st-8 .for{opacity:0;transition-delay:0s}
 .s17 .final{top:880px;padding:0 280px;font-size:44px;line-height:1.35}
