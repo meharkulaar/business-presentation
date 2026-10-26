@@ -43,6 +43,8 @@ November 1, 2026 · Team ALL IN with Foresters Financial · 25 minutes
 
 *Host · Welcome and reflection · 0 clicks · finish by 2:00*
 
+The ribbons across the top, left to right: lavender (all cancers), pink (breast), light blue (prostate), gold (childhood), pearl (lung), blue (colorectal), orange (leukemia).
+
 Leaves fall on their own while guests are seated. When everyone is in, welcome the room: thank families for coming, and say that tonight is about something that touches all of us. Keep it warm and short.
 
 ### 2. Raise your hand if cancer has touched your family, or someone you love.

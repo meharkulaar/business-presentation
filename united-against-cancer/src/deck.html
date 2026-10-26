@@ -80,6 +80,10 @@ use{fill:currentColor}
 }
 
 /* ---------- slide 1 · title ---------- */
+.s1 .ribbons{position:absolute;left:0;right:0;top:56px;display:flex;justify-content:center;gap:46px}
+.s1 .ribbons svg{width:62px;height:110px;overflow:visible;filter:drop-shadow(0 6px 12px rgba(0,0,0,.4));transform-origin:50% 10%;animation:ribbonSway 6s ease-in-out infinite}
+.s1 .ribbons svg:nth-child(2n){animation-delay:-2s}.s1 .ribbons svg:nth-child(3n){animation-delay:-4s}
+@keyframes ribbonSway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
 .s1 .title{top:200px}
 .s1 .date{top:390px;font-size:48px;color:var(--gold);font-family:var(--sans);font-weight:500}
 .s1 .hero{position:absolute;left:875px;top:458px;width:170px;height:187px;color:var(--ember)}
@@ -550,6 +554,15 @@ body.print .slide::after{content:"";position:absolute;inset:0;pointer-events:non
 
 <!-- 1 · Title -->
 <section class="slide s1" data-id="s1" data-steps="0" data-fall="18" data-seg="Welcome and reflection" data-who="Host" data-end="2">
+  <div class="ribbons" aria-label="Cancer awareness ribbons">
+    <svg viewBox="0 0 100 100" style="color:#B9A3D6"><title>Lavender: all cancers</title><use href="#ribbon"/></svg>
+    <svg viewBox="0 0 100 100" style="color:#E8A0B4"><title>Pink: breast cancer</title><use href="#ribbon"/></svg>
+    <svg viewBox="0 0 100 100" style="color:#8FB8DE"><title>Light blue: prostate cancer</title><use href="#ribbon"/></svg>
+    <svg viewBox="0 0 100 100" style="color:#E0B44C"><title>Gold: childhood cancer</title><use href="#ribbon"/></svg>
+    <svg viewBox="0 0 100 100" style="color:#F4EDE1"><title>Pearl: lung cancer</title><use href="#ribbon"/></svg>
+    <svg viewBox="0 0 100 100" style="color:#6F8FD0"><title>Blue: colorectal cancer</title><use href="#ribbon"/></svg>
+    <svg viewBox="0 0 100 100" style="color:#E0874A"><title>Orange: leukemia</title><use href="#ribbon"/></svg>
+  </div>
   <h1 class="center title h-xl">United Against Cancer</h1>
   <p class="center date">November 1, 2026</p>
   <svg class="bigtree bt-l" viewBox="0 0 480 720" data-bigtree="3" aria-hidden="true"></svg>
@@ -561,7 +574,8 @@ body.print .slide::after{content:"";position:absolute;inset:0;pointer-events:non
     <span class="divider"></span>
     <span class="wordmark">Team ALL IN</span>
   </div>
-  <aside class="notes">Leaves fall on their own while guests are seated. When everyone is in, welcome the room: thank families for coming, and say that tonight is about something that touches all of us. Keep it warm and short.</aside>
+  <aside class="notes">The ribbons across the top, left to right: lavender (all cancers), pink (breast), light blue (prostate), gold (childhood), pearl (lung), blue (colorectal), orange (leukemia).
+Leaves fall on their own while guests are seated. When everyone is in, welcome the room: thank families for coming, and say that tonight is about something that touches all of us. Keep it warm and short.</aside>
 </section>
 
 <!-- 2 · Reflection -->
