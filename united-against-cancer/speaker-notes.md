@@ -25,7 +25,7 @@ November 1, 2026 · Team ALL IN with Foresters Financial · 25 minutes
 | Left, Up, PageUp | Back one step |
 | S | Presenter view (current and next, notes, timers) |
 | E | Edit mode: click any text to change it; Save copy downloads an edited file |
-| T | Table of contents (button at top right); the eye icon on each row hides or shows that slide |
+| T | Table of contents (button at top right); the eye icon on each row hides or shows that slide; in edit mode, drag rows or use the ▲▼ arrows to reorder slides |
 | + / − / 0 | Zoom in, out, reset |
 | Caps Lock | Laser pointer |
 | Gear (bottom left) | Full screen, restart, presenter view, edit mode, motion, zoom |
@@ -205,13 +205,31 @@ Tax-free applies to individually owned policies with personally paid premiums; c
 
 > Sources: Equitable, EquiLiving critical illness insurance (26 covered conditions; average claim from claims paid January 2013 to December 2025). iA Financial Group, Transition, and Manulife, Lifecheque (about 25 covered conditions each).
 
-### 14. Foresters Financial
+### 14. Critical illness or the bank?
+
+*Host · Cancer by the numbers · 3 clicks · finish by 8:00*
+
+The question people ask: "Why not just put the money in the bank?"
+
+Same person, same budget: a 45-year-old non-smoker, $100,000 of coverage.
+
+Click 1, diagnosed in year 5: "If he'd put $240 a month in the bank, he'd have about $15,500 when he hears the word cancer. With either plan, he gets a $100,000 tax-free cheque. With the term plan, he'd paid in about $5,500 to get it."
+
+Click 2, never sick after 25 years: "If nothing ever happens, the bank has about $100,800 with interest. The term plan cost about $40,900 for 25 years of protection, like home insurance. The money-back plan returns every dollar: $72,009."
+
+Click 3: "So the bank only comes out ahead if you never get sick, and even then, the money-back plan gave you 25 years of $100,000 protection and still gave you your money back. The only thing it cost was the interest."
+
+Details if asked: the term plan renews at $312 a month in year 21. The money-back plan refunds 100% of premiums once you're 65 and choose to end the coverage; premiums are also returned to the family on death. Bank interest is taxable, so the real bank figure would be lower.
+
+> Illustrations: iA Financial Group, Transition (25 illnesses), $100,000, non-smoking male, 45, BC, October 2026. Term: T20, $92.43 a month including fee, $312.03 from year 21. Money back: T75 with Return of Premiums on Death and Flexible Return of Premiums at 65, $240.03 a month. Bank: the same $240.03 a month at 2.5%, before tax.
+
+### 15. Foresters Financial
 
 *Foresters partner · Foresters Financial · 0 clicks · finish by 10:00*
 
 The Foresters partner comes up and presents their own content. This slide stays up while they speak. When they finish, thank them by name and take the stage back.
 
-### 15. Do you know exactly what would happen to your income if you couldn't work for six months?
+### 16. Do you know exactly what would happen to your income if you couldn't work for six months?
 
 *Host · The preparedness gap · 1 click · finish by 11:00*
 
@@ -219,7 +237,7 @@ Ask for a show of hands: "Who here knows exactly what would happen?" Let it be q
 
 Click 1: read the line with compassion. No blame.
 
-### 16. The challenges families face every day
+### 17. The challenges families face every day
 
 *Host · Today's 8 challenges · 8 clicks · finish by 13:00*
 
@@ -245,7 +263,7 @@ Each leaf lands quickly, so you can click on as soon as you've made the point.
 
 Briefly mention that our philosophies, multi-handed income and 10% savings with the 3 rules and 3 goals of money, address these. Detail comes in Part 2.
 
-### 17. Now add a cancer diagnosis.
+### 18. Now add a cancer diagnosis.
 
 *Host · Add a cancer diagnosis · 5 clicks · finish by 14:00*
 
@@ -257,13 +275,13 @@ Clicks 2 to 5: one line each.
 
 Transition line: "I could keep describing it, but nobody can explain this better than someone who lived it."
 
-### 18. A story from our community
+### 19. A story from our community
 
 *Client on Zoom · Live client story · 0 clicks · finish by 18:00*
 
 Leave this slide up while you switch the projector to Zoom. Introduce our client warmly by first name. About 6 minutes. Afterwards, switch back to this slide (press Z to jump here) and thank her before moving on.
 
-### 19. Same disease. Two different outcomes.
+### 20. Same disease. Two different outcomes.
 
 *Host · Prepared vs unprepared family · 9 clicks · finish by 20:00*
 
@@ -275,13 +293,13 @@ Before the event, confirm with the partner that Sandra and Warren's names can be
 
 > Steven's story: Canadian Cancer Society, February 2025. Sandra and Warren's story: Canada Life client story.
 
-### 20. Steven's words
+### 21. Steven's words
 
 *Host · Prepared vs unprepared family · 0 clicks · finish by 20:00*
 
 Say nothing for a few seconds. Then read it once, quietly. Let it sit.
 
-### 21. Steven had savings. But savings alone couldn't carry two years without income.
+### 22. Steven had savings. But savings alone couldn't carry two years without income.
 
 *Host · Prepared vs unprepared family · 2 clicks · finish by 20:00*
 
@@ -289,7 +307,7 @@ Click 1: the two leaves come together. Savings and protection belong together.
 
 Click 2: "That's a decision you make while you're healthy." Slow down on "while you're healthy."
 
-### 22. Our mission: no family left behind
+### 23. Our mission: no family left behind
 
 *Host · Mission and transition · 9 clicks · finish by 21:00*
 
@@ -303,7 +321,7 @@ Click 8: all the leaves gather into the lavender ribbon. Pause. Let the room see
 
 Click 9: "Everyone in this room now knows something most families don't. That's our shared responsibility. No family left behind."
 
-### 23. So how does a family become the prepared family?
+### 24. So how does a family become the prepared family?
 
 *Host · Mission and transition · 1 click · finish by 21:00*
 
@@ -328,6 +346,7 @@ Click 1: the bare branch sprouts new leaves. Spring after autumn. Say "Let's fin
 - Foresters Financial, Canada Protection Plan critical illness advisor brochure (top 8 conditions covered make up more than 90% of critical illness claims): https://ezbizcanada.foresters.com/-/media/ezbiz-ca/documents/english/critical-illness-insurance/506591-can-1025-cpp-critical-illness-insurance-advisor-brochure.pdf
 - Equitable, EquiLiving critical illness insurance, advisor piece 1828_EN (2026/03/15): Equitable claims data January 2013 to December 2025 (average claim $70,600; average age at claim 49; 60% of claimants aged 30 to 55; example claims by age). Also cites Heart and Stroke Foundation (a stroke every 5 minutes; 80% of stroke survivors live with impairment). Marked “Advisor use only”.
 - Equitable, EquiLiving Critical Illness Insurance for children, 1287 (2023/07/20): 26 adult conditions plus 5 childhood conditions covered to age 25; 1 in 3,600 children born in Canada has cystic fibrosis (Cystic Fibrosis Canada).
+- iA Financial Group, Transition illustration reports prepared October 27, 2026, for a non-smoking male age 45 in BC, $100,000, 25 illnesses: T20 at $92.43 a month including the $5.40 policy fee, renewing at $3,744.36 a year from year 21 ($40,905 paid over 25 years); T75 with Return of Premiums on Death and Flexible Return of Premiums at 65 at $240.03 a month ($2,880.36 a year; $72,009 paid and refundable after 25 years). Bank comparison: $2,880.36 deposited at the start of each year at 2.5% interest, before tax ($15,519 after 5 years; $100,846 after 25 years).
 - Canada Life client story, “Anyone can get sick: Sandra's story” (Sandra and Warren). The original page is no longer online; confirm with the partner before showing names.
 
 ### Fact-check notes

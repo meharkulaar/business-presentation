@@ -63,7 +63,7 @@ KEYS = """| Key | Action |
 | Left, Up, PageUp | Back one step |
 | S | Presenter view (current and next, notes, timers) |
 | E | Edit mode: click any text to change it; Save copy downloads an edited file |
-| T | Table of contents (button at top right); the eye icon on each row hides or shows that slide |
+| T | Table of contents (button at top right); the eye icon on each row hides or shows that slide; in edit mode, drag rows or use the ▲▼ arrows to reorder slides |
 | + / − / 0 | Zoom in, out, reset |
 | Caps Lock | Laser pointer |
 | Gear (bottom left) | Full screen, restart, presenter view, edit mode, motion, zoom |
@@ -134,6 +134,7 @@ def build_notes(text):
         "- Foresters Financial, Canada Protection Plan critical illness advisor brochure (top 8 conditions covered make up more than 90% of critical illness claims): https://ezbizcanada.foresters.com/-/media/ezbiz-ca/documents/english/critical-illness-insurance/506591-can-1025-cpp-critical-illness-insurance-advisor-brochure.pdf",
         "- Equitable, EquiLiving critical illness insurance, advisor piece 1828_EN (2026/03/15): Equitable claims data January 2013 to December 2025 (average claim $70,600; average age at claim 49; 60% of claimants aged 30 to 55; example claims by age). Also cites Heart and Stroke Foundation (a stroke every 5 minutes; 80% of stroke survivors live with impairment). Marked “Advisor use only”.",
         "- Equitable, EquiLiving Critical Illness Insurance for children, 1287 (2023/07/20): 26 adult conditions plus 5 childhood conditions covered to age 25; 1 in 3,600 children born in Canada has cystic fibrosis (Cystic Fibrosis Canada).",
+        "- iA Financial Group, Transition illustration reports prepared October 27, 2026, for a non-smoking male age 45 in BC, $100,000, 25 illnesses: T20 at $92.43 a month including the $5.40 policy fee, renewing at $3,744.36 a year from year 21 ($40,905 paid over 25 years); T75 with Return of Premiums on Death and Flexible Return of Premiums at 65 at $240.03 a month ($2,880.36 a year; $72,009 paid and refundable after 25 years). Bank comparison: $2,880.36 deposited at the start of each year at 2.5% interest, before tax ($15,519 after 5 years; $100,846 after 25 years).",
         "- Canada Life client story, “Anyone can get sick: Sandra's story” (Sandra and Warren). The original page is no longer online; confirm with the partner before showing names.",
         "",
         "### Fact-check notes",
