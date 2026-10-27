@@ -215,13 +215,13 @@ Same person, same budget: a 45-year-old non-smoker, $100,000 of coverage.
 
 Click 1, diagnosed in year 5: "If he'd put $240 a month in the bank, he'd have about $15,500 when he hears the word cancer. With either plan, he gets a $100,000 tax-free cheque. With the term plan, he'd paid in about $5,500 to get it."
 
-Click 2, never sick after 25 years: "If nothing ever happens, the bank has about $100,800 with interest. The term plan cost about $40,900 for 25 years of protection, like home insurance. The money-back plan returns every dollar: $72,009."
+Click 2, never sick after 20 years, at age 65: "If nothing ever happens, the bank has about $75,400 with interest. The term plan cost about $22,200 for 20 years of protection, like home insurance. The money-back plan returns every dollar: $57,607."
 
-Click 3: "So the bank only comes out ahead if you never get sick, and even then, the money-back plan gave you 25 years of $100,000 protection and still gave you your money back. The only thing it cost was the interest."
+Click 3: "So the bank only comes out ahead if you never get sick, and even then, the money-back plan gave you 20 years of $100,000 protection and still gave you your money back. The only thing it cost was the interest."
 
-Details if asked: the term plan renews at $312 a month in year 21. The money-back plan refunds 100% of premiums once you're 65 and choose to end the coverage; premiums are also returned to the family on death. Bank interest is taxable, so the real bank figure would be lower.
+Details if asked: the term plan renews automatically at $312 a month in year 21. The money-back plan refunds 100% of premiums once you're 65 and choose to end the coverage; premiums are also returned to the family on death. Bank interest is taxable, so the real bank figure would be lower.
 
-> Illustrations: iA Financial Group, Transition (25 illnesses), $100,000, non-smoking male, 45, BC, October 2026. Term: T20, $92.43 a month including fee, $312.03 from year 21. Money back: T75 with Return of Premiums on Death and Flexible Return of Premiums at 65, $240.03 a month. Bank: the same $240.03 a month at 2.5%, before tax.
+> Illustrations: iA Financial Group, Transition (25 illnesses), $100,000, non-smoking male, 45, BC, October 2026. Term: T20, $92.43 a month including fee. Money back: T75 with Return of Premiums on Death and Flexible Return of Premiums at 65, $240.03 a month. Bank: the same $240.03 a month at 2.5%, before tax.
 
 ### 15. Foresters Financial
 
@@ -346,7 +346,7 @@ Click 1: the bare branch sprouts new leaves. Spring after autumn. Say "Let's fin
 - Foresters Financial, Canada Protection Plan critical illness advisor brochure (top 8 conditions covered make up more than 90% of critical illness claims): https://ezbizcanada.foresters.com/-/media/ezbiz-ca/documents/english/critical-illness-insurance/506591-can-1025-cpp-critical-illness-insurance-advisor-brochure.pdf
 - Equitable, EquiLiving critical illness insurance, advisor piece 1828_EN (2026/03/15): Equitable claims data January 2013 to December 2025 (average claim $70,600; average age at claim 49; 60% of claimants aged 30 to 55; example claims by age). Also cites Heart and Stroke Foundation (a stroke every 5 minutes; 80% of stroke survivors live with impairment). Marked “Advisor use only”.
 - Equitable, EquiLiving Critical Illness Insurance for children, 1287 (2023/07/20): 26 adult conditions plus 5 childhood conditions covered to age 25; 1 in 3,600 children born in Canada has cystic fibrosis (Cystic Fibrosis Canada).
-- iA Financial Group, Transition illustration reports prepared October 27, 2026, for a non-smoking male age 45 in BC, $100,000, 25 illnesses: T20 at $92.43 a month including the $5.40 policy fee, renewing at $3,744.36 a year from year 21 ($40,905 paid over 25 years); T75 with Return of Premiums on Death and Flexible Return of Premiums at 65 at $240.03 a month ($2,880.36 a year; $72,009 paid and refundable after 25 years). Bank comparison: $2,880.36 deposited at the start of each year at 2.5% interest, before tax ($15,519 after 5 years; $100,846 after 25 years).
+- iA Financial Group, Transition illustration reports prepared October 27, 2026, for a non-smoking male age 45 in BC, $100,000, 25 illnesses: T20 at $92.43 a month including the $5.40 policy fee, renewing at $3,744.36 a year from year 21 ($22,183 paid over 20 years); T75 with Return of Premiums on Death and Flexible Return of Premiums at 65 at $240.03 a month ($2,880.36 a year; $57,607 paid and 100% refundable at 65, after 20 years). Bank comparison: $2,880.36 deposited at the start of each year at 2.5% interest, before tax ($15,519 after 5 years; $75,417 after 20 years).
 - Canada Life client story, “Anyone can get sick: Sandra's story” (Sandra and Warren). The original page is no longer online; confirm with the partner before showing names.
 
 ### Fact-check notes
