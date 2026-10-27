@@ -502,6 +502,11 @@ body.idle .ui.auto{opacity:0;pointer-events:none}
 .zoomCtl{margin-left:auto;display:flex;align-items:center;gap:8px}
 .zoomCtl button{width:26px;height:26px;border-radius:7px;border:1px solid rgba(185,138,90,.5);background:rgba(185,138,90,.1);color:inherit;font-size:16px;line-height:1;cursor:pointer}
 .zoomCtl span{min-width:46px;text-align:center;font-variant-numeric:tabular-nums;font-weight:600}
+.dateField{display:flex;gap:6px;padding:0 12px 8px 40px}
+.dateField input{flex:1;min-width:0;font:inherit;font-size:14px;padding:6px 9px;border-radius:7px;border:1px solid rgba(185,138,90,.5);background:rgba(185,138,90,.1);color:var(--oat);outline:none}
+.dateField input:focus{border-color:var(--gold)}
+.dateField input:disabled{opacity:.4}
+.dateField button{font:inherit;font-size:13px;padding:0 9px;border-radius:7px;border:1px solid rgba(244,237,225,.25);background:none;color:var(--oat-soft);cursor:pointer}
 #tocList a{display:flex;gap:12px;padding:8px 12px;border-radius:9px;font-size:15px;line-height:1.3;color:var(--oat);text-decoration:none;cursor:pointer}
 #tocList a:hover{background:rgba(185,138,90,.14)}
 #tocList a.cur{background:rgba(185,138,90,.22);font-weight:600}
@@ -1077,6 +1082,13 @@ Click 9: "Everyone in this room now knows something most families don't. That's 
     <div class="zoomCtl"><button type="button" id="smZoomOut" aria-label="Zoom out">&minus;</button><span id="smZoomVal">100%</span><button type="button" id="smZoomIn" aria-label="Zoom in">+</button></div>
   </div>
   <div class="smDivider"></div>
+  <div class="smItem" id="smDateRow" style="cursor:default">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="1.5" y="3" width="13" height="11.5" rx="1.5"/><path d="M1.5 6.5h13M5 1.5v3M11 1.5v3"/></svg>
+    <span>Title date</span>
+    <div class="smToggle on" id="smDatePill" title="Show or hide the date on the title slide"></div>
+  </div>
+  <div class="dateField"><input type="text" id="smDateInput" autocomplete="off" spellcheck="false" maxlength="60" aria-label="Date shown on the title slide"><button type="button" id="smDateReset" title="Back to the original date">Reset</button></div>
+  <div class="smDivider"></div>
   <div class="smItem" id="smHelp">
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="4" width="14" height="9" rx="1.5"/><path d="M4 7h1M7 7h2M11 7h1M5 10h6"/></svg>
     <span>Keyboard shortcuts</span><small>?</small>
@@ -1619,6 +1631,31 @@ for(const id in store)applyRec(byEid(id),store[id]);
   try{const s=localStorage.getItem(OKEY);if(s)list=JSON.parse(s);}catch(_){}
   if(list){applyOrder(list);buildToc();}})();
 
+// title date: change it or hide it from the settings menu; kept in this browser and in saved copies
+const DKEY='uacDate:'+document.title;
+const dateEl=document.querySelector('.s1 .date'),DATE_DEFAULT=dateEl.textContent;
+let titleDate=null;   // null = untouched; otherwise {text, show}
+if(baked._date&&typeof baked._date==='object')titleDate=baked._date;
+try{const s=localStorage.getItem(DKEY);if(s)titleDate=JSON.parse(s);}catch(_){}
+function applyDate(){
+  const d=titleDate||{text:dateEl.textContent,show:true};
+  if(titleDate)dateEl.textContent=d.text||'';
+  const on=d.show!==false&&!!(d.text||'').trim();
+  dateEl.style.display=on?'':'none';
+  $('smDatePill').classList.toggle('on',on);
+  $('smDateInput').value=d.text||'';
+  $('smDateInput').disabled=d.show===false;
+}
+function setDate(text,show){
+  titleDate={text,show};
+  try{localStorage.setItem(DKEY,JSON.stringify(titleDate));}catch(_){}
+  applyDate();
+}
+$('smDateInput').addEventListener('input',e=>setDate(e.target.value,true));
+$('smDatePill').onclick=e=>{e.stopPropagation();const shown=dateEl.style.display!=='none';setDate($('smDateInput').value||DATE_DEFAULT,!shown);toast(shown?'Date hidden':'Date shown');};
+$('smDateReset').onclick=e=>{e.stopPropagation();titleDate=null;try{localStorage.removeItem(DKEY);}catch(_){}dateEl.textContent=DATE_DEFAULT;applyDate();toast('Date reset');};
+applyDate();
+
 // a typed "$40,000" or "12.5%" becomes the new count-up target
 function syncCount(el){
   if(!el.matches('[data-count]'))return null;
@@ -1672,7 +1709,7 @@ $('ebReset').onclick=()=>{
 $('ebSave').onclick=()=>{
   if(document.activeElement&&document.activeElement.isContentEditable)record(document.activeElement);
   const doc=new DOMParser().parseFromString(PRISTINE,'text/html');
-  doc.getElementById('bakedEdits').textContent=JSON.stringify(Object.assign({},baked,store,{_hidden:[...hidden],_order:slides.map(s=>s.dataset.id)})).replace(/</g,'\\u003c');
+  doc.getElementById('bakedEdits').textContent=JSON.stringify(Object.assign({},baked,store,{_hidden:[...hidden],_order:slides.map(s=>s.dataset.id),...(titleDate?{_date:titleDate}:{})})).replace(/</g,'\\u003c');
   const a=document.createElement('a');
   a.href=URL.createObjectURL(new Blob(['<!DOCTYPE html>\n'+doc.documentElement.outerHTML],{type:'text/html'}));
   const base=(decodeURIComponent(location.pathname.split('/').pop()||'').replace(/\.html?$/i,'').replace(/-edited$/,''));

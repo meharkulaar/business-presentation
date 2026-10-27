@@ -28,7 +28,7 @@ November 1, 2026 · Team ALL IN with Foresters Financial · 25 minutes
 | T | Table of contents (button at top right); the eye icon on each row hides or shows that slide; in edit mode, drag rows or use the ▲▼ arrows to reorder slides |
 | + / − / 0 | Zoom in, out, reset |
 | Caps Lock | Laser pointer |
-| Gear (bottom left) | Full screen, restart, presenter view, edit mode, motion, zoom |
+| Gear (bottom left) | Full screen, restart, presenter view, edit mode, motion, zoom, and the title date (change it, or switch it off to hide it) |
 | A | Reveal every build on the current slide |
 | G, then number, then Enter | Go to slide |
 | Z | Jump to the live Zoom story slide |
