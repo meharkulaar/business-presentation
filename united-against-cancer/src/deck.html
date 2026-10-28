@@ -286,7 +286,9 @@ use{fill:currentColor}
 .sbank h2{top:66px}
 .sbank .unit{top:166px}
 .opt{position:absolute;top:228px;width:560px;height:590px;border-radius:28px;padding:30px 34px;background:rgba(58,44,34,.72);border:2px solid rgba(244,237,225,.1);transition:border-color 1s var(--leaf-ease),box-shadow 1s var(--leaf-ease)}
-.opt.o1{left:80px}.opt.o2{left:680px}.opt.o3{left:1280px}
+.opt.o1{left:150px}.opt.o3{left:1090px}
+.sbank .opt{width:680px}
+.vs{position:absolute;left:910px;top:470px;width:100px;height:100px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:44px;color:var(--gold);background:var(--bark);border:2px solid rgba(185,138,90,.5)}
 .sbank.st-3 .o3{border-color:rgba(216,195,160,.75);box-shadow:0 0 50px rgba(216,195,160,.22)}
 .ohead{position:relative;padding-right:70px;margin-bottom:18px}
 .oico{position:absolute;right:-6px;top:-4px;width:58px;height:64px}
@@ -305,8 +307,20 @@ use{fill:currentColor}
 .o1 .blk .bar i{background:rgba(244,237,225,.45)}
 .blk.on .bar i{width:var(--w)}
 .blk .cap{font-size:30px;line-height:1.25;color:var(--oat-soft)}
-.sbank .take{top:846px;font-family:var(--serif);font-size:46px;padding:0 120px;color:var(--oat)}
+.sbank .take{top:850px;font-family:var(--serif);font-size:46px;padding:0 120px;color:var(--oat)}
 .sbank .source{font-size:22px;bottom:30px;right:280px}
+/* ---------- basic term protection, per day ---------- */
+.sterm h2{top:90px}
+.daybox{position:absolute;left:150px;top:250px;width:760px;height:520px;border-radius:32px;background:rgba(58,44,34,.72);border:2px solid rgba(216,195,160,.35);text-align:center;padding-top:60px}
+.daybox .lead{font-size:48px;color:var(--oat-soft)}
+.daybox .num{font-size:260px;line-height:1;color:var(--beige);margin:6px 0}
+.daybox .aday{font-family:var(--serif);font-size:72px;color:var(--oat)}
+.termlist{position:absolute;left:990px;right:130px;top:290px;list-style:none}
+.termlist li{font-size:40px;line-height:1.3;margin-bottom:46px;padding-left:46px;position:relative}
+.termlist li::before{content:"";position:absolute;left:0;top:16px;width:18px;height:18px;border-radius:50% 0;transform:rotate(45deg);background:var(--gold)}
+.termlist b{color:var(--beige);font-weight:600}
+.sterm .take{top:830px;font-family:var(--serif);font-size:48px;padding:0 150px;color:var(--oat)}
+.sterm .source{font-size:22px;bottom:30px;right:280px}
 
 /* ---------- slide 9 · Foresters ---------- */
 .s9 .plate{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);padding:56px 84px;border-radius:40px}
@@ -854,33 +868,51 @@ Tax-free applies to individually owned policies with personally paid premiums; c
 <!-- 8d · Critical illness vs the bank -->
 <section class="slide sbank" data-id="sbank" data-title="Critical illness or the bank?" data-steps="3" data-seg="Cancer by the numbers" data-who="Host" data-end="8">
   <h2 class="center h-sm">Critical illness or the bank: where should the money go?</h2>
-  <p class="center unit">Example: a 45-year-old non-smoker with $100,000 of coverage</p>
+  <p class="center unit">Example: a 45-year-old non-smoker, $240 a month either way</p>
   <div class="opt o1">
     <div class="ohead"><svg class="oico" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 5 59 19v5H5v-5Z"/><path d="M10 28h7v22h-7zM24 28h7v22h-7zM38 28h7v22h-7zM51 28h4v22h-4z" opacity=".85"/><path d="M5 53h54v6H5z"/></svg>
-      <div><h3>Bank savings</h3><p>$240 a month at 2.5%</p></div></div>
-    <div class="blk" data-b="1"><p class="when">Diagnosed in year 5</p><div class="num"><span data-count="15519" data-prefix="$">$0</span></div><div class="bar"><i style="--w:15.5%"></i></div><p class="cap">what you've saved so far</p></div>
-    <div class="blk" data-b="2"><p class="when">Never sick, after 20 years</p><div class="num"><span data-count="75417" data-prefix="$">$0</span></div><p class="cap">with interest, but no protection</p></div>
+      <div><h3>Money in the bank</h3><p>$240 a month, just what you put in</p></div></div>
+    <div class="blk" data-b="1"><p class="when">Diagnosed in year 5</p><div class="num"><span data-count="14402" data-prefix="$">$0</span></div><div class="bar"><i style="--w:14.4%"></i></div><p class="cap">all you have to fall back on</p></div>
+    <div class="blk" data-b="2"><p class="when">Never sick, after 20 years</p><div class="num"><span data-count="57607" data-prefix="$">$0</span></div><p class="cap">your money, and no protection</p></div>
   </div>
-  <div class="opt o2">
-    <div class="ohead"><svg class="oico" viewBox="0 0 100 110" aria-hidden="true"><use href="#oak"/></svg>
-      <div><h3>Term protection</h3><p>$92 a month for 20 years</p></div></div>
-    <div class="blk" data-b="1"><p class="when">Diagnosed in year 5</p><div class="num big"><span data-count="100000" data-prefix="$">$0</span></div><div class="bar"><i style="--w:100%"></i></div><p class="cap">tax-free, after paying $5,546</p></div>
-    <div class="blk" data-b="2"><p class="when">Never sick, after 20 years</p><div class="num"><span data-count="22183" data-prefix="$">$0</span></div><p class="cap">the cost of 20 years protected</p></div>
-  </div>
+  <div class="vs" aria-hidden="true">vs</div>
   <div class="opt o3">
     <div class="ohead"><svg class="oico" viewBox="0 0 100 110" aria-hidden="true"><use href="#maple"/></svg>
-      <div><h3>Money-back protection</h3><p>$240 a month, premiums back</p></div></div>
-    <div class="blk" data-b="1"><p class="when">Diagnosed in year 5</p><div class="num big"><span data-count="100000" data-prefix="$">$0</span></div><div class="bar"><i style="--w:100%"></i></div><p class="cap">tax-free, after paying $14,402</p></div>
-    <div class="blk" data-b="2"><p class="when">Never sick, after 20 years</p><div class="num big"><span data-count="57607" data-prefix="$">$0</span></div><p class="cap">every dollar you paid, back</p></div>
+      <div><h3>Money-back protection</h3><p>$240 a month, $100,000 of coverage</p></div></div>
+    <div class="blk" data-b="1"><p class="when">Diagnosed in year 5</p><div class="num big"><span data-count="100000" data-prefix="$">$0</span></div><div class="bar"><i style="--w:100%"></i></div><p class="cap">tax-free, after putting in $14,402</p></div>
+    <div class="blk" data-b="2"><p class="when">Never sick, after 20 years</p><div class="num big"><span data-count="57607" data-prefix="$">$0</span></div><p class="cap">every dollar back, after 20 years protected</p></div>
   </div>
-  <p class="center take" data-b="3">The bank only wins if you never get sick. Money back gives you both.</p>
-  <p class="source">Illustrations: iA Financial Group, Transition (25 illnesses), $100,000, non-smoking male, 45, BC, October 2026. Term: T20, $92.43 a month including fee. Money back: T75 with Return of Premiums on Death and Flexible Return of Premiums at 65, $240.03 a month. Bank: the same $240.03 a month at 2.5%, before tax.</p>
+  <p class="center take" data-b="3">Same money in. Same money out. Only one protected your family.</p>
+  <p class="source">Money-back protection: iA Financial Group, Transition (25 illnesses) T75 with Return of Premiums on Death and Flexible Return of Premiums at 65, $100,000, non-smoking male, 45, BC, $240.03 a month including fee (illustration, October 2026). Bank: the same $240.03 a month, counting only the money put in.</p>
   <aside class="notes">The question people ask: "Why not just put the money in the bank?"
-Same person, same budget: a 45-year-old non-smoker, $100,000 of coverage.
-Click 1, diagnosed in year 5: "If he'd put $240 a month in the bank, he'd have about $15,500 when he hears the word cancer. With either plan, he gets a $100,000 tax-free cheque. With the term plan, he'd paid in about $5,500 to get it."
-Click 2, never sick after 20 years, at age 65: "If nothing ever happens, the bank has about $75,400 with interest. The term plan cost about $22,200 for 20 years of protection, like home insurance. The money-back plan returns every dollar: $57,607."
-Click 3: "So the bank only comes out ahead if you never get sick, and even then, the money-back plan gave you 20 years of $100,000 protection and still gave you your money back. The only thing it cost was the interest."
-Details if asked: the term plan renews automatically at $312 a month in year 21. The money-back plan refunds 100% of premiums once you're 65 and choose to end the coverage; premiums are also returned to the family on death. Bank interest is taxable, so the real bank figure would be lower.</aside>
+Same person, same $240 a month: a 45-year-old non-smoker.
+Click 1, diagnosed in year 5: "If he'd put $240 a month in the bank, he'd have put in about $14,400 by the time he hears the word cancer. That's all he'd have. With money-back protection, he gets a $100,000 tax-free cheque."
+Click 2, never sick after 20 years, at age 65: "If nothing ever happens, the bank holds the $57,607 he put in. The money-back plan gives back every dollar: the same $57,607."
+Click 3: "Same money in. Same money out. Only one of them protected his family for 20 years."
+Details if asked: we're comparing only the money put in, with no interest either way. The refund is 100% of premiums once you're 65 and choose to end the coverage, and premiums are also returned to the family on death.</aside>
+</section>
+
+<!-- 8e · Basic term protection, per day -->
+<section class="slide sterm" data-id="sterm" data-title="Basic protection for about $1.19 a day" data-steps="3" data-seg="Cancer by the numbers" data-who="Host" data-end="8">
+  <h2 class="center h-sm">Not ready for that? Start with basic protection.</h2>
+  <div class="daybox">
+    <p class="lead">About</p>
+    <div class="num"><span data-count="1.19" data-prefix="$" data-dec="2">$0.00</span></div>
+    <p class="aday">a day</p>
+  </div>
+  <ul class="termlist">
+    <li data-b="1"><b>$30,000</b> tax-free if you're diagnosed with a covered illness</li>
+    <li data-b="2"><b>25 critical illnesses</b> covered, including cancer, heart attack and stroke</li>
+    <li data-b="3"><b>$36.10 a month</b>, locked in for 20 years</li>
+  </ul>
+  <p class="center take" data-b="3">Less than a daily coffee, for a cheque when your family needs it most.</p>
+  <p class="source">iA Financial Group, Transition (25 illnesses) T20, $30,000, non-smoking male, 45, BC (illustration prepared October 28, 2026): $36.10 a month including the $5.40 policy fee; about $1.19 a day ($36.10 × 12 ÷ 365). Renews at $109.49 a month in year 21.</p>
+  <aside class="notes">For anyone thinking "I can't afford $240 a month."
+Let the number sit for a second: "About $1.19 a day."
+Click 1: "For that, a 45-year-old non-smoker gets $30,000, tax-free, if he's diagnosed."
+Click 2: "It covers 25 critical illnesses, including cancer, heart attack and stroke."
+Click 3: "$36.10 a month, locked in for 20 years. Less than a daily coffee, for a cheque when your family needs it most."
+Details if asked: over 20 years that's $8,664 in total. It's term coverage, so there's no money back; it renews at $109.49 a month in year 21 if kept.</aside>
 </section>
 
 <!-- 9 · Foresters -->
