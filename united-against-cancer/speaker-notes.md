@@ -223,23 +223,23 @@ Details if asked: we're comparing only the money put in, with no interest either
 
 > Money-back protection: iA Financial Group, Transition (25 illnesses) T75 with Return of Premiums on Death and Flexible Return of Premiums at 65, $100,000, non-smoking male, 45, BC, $240.03 a month including fee (illustration, October 2026). Bank: the same $240.03 a month, counting only the money put in.
 
-### 15. Basic protection for about $1.19 a day
+### 15. Basic protection for about $2 a day
 
 *Host · Cancer by the numbers · 3 clicks · finish by 8:00*
 
 For anyone thinking "I can't afford $240 a month."
 
-Let the number sit for a second: "About $1.19 a day."
+Hold up a toonie if you have one. "About $2 a day. That's it."
 
-Click 1: "For that, a 45-year-old non-smoker gets $30,000, tax-free, if he's diagnosed."
+Click 1: "For that, a 45-year-old non-smoker gets $60,000, tax-free, if he's diagnosed."
 
 Click 2: "It covers 25 critical illnesses, including cancer, heart attack and stroke."
 
-Click 3: "$36.10 a month, locked in for 20 years. Less than a daily coffee, for a cheque when your family needs it most."
+Click 3: "$60.53 a month, locked in for 20 years. A toonie a day, for a cheque when your family needs it most."
 
-Details if asked: over 20 years that's $8,664 in total. It's term coverage, so there's no money back; it renews at $109.49 a month in year 21 if kept.
+Details if asked: it works out to $1.99 a day. Over 20 years that's $14,527 in total. It's term coverage, so there's no money back, and it renews at $212.98 a month in year 21 if kept.
 
-> iA Financial Group, Transition (25 illnesses) T20, $30,000, non-smoking male, 45, BC (illustration prepared October 28, 2026): $36.10 a month including the $5.40 policy fee; about $1.19 a day ($36.10 × 12 ÷ 365). Renews at $109.49 a month in year 21.
+> iA Financial Group, Transition (25 illnesses) T20, $60,000, non-smoking male, 45, BC (illustration prepared October 28, 2026): $60.53 a month including the $5.40 policy fee, which is $1.99 a day ($60.53 × 12 ÷ 365), shown rounded to $2. Renews at $212.98 a month in year 21.
 
 ### 16. Foresters Financial
 
@@ -365,7 +365,7 @@ Click 1: the bare branch sprouts new leaves. Spring after autumn. Say "Let's fin
 - Equitable, EquiLiving critical illness insurance, advisor piece 1828_EN (2026/03/15): Equitable claims data January 2013 to December 2025 (average claim $70,600; average age at claim 49; 60% of claimants aged 30 to 55; example claims by age). Also cites Heart and Stroke Foundation (a stroke every 5 minutes; 80% of stroke survivors live with impairment). Marked “Advisor use only”.
 - Equitable, EquiLiving Critical Illness Insurance for children, 1287 (2023/07/20): 26 adult conditions plus 5 childhood conditions covered to age 25; 1 in 3,600 children born in Canada has cystic fibrosis (Cystic Fibrosis Canada).
 - iA Financial Group, Transition illustration, October 27, 2026: T75 with Return of Premiums on Death and Flexible Return of Premiums at 65, $100,000, non-smoking male age 45, BC, $240.03 a month ($2,880.36 a year): $14,402 paid by year 5; $57,607 paid and 100% refundable at 65, after 20 years. Bank comparison counts only the money put in (no interest).
-- iA Financial Group, Transition illustration, October 28, 2026: T20, $30,000, non-smoking male age 45, BC, $36.10 a month including the $5.40 policy fee ($433.20 a year, about $1.19 a day; $8,664 over 20 years; renews at $1,313.88 a year from year 21).
+- iA Financial Group, Transition illustration, October 28, 2026: T20, $60,000, non-smoking male age 45, BC, $60.53 a month including the $5.40 policy fee ($726.36 a year, $1.99 a day, shown as about $2; $14,527 over 20 years; renews at $2,555.76 a year from year 21).
 - Canada Life client story, “Anyone can get sick: Sandra's story” (Sandra and Warren). The original page is no longer online; confirm with the partner before showing names.
 
 ### Fact-check notes

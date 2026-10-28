@@ -311,15 +311,17 @@ use{fill:currentColor}
 .sbank .source{font-size:22px;bottom:30px;right:280px}
 /* ---------- basic term protection, per day ---------- */
 .sterm h2{top:90px}
-.daybox{position:absolute;left:150px;top:250px;width:760px;height:520px;border-radius:32px;background:rgba(58,44,34,.72);border:2px solid rgba(216,195,160,.35);text-align:center;padding-top:60px}
-.daybox .lead{font-size:48px;color:var(--oat-soft)}
-.daybox .num{font-size:260px;line-height:1;color:var(--beige);margin:6px 0}
-.daybox .aday{font-family:var(--serif);font-size:72px;color:var(--oat)}
-.termlist{position:absolute;left:990px;right:130px;top:290px;list-style:none}
+.coinwrap{position:absolute;left:130px;top:215px;width:640px;text-align:center}
+.toonie{width:520px;height:520px;display:block;margin:0 auto;filter:drop-shadow(0 26px 40px rgba(0,0,0,.55))}
+.sterm.active .toonie{animation:coinIn 1.3s cubic-bezier(.2,.8,.3,1) both}
+@keyframes coinIn{0%{opacity:0;transform:translateY(-120px) rotateY(80deg) scale(.85)}60%{opacity:1;transform:translateY(8px) rotateY(-8deg) scale(1.02)}100%{transform:none}}
+.coinwrap .aday{font-family:var(--serif);font-size:72px;color:var(--oat);margin-top:14px}
+.coinwrap .aday b{font-weight:400;color:var(--beige)}
+.termlist{position:absolute;left:860px;right:130px;top:300px;list-style:none}
 .termlist li{font-size:40px;line-height:1.3;margin-bottom:46px;padding-left:46px;position:relative}
 .termlist li::before{content:"";position:absolute;left:0;top:16px;width:18px;height:18px;border-radius:50% 0;transform:rotate(45deg);background:var(--gold)}
 .termlist b{color:var(--beige);font-weight:600}
-.sterm .take{top:830px;font-family:var(--serif);font-size:48px;padding:0 150px;color:var(--oat)}
+.sterm .take{top:880px;font-family:var(--serif);font-size:48px;padding:0 150px;color:var(--oat)}
 .sterm .source{font-size:22px;bottom:30px;right:280px}
 
 /* ---------- slide 9 · Foresters ---------- */
@@ -893,26 +895,46 @@ Details if asked: we're comparing only the money put in, with no interest either
 </section>
 
 <!-- 8e · Basic term protection, per day -->
-<section class="slide sterm" data-id="sterm" data-title="Basic protection for about $1.19 a day" data-steps="3" data-seg="Cancer by the numbers" data-who="Host" data-end="8">
+<section class="slide sterm" data-id="sterm" data-title="Basic protection for about $2 a day" data-steps="3" data-seg="Cancer by the numbers" data-who="Host" data-end="8">
   <h2 class="center h-sm">Not ready for that? Start with basic protection.</h2>
-  <div class="daybox">
-    <p class="lead">About</p>
-    <div class="num"><span data-count="1.19" data-prefix="$" data-dec="2">$0.00</span></div>
-    <p class="aday">a day</p>
+  <div class="coinwrap">
+    <svg class="toonie" viewBox="0 0 200 200" role="img" aria-label="A Canadian two-dollar coin">
+      <defs>
+        <radialGradient id="tRing" cx="38%" cy="32%" r="75%"><stop offset="0" stop-color="#F4F4F0"/><stop offset=".55" stop-color="#C9CAC5"/><stop offset="1" stop-color="#8F918B"/></radialGradient>
+        <radialGradient id="tCore" cx="38%" cy="32%" r="75%"><stop offset="0" stop-color="#F6DC8E"/><stop offset=".55" stop-color="#D6A947"/><stop offset="1" stop-color="#9C7224"/></radialGradient>
+        <path id="tTop" d="M28 100 A72 72 0 0 1 172 100"/>
+        <path id="tBot" d="M22 100 A78 78 0 0 0 178 100"/>
+      </defs>
+      <circle cx="100" cy="100" r="98" fill="url(#tRing)" stroke="#7E807A" stroke-width="1.5"/>
+      <circle cx="100" cy="100" r="95.5" fill="none" stroke="#9FA19B" stroke-width="2.4" stroke-dasharray="1.2 1.6"/>
+      <circle cx="100" cy="100" r="90" fill="none" stroke="#A9ABA5" stroke-width=".8"/>
+      <text font-family="Gloock, Georgia, serif" font-size="17" letter-spacing="4" fill="#6D6F69"><textPath href="#tTop" startOffset="50%" text-anchor="middle">CANADA</textPath></text>
+      <text font-family="Gloock, Georgia, serif" font-size="15" letter-spacing="3" fill="#6D6F69"><textPath href="#tBot" startOffset="50%" text-anchor="middle" dominant-baseline="hanging">2 DOLLARS</textPath></text>
+      <circle cx="100" cy="100" r="61" fill="url(#tCore)" stroke="#8A6420" stroke-width="1.4"/>
+      <circle cx="100" cy="100" r="57" fill="none" stroke="#B88B32" stroke-width=".8"/>
+      <!-- polar bear on an ice floe -->
+      <path d="M58 132 Q100 125 144 131 L138 138 Q100 134 64 139 Z" fill="#B48631" opacity=".9"/>
+      <path d="M58 109 C57 99 66 92 79 91 C88 86 101 85 110 89 C117 90 123 93 127 97 C131 95 137 96 141 100 L148 105 C150 107 149 110 146 110 L140 111 C136 113 133 116 132 120 L131 129 L124 129 L123 121 C117 122 110 122 103 121 L101 129 L94 129 L94 120 C89 120 85 119 82 117 L81 129 L74 129 L72 118 C68 119 64 118 61 115 L61 129 L55 129 L56 116 C56 113 57 111 58 109 Z" fill="#9E7224"/>
+      <circle cx="134" cy="97.5" r="2.1" fill="#9E7224"/>
+      <circle cx="140" cy="102" r="1.1" fill="#6E4E16"/>
+      <path d="M80 92 C92 88 106 88 118 92" fill="none" stroke="#F3D88C" stroke-width="1.3" opacity=".75"/>
+      <ellipse cx="78" cy="62" rx="26" ry="12" fill="#fff" opacity=".18" transform="rotate(-28 78 62)"/>
+    </svg>
+    <p class="aday">About <b>$2</b> a day</p>
   </div>
   <ul class="termlist">
-    <li data-b="1"><b>$30,000</b> tax-free if you're diagnosed with a covered illness</li>
+    <li data-b="1"><b>$60,000</b> tax-free if you're diagnosed with a covered illness</li>
     <li data-b="2"><b>25 critical illnesses</b> covered, including cancer, heart attack and stroke</li>
-    <li data-b="3"><b>$36.10 a month</b>, locked in for 20 years</li>
+    <li data-b="3"><b>$60.53 a month</b>, locked in for 20 years</li>
   </ul>
-  <p class="center take" data-b="3">Less than a daily coffee, for a cheque when your family needs it most.</p>
-  <p class="source">iA Financial Group, Transition (25 illnesses) T20, $30,000, non-smoking male, 45, BC (illustration prepared October 28, 2026): $36.10 a month including the $5.40 policy fee; about $1.19 a day ($36.10 × 12 ÷ 365). Renews at $109.49 a month in year 21.</p>
+  <p class="center take" data-b="3">A toonie a day, for a cheque when your family needs it most.</p>
+  <p class="source">iA Financial Group, Transition (25 illnesses) T20, $60,000, non-smoking male, 45, BC (illustration prepared October 28, 2026): $60.53 a month including the $5.40 policy fee, which is $1.99 a day ($60.53 × 12 ÷ 365), shown rounded to $2. Renews at $212.98 a month in year 21.</p>
   <aside class="notes">For anyone thinking "I can't afford $240 a month."
-Let the number sit for a second: "About $1.19 a day."
-Click 1: "For that, a 45-year-old non-smoker gets $30,000, tax-free, if he's diagnosed."
+Hold up a toonie if you have one. "About $2 a day. That's it."
+Click 1: "For that, a 45-year-old non-smoker gets $60,000, tax-free, if he's diagnosed."
 Click 2: "It covers 25 critical illnesses, including cancer, heart attack and stroke."
-Click 3: "$36.10 a month, locked in for 20 years. Less than a daily coffee, for a cheque when your family needs it most."
-Details if asked: over 20 years that's $8,664 in total. It's term coverage, so there's no money back; it renews at $109.49 a month in year 21 if kept.</aside>
+Click 3: "$60.53 a month, locked in for 20 years. A toonie a day, for a cheque when your family needs it most."
+Details if asked: it works out to $1.99 a day. Over 20 years that's $14,527 in total. It's term coverage, so there's no money back, and it renews at $212.98 a month in year 21 if kept.</aside>
 </section>
 
 <!-- 9 · Foresters -->
