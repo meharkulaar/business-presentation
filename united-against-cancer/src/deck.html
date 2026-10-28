@@ -284,7 +284,7 @@ use{fill:currentColor}
 
 /* ---------- critical illness vs the bank ---------- */
 .sbank h2{top:66px}
-.sbank .unit{top:166px}
+.sbank .unit{top:160px}
 .opt{position:absolute;top:228px;width:560px;height:590px;border-radius:28px;padding:30px 34px;background:rgba(58,44,34,.72);border:2px solid rgba(244,237,225,.1);transition:border-color 1s var(--leaf-ease),box-shadow 1s var(--leaf-ease)}
 .opt.o1{left:150px}.opt.o3{left:1090px}
 .sbank .opt{width:680px}
@@ -307,7 +307,11 @@ use{fill:currentColor}
 .o1 .blk .bar i{background:rgba(244,237,225,.45)}
 .blk.on .bar i{width:var(--w)}
 .blk .cap{font-size:30px;line-height:1.25;color:var(--oat-soft)}
-.sbank .take{top:850px;font-family:var(--serif);font-size:46px;padding:0 120px;color:var(--oat)}
+.death{display:flex;align-items:center;gap:14px;margin-top:22px;padding:12px 18px;border-radius:14px;background:rgba(216,195,160,.12);border:1px solid rgba(216,195,160,.35);font-size:28px;line-height:1.25;color:var(--oat)}
+.death svg{flex:none;width:30px;height:33px;color:var(--beige)}
+.death[data-b]{transition-delay:.6s}
+.sbank .opt{top:214px;height:660px}
+.sbank .take{top:894px;font-family:var(--serif);font-size:46px;padding:0 120px;color:var(--oat)}
 .sbank .source{font-size:22px;bottom:30px;right:280px}
 /* ---------- basic term protection, per day ---------- */
 .sterm h2{top:90px}
@@ -883,13 +887,15 @@ Tax-free applies to individually owned policies with personally paid premiums; c
       <div><h3>Money-back protection</h3><p>$240 a month, $100,000 of coverage</p></div></div>
     <div class="blk" data-b="1"><p class="when">Diagnosed in year 5</p><div class="num big"><span data-count="100000" data-prefix="$">$0</span></div><div class="bar"><i style="--w:100%"></i></div><p class="cap">tax-free, after putting in $14,402</p></div>
     <div class="blk" data-b="2"><p class="when">Never sick, after 20 years</p><div class="num big"><span data-count="57607" data-prefix="$">$0</span></div><p class="cap">every dollar back, after 20 years protected</p></div>
+    <p class="death" data-b="2"><svg viewBox="0 0 100 110" aria-hidden="true"><use href="#maple"/></svg>And if he passes away, every dollar paid goes back to his family.</p>
   </div>
   <p class="center take" data-b="3">Same money in. Same money out. Only one protected your family.</p>
-  <p class="source">Money-back protection: iA Financial Group, Transition (25 illnesses) T75 with Return of Premiums on Death and Flexible Return of Premiums at 65, $100,000, non-smoking male, 45, BC, $240.03 a month including fee (illustration, October 2026). Bank: the same $240.03 a month, counting only the money put in.</p>
+  <p class="source">Money back: iA Financial Group, Transition (25 illnesses) T75 with Return of Premiums on Death and Flexible Return of Premiums at 65, $100,000, non-smoking male, 45, BC, $240.03 a month (October 2026). Bank: the same amount, money put in only.</p>
   <aside class="notes">The question people ask: "Why not just put the money in the bank?"
 Same person, same $240 a month: a 45-year-old non-smoker.
 Click 1, diagnosed in year 5: "If he'd put $240 a month in the bank, he'd have put in about $14,400 by the time he hears the word cancer. That's all he'd have. With money-back protection, he gets a $100,000 tax-free cheque."
 Click 2, never sick after 20 years, at age 65: "If nothing ever happens, the bank holds the $57,607 he put in. The money-back plan gives back every dollar: the same $57,607."
+Then point to the line underneath: "And if the unthinkable happens and he passes away, every dollar he paid in goes back to his family." (Return of Premiums on Death.)
 Click 3: "Same money in. Same money out. Only one of them protected his family for 20 years."
 Details if asked: we're comparing only the money put in, with no interest either way. The refund is 100% of premiums once you're 65 and choose to end the coverage, and premiums are also returned to the family on death.</aside>
 </section>

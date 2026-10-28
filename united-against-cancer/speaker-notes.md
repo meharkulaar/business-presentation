@@ -217,11 +217,13 @@ Click 1, diagnosed in year 5: "If he'd put $240 a month in the bank, he'd have p
 
 Click 2, never sick after 20 years, at age 65: "If nothing ever happens, the bank holds the $57,607 he put in. The money-back plan gives back every dollar: the same $57,607."
 
+Then point to the line underneath: "And if the unthinkable happens and he passes away, every dollar he paid in goes back to his family." (Return of Premiums on Death.)
+
 Click 3: "Same money in. Same money out. Only one of them protected his family for 20 years."
 
 Details if asked: we're comparing only the money put in, with no interest either way. The refund is 100% of premiums once you're 65 and choose to end the coverage, and premiums are also returned to the family on death.
 
-> Money-back protection: iA Financial Group, Transition (25 illnesses) T75 with Return of Premiums on Death and Flexible Return of Premiums at 65, $100,000, non-smoking male, 45, BC, $240.03 a month including fee (illustration, October 2026). Bank: the same $240.03 a month, counting only the money put in.
+> Money back: iA Financial Group, Transition (25 illnesses) T75 with Return of Premiums on Death and Flexible Return of Premiums at 65, $100,000, non-smoking male, 45, BC, $240.03 a month (October 2026). Bank: the same amount, money put in only.
 
 ### 15. Basic protection for about $2 a day
 
