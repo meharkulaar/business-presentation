@@ -207,23 +207,23 @@ Tax-free applies to individually owned policies with personally paid premiums; c
 
 ### 14. Critical illness or the bank?
 
-*Host · Cancer by the numbers · 3 clicks · finish by 8:00*
+*Host · Cancer by the numbers · 4 clicks · finish by 8:00*
 
 The question people ask: "Why not just put the money in the bank?"
 
-Same person, same $240 a month: a 45-year-old non-smoker.
+Same person, same $240 a month into each: a 45-year-old non-smoker. Three things can happen.
 
-Click 1, diagnosed in year 5: "If he'd put $240 a month in the bank, he'd have put in about $14,400 by the time he hears the word cancer. That's all he'd have. With money-back protection, he gets a $100,000 tax-free cheque."
+Click 1, in case of death in year 5: "The bank gives his family the $14,402 he put in. The money-back plan returns every premium: the same $14,402."
 
-Click 2, never sick after 20 years, at age 65: "If nothing ever happens, the bank holds the $57,607 he put in. The money-back plan gives back every dollar: the same $57,607."
+Click 2, no death, after 20 years at 65: "The bank holds the $57,607 he put in. The money-back plan gives back every dollar: the same $57,607."
 
-Then point to the line underneath: "And if the unthinkable happens and he passes away, every dollar he paid in goes back to his family." (Return of Premiums on Death.)
+Click 3, in case of critical illness in year 5: "The bank still has just $14,402. The plan pays $100,000, tax-free. That's $85,598 more, at the moment his family needs it most."
 
-Click 3: "Same money in. Same money out. Only one of them protected his family for 20 years."
+Click 4: "Two ways, it's the same. The one that matters most, it's $100,000."
 
-Details if asked: we're comparing only the money put in, with no interest either way. The refund is 100% of premiums once you're 65 and choose to end the coverage, and premiums are also returned to the family on death.
+Details if asked: we're comparing only the money put in, with no interest either way. The refund at 65 is 100% of premiums when you choose to end the coverage. Premiums are returned to the family on death through the Return of Premiums on Death benefit.
 
-> Money back: iA Financial Group, Transition (25 illnesses) T75 with Return of Premiums on Death and Flexible Return of Premiums at 65, $100,000, non-smoking male, 45, BC, $240.03 a month (October 2026). Bank: the same amount, money put in only.
+> Money back: iA Financial Group, Transition (25 illnesses) T75 with Return of Premiums on Death and Flexible Return of Premiums at 65, $100,000, non-smoking male, 45, BC, $240.03 a month (October 2026). Death: premiums paid are returned. Bank: the same amount, money put in only.
 
 ### 15. Basic protection for about $2 a day
 

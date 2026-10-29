@@ -313,6 +313,28 @@ use{fill:currentColor}
 .sbank .opt{top:214px;height:660px}
 .sbank .take{top:894px;font-family:var(--serif);font-size:46px;padding:0 120px;color:var(--oat)}
 .sbank .source{font-size:22px;bottom:30px;right:280px}
+/* three-way comparison */
+.sbank .unit{top:160px}
+.cmp{position:absolute;top:222px;width:560px;height:590px;padding:30px 34px;border-radius:28px;background:rgba(58,44,34,.72);border:2px solid rgba(244,237,225,.1);transition:opacity .9s var(--leaf-ease),transform .9s var(--leaf-ease),border-color 1s,box-shadow 1s}
+.cmp.c1{left:80px}.cmp.c2{left:680px}.cmp.c3{left:1280px}
+.cmp h3{font-family:var(--serif);font-weight:400;font-size:44px;line-height:1.05;white-space:nowrap}
+.cmp .csub{font-size:28px;color:var(--gold);margin:6px 0 18px}
+.crow{padding:18px 0 16px;border-top:2px solid rgba(244,237,225,.1)}
+.clab{display:flex;align-items:center;gap:12px;font-size:28px;color:var(--oat-soft)}
+.rico{width:34px;height:34px;flex:none;fill:rgba(244,237,225,.55)}
+.leafico{height:38px;color:var(--beige)}
+.cval{font-family:var(--serif);font-size:72px;line-height:1.1;color:var(--oat);margin-top:4px}
+.crow.plan .cval{color:var(--beige)}
+.cbar{height:14px;border-radius:7px;background:rgba(244,237,225,.08);overflow:hidden;margin-top:6px}
+.cbar i{display:block;height:100%;width:0;border-radius:7px;background:rgba(244,237,225,.45);transition:width 1.4s var(--leaf-ease) .4s}
+.crow.plan .cbar i{background:linear-gradient(90deg,var(--gold),var(--beige))}
+.cmp.on .cbar i{width:var(--w)}
+.verdict{margin-top:16px;padding:12px 18px;border-radius:14px;font-size:30px;font-weight:600;background:rgba(244,237,225,.06);color:var(--oat)}
+.verdict.win{background:var(--ember);color:var(--oat)}
+.c3 .crow.plan .cval{color:var(--ember-text)}
+.c3 .crow.plan .cbar i{background:linear-gradient(90deg,var(--maple),var(--ember))}
+.sbank.st-3 .c3{border-color:rgba(194,96,62,.7);box-shadow:0 0 50px rgba(194,96,62,.25)}
+.sbank .take{top:846px;font-family:var(--serif);font-size:48px;padding:0 120px;color:var(--oat)}
 /* ---------- basic term protection, per day ---------- */
 .sterm h2{top:90px}
 .coinwrap{position:absolute;left:130px;top:215px;width:640px;text-align:center}
@@ -872,32 +894,36 @@ Tax-free applies to individually owned policies with personally paid premiums; c
 </section>
 
 <!-- 8d · Critical illness vs the bank -->
-<section class="slide sbank" data-id="sbank" data-title="Critical illness or the bank?" data-steps="3" data-seg="Cancer by the numbers" data-who="Host" data-end="8">
+<section class="slide sbank" data-id="sbank" data-title="Critical illness or the bank?" data-steps="4" data-seg="Cancer by the numbers" data-who="Host" data-end="8">
   <h2 class="center h-sm">Critical illness or the bank: where should the money go?</h2>
-  <p class="center unit">Example: a 45-year-old non-smoker, $240 a month either way</p>
-  <div class="opt o1">
-    <div class="ohead"><svg class="oico" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 5 59 19v5H5v-5Z"/><path d="M10 28h7v22h-7zM24 28h7v22h-7zM38 28h7v22h-7zM51 28h4v22h-4z" opacity=".85"/><path d="M5 53h54v6H5z"/></svg>
-      <div><h3>Money in the bank</h3><p>$240 a month, just what you put in</p></div></div>
-    <div class="blk" data-b="1"><p class="when">Diagnosed in year 5</p><div class="num"><span data-count="14402" data-prefix="$">$0</span></div><div class="bar"><i style="--w:14.4%"></i></div><p class="cap">all you have to fall back on</p></div>
-    <div class="blk" data-b="2"><p class="when">Never sick, after 20 years</p><div class="num"><span data-count="57607" data-prefix="$">$0</span></div><p class="cap">your money, and no protection</p></div>
+  <p class="center unit">Example: a 45-year-old non-smoker puts $240 a month into each</p>
+  <div class="cmp c1" data-b="1">
+    <h3>In case of death</h3><p class="csub">In year 5</p>
+    <div class="crow"><div class="clab"><svg class="rico" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 5 59 19v5H5v-5Z"/><path d="M10 28h7v22h-7zM24 28h7v22h-7zM38 28h7v22h-7zM51 28h4v22h-4z" opacity=".85"/><path d="M5 53h54v6H5z"/></svg>Bank</div><div class="cval"><span data-count="14402" data-prefix="$">$0</span></div><div class="cbar"><i style="--w:14.4%"></i></div></div>
+    <div class="crow plan"><div class="clab"><svg class="rico leafico" viewBox="0 0 100 110" aria-hidden="true"><use href="#maple"/></svg>Money-back protection</div><div class="cval"><span data-count="14402" data-prefix="$">$0</span></div><div class="cbar"><i style="--w:14.4%"></i></div></div>
+    <p class="verdict ">Same: the family gets it all back</p>
   </div>
-  <div class="vs" aria-hidden="true">vs</div>
-  <div class="opt o3">
-    <div class="ohead"><svg class="oico" viewBox="0 0 100 110" aria-hidden="true"><use href="#maple"/></svg>
-      <div><h3>Money-back protection</h3><p>$240 a month, $100,000 of coverage</p></div></div>
-    <div class="blk" data-b="1"><p class="when">Diagnosed in year 5</p><div class="num big"><span data-count="100000" data-prefix="$">$0</span></div><div class="bar"><i style="--w:100%"></i></div><p class="cap">tax-free, after putting in $14,402</p></div>
-    <div class="blk" data-b="2"><p class="when">Never sick, after 20 years</p><div class="num big"><span data-count="57607" data-prefix="$">$0</span></div><p class="cap">every dollar back, after 20 years protected</p></div>
-    <p class="death" data-b="2"><svg viewBox="0 0 100 110" aria-hidden="true"><use href="#maple"/></svg>And if he passes away, every dollar paid goes back to his family.</p>
+  <div class="cmp c2" data-b="2">
+    <h3>No death</h3><p class="csub">After 20 years, at 65</p>
+    <div class="crow"><div class="clab"><svg class="rico" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 5 59 19v5H5v-5Z"/><path d="M10 28h7v22h-7zM24 28h7v22h-7zM38 28h7v22h-7zM51 28h4v22h-4z" opacity=".85"/><path d="M5 53h54v6H5z"/></svg>Bank</div><div class="cval"><span data-count="57607" data-prefix="$">$0</span></div><div class="cbar"><i style="--w:57.6%"></i></div></div>
+    <div class="crow plan"><div class="clab"><svg class="rico leafico" viewBox="0 0 100 110" aria-hidden="true"><use href="#maple"/></svg>Money-back protection</div><div class="cval"><span data-count="57607" data-prefix="$">$0</span></div><div class="cbar"><i style="--w:57.6%"></i></div></div>
+    <p class="verdict ">Same: every dollar back</p>
   </div>
-  <p class="center take" data-b="3">Same money in. Same money out. Only one protected your family.</p>
-  <p class="source">Money back: iA Financial Group, Transition (25 illnesses) T75 with Return of Premiums on Death and Flexible Return of Premiums at 65, $100,000, non-smoking male, 45, BC, $240.03 a month (October 2026). Bank: the same amount, money put in only.</p>
+  <div class="cmp c3" data-b="3">
+    <h3>In case of critical illness</h3><p class="csub">Diagnosed in year 5</p>
+    <div class="crow"><div class="clab"><svg class="rico" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 5 59 19v5H5v-5Z"/><path d="M10 28h7v22h-7zM24 28h7v22h-7zM38 28h7v22h-7zM51 28h4v22h-4z" opacity=".85"/><path d="M5 53h54v6H5z"/></svg>Bank</div><div class="cval"><span data-count="14402" data-prefix="$">$0</span></div><div class="cbar"><i style="--w:14.4%"></i></div></div>
+    <div class="crow plan"><div class="clab"><svg class="rico leafico" viewBox="0 0 100 110" aria-hidden="true"><use href="#maple"/></svg>Money-back protection</div><div class="cval"><span data-count="100000" data-prefix="$">$0</span></div><div class="cbar"><i style="--w:100%"></i></div></div>
+    <p class="verdict win">$85,598 more, tax-free</p>
+  </div>
+  <p class="center take" data-b="4">Two ways, it's the same. The one that matters most, it's $100,000.</p>
+  <p class="source">Money back: iA Financial Group, Transition (25 illnesses) T75 with Return of Premiums on Death and Flexible Return of Premiums at 65, $100,000, non-smoking male, 45, BC, $240.03 a month (October 2026). Death: premiums paid are returned. Bank: the same amount, money put in only.</p>
   <aside class="notes">The question people ask: "Why not just put the money in the bank?"
-Same person, same $240 a month: a 45-year-old non-smoker.
-Click 1, diagnosed in year 5: "If he'd put $240 a month in the bank, he'd have put in about $14,400 by the time he hears the word cancer. That's all he'd have. With money-back protection, he gets a $100,000 tax-free cheque."
-Click 2, never sick after 20 years, at age 65: "If nothing ever happens, the bank holds the $57,607 he put in. The money-back plan gives back every dollar: the same $57,607."
-Then point to the line underneath: "And if the unthinkable happens and he passes away, every dollar he paid in goes back to his family." (Return of Premiums on Death.)
-Click 3: "Same money in. Same money out. Only one of them protected his family for 20 years."
-Details if asked: we're comparing only the money put in, with no interest either way. The refund is 100% of premiums once you're 65 and choose to end the coverage, and premiums are also returned to the family on death.</aside>
+Same person, same $240 a month into each: a 45-year-old non-smoker. Three things can happen.
+Click 1, in case of death in year 5: "The bank gives his family the $14,402 he put in. The money-back plan returns every premium: the same $14,402."
+Click 2, no death, after 20 years at 65: "The bank holds the $57,607 he put in. The money-back plan gives back every dollar: the same $57,607."
+Click 3, in case of critical illness in year 5: "The bank still has just $14,402. The plan pays $100,000, tax-free. That's $85,598 more, at the moment his family needs it most."
+Click 4: "Two ways, it's the same. The one that matters most, it's $100,000."
+Details if asked: we're comparing only the money put in, with no interest either way. The refund at 65 is 100% of premiums when you choose to end the coverage. Premiums are returned to the family on death through the Return of Premiums on Death benefit.</aside>
 </section>
 
 <!-- 8e · Basic term protection, per day -->
