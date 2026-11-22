@@ -1019,8 +1019,8 @@ slide(f'''
 slide(f'''
 <div class="stamp">Real case study</div>
 <div class="kick">Stepping out of the story</div>
-<h2>John and Jake are fictional. <span class="gold">This case is real.</span></h2>
-<p class="big">A published study compared two real physicians with the same income and savings.</p>
+<h2>John and Jake are fictional. <span class="gold">This case study is real.</span></h2>
+<p class="big">A real case study and comparison was done: same income, same savings, one difference.</p>
 <div class="docs">
   <div class="dc f"><b>Dr. Brown</b><span>No whole life</span><div class="dv red">$2.7M</div><em>reached his family &middot; 72% lost to tax</em></div>
   <div class="dc f win"><b>Dr. Smith</b><span>Added whole life</span><div class="dv green">$7.8M</div><em>reached his family &middot; 42% to tax</em></div>
@@ -1094,7 +1094,7 @@ for i, h in enumerate(SLIDES):
 TA, MS, PW = 'John takes action', 'Milestone', 'The plan at work'
 ACT = {'sShock': (TA, 'Decides to start filling his tax-free bucket, as soon as possible'),
        'sTeam': (TA, 'Brings his accountant and his lawyer to the table with Mehar'),
-       'sPlan': (TA, 'Starts his corporate-owned whole life policy: $100K a year'),
+       'sPlan': (MS, 'Application approved: his corporate-owned whole life policy starts, $100K a year'),
        'sSeg': (TA, 'Moves his TFSA and RRSP into seg funds, and starts investing $15K a year'),
        'sLoc2': (TA, 'Opens clinic #2'),
        'sIfa': (TA, 'Sets up an IFA: borrows $500K against his policy to fund clinic #2'),
@@ -1111,7 +1111,7 @@ for i, h in enumerate(SLIDES):
     cls = head.split('class="slide ', 1)[1].split('"', 1)[0].split()[0]
     a = ACT.get(cls)
     if not a and 'He Starts Now' in h and 'sChap' in head:
-        a = (TA, 'Starts the plan right away: December 30, the same month')
+        a = (TA, 'Applies for the plan, and goes through the application process with Mehar')
     if a:
         SLIDES[i] = h.replace('<section ', f'<section data-actl="{a[0]}" data-act="{a[1]}" ', 1)
 

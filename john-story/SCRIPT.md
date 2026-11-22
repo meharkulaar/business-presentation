@@ -219,3 +219,8 @@ New opening order: Cover → The real Ontario case → **How tonight works** →
   - **Succession:** passes the clinics to Lily.
   - **Legacy:** $14.18M tax-free (the plan at work).
 - **Fast-forward clock:** it now stops on the new year for a full second (the hands freeze and the year pulses) before fading into the slide.
+
+## Updates in version 20
+- **Real case study (two doctors slide):** "John and Jake are fictional. This case study is real. A real case study and comparison was done: same income, same savings, one difference."
+- **Chapter Three banner:** "John takes action: applies for the plan, and goes through the application process with Mehar." Say: "He didn't wait. That same week, he applied and Mehar walked him through the application."
+- **The policy banner:** now a milestone: "Application approved: his corporate-owned whole life policy starts, $100K a year."
