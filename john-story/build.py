@@ -157,6 +157,7 @@ def bucket(x, y, s, fill_pct, cls=''):
             '<text x="0" y="-110" text-anchor="middle" style="fill:#7A0F1A;font:900 52px Georgia,serif">CDA</text>'
             '</g>')
 
+exec(open(os.path.join(HERE,'props2.py')).read())
 # ------------------------------------------------------------------ slide helpers
 SLIDES = []
 def slide(html, cls='', hud=None, notes=''):
@@ -259,25 +260,48 @@ wlh = ''.join(f'<li class="f"><i class="box"></i>{w}</li>' for w in wl)
 slide(f'''
 <div class="split">
   <div class="scroll"><div class="scT">John&rsquo;s Christmas List</div><ul class="wl">{wlh}</ul><div class="scSig">&mdash; J.</div></div>
-  <div class="sp2"><h2 class="lft">He wasn&rsquo;t asking for a sports car.</h2><p class="lft big">He wanted his <b>time</b> back, and a future his family could count on.</p><p class="lft f mid">So in January, he made an appointment.</p></div>
+  <div class="sp2"><h2 class="lft">He wasn&rsquo;t asking for a sports car.</h2><p class="lft big">He wanted his <b>time</b> back, and a future his family could count on.</p><p class="lft f mid">So that same week, between Christmas and New Year&rsquo;s, <b>he called Mehar.</b></p></div>
 </div>
 ''', 'sList', hud=H(40, 1509000))
 
 # 8 CHAPTER 2
-slide(chapter('Chapter Two', 'January 2027 · John is 40', 'The Meeting',
+slide(chapter('Chapter Two', 'December 28, 2026 · John is 40', 'The Meeting',
     '<rect x="0" y="0" width="1300" height="430" rx="18" fill="#3A1216" opacity=".85"/><rect x="980" y="60" width="200" height="140" fill="#E4E8EE" stroke="#C9CED6" stroke-width="3"/>'
     '<text x="1080" y="140" text-anchor="middle" style="font:700 22px Georgia;fill:#7A0F1A">TEAM ALL IN</text>'
     + person('john',470,410,1.0)+person('mehar',830,410,1.0)+desk(650,410,1.0)+label(470,150,'John',size=22)+label(830,150,'Mehar, his advisor',size=22)),
     'sChap', hud=H(40, 1509000))
 
-# 9 7 NEEDS CHECK-UP
-orn = ''.join(f'<div class="orn f"><i></i><span>{n}</span></div>' for n in NEEDS)
-slide(f'''
+# 9 7 NEEDS CHECK-UP (full-screen web)
+slide('''
 <div class="kick">The check-up</div>
-<h2>Every corporation has 7 key needs. John had covered <span class="red">none</span> of them.</h2>
-<div class="ornRow">{orn}</div>
-<p class="f mid">Mehar didn&rsquo;t sell John anything that day. <b>He showed him the gaps.</b></p>
-''', 'sNeeds', hud=H(40, 1509000))
+<h2 class="nwH">The 7 key needs of John&rsquo;s corporation</h2>
+<svg class="nwSvg" viewBox="0 0 1440 640" width="1440" height="640" aria-hidden="true"><g class="nwWeb"><line class="nwW" x1="720" y1="135" x2="995" y2="216"/><line class="nwW" x1="720" y1="135" x2="1063" y2="398"/><line class="nwW" x1="995" y1="216" x2="1063" y2="398"/><line class="nwW" x1="995" y1="216" x2="873" y2="544"/><line class="nwW" x1="1063" y1="398" x2="873" y2="544"/><line class="nwW" x1="1063" y1="398" x2="567" y2="544"/><line class="nwW" x1="873" y1="544" x2="567" y2="544"/><line class="nwW" x1="873" y1="544" x2="377" y2="398"/><line class="nwW" x1="567" y1="544" x2="377" y2="398"/><line class="nwW" x1="567" y1="544" x2="445" y2="216"/><line class="nwW" x1="377" y1="398" x2="445" y2="216"/><line class="nwW" x1="377" y1="398" x2="720" y2="135"/><line class="nwW" x1="445" y1="216" x2="720" y2="135"/><line class="nwW" x1="445" y1="216" x2="995" y2="216"/></g><g class="f nwN"><line class="nwB" x1="720" y1="350" x2="720" y2="135"/><g transform="translate(720,135)"><circle r="46" class="nwG"/><rect x="-9" y="-48" width="18" height="12" rx="3" fill="#B0B7BF"/><circle r="34" class="nwO"/><path d="M-12,-12 L12,12 M12,-12 L-12,12" class="nwX"/></g><text x="771" y="131" text-anchor="start" class="nwT">Delayed Taxes</text><text x="771" y="157" text-anchor="start" class="nwD">Corporate savings taxed every year</text></g><g class="f nwN"><line class="nwB" x1="720" y1="350" x2="995" y2="216"/><g transform="translate(995,216)"><circle r="46" class="nwG"/><rect x="-9" y="-48" width="18" height="12" rx="3" fill="#B0B7BF"/><circle r="34" class="nwO"/><path d="M-12,-12 L12,12 M12,-12 L-12,12" class="nwX"/></g><text x="1046" y="212" text-anchor="start" class="nwT">Wealth Transfer</text><text x="1046" y="238" text-anchor="start" class="nwD">His family would face a huge tax bill</text></g><g class="f nwN"><line class="nwB" x1="720" y1="350" x2="1063" y2="398"/><g transform="translate(1063,398)"><circle r="46" class="nwG"/><rect x="-9" y="-48" width="18" height="12" rx="3" fill="#B0B7BF"/><circle r="34" class="nwO"/><path d="M-12,-12 L12,12 M12,-12 L-12,12" class="nwX"/></g><text x="1114" y="394" text-anchor="start" class="nwT">Key Person</text><text x="1114" y="420" text-anchor="start" class="nwD">The clinic stops if John can&rsquo;t work</text></g><g class="f nwN"><line class="nwB" x1="720" y1="350" x2="873" y2="544"/><g transform="translate(873,544)"><circle r="46" class="nwG"/><rect x="-9" y="-48" width="18" height="12" rx="3" fill="#B0B7BF"/><circle r="34" class="nwO"/><path d="M-12,-12 L12,12 M12,-12 L-12,12" class="nwX"/></g><text x="924" y="540" text-anchor="start" class="nwT">Buy &amp; Sell</text><text x="924" y="566" text-anchor="start" class="nwD">No funded plan if a partner dies</text></g><g class="f nwN"><line class="nwB" x1="720" y1="350" x2="567" y2="544"/><g transform="translate(567,544)"><circle r="46" class="nwG"/><rect x="-9" y="-48" width="18" height="12" rx="3" fill="#B0B7BF"/><circle r="34" class="nwO"/><path d="M-12,-12 L12,12 M12,-12 L-12,12" class="nwX"/></g><text x="516" y="540" text-anchor="end" class="nwT">Debt</text><text x="516" y="566" text-anchor="end" class="nwD">$1.5M of debt with no backstop</text></g><g class="f nwN"><line class="nwB" x1="720" y1="350" x2="377" y2="398"/><g transform="translate(377,398)"><circle r="46" class="nwG"/><rect x="-9" y="-48" width="18" height="12" rx="3" fill="#B0B7BF"/><circle r="34" class="nwO"/><path d="M-12,-12 L12,12 M12,-12 L-12,12" class="nwX"/></g><text x="326" y="394" text-anchor="end" class="nwT">Liquidity</text><text x="326" y="420" text-anchor="end" class="nwD">No cash when opportunity knocks</text></g><g class="f nwN"><line class="nwB" x1="720" y1="350" x2="445" y2="216"/><g transform="translate(445,216)"><circle r="46" class="nwG"/><rect x="-9" y="-48" width="18" height="12" rx="3" fill="#B0B7BF"/><circle r="34" class="nwO"/><path d="M-12,-12 L12,12 M12,-12 L-12,12" class="nwX"/></g><text x="394" y="212" text-anchor="end" class="nwT">Estate Equalization</text><text x="394" y="238" text-anchor="end" class="nwD">No fair split between Lily and Max</text></g><g class="nwCore"><circle cx="720" cy="350" r="96" class="nwCg"/><circle cx="720" cy="350" r="78" class="nwC"/><text x="720" y="344" class="nwCt">JOHN&rsquo;S</text><text x="720" y="372" class="nwCt">CORPORATION</text></g><g class="f nwEnd"><rect x="580" y="448" width="280" height="48" rx="24" class="nwBadge"/><text x="720" y="480" class="nwBt">0 of 7 covered</text></g></svg>
+''', 'sNeeds')
+
+# 9b TWO BUCKETS
+slide('''
+<div class="kick">What Mehar showed him</div>
+<h2>Every dollar in John&rsquo;s corporation sits in one of <span class="gold">two buckets.</span></h2>
+<div class="bkRow">
+  <div class="bkC f"><svg viewBox="-160 -260 320 330" width="300" height="300"><path d="M-120,-220 L120,-220 L94,0 L-94,0Z" fill="rgba(179,32,42,.18)" stroke="#E0303E" stroke-width="7" stroke-linejoin="round"/><text x="0" y="-92" text-anchor="middle" style="font:900 68px Georgia;fill:#FF7D78">%</text><g class="drip"><circle class="leak" style="animation-delay:0.0s" cx="-40" cy="20" r="11" fill="#E5B93C"/><circle class="leak" style="animation-delay:0.5s" cx="-20" cy="20" r="11" fill="#E5B93C"/><circle class="leak" style="animation-delay:1.0s" cx="0" cy="20" r="11" fill="#E5B93C"/><circle class="leak" style="animation-delay:1.5s" cx="20" cy="20" r="11" fill="#E5B93C"/><circle class="leak" style="animation-delay:2.0s" cx="40" cy="20" r="11" fill="#E5B93C"/></g></svg><b class="red">Taxable bucket</b><span>Salary, dividends, investment income: <strong>taxed on the way out</strong>, up to about half.</span></div>
+  <div class="bkVs f">vs</div>
+  <div class="bkC win f"><svg viewBox="-160 -260 320 330" width="300" height="300"><path d="M-120,-220 L120,-220 L94,0 L-94,0Z" fill="rgba(229,185,60,.22)" stroke="#F2CC5A" stroke-width="7" stroke-linejoin="round"/><rect class="bkLvl" x="-100" y="-60" width="200" height="60" fill="#E5B93C" opacity=".7"/><text x="0" y="-110" text-anchor="middle" style="font:900 60px Georgia;fill:#FFE08A">CDA</text></svg><b class="gold">Tax-free bucket</b><span>The Capital Dividend Account: <strong>every dollar comes out tax-free.</strong></span></div>
+</div>
+''', 'sBuckets', hud=H(40, 1509000))
+
+BUBBLE='<g class="f"><path d="M150,92 L330,92 Q350,92 350,112 L350,160 Q350,180 330,180 L240,180 L210,214 L214,180 L150,180 Q130,180 130,160 L130,112 Q130,92 150,92Z" fill="#FBF3E2" stroke="#E5B93C" stroke-width="3"/><text x="240" y="128" text-anchor="middle" style="font:700 italic 20px Georgia;fill:#6B1218">A tax-free bucket?</text><text x="240" y="156" text-anchor="middle" style="font:700 italic 20px Georgia;fill:#6B1218">Nobody ever told me!</text></g>'
+SHOCK=scene(ground(620,420)+person('john',200,410,1.1,mood='shock')+person('mehar',440,410,1.05)+BUBBLE, 470).replace('viewBox="0 0 1300 470" width="1300"','viewBox="0 0 620 470" width="620"')
+slide(f'''
+<div class="split shockS">
+  <div class="sp">{SHOCK}</div>
+  <div class="sp2">
+    <div class="kick" style="text-align:left">The moment</div>
+    <h2 class="lft">John had never heard of it.</h2>
+    <p class="lft big f">Ten years in business. An accountant. A bank. <b>Nobody had ever shown him the tax-free bucket.</b></p>
+    <p class="lft big f"><b class="gold">&ldquo;How do I fill it?&rdquo;</b> he asked. <b>&ldquo;And how soon can we start?&rdquo;</b></p>
+  </div>
+</div>
+''', 'sShock', hud=H(40, 1509000))
 
 # 10 3 HIDDEN PROBLEMS (with loonie)
 slide(f'''
@@ -306,9 +330,38 @@ slide(f'''
 ''', 'sTeam', hud=H(40, 1509000))
 
 # 12 CHAPTER 3
-slide(chapter('Chapter Three', 'Spring 2027 · John is 41', 'The Plan',
-    ground(1300,400)+gift(650,390,1.6,txt='THE PLAN')+person('john',400,400,.95)+person('mehar',900,400,.95)+tree(1130,400,.8)),
-    'sChap', hud=H(41, 1560000, '0,4', '100'))
+slide(chapter('Chapter Three', 'December 30, 2026 · the same month', 'He Starts Now',
+    ground(1300,400)+gift(650,390,1.6,txt='THE PLAN')+person('john',400,400,.95,arm='up')+person('mehar',900,400,.95)+tree(1130,400,.8)
+    +'<text x="650" y="60" text-anchor="middle" class="capt">&ldquo;Why wait until next year? Time is the one thing I can&rsquo;t buy back.&rdquo;</text>'),
+    'sChap', hud=H(40, 1509000, '0,4', '100'))
+
+# 12b HOW IT'S STRUCTURED
+slide('''
+<div class="kick">How it&rsquo;s structured</div>
+<h2>Who owns it, who pays, and who gets paid</h2>
+<div class="stG">
+  <div class="stC f"><i>&#127970;</i><span>Owner &amp; payer</span><b>John&rsquo;s corporation</b><em>Pays with 88&cent; corporate dollars, not 50&cent; personal ones</em></div>
+  <div class="stC f"><i>&#128100;</i><span>Life insured</span><b>John</b><em>The policy is on his life</em></div>
+  <div class="stC f gold"><i>&#128176;</i><span>Inside the policy</span><b>Cash value grows</b><em>Tax-sheltered: guaranteed values plus dividends. He can borrow against it.</em></div>
+  <div class="stC f"><i>&#127963;</i><span>Beneficiary</span><b>John&rsquo;s corporation</b><em>Receives the tax-free death benefit</em></div>
+  <div class="stC f gold"><i>&#129699;</i><span>The CDA</span><b>Gets credited</b><em>Death benefit minus the policy&rsquo;s cost base goes into the tax-free bucket</em></div>
+  <div class="stC f green"><i>&#128106;</i><span>His family</span><b>Paid tax-free</b><em>As a capital dividend, out of the CDA</em></div>
+</div>
+<p class="f mid"><b>David</b> reviewed the tax. <b>Sarah</b> updated the corporate records and his will. <b>Mehar</b> designed the policy.</p>
+''', 'sStruct', hud=H(40, 1509000, '0,4', '100'))
+
+# 12c ALL IN ONE
+slide('''
+<div class="kick">The all-in-one strategy</div>
+<h2 class="nwH">One policy. Six jobs.</h2>
+<svg class="aoSvg" viewBox="0 0 1440 560" width="1440" height="560" aria-hidden="true">
+ <g class="f"><rect x="540" y="10" width="360" height="64" rx="14" class="aoTop"/><text x="720" y="50" class="aoTt">John&rsquo;s Dental Corporation</text></g>
+ <g class="f"><path class="aoL" d="M360,42 L540,42"/><rect x="180" y="16" width="180" height="52" rx="12" class="aoSide"/><text x="270" y="49" class="aoSt">Revenue in</text><path class="aoL red" d="M900,42 L1080,42"/><rect x="1080" y="16" width="180" height="52" rx="12" class="aoSide r"/><text x="1170" y="49" class="aoSt">Expenses out</text></g>
+ <g class="f"><path class="aoL gold" d="M720,74 L720,200"/><rect x="490" y="112" width="460" height="42" rx="21" class="aoPill"/><text x="720" y="139" class="aoPt">Retained earnings &#8594; $100,000 a year</text></g>
+ <g class="f"><rect x="520" y="200" width="400" height="130" rx="20" class="aoPol"/><text x="720" y="250" class="aoPolT">Permanent Policy</text><text x="720" y="280" class="aoPolS">(Whole Life)</text><text x="720" y="308" class="aoPolS">Cash value + tax-free death benefit</text></g>
+ <g class="f aoB"><path class="aoL" d="M720,330 C720,380 170,380 170,430"/><rect x="68" y="430" width="204" height="92" rx="14" class="aoBox"/><text x="170" y="468" class="aoBt">Tax-free growth</text><text x="170" y="494" class="aoBd">Cash value compounds sheltered</text></g><g class="f aoB"><path class="aoL" d="M720,330 C720,380 390,380 390,430"/><rect x="288" y="430" width="204" height="92" rx="14" class="aoBox"/><text x="390" y="468" class="aoBt">Borrow anytime</text><text x="390" y="494" class="aoBd">Collateral for bank loans</text></g><g class="f aoB"><path class="aoL" d="M720,330 C720,380 610,380 610,430"/><rect x="508" y="430" width="204" height="92" rx="14" class="aoBox"/><text x="610" y="468" class="aoBt">Debt protection</text><text x="610" y="494" class="aoBd">Pays off loans at death</text></g><g class="f aoB"><path class="aoL" d="M720,330 C720,380 830,380 830,430"/><rect x="728" y="430" width="204" height="92" rx="14" class="aoBox"/><text x="830" y="468" class="aoBt">Key person</text><text x="830" y="494" class="aoBd">Protects the clinic</text></g><g class="f aoB"><path class="aoL" d="M720,330 C720,380 1050,380 1050,430"/><rect x="948" y="430" width="204" height="92" rx="14" class="aoBox"/><text x="1050" y="468" class="aoBt">Buy-sell funding</text><text x="1050" y="494" class="aoBd">Partner buyout ready</text></g><g class="f aoB"><path class="aoL" d="M720,330 C720,380 1270,380 1270,430"/><rect x="1168" y="430" width="204" height="92" rx="14" class="aoBox"/><text x="1270" y="468" class="aoBt">Tax-free estate</text><text x="1270" y="494" class="aoBd">Paid out through the CDA</text></g>
+</svg>
+''', 'sAio', hud=H(40, 1509000, '0,4', '100'))
 
 # 13 THE POLICY
 i41, i50, i65, i90 = ILL[41], ILL[50], ILL[65], ILL[90]
@@ -410,26 +463,28 @@ slide(f'''
 </div>
 ''', 'sLoc2', hud=H(46, 2600000, '0,4,5', '101'))
 
-# 20 FAMOUS NAMES
+# 20 IFA EXPLAINED
 slide(f'''
-<div class="kick">He wasn&rsquo;t the first</div>
-<h2>Same playbook, famous names</h2>
-<div class="fam">
-  <div class="f"><b>Walt Disney</b><span>is widely reported to have borrowed against his life insurance to help fund Disneyland.</span></div>
-  <div class="f"><b>Ray Kroc</b><span>is widely reported to have used his policies&rsquo; cash value to help cover salaries in McDonald&rsquo;s early years.</span></div>
-  <div class="f"><b>John</b><span>borrowed against his to open clinic #2.</span></div>
+<div class="kick">How he borrowed</div>
+<h2>The Immediate Financing Arrangement (IFA)</h2>
+<div class="ifa">
+  <div class="ifC f"><div class="ifN">1</div><b>Pay the premium</b><span>His corporation pays $100K into the policy.</span></div>
+  <div class="ifA f">&#10140;</div>
+  <div class="ifC f"><div class="ifN">2</div><b>Pledge the policy</b><span>The bank lends against the cash value, as collateral.</span></div>
+  <div class="ifA f">&#10140;</div>
+  <div class="ifC f"><div class="ifN">3</div><b>Reinvest the cash</b><span>The loan funds clinic #2. Interest may be tax-deductible.</span></div>
+  <div class="ifA f">&#10140;</div>
+  <div class="ifC f gold"><div class="ifN">4</div><b>Policy keeps growing</b><span>Untouched, compounding, with the death benefit repaying the loan one day.</span></div>
 </div>
-<p class="f mid">The policy wasn&rsquo;t just protection. <b>It was the engine.</b></p>
-''', 'sFam', hud=H(46, 2600000, '0,4,5', '101'))
+<p class="f mid">Walt Disney and Ray Kroc are widely reported to have used their policies the same way. <b class="gold">One dollar, two jobs.</b></p>
+<div class="src">IFA structures must be set up with your accountant and lender. Interest deductibility depends on how the loan is used. Not tax advice.</div>
+''', 'sIfa', hud=H(46, 2600000, '0,4,5', '101'))
 
 # 21 TWIST 1 crash
 slide(f'''
 <div class="kick red">Plot twist #1 &middot; 2034 &middot; John is 48</div>
 <h2>The market crashes 25%.</h2>
-{scene(ground(1300,380)+'<g class="storm"><ellipse cx="650" cy="90" rx="220" ry="60" fill="#5E6670"/><ellipse cx="520" cy="110" rx="120" ry="50" fill="#6E7680"/><ellipse cx="790" cy="110" rx="130" ry="50" fill="#6E7680"/>'
-  + ''.join(f'<line x1="{x}" y1="150" x2="{x-14}" y2="200" stroke="#9AA6B2" stroke-width="3"/>' for x in range(470,840,40))+'</g>'
-  + '<path d="M480,250 Q650,150 820,250Z" fill="#9E1B26"/><path d="M650,170 L650,360" stroke="#5E3820" stroke-width="6"/>'
-  + person('john',600,370,.8)+person('emma',700,370,.76), 420)}
+{scene(ground(1300,380)+cloud(560,70,1.15)+cloud(800,90,.9)+'<line class="rain" style="animation-delay:-0.62s" x1="380" y1="167" x2="370" y2="201" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.80s" x1="402" y1="167" x2="392" y2="210" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.92s" x1="424" y1="121" x2="414" y2="204" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.78s" x1="446" y1="135" x2="436" y2="210" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.05s" x1="468" y1="130" x2="458" y2="193" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.37s" x1="490" y1="135" x2="480" y2="202" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.54s" x1="512" y1="156" x2="502" y2="197" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.01s" x1="534" y1="133" x2="524" y2="203" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.28s" x1="556" y1="169" x2="546" y2="202" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.16s" x1="578" y1="124" x2="568" y2="194" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.62s" x1="600" y1="148" x2="590" y2="194" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.13s" x1="622" y1="120" x2="612" y2="196" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.77s" x1="644" y1="130" x2="634" y2="195" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.29s" x1="666" y1="132" x2="656" y2="207" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.88s" x1="688" y1="160" x2="678" y2="196" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.18s" x1="710" y1="164" x2="700" y2="196" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.97s" x1="732" y1="144" x2="722" y2="199" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.02s" x1="754" y1="146" x2="744" y2="195" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.94s" x1="776" y1="136" x2="766" y2="192" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.33s" x1="798" y1="158" x2="788" y2="208" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.00s" x1="820" y1="163" x2="810" y2="212" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.34s" x1="842" y1="139" x2="832" y2="201" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.82s" x1="864" y1="150" x2="854" y2="212" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.32s" x1="886" y1="150" x2="876" y2="205" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.70s" x1="908" y1="123" x2="898" y2="198" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.98s" x1="930" y1="121" x2="920" y2="213" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.36s" x1="952" y1="145" x2="942" y2="190" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.55s" x1="974" y1="146" x2="964" y2="201" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><g transform="translate(980,90)"><rect x="0" y="0" width="240" height="160" rx="12" fill="rgba(20,4,8,.6)" stroke="rgba(255,111,107,.6)" stroke-width="2"/><polyline points="20,40 60,55 90,45 120,70 150,110 180,95 220,135" fill="none" stroke="#FF6F6B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M210,122 L224,138 L204,140Z" fill="#FF6F6B"/><text x="120" y="28" text-anchor="middle" style="font:900 22px Georgia;fill:#FF8A86">&#8722;25%</text></g>'+umbrella(650,215,1.0)+person('john',610,370,.8,arm='hold')+person('emma',710,370,.76), 420)}
 <div class="twist">
   <p class="f">John&rsquo;s seg funds had a <b>guaranteed floor</b>. When markets recovered, a <b>reset</b> locked in the new high.</p>
   <p class="f">His policy&rsquo;s cash value <b class="green">didn&rsquo;t drop at all</b> ({money(ILL[48]["totalCV"])} and climbing).</p>
@@ -613,6 +668,7 @@ html = f'''<!doctype html>
 <style>{CSS}</style></head>
 <body>
 <div id="stage">
+  {GDEFS}
   <div class="frame"></div>
   <div class="bokeh" aria-hidden="true">{bokeh}</div>
   <div class="snow far" aria-hidden="true">{flakes2}</div>
@@ -632,6 +688,7 @@ html = f'''<!doctype html>
     <div class="hNeeds"><span>7 needs</span><div id="hOrn">{orn_hud}</div></div>
     <div class="hRules"><span>3 rules</span><div id="hRu"><em>Compound</em><em>Risk</em><em>Tax</em></div></div>
   </div>
+  <div class="intl">FOR INTERNAL USE ONLY</div>
   <div class="foot">Illustrative story: John and Jake are fictional; net worth figures are illustrative. Policy values from a real Equitable illustration (current dividend scale, not guaranteed). We do not offer tax or legal advice; please consult a tax and/or legal professional.</div>
   <div class="prog"><i id="prog"></i></div>
 </div>

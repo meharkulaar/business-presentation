@@ -47,3 +47,16 @@ The bar at the bottom of the story slides tracks John's age, his net worth, his 
 - The policy values come from the real Equitable illustration (male 40, BC, $99,999.99/yr, premium offset from age 61, current dividend scale, not guaranteed).
 - Jake's $4.8M assumes his $100K a year grew at 4% after tax and lost about half to tax at death. Illustrative.
 - Famous-name stories are worded as "widely reported", because exact details vary by source.
+
+## Updates in this version (new and changed slides)
+- **Christmas list:** "So that same week, between Christmas and New Year's, he called Mehar."
+- **Chapter 2: The Meeting:** December 28, 2026.
+- **The 7 key needs (full screen):** click each need. Each appears with a red ✕ and what it means for John (e.g. "The clinic stops if John can't work"). End: **0 of 7 covered.**
+- **Two buckets (new):** "Every dollar in John's corporation sits in one of two buckets." [click] The taxable bucket leaks coins to tax. [click] The tax-free bucket: the CDA, filling up.
+- **The moment (new):** John had never heard of it. "A tax-free bucket? Nobody ever told me!" [click] "How do I fill it? And how soon can we start?"
+- **Chapter 3: He Starts Now:** December 30, 2026, the same month. "Why wait until next year? Time is the one thing I can't buy back."
+- **How it's structured (new):** the owner and payer is his corporation (88¢ dollars); the life insured is John; cash value grows inside; the beneficiary is the corporation; the CDA gets credited; his family is paid tax-free. David, Sarah and Mehar each played a part.
+- **One policy, six jobs (new, All-in-One):** revenue in, expenses out, retained earnings put $100K a year into the permanent policy (whole life), which fans out to tax-free growth, borrowing, debt protection, key person, buy-sell funding and a tax-free estate.
+- **IFA (new, replaces the famous-names slide):** pay the premium, pledge the policy, reinvest the loan in clinic #2, and the policy keeps growing. "Walt Disney and Ray Kroc are widely reported to have done the same. One dollar, two jobs."
+- **Market crash:** a new scene with storm clouds, rain, John holding an umbrella over Emma, and a −25% chart.
+- Runtime is now about 40 minutes (38 slides). If you're tight on time, hide "Seg funds" or "Real numbers: two doctors" from the ☰ menu.
