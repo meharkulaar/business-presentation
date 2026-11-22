@@ -6,6 +6,7 @@ import json, math, os, random
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ILL = {r['age']: r for r in json.load(open(os.path.join(HERE, 'illustration.json')))['rows']}
+RAJ = {r['age']: r for r in json.load(open(os.path.join(HERE, 'raj.json')))['rows']}
 QR = open(os.path.join(HERE, 'source', 'qr.txt')).read().strip()
 
 def money(v, short=True):
@@ -696,11 +697,11 @@ RAJBS = scene(ground(520,420) + clinic(130,410,.62,2) + person('john',300,410,.9
   + label(300,448,'John') + label(420,448,'Dr. Raj'), 470).replace('viewBox="0 0 1300 470" width="1300"','viewBox="0 0 520 470" width="520"')
 slide(f'''
 <div class="kick">Clinic #2 &middot; a new partner</div>
-<h2>Raj buys in, and gets the same plan.</h2>
+<h2>Raj, 44, buys in, and gets the same plan.</h2>
 <div class="split rajB">
   <div class="sp">{RAJBS}</div>
   <div class="bsF">
-    <div class="bfS f"><i>1</i><span><b>A policy on each partner.</b> The clinic corporation owns a whole life policy on John <em>and</em> one on Raj, sized to each partner&rsquo;s share.</span></div>
+    <div class="bfS f"><i>1</i><span><b>A policy on each partner.</b> Raj is 44. The clinic corporation pays <b>$100K a year for 20 years</b> into a whole life policy on him: <b class="gold">{money(RAJ[45]["totalDB"])} of coverage from day one.</b> It does the same for John.</span></div>
     <div class="bfS f"><i>2</i><span><b>Sarah writes the buy-sell agreement.</b> If a partner dies, the corporation must buy his shares from his family, at a fair price.</span></div>
     <div class="bfS f"><i>3</i><span><b>The policy pays for it.</b> The payout goes to the corporation, credits the CDA, and funds the buyout. <b class="gold">His family gets cash. The survivor keeps the clinic.</b></span></div>
     <div class="bfS f gold"><i>4</i><span><b>Raj gets the upside too.</b> His policy builds cash value he can borrow against, just like John&rsquo;s.</span></div>
@@ -746,7 +747,7 @@ RAJ_SCENE = scene(ground(560,420)
   + '<g transform="translate(380,410)"><path d="M-95,0 L-95,-170 C-95,-235 95,-235 95,-170 L95,0Z" fill="#8E949C"/><path d="M-95,0 L-95,-170 C-95,-235 95,-235 95,-170 L95,0Z" fill="url(#gShade)"/>'
   + '<path d="M-80,0 L-80,-165 C-80,-220 80,-220 80,-165 L80,0" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="3"/>'
   + '<text y="-150" text-anchor="middle" style="font:900 52px Georgia;fill:#3A3F46">RIP</text><text y="-108" text-anchor="middle" style="font:700 22px Georgia;fill:#2E3238">Dr. Raj</text>'
-  + '<text y="-80" text-anchor="middle" style="font:italic 15px Georgia;fill:#2E3238">Partner. Father. Friend.</text>'
+  + '<text y="-82" text-anchor="middle" style="font:700 15px Georgia;fill:#2E3238">1988 &#8211; 2041</text><text y="-60" text-anchor="middle" style="font:italic 14px Georgia;fill:#2E3238">Partner. Father. Friend.</text>'
   + '<circle cx="-70" cy="-6" r="12" fill="#C62D3A"/><circle cx="-52" cy="-10" r="10" fill="#E5B93C"/><circle cx="-60" cy="-22" r="9" fill="#F4EBDD"/><circle cx="66" cy="-8" r="12" fill="#C62D3A"/><circle cx="50" cy="-16" r="9" fill="#F4EBDD"/></g>', 470).replace('viewBox="0 0 1300 470" width="1300"','viewBox="0 0 560 470" width="560"')
 
 # 22b LIFE CAN HIT
@@ -761,17 +762,36 @@ slide('''
 # 23 TWIST 2 partner dies
 slide(f'''
 <div class="kick red">Plot twist #2 &middot; 2041 &middot; John is 55</div>
-<h2>Dr. Raj, John&rsquo;s partner, passed away suddenly.</h2>
+<h2>Dr. Raj, John&rsquo;s partner, passed away suddenly. He was 53.</h2>
 <div class="split">
   <div class="sp">{RAJ_SCENE}</div>
   <div class="twist2">
-    <p class="f"><b>Sarah</b> had drafted a buy-sell agreement. <b>Mehar</b> had funded it with insurance on both partners.</p>
-    <p class="f">The corporation received the payout and bought Raj&rsquo;s shares at a fair price. <b>Raj&rsquo;s family got cash within weeks.</b></p>
-    <p class="f">Key person coverage carried the clinic while a new dentist was hired.</p>
-    <p class="f mid2">No lawsuits. No fire sale. <b class="green">The business survived.</b></p>
+    <p class="f">A wife and two kids lost a husband and a father. John lost his partner and his friend.</p>
+    <p class="f">Without a plan, this is where partnerships fall apart: the family needs cash, and the surviving partner can&rsquo;t afford to buy them out.</p>
+    <p class="f">But nine years earlier, when Raj bought in, <b>Mehar, Sarah and David had planned for exactly this.</b></p>
+    <p class="f mid2">No lawsuits. No fire sale. <b class="green">Here&rsquo;s what his policy did.</b></p>
   </div>
 </div>
 ''', 'sRaj', hud=H(55, NW(55), '0,2,3,4,5', '111'))
+
+# 23b WHAT RAJ'S POLICY DID
+RSNAP = 'data:image/jpeg;base64,' + base64.b64encode(open(os.path.join(HERE, 'source', 'raj-snap.jpg'), 'rb').read()).decode()
+r53 = RAJ[53]
+slide(f'''
+<div class="kick">What happened when Raj died</div>
+<h2>$900K in. <span class="gold">{money(r53["totalDB"])} out</span>, exactly when it was needed.</h2>
+<div class="split rpS">
+  <div class="snapP f rpSnap"><img src="{RSNAP}" alt="Raj's real Equitable illustration, year 9 highlighted"><i class="snapTag">Raj&rsquo;s real illustration</i></div>
+  <div class="rpF">
+    <div class="rpR f"><b>9 years of premiums</b><span>The clinic corporation paid <strong>$900,000</strong> ($100K a year).</span></div>
+    <div class="rpR f gold"><b>Death benefit: {money(r53["totalDB"])}</b><span>Paid to the corporation, <strong>tax-free</strong>, within weeks.</span></div>
+    <div class="rpR f gold"><b>CDA credited</b><span>Almost all of it goes into the tax-free bucket (the payout minus the policy&rsquo;s cost base).</span></div>
+    <div class="rpR f green"><b>Raj&rsquo;s family: paid in full</b><span>The corporation buys his shares at the agreed price, paid out through the CDA as a <strong>tax-free capital dividend</strong>.</span></div>
+    <div class="rpR f green"><b>The clinic: protected</b><span>The rest carries the clinic while a new dentist is hired. John now owns 100%.</span></div>
+  </div>
+</div>
+<div class="src">Raj: Equitable EquiMax illustration, male 44, $99,999.99/yr for 20 years, current dividend scale (not guaranteed); values at the end of year 9 (age 53). Buy-sell and capital dividend treatment must be set up with your lawyer and accountant.</div>
+''', 'sRajPay', hud=H(55, NW(55), '0,2,3,4,5', '111'))
 
 # 24 CHAPTER 6: 65
 slide(f'''
@@ -966,7 +986,7 @@ slide(f'''
 ''', 'sThanks')
 
 # service ribbons
-SVC = {'sRajBS': 5, 'sNeeds': 2, 'sDollar': 3, 'sBuckets': 3, 'sShock': 3, 'sProbs': 3, 'sTeam': 4, 'sStruct': 5, 'sAio': 5, 'sPlan': 5, 'sSnap': 5,
+SVC = {'sRajPay': 7, 'sRajBS': 5, 'sNeeds': 2, 'sDollar': 3, 'sBuckets': 3, 'sShock': 3, 'sProbs': 3, 'sTeam': 4, 'sStruct': 5, 'sAio': 5, 'sPlan': 5, 'sSnap': 5,
        'sChart': 5, 'sCda': 5, 'sLoc2': 7, 'sIfa': 7, 'sCrash': 7, 'sRaj': 7, 'sRetire': 7, 'sSucc': 7}
 for i, h in enumerate(SLIDES):
     cls = h.split('class="slide ', 1)[1].split('"', 1)[0].split()[0]

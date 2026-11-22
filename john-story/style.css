@@ -688,3 +688,11 @@ body.lite .snow,body.lite .bokeh{display:none!important}
 .bfS i{flex:none;width:34px;height:34px;border-radius:50%;background:#B3202A;color:#fff;font:900 18px Georgia;font-style:normal;display:flex;align-items:center;justify-content:center}
 .bfS span{color:#E3D3B8;font-size:17.5px;line-height:1.4}.bfS b{color:#FFF4DC}.bfS em{color:#F6D77A}.bfS .gold{color:#F6D77A}
 .bfS.gold{border-color:rgba(229,185,60,.8);box-shadow:0 0 18px rgba(229,185,60,.25)}.bfS.gold i{background:#E5B93C;color:#5A1A0A}
+/* v12: Raj payout */
+.rpS{gap:34px;align-items:center}
+.rpSnap img{width:600px}
+.rpF{display:flex;flex-direction:column;gap:9px;width:560px}
+.rpR{padding:9px 14px;border-left:4px solid #E8D6B0;background:rgba(20,4,8,.5);border-radius:8px}
+.rpR b{display:block;font:900 19px Georgia,serif;color:#FFF0D2}.rpR span{font-size:15.5px;color:#E3D3B8;line-height:1.4}.rpR strong{color:#FFF4DC}
+.rpR.gold{border-left-color:#E5B93C}.rpR.gold b{color:#F6D77A}.rpR.green{border-left-color:#7BE3AE}.rpR.green b{color:#7BE3AE}
+.rpSnap img{width:640px}.rpF{width:540px}

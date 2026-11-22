@@ -142,3 +142,12 @@ New opening order: Cover → The real Ontario case → **How tonight works** →
 - **Retirement at 65:** "He stops adding to his investments and starts taking money out, about $1.48M in year one, while the rest keeps growing."
 - **Raj buys in (new, after the IFA):** "When Raj bought in, Mehar set up the same plan for him. The clinic corporation owns a whole life policy on each partner. Sarah wrote the buy-sell agreement. If one partner dies, the policy pays the corporation, the CDA is credited, and the family is bought out with cash. And Raj's policy builds cash value too." The Buy & Sell ornament lights up here, and it pays off later when Raj passes away.
 - **Runtime:** about 50 minutes. For a 40-minute version, hide: A question for the room, Seg funds, Rogers, Real estate vs S&P, Real case study (two doctors), and the $100K bars.
+
+## Updates in version 12: Raj's real policy
+- **Raj, 44, buys in:** "Raj was 44. The clinic corporation pays $100K a year for 20 years into a whole life policy on him, $4.60M of coverage from day one. It does the same for John."
+- **Raj passes away (2041, age 53):** the headstone reads "Dr. Raj, 1988–2041". "A wife and two kids lost a husband and a father. John lost his partner and his friend. Without a plan, this is where partnerships fall apart. But nine years earlier, Mehar, Sarah and David had planned for exactly this."
+- **What happened when Raj died (new):** Raj's real Equitable illustration is shown, with year 9 (age 53) highlighted.
+  - "$900K in. $5.16M out, exactly when it was needed."
+  - "The corporation paid $900,000 over nine years. The death benefit of $5.16M was paid to the corporation tax-free. Almost all of it was credited to the CDA."
+  - "Raj's family was bought out in full, paid as a tax-free capital dividend. The rest carried the clinic while a new dentist was hired, and John now owns 100%."
+- Source: Equitable EquiMax illustration, male 44, $99,999.99/yr 20-pay, current dividend scale (not guaranteed).
