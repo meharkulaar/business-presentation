@@ -793,3 +793,62 @@ body.lite .snow,body.lite .bokeh{display:none!important}
 .cfOut b{display:block;font:900 26px Georgia,serif;color:#1F6B44;margin-bottom:6px}.cfOut span{display:block;font-size:17px;color:#4A3A2A}
 #hudBig .sbW{font-size:30px!important}
 #hudBig .sbV.b b.sbW{font-size:30px!important;white-space:normal;line-height:1.1;text-align:center}
+
+/* ===================== v17 ===================== */
+@font-face{font-family:"Caveat";src:url(__CAVEAT__) format("woff2");font-weight:700;font-display:block}
+/* Santa's checklist */
+.santa{width:1060px;margin-top:6px;padding:22px 46px 18px;transform:rotate(-.8deg)}
+.snH{font:700 54px "Caveat",cursive;color:#B3202A;text-align:center;line-height:1}
+.snH small{display:block;font:700 26px "Caveat",cursive;color:#5A4630;margin-top:2px}
+.snHat{font-size:40px;margin-right:10px;vertical-align:6px}
+.snL{list-style:none;padding:0;margin:12px 0 4px;display:grid;grid-template-columns:1fr 1fr;column-gap:40px}
+.snL li{display:flex;align-items:center;gap:12px;padding:7px 0;border-bottom:1.5px solid rgba(90,70,48,.25)}
+.hbx{flex:none}.hx{stroke-dasharray:70;stroke-dashoffset:70;transition:stroke-dashoffset .5s ease .25s}
+.snL li.on .hx{stroke-dashoffset:0}
+.hn{font:700 31px "Caveat",cursive;color:#2E1E12;white-space:nowrap}
+.hd{font:700 22px "Caveat",cursive;color:#7A5A3A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.snT{font:700 46px "Caveat",cursive;color:#B3202A;text-align:center;margin-top:6px}
+.snT.on{display:inline-block;width:100%;}
+.snT::after{content:"";display:block;width:300px;height:10px;margin:-6px auto 0;border-bottom:4px solid #B3202A;border-radius:50%}
+/* gift outline glow */
+.giftO{filter:drop-shadow(0 0 14px rgba(255,231,166,.65))}
+/* chart hover */
+.hvHit{fill:transparent;cursor:crosshair}
+.hvG{opacity:0;transition:opacity .15s;pointer-events:none}.hvG.on{opacity:1}
+.hvL{stroke:rgba(255,231,166,.6);stroke-width:2;stroke-dasharray:5 5}
+.hvC{stroke:#2A0A10;stroke-width:3}.hvC.db{fill:#F2CC5A}.hvC.cv{fill:#7BE3AE}
+.hvT rect{fill:#EBD9B4;stroke:#8A6510;stroke-width:2;filter:drop-shadow(0 6px 12px rgba(0,0,0,.5))}
+.hvT text{font:700 15px "Segoe UI",sans-serif;fill:#3A2A1A}.hvT .t0{font:900 17px Georgia,serif;fill:#6B1218}
+.hvT .t1{fill:#8A6510}.hvT .t2{fill:#1F6B44}
+.hint{font-size:14px;color:#CDBB9A;font-style:italic;margin-top:-4px}
+/* Raj text on paper */
+.rajP{padding:18px 26px;max-width:640px}
+.rajP p{color:#3A2A1A!important;font-size:21px!important}.rajP b{color:#6B1218!important}.rajP .green{color:#1F6B44!important}
+/* torch */
+.tFl{transform-box:fill-box;transform-origin:50% 100%;animation:fl .9s ease-in-out infinite alternate}
+.torch{filter:drop-shadow(0 0 12px rgba(255,190,90,.8))}
+/* IFA diagram */
+.ifD{position:relative;width:1300px;height:470px;margin-top:8px}
+.ifB{position:absolute!important;padding:16px 18px;text-align:center}
+.ifB b{display:block;font:900 23px Georgia,serif;color:#6B1218}.ifB span{display:block;font-size:16px;color:#4A3A2A;margin-top:4px}.ifB strong{color:#2E1E12}
+.ifB span.g{color:#1F6B44;font-weight:800}.ifB.big b{font-size:28px}
+.ifX{position:absolute;overflow:visible}
+.ifAr{fill:none;stroke:#F2CC5A;stroke-width:4;filter:drop-shadow(0 0 5px rgba(229,185,60,.8))}.ifAr.g{stroke:#7BE3AE;filter:drop-shadow(0 0 6px rgba(123,227,174,.8))}
+.ifLb{font:700 16px "Segoe UI";fill:#F6D77A;text-anchor:middle}.ifLb.g{fill:#7BE3AE;font-size:19px}
+.ifN2{font-size:17px!important;margin-top:0}
+/* fast-forward clock */
+#tp{z-index:15;background:radial-gradient(circle at 50% 45%,#3A0E16,#12030A 70%);transition:opacity .45s ease}
+#tp.on{opacity:1}#tp.out{opacity:0}
+.tpC{display:flex;flex-direction:column;align-items:center;transform:scale(.85);transition:transform .5s cubic-bezier(.2,1.2,.3,1)}
+#tp.on .tpC{transform:scale(1)}
+.clk{filter:drop-shadow(0 0 30px rgba(229,185,60,.55))}
+.cRim{fill:#C9962A;stroke:#FFE7A6;stroke-width:4}.cFace{fill:#EBD9B4}.cTk{stroke:#5A3A1A;stroke-width:5;stroke-linecap:round}
+.cH{stroke:#6B1218;stroke-linecap:round}.cH.hr{stroke-width:9}.cH.mn{stroke-width:6}.cPin{fill:#6B1218}
+#tp.on .cH.mn{animation:spin .22s linear infinite}#tp.on .cH.hr{animation:spin 2.6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.tpF{margin-top:18px;font:800 16px "Segoe UI";letter-spacing:.3em;text-transform:uppercase;color:#E5B93C}
+#tp b{font:900 110px Georgia,serif;color:#FFE7A6;text-shadow:0 0 30px rgba(229,185,60,.8);line-height:1;margin-top:6px}
+#tp em{font:italic 28px Georgia,serif;color:#F3E2BF}
+.santa{width:1180px;padding:26px 52px 22px}.snH{font-size:62px}.snH small{font-size:30px}
+.hn{font-size:36px}.hd{font-size:25px}.snL li{padding:10px 0}.snT{font-size:54px}
+.ifB b{font-size:25px}.ifB span{font-size:17px}.ifB.big b{font-size:30px}

@@ -186,3 +186,17 @@ New opening order: Cover → The real Ontario case → **How tonight works** →
   - "All of it comes out tax-free, as capital dividends to John, and to his family through his estate. For John, the policy is the big one."
 - **What happened when Raj died (slide 39):** the five notes are now torn tan paper.
 - **Final scoreboard (slide 51):** the letter is now bigger and centred, with no separate heading above it.
+
+## Updates in version 17
+- **The 7 key needs:** now Santa's handwritten checklist. Each click marks a need with a red ✗ and a handwritten note. It ends with "0 of 7 covered!"
+- **Chapter Three, "THE PLAN" gift:** outlined and glowing, so it reads from the back of the room.
+- **Watching it grow:** hover over the chart to see any year's age, death benefit, cash value and premiums paid. The key milestones are still written on the chart.
+- **Fast-forward clock:** whenever the story jumps 3 or more years, a full-screen clock spins while the year counts up, then the next slide plays in. It replaces the snow globe, and it's skipped when Smooth animations is off in Settings.
+- **The IFA:** a new diagram replaces the graph:
+  - The corporation pays the $100K premium into the whole life policy, where the cash value keeps compounding.
+  - The policy is pledged to the bank as collateral, and the bank lends $500K.
+  - The loan flows back to the business and is reinvested in clinic #2.
+  - At death, the death benefit minus the policy's cost base goes to the CDA: the loan is repaid and the rest exits tax-free.
+- **Raj passes away:** the text is now on torn paper, easy to read.
+- **Passing the torch:** John (65) is taller and labelled, and hands a lit torch to Lily.
+- **Raj buys in:** the line between John's and Raj's arms is gone.

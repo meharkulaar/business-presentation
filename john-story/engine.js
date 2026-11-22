@@ -61,10 +61,16 @@ function updHud(s){
 var lastAge=null,lastCda=0;
 function timePass(a0,a1){
   var tp=document.getElementById('tp'),y=document.getElementById('tpY'),g=document.getElementById('tpA');if(!tp)return;
-  tp.classList.remove('on');void tp.offsetWidth;tp.classList.add('on');
-  var t0=performance.now(),d=1300;
-  (function f(t){var p=Math.max(0,Math.min(1,(t-t0)/d)),e=1-Math.pow(1-p,3),a=Math.round(a0+(a1-a0)*e);y.textContent=1986+a;g.textContent='John is '+a;if(p<1)requestAnimationFrame(f);})(t0);
-  setTimeout(function(){tp.classList.remove('on');},2000);
+  var s=slides[i];
+  tp.classList.remove('on','out');void tp.offsetWidth;tp.classList.add('on');
+  var t0=performance.now(),d=1900;
+  (function f(t){var p=Math.max(0,Math.min(1,(t-t0)/d)),e=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2,a=Math.round(a0+(a1-a0)*e);y.textContent=1986+a;g.textContent='John is '+a;if(p<1)requestAnimationFrame(f);})(t0);
+  clearTimeout(tp._t1);clearTimeout(tp._t2);
+  tp._t1=setTimeout(function(){tp.classList.add('out');
+    // replay the slide's entrance now that the clock has gone
+    if(slides[i]===s){s.classList.remove('active');void s.offsetWidth;s.classList.add('active');}
+  },2300);
+  tp._t2=setTimeout(function(){tp.classList.remove('on','out');},2900);
 }
 function pour(){
   var c=document.querySelector('.hCda');if(!c)return;
@@ -84,7 +90,7 @@ function show(n,dir){
   }
   counters(s,dir>=0);
   var ag=s.dataset.age?+s.dataset.age:null;
-  if(dir>0&&ag!==null&&lastAge!==null&&ag-lastAge>=3)timePass(lastAge,ag);
+  if(dir>0&&ag!==null&&lastAge!==null&&ag-lastAge>=3&&!document.body.classList.contains('reduce'))timePass(lastAge,ag);
   if(ag!==null)lastAge=ag;
   var cd=s.dataset.cda?+s.dataset.cda:0;if(dir>0&&cd>lastCda+1)pour();lastCda=cd;
   updHud(s);
@@ -195,4 +201,21 @@ addEventListener('keydown',function(e){if(e.target.tagName==='INPUT')return;var 
 },true);
 var _o=$('bSet').onclick;$('bSet').onclick=function(){_o.call(this);if($('set').classList.contains('open'))build();};
 applyS();
+})();
+
+/* ===== interactive chart hover ===== */
+(function(){
+[].slice.call(document.querySelectorAll('svg.hov')).forEach(function(svg){
+  var pts=[].slice.call(svg.querySelectorAll('.hvD i')).map(function(e){return e.dataset;});
+  var G=svg.querySelector('.hvG'),L=svg.querySelector('.hvL'),cd=svg.querySelector('.hvC.db'),cc=svg.querySelector('.hvC.cv'),T=svg.querySelector('.hvT'),hit=svg.querySelector('.hvHit');
+  var tx=[0,1,2,3].map(function(k){return T.querySelector('.t'+k);});
+  function at(ev){var p=svg.createSVGPoint();p.x=ev.clientX;p.y=ev.clientY;var q=p.matrixTransform(svg.getScreenCTM().inverse());
+    var best=pts[0],bd=1e9;pts.forEach(function(d){var dd=Math.abs(+d.x-q.x);if(dd<bd){bd=dd;best=d;}});return best;}
+  hit.addEventListener('mousemove',function(ev){var d=at(ev);G.classList.add('on');
+    L.setAttribute('x1',d.x);L.setAttribute('x2',d.x);cd.setAttribute('cx',d.x);cd.setAttribute('cy',d.ydb);cc.setAttribute('cx',d.x);cc.setAttribute('cy',d.ycv);
+    var tX=+d.x+16;if(tX>1260-240)tX=+d.x-246;var tY=Math.max(10,Math.min(+d.ydb-30,280));T.setAttribute('transform','translate('+tX+','+tY+')');
+    tx[0].textContent='Age '+d.a+'  ·  '+(1986+(+d.a));tx[1].textContent='Death benefit: '+d.db;tx[2].textContent='Cash value: '+d.cv;tx[3].textContent='Premiums paid: '+d.pr;});
+  hit.addEventListener('mouseleave',function(){G.classList.remove('on');});
+  hit.addEventListener('click',function(e){e.stopPropagation();});
+});
 })();
