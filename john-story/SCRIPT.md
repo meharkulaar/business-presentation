@@ -70,3 +70,17 @@ The bar at the bottom of the story slides tracks John's age, his net worth, his 
 - **Christmas morning (new, before The legacy):** "Christmas morning, years later. John's grandchildren open the last gift he left." [click] The lid comes off. [click] "$14.18 million, passed to his family tax-free."
 - **Two lives, playing at once (replaces Side by side):** John on the left, Jake on the right. [click through each row] Watch Jake's side slowly fade to grey.
 - Runtime is now about **42 minutes (40 slides)**. To get under 40, hide "Seg funds" and "Real numbers: two doctors" from the ☰ menu (each saves about a minute).
+
+## Updates in version 6 (44 slides)
+- **Which dollar pays? (new, right after the 7 needs):** "Before anything else, Mehar explained one simple idea." [click] A personal dollar: about half goes to tax, so a $100,000 premium needs about $200,000 of income. [click] A corporate dollar: about 88 cents is left, so the same premium takes about $113,600. "About $86,000 a year less income needed, just by using the right dollar."
+- **Two buckets:** when you click the tax-free bucket, coins fall into it and it fills with a gold glow.
+- **All-in-one:** a new dashed arrow loops from the policy back to the business: "He can borrow against the cash value to reinvest, or for personal use."
+- **The real illustration (new, after The policy):** "This isn't a made-up number. This is the actual Equitable illustration Mehar and John agreed was the best fit for his specific situation." Point at the highlighted rows: age 50, $1.25M; age 60, premiums done, $3.25M; age 65, $3.86M cash value and an $8.28M death benefit.
+- **IFA:** the chart shows the $500K bank loan staying flat while the cash value climbs to $12.2M by 90.
+- **But life can change at any moment (new, before Raj):** [pause] Let the candle sit for a moment, then click.
+- **Dr. Raj:** a memorial scene with a halo and an RIP headstone.
+- **The Last Christmas:** the family is now inside their home.
+- **Jake's last Christmas (new, after the split screen):** "Jake turned 90 too." [click through] Burnt out. Not enough wealth. No plan for the business. No plan for his family. [read slowly] "I always thought I'd get to it next year." [pause] "Same start as John. One simple decision apart."
+- **Real case study:** the Two Doctors slide now comes after the $100K bars, with a "Real case study" stamp. Say: "John and Jake are fictional. This case is real."
+- **Final slide:** Happy Holidays.
+- **Runtime:** about 45 minutes. To stay under 40, hide Seg funds, Rogers and Real estate vs S&P from the ☰ menu (about 4 to 5 minutes saved).

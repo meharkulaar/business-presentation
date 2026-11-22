@@ -275,17 +275,52 @@ slide(chapter('Chapter Two', 'December 28, 2026 · John is 40', 'The Meeting',
 slide('''
 <div class="kick">The check-up</div>
 <h2 class="nwH">The 7 key needs of John&rsquo;s corporation</h2>
-<svg class="nwSvg" viewBox="0 0 1440 640" width="1440" height="640" aria-hidden="true"><g class="nwWeb"><line class="nwW" x1="720" y1="135" x2="995" y2="216"/><line class="nwW" x1="720" y1="135" x2="1063" y2="398"/><line class="nwW" x1="995" y1="216" x2="1063" y2="398"/><line class="nwW" x1="995" y1="216" x2="873" y2="544"/><line class="nwW" x1="1063" y1="398" x2="873" y2="544"/><line class="nwW" x1="1063" y1="398" x2="567" y2="544"/><line class="nwW" x1="873" y1="544" x2="567" y2="544"/><line class="nwW" x1="873" y1="544" x2="377" y2="398"/><line class="nwW" x1="567" y1="544" x2="377" y2="398"/><line class="nwW" x1="567" y1="544" x2="445" y2="216"/><line class="nwW" x1="377" y1="398" x2="445" y2="216"/><line class="nwW" x1="377" y1="398" x2="720" y2="135"/><line class="nwW" x1="445" y1="216" x2="720" y2="135"/><line class="nwW" x1="445" y1="216" x2="995" y2="216"/></g><g class="f nwN"><line class="nwB" x1="720" y1="350" x2="720" y2="135"/><g transform="translate(720,135)"><circle r="46" class="nwG"/><rect x="-9" y="-48" width="18" height="12" rx="3" fill="#B0B7BF"/><circle r="34" class="nwO"/><path d="M-12,-12 L12,12 M12,-12 L-12,12" class="nwX"/></g><text x="771" y="131" text-anchor="start" class="nwT">Delayed Taxes</text><text x="771" y="157" text-anchor="start" class="nwD">Corporate savings taxed every year</text></g><g class="f nwN"><line class="nwB" x1="720" y1="350" x2="995" y2="216"/><g transform="translate(995,216)"><circle r="46" class="nwG"/><rect x="-9" y="-48" width="18" height="12" rx="3" fill="#B0B7BF"/><circle r="34" class="nwO"/><path d="M-12,-12 L12,12 M12,-12 L-12,12" class="nwX"/></g><text x="1046" y="212" text-anchor="start" class="nwT">Wealth Transfer</text><text x="1046" y="238" text-anchor="start" class="nwD">His family would face a huge tax bill</text></g><g class="f nwN"><line class="nwB" x1="720" y1="350" x2="1063" y2="398"/><g transform="translate(1063,398)"><circle r="46" class="nwG"/><rect x="-9" y="-48" width="18" height="12" rx="3" fill="#B0B7BF"/><circle r="34" class="nwO"/><path d="M-12,-12 L12,12 M12,-12 L-12,12" class="nwX"/></g><text x="1114" y="394" text-anchor="start" class="nwT">Key Person</text><text x="1114" y="420" text-anchor="start" class="nwD">The clinic stops if John can&rsquo;t work</text></g><g class="f nwN"><line class="nwB" x1="720" y1="350" x2="873" y2="544"/><g transform="translate(873,544)"><circle r="46" class="nwG"/><rect x="-9" y="-48" width="18" height="12" rx="3" fill="#B0B7BF"/><circle r="34" class="nwO"/><path d="M-12,-12 L12,12 M12,-12 L-12,12" class="nwX"/></g><text x="924" y="540" text-anchor="start" class="nwT">Buy &amp; Sell</text><text x="924" y="566" text-anchor="start" class="nwD">No funded plan if a partner dies</text></g><g class="f nwN"><line class="nwB" x1="720" y1="350" x2="567" y2="544"/><g transform="translate(567,544)"><circle r="46" class="nwG"/><rect x="-9" y="-48" width="18" height="12" rx="3" fill="#B0B7BF"/><circle r="34" class="nwO"/><path d="M-12,-12 L12,12 M12,-12 L-12,12" class="nwX"/></g><text x="516" y="540" text-anchor="end" class="nwT">Debt</text><text x="516" y="566" text-anchor="end" class="nwD">$1.5M of debt with no backstop</text></g><g class="f nwN"><line class="nwB" x1="720" y1="350" x2="377" y2="398"/><g transform="translate(377,398)"><circle r="46" class="nwG"/><rect x="-9" y="-48" width="18" height="12" rx="3" fill="#B0B7BF"/><circle r="34" class="nwO"/><path d="M-12,-12 L12,12 M12,-12 L-12,12" class="nwX"/></g><text x="326" y="394" text-anchor="end" class="nwT">Liquidity</text><text x="326" y="420" text-anchor="end" class="nwD">No cash when opportunity knocks</text></g><g class="f nwN"><line class="nwB" x1="720" y1="350" x2="445" y2="216"/><g transform="translate(445,216)"><circle r="46" class="nwG"/><rect x="-9" y="-48" width="18" height="12" rx="3" fill="#B0B7BF"/><circle r="34" class="nwO"/><path d="M-12,-12 L12,12 M12,-12 L-12,12" class="nwX"/></g><text x="394" y="212" text-anchor="end" class="nwT">Estate Equalization</text><text x="394" y="238" text-anchor="end" class="nwD">No fair split between Lily and Max</text></g><g class="nwCore"><circle cx="720" cy="350" r="96" class="nwCg"/><circle cx="720" cy="350" r="78" class="nwC"/><text x="720" y="344" class="nwCt">JOHN&rsquo;S</text><text x="720" y="372" class="nwCt">CORPORATION</text></g><g class="f nwEnd"><rect x="580" y="448" width="280" height="48" rx="24" class="nwBadge"/><text x="720" y="480" class="nwBt">0 of 7 covered</text></g></svg>
+<svg class="nwSvg" viewBox="0 0 1440 640" width="1440" height="640" aria-hidden="true"><g class="nwWeb"><line class="nwW" x1="720" y1="135" x2="995" y2="216"/><line class="nwW" x1="720" y1="135" x2="1063" y2="398"/><line class="nwW" x1="995" y1="216" x2="1063" y2="398"/><line class="nwW" x1="995" y1="216" x2="873" y2="544"/><line class="nwW" x1="1063" y1="398" x2="873" y2="544"/><line class="nwW" x1="1063" y1="398" x2="567" y2="544"/><line class="nwW" x1="873" y1="544" x2="567" y2="544"/><line class="nwW" x1="873" y1="544" x2="377" y2="398"/><line class="nwW" x1="567" y1="544" x2="377" y2="398"/><line class="nwW" x1="567" y1="544" x2="445" y2="216"/><line class="nwW" x1="377" y1="398" x2="445" y2="216"/><line class="nwW" x1="377" y1="398" x2="720" y2="135"/><line class="nwW" x1="445" y1="216" x2="720" y2="135"/><line class="nwW" x1="445" y1="216" x2="995" y2="216"/></g><g class="f nwN"><line class="nwB" x1="720" y1="350" x2="720" y2="135"/><g transform="translate(720,135)"><circle r="46" class="nwG"/><rect x="-9" y="-48" width="18" height="12" rx="3" fill="#B0B7BF"/><circle r="34" class="nwO"/><path d="M-12,-12 L12,12 M12,-12 L-12,12" class="nwX"/></g><text x="771" y="131" text-anchor="start" class="nwT">Delayed Taxes</text><text x="771" y="157" text-anchor="start" class="nwD">Corporate savings taxed every year</text></g><g class="f nwN"><line class="nwB" x1="720" y1="350" x2="995" y2="216"/><g transform="translate(995,216)"><circle r="46" class="nwG"/><rect x="-9" y="-48" width="18" height="12" rx="3" fill="#B0B7BF"/><circle r="34" class="nwO"/><path d="M-12,-12 L12,12 M12,-12 L-12,12" class="nwX"/></g><text x="1046" y="212" text-anchor="start" class="nwT">Wealth Transfer</text><text x="1046" y="238" text-anchor="start" class="nwD">His family would face a huge tax bill</text></g><g class="f nwN"><line class="nwB" x1="720" y1="350" x2="1063" y2="398"/><g transform="translate(1063,398)"><circle r="46" class="nwG"/><rect x="-9" y="-48" width="18" height="12" rx="3" fill="#B0B7BF"/><circle r="34" class="nwO"/><path d="M-12,-12 L12,12 M12,-12 L-12,12" class="nwX"/></g><text x="1114" y="394" text-anchor="start" class="nwT">Key Person</text><text x="1114" y="420" text-anchor="start" class="nwD">The clinic stops if John can&rsquo;t work</text></g><g class="f nwN"><line class="nwB" x1="720" y1="350" x2="873" y2="544"/><g transform="translate(873,544)"><circle r="46" class="nwG"/><rect x="-9" y="-48" width="18" height="12" rx="3" fill="#B0B7BF"/><circle r="34" class="nwO"/><path d="M-12,-12 L12,12 M12,-12 L-12,12" class="nwX"/></g><text x="924" y="540" text-anchor="start" class="nwT">Buy &amp; Sell</text><text x="924" y="566" text-anchor="start" class="nwD">No funded plan if a partner dies</text></g><g class="f nwN"><line class="nwB" x1="720" y1="350" x2="567" y2="544"/><g transform="translate(567,544)"><circle r="46" class="nwG"/><rect x="-9" y="-48" width="18" height="12" rx="3" fill="#B0B7BF"/><circle r="34" class="nwO"/><path d="M-12,-12 L12,12 M12,-12 L-12,12" class="nwX"/></g><text x="516" y="540" text-anchor="end" class="nwT">Debt</text><text x="516" y="566" text-anchor="end" class="nwD">$1.5M of debt with no backstop</text></g><g class="f nwN"><line class="nwB" x1="720" y1="350" x2="377" y2="398"/><g transform="translate(377,398)"><circle r="46" class="nwG"/><rect x="-9" y="-48" width="18" height="12" rx="3" fill="#B0B7BF"/><circle r="34" class="nwO"/><path d="M-12,-12 L12,12 M12,-12 L-12,12" class="nwX"/></g><text x="326" y="394" text-anchor="end" class="nwT">Liquidity</text><text x="326" y="420" text-anchor="end" class="nwD">No cash when opportunity knocks</text></g><g class="f nwN"><line class="nwB" x1="720" y1="350" x2="445" y2="216"/><g transform="translate(445,216)"><circle r="46" class="nwG"/><rect x="-9" y="-48" width="18" height="12" rx="3" fill="#B0B7BF"/><circle r="34" class="nwO"/><path d="M-12,-12 L12,12 M12,-12 L-12,12" class="nwX"/></g><text x="394" y="212" text-anchor="end" class="nwT">Estate Equalization</text><text x="394" y="238" text-anchor="end" class="nwD">No fair split between Lily and Max</text></g><g class="nwCore"><circle cx="720" cy="350" r="96" class="nwCg"/><circle cx="720" cy="350" r="78" class="nwC"/><text x="720" y="343" class="nwCt">JOHN&rsquo;S</text><text x="720" y="367" class="nwCt">CORPORATION</text></g><g class="f nwEnd"><rect x="580" y="448" width="280" height="48" rx="24" class="nwBadge"/><text x="720" y="480" class="nwBt">0 of 7 covered</text></g></svg>
 ''', 'sNeeds')
 
+# 9a CORPORATE DOLLAR VS PERSONAL DOLLAR
+def LOON(tax, cls):
+    d = tax * 6.283 * 120
+    return (f'<svg viewBox="-140 -140 280 280" width="250" height="250" class="lnS {cls}"><defs><clipPath id="lc{cls}"><polygon points="0.0,-120.0 64.9,-101.0 109.2,-49.8 118.8,17.1 90.7,78.6 33.8,115.1 -33.8,115.1 -90.7,78.6 -118.8,17.1 -109.2,-49.8 -64.9,-101.0"/></clipPath></defs>'
+            f'<polygon points="0.0,-120.0 64.9,-101.0 109.2,-49.8 118.8,17.1 90.7,78.6 33.8,115.1 -33.8,115.1 -90.7,78.6 -118.8,17.1 -109.2,-49.8 -64.9,-101.0" fill="url(#gLoon)" stroke="#8A6510" stroke-width="5"/><polygon points="0.0,-104.0 56.2,-87.5 94.6,-43.2 102.9,14.8 78.6,68.1 29.3,99.8 -29.3,99.8 -78.6,68.1 -102.9,14.8 -94.6,-43.2 -56.2,-87.5" fill="none" stroke="rgba(120,80,10,.55)" stroke-width="3"/>'
+            f'<text y="22" text-anchor="middle" style="font:900 64px Georgia;fill:#7A5A10">$1</text>'
+            f'<g clip-path="url(#lc{cls})"><circle r="120" fill="none" class="tW" stroke-width="240" style="--d:{d:.0f}px" transform="rotate(-90)"/></g></svg>')
+slide(f'''
+<div class="kick">First, Mehar explained one simple idea</div>
+<h2>Which dollar pays: <span class="red">personal</span> or <span class="gold">corporate</span>?</h2>
+<svg width="0" height="0" style="position:absolute"><defs><radialGradient id="gLoon" cx=".4" cy=".35" r=".75"><stop offset="0" stop-color="#FFF0B0"/><stop offset=".5" stop-color="#E5B93C"/><stop offset="1" stop-color="#A87A12"/></radialGradient></defs></svg>
+<div class="dlR">
+  <div class="dlC f"><div class="dlT red">Personal dollar</div>{LOON(.5,'p')}<div class="dlV"><b class="red">50&cent;</b><span>left after personal tax (about half)</span></div>
+    <p>To pay a <b>$100,000</b> premium personally, John must earn about <b class="red">$200,000</b>.</p></div>
+  <div class="dlVs f">vs</div>
+  <div class="dlC win f"><div class="dlT gold">Corporate dollar</div>{LOON(.12,'c')}<div class="dlV"><b class="green">88&cent;</b><span>left after small business tax</span></div>
+    <p>Paid by his corporation, the same premium takes about <b class="green">$113,600</b> of earnings.</p></div>
+</div>
+<p class="f mid">Same $100,000 premium. <b class="gold">About $86,000 a year less income needed</b>, just by using the right dollar.</p>
+<div class="src">Approximate BC rates: small business about 11%, top personal rate about 53.5%. Rounded for illustration. Not tax advice; confirm with your accountant.</div>
+''', 'sDollar', hud=H(40, 1509000))
+
 # 9b TWO BUCKETS
+_coins = ''.join(f'<g transform="translate({x},0)"><g class="coinF" style="animation-delay:{d}s"><ellipse rx="17" ry="17" fill="#F2CC5A" stroke="#A87A12" stroke-width="3"/><ellipse rx="10" ry="10" fill="none" stroke="#C99A2A" stroke-width="2"/><text y="6" text-anchor="middle" style="font:900 16px Georgia;fill:#8A6510">$</text></g></g>'
+                 for x, d in [(-60,0),(30,.45),(-15,.9),(55,1.35),(-45,1.8),(10,2.25),(40,2.7),(-30,3.15)])
+CDA_BUCKET = ('<svg viewBox="-160 -380 320 450" width="300" height="420" style="overflow:visible">'
+  '<defs><clipPath id="cdaClip"><path d="M-117,-217 L117,-217 L92,-3 L-92,-3Z"/></clipPath>'
+  '<linearGradient id="gFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE9A0"/><stop offset=".35" stop-color="#F2CC5A"/><stop offset="1" stop-color="#B8860B"/></linearGradient></defs>'
+  '<path d="M-120,-220 L120,-220 L94,0 L-94,0Z" fill="rgba(229,185,60,.10)"/>'
+  '<g class="bkGlow"><g clip-path="url(#cdaClip)"><g class="bkFill"><rect x="-130" y="-225" width="260" height="230" fill="url(#gFill)"/>'
+  '<path class="bkWave" d="M-260,-222 q32,-10 65,0 t65,0 t65,0 t65,0 t65,0 t65,0 t65,0 t65,0 L260,-200 L-260,-200Z" fill="#FFF1BF" opacity=".8"/>'
+  + ''.join(f'<circle class="bkSpark" style="animation-delay:{k*.37:.2f}s" cx="{-70+k*20}" cy="-{30+(k*37)%150}" r="3" fill="#FFF8DC"/>' for k in range(8)) +
+  '</g></g></g>' + _coins +
+  '<path d="M-120,-220 L120,-220 L94,0 L-94,0Z" fill="none" stroke="#F2CC5A" stroke-width="7" stroke-linejoin="round"/>'
+  '<text x="0" y="-104" text-anchor="middle" class="bkTxt">CDA</text></svg>')
+
 slide('''
 <div class="kick">What Mehar showed him</div>
 <h2>Every dollar in John&rsquo;s corporation sits in one of <span class="gold">two buckets.</span></h2>
 <div class="bkRow">
   <div class="bkC f"><svg viewBox="-160 -260 320 330" width="300" height="300"><path d="M-120,-220 L120,-220 L94,0 L-94,0Z" fill="rgba(179,32,42,.18)" stroke="#E0303E" stroke-width="7" stroke-linejoin="round"/><text x="0" y="-92" text-anchor="middle" style="font:900 68px Georgia;fill:#FF7D78">%</text><g class="drip"><circle class="leak" style="animation-delay:0.0s" cx="-40" cy="20" r="11" fill="#E5B93C"/><circle class="leak" style="animation-delay:0.5s" cx="-20" cy="20" r="11" fill="#E5B93C"/><circle class="leak" style="animation-delay:1.0s" cx="0" cy="20" r="11" fill="#E5B93C"/><circle class="leak" style="animation-delay:1.5s" cx="20" cy="20" r="11" fill="#E5B93C"/><circle class="leak" style="animation-delay:2.0s" cx="40" cy="20" r="11" fill="#E5B93C"/></g></svg><b class="red">Taxable bucket</b><span>Salary, dividends, investment income: <strong>taxed on the way out</strong>, up to about half.</span></div>
   <div class="bkVs f">vs</div>
-  <div class="bkC win f"><svg viewBox="-160 -260 320 330" width="300" height="300"><path d="M-120,-220 L120,-220 L94,0 L-94,0Z" fill="rgba(229,185,60,.22)" stroke="#F2CC5A" stroke-width="7" stroke-linejoin="round"/><rect class="bkLvl" x="-100" y="-60" width="200" height="60" fill="#E5B93C" opacity=".7"/><text x="0" y="-110" text-anchor="middle" style="font:900 60px Georgia;fill:#FFE08A">CDA</text></svg><b class="gold">Tax-free bucket</b><span>The Capital Dividend Account: <strong>every dollar comes out tax-free.</strong></span></div>
+  <div class="bkC win f">'''+CDA_BUCKET+'''<b class="gold">Tax-free bucket</b><span>The Capital Dividend Account: <strong>every dollar comes out tax-free.</strong></span></div>
 </div>
 ''', 'sBuckets', hud=H(40, 1509000))
 
@@ -295,8 +330,8 @@ slide('''
 <p class="f mid">And how much of it could be in the <b class="gold">tax-free bucket</b> instead?</p>
 ''', 'sAsk')
 
-BUBBLE='<g class="f"><path d="M150,92 L330,92 Q350,92 350,112 L350,160 Q350,180 330,180 L240,180 L210,214 L214,180 L150,180 Q130,180 130,160 L130,112 Q130,92 150,92Z" fill="#FBF3E2" stroke="#E5B93C" stroke-width="3"/><text x="240" y="128" text-anchor="middle" style="font:700 italic 20px Georgia;fill:#6B1218">A tax-free bucket?</text><text x="240" y="156" text-anchor="middle" style="font:700 italic 20px Georgia;fill:#6B1218">Nobody ever told me!</text></g>'
-SHOCK=scene(ground(620,420)+person('john',200,410,1.1,mood='shock')+person('mehar',440,410,1.05)+BUBBLE, 470).replace('viewBox="0 0 1300 470" width="1300"','viewBox="0 0 620 470" width="620"')
+BUBBLE='<g class="f" transform="translate(-6,-104)"><path d="M150,92 L330,92 Q350,92 350,112 L350,160 Q350,180 330,180 L240,180 L210,214 L214,180 L150,180 Q130,180 130,160 L130,112 Q130,92 150,92Z" fill="#FBF3E2" stroke="#E5B93C" stroke-width="3"/><text x="240" y="128" text-anchor="middle" style="font:700 italic 20px Georgia;fill:#6B1218">A tax-free bucket?</text><text x="240" y="156" text-anchor="middle" style="font:700 italic 20px Georgia;fill:#6B1218">Nobody ever told me!</text></g>'
+SHOCK=scene(ground(620,420)+person('john',200,410,1.1,mood='shock')+person('mehar',440,410,1.05)+BUBBLE, 470).replace('viewBox="0 0 1300 470" width="1300" height="470"','viewBox="0 -40 620 510" width="620" height="510"')
 slide(f'''
 <div class="split shockS">
   <div class="sp">{SHOCK}</div>
@@ -363,10 +398,10 @@ slide('''
 <svg class="aoSvg" viewBox="0 0 1440 560" width="1440" height="560" aria-hidden="true">
  <g class="f"><rect x="540" y="10" width="360" height="64" rx="14" class="aoTop"/><text x="720" y="50" class="aoTt">John&rsquo;s Dental Corporation</text></g>
  <g class="f"><path class="aoL" d="M360,42 L540,42"/><rect x="180" y="16" width="180" height="52" rx="12" class="aoSide"/><text x="270" y="49" class="aoSt">Revenue in</text><path class="aoL red" d="M900,42 L1080,42"/><rect x="1080" y="16" width="180" height="52" rx="12" class="aoSide r"/><text x="1170" y="49" class="aoSt">Expenses out</text></g>
- <g class="f"><path class="aoL gold" d="M720,74 L720,200"/><rect x="490" y="112" width="460" height="42" rx="21" class="aoPill"/><text x="720" y="139" class="aoPt">Retained earnings &#8594; $100,000 a year</text></g>
+ <defs><marker id="aoArr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10Z" fill="#F2CC5A"/></marker></defs><g class="f"><path class="aoL gold" d="M720,74 L720,196" marker-end="url(#aoArr)"/><rect x="330" y="112" width="364" height="42" rx="21" class="aoPill"/><text x="512" y="139" class="aoPt">Retained earnings: $100,000 a year</text></g>
  <g class="f"><rect x="520" y="200" width="400" height="130" rx="20" class="aoPol"/><text x="720" y="250" class="aoPolT">Permanent Policy</text><text x="720" y="280" class="aoPolS">(Whole Life)</text><text x="720" y="308" class="aoPolS">Cash value + tax-free death benefit</text></g>
  <g class="f aoB"><path class="aoL" d="M720,330 C720,380 170,380 170,430"/><rect x="68" y="430" width="204" height="92" rx="14" class="aoBox"/><text x="170" y="468" class="aoBt">Tax-free growth</text><text x="170" y="494" class="aoBd">Cash value compounds sheltered</text></g><g class="f aoB"><path class="aoL" d="M720,330 C720,380 390,380 390,430"/><rect x="288" y="430" width="204" height="92" rx="14" class="aoBox"/><text x="390" y="468" class="aoBt">Borrow anytime</text><text x="390" y="494" class="aoBd">Collateral for bank loans</text></g><g class="f aoB"><path class="aoL" d="M720,330 C720,380 610,380 610,430"/><rect x="508" y="430" width="204" height="92" rx="14" class="aoBox"/><text x="610" y="468" class="aoBt">Debt protection</text><text x="610" y="494" class="aoBd">Pays off loans at death</text></g><g class="f aoB"><path class="aoL" d="M720,330 C720,380 830,380 830,430"/><rect x="728" y="430" width="204" height="92" rx="14" class="aoBox"/><text x="830" y="468" class="aoBt">Key person</text><text x="830" y="494" class="aoBd">Protects the clinic</text></g><g class="f aoB"><path class="aoL" d="M720,330 C720,380 1050,380 1050,430"/><rect x="948" y="430" width="204" height="92" rx="14" class="aoBox"/><text x="1050" y="468" class="aoBt">Buy-sell funding</text><text x="1050" y="494" class="aoBd">Partner buyout ready</text></g><g class="f aoB"><path class="aoL" d="M720,330 C720,380 1270,380 1270,430"/><rect x="1168" y="430" width="204" height="92" rx="14" class="aoBox"/><text x="1270" y="468" class="aoBt">Tax-free estate</text><text x="1270" y="494" class="aoBd">Paid out through the CDA</text></g>
-</svg>
+<g class="f"><path class="aoL gold aoBack" d="M920,262 C1070,262 1060,92 906,62" marker-end="url(#aoArr)"/><text x="1068" y="140" class="aoRt">Back to the business</text><text x="1068" y="166" class="aoRd">Borrow against the cash value</text><text x="1068" y="190" class="aoRd">to reinvest, or for personal use</text></g></svg>
 ''', 'sAio', hud=H(40, 1509000, '0,4', '100'))
 
 # 13 THE POLICY
@@ -382,6 +417,27 @@ slide(f'''
 <p class="f mid">Funded from his corporate savings and profit. And he kept his TFSA <b>maxed every year</b>.</p>
 <div class="src">Equitable Equimax Wealth Accumulator illustration, male 40, non-smoker, BC, $99,999.99/yr, premium offset from age 61, current dividend scale. Dividends are not guaranteed.</div>
 ''', 'sPlan', hud=H(41, 1560000, '0,4', '100'))
+
+# 13b THE REAL ILLUSTRATION
+import base64
+SNAP = 'data:image/jpeg;base64,' + base64.b64encode(open(os.path.join(HERE, 'source', 'ill-snap.jpg'), 'rb').read()).decode()
+slide(f'''
+<div class="split snapS">
+  <div class="snapP f"><img src="{SNAP}" alt="Page from John's real Equitable illustration"><i class="snapTag">The real illustration</i></div>
+  <div class="sp2">
+    <div class="kick" style="text-align:left">Not a made-up number</div>
+    <h2 class="lft">This is the actual plan.</h2>
+    <p class="lft big f">Mehar and John agreed this was <b>the best fit for his specific situation</b>: his age, his income, his debts and his goals.</p>
+    <ul class="snapL">
+      <li class="f"><b>$99,999.99 a year</b> for 20 years, then dividends pay the premium</li>
+      <li class="f">Age 50: <b>{money(ILL[50]["totalCV"])}</b> cash value</li>
+      <li class="f">Age 60: <b>{money(ILL[60]["totalCV"])}</b> cash value, premiums done</li>
+      <li class="f">Age 65: <b class="gold">{money(ILL[65]["totalCV"])}</b> cash value, <b class="gold">{money(ILL[65]["totalDB"])}</b> death benefit</li>
+    </ul>
+  </div>
+</div>
+<div class="src">Equitable EquiMax Wealth Accumulator illustration: male 40, non-smoker, BC, paid-up additions, current dividend scale (not guaranteed). Every client&rsquo;s illustration is different.</div>
+''', 'sSnap', hud=H(41, 1560000, '0,4', '100'))
 
 # 14 GROWTH CHART (real data)
 ages = list(range(41, 91))
@@ -470,19 +526,39 @@ slide(f'''
 ''', 'sLoc2', hud=H(46, 2600000, '0,4,5', '101'))
 
 # 20 IFA EXPLAINED
+def _ifa_chart():
+    W, Hh, L, T, B = 640, 360, 70, 20, 300
+    ages = list(range(46, 91)); mx = 13e6
+    X = lambda a: L + (a - 46) / 44 * (W - L - 30)
+    Y = lambda v: B - v / mx * (B - T)
+    cv = ' '.join(f'{X(a):.0f},{Y(ILL[a]["totalCV"]):.0f}' for a in ages)
+    db = ' '.join(f'{X(a):.0f},{Y(min(ILL[a]["totalDB"], mx)):.0f}' for a in ages if ILL[a]["totalDB"] <= mx)
+    g = [f'<svg viewBox="0 0 {W} {Hh}" width="{W}" height="{Hh}" class="ifaSvg">']
+    for v in range(0, 14, 4):
+        g.append(f'<line x1="{L}" x2="{W-30}" y1="{Y(v*1e6):.0f}" y2="{Y(v*1e6):.0f}" class="gl"/><text x="{L-10}" y="{Y(v*1e6)+5:.0f}" class="gt" text-anchor="end">${v}M</text>')
+    for a in (46, 55, 65, 75, 90):
+        g.append(f'<text x="{X(a):.0f}" y="{B+26}" class="gt" text-anchor="middle">{a}</text>')
+    g.append(f'<path d="M{X(46):.0f},{Y(0):.0f} L{cv.replace(" "," L")} L{X(90):.0f},{Y(0):.0f}Z" class="ifaArea"/>')
+    g.append(f'<polyline points="{cv}" class="ifaCv"/>')
+    g.append(f'<line x1="{X(46):.0f}" x2="{X(90):.0f}" y1="{Y(5e5):.0f}" y2="{Y(5e5):.0f}" class="ifaLoan"/>')
+    g.append(f'<text x="{X(60):.0f}" y="{Y(5e5)-10:.0f}" class="ifaLt">Bank loan: $500K, interest only</text>')
+    g.append(f'<text x="{X(70):.0f}" y="{Y(ILL[70]["totalCV"])-16:.0f}" class="ifaCt" text-anchor="end">Policy cash value keeps growing</text>')
+    g.append(f'<circle cx="{X(90):.0f}" cy="{Y(ILL[90]["totalCV"]):.0f}" r="7" class="ifaDot"/><text x="{X(90)-14:.0f}" y="{Y(ILL[90]["totalCV"])+6:.0f}" class="ifaCt" text-anchor="end">{money(ILL[90]["totalCV"])} at 90</text>')
+    g.append(f'<text x="{L}" y="{Hh-6}" class="gt">John&rsquo;s age</text></svg>')
+    return ''.join(g)
+IFA_CHART = _ifa_chart()
 slide(f'''
 <div class="kick">How he borrowed</div>
 <h2>The Immediate Financing Arrangement (IFA)</h2>
-<div class="ifa">
+<div class="ifaW">
+<div class="ifa v">
   <div class="ifC f"><div class="ifN">1</div><b>Pay the premium</b><span>His corporation pays $100K into the policy.</span></div>
-  <div class="ifA f">&#10140;</div>
-  <div class="ifC f"><div class="ifN">2</div><b>Pledge the policy</b><span>The bank lends against the cash value, as collateral.</span></div>
-  <div class="ifA f">&#10140;</div>
-  <div class="ifC f"><div class="ifN">3</div><b>Reinvest the cash</b><span>The loan funds clinic #2. Interest may be tax-deductible.</span></div>
-  <div class="ifA f">&#10140;</div>
-  <div class="ifC f gold"><div class="ifN">4</div><b>Policy keeps growing</b><span>Untouched, compounding, with the death benefit repaying the loan one day.</span></div>
+  <div class="ifC f"><div class="ifN">2</div><b>Pledge the policy</b><span>The bank lends against the cash value.</span></div>
+  <div class="ifC f"><div class="ifN">3</div><b>Reinvest the cash</b><span>The $500K loan funds clinic #2.</span></div>
+  <div class="ifC f gold"><div class="ifN">4</div><b>Policy keeps growing</b><span>The death benefit repays the loan one day.</span></div>
 </div>
-<p class="f mid">Walt Disney and Ray Kroc are widely reported to have used their policies the same way. <b class="gold">One dollar, two jobs.</b></p>
+<div class="ifaCh f">{IFA_CHART}<p>Walt Disney and Ray Kroc are widely reported to have used their policies the same way. <b class="gold">One dollar, two jobs.</b></p></div>
+</div>
 <div class="src">IFA structures must be set up with your accountant and lender. Interest deductibility depends on how the loan is used. Not tax advice.</div>
 ''', 'sIfa', hud=H(46, 2600000, '0,4,5', '101'))
 
@@ -509,12 +585,30 @@ slide(f'''
 <p class="f mid">Two clinics paid off his debts faster. <b>&#10003; Pay off every debt in 10 years.</b></p>
 ''', 'sDebt', hud=H(50, 4100000, '0,4,5', '111'))
 
+RAJ_SCENE = scene(ground(560,420)
+  + '<g class="rajGhost">' + person('raj',170,400,.82,'coat') + '</g>'
+  + '<ellipse class="halo" cx="170" cy="182" rx="36" ry="10"/>'
+  + '<g transform="translate(380,410)"><path d="M-95,0 L-95,-170 C-95,-235 95,-235 95,-170 L95,0Z" fill="#8E949C"/><path d="M-95,0 L-95,-170 C-95,-235 95,-235 95,-170 L95,0Z" fill="url(#gShade)"/>'
+  + '<path d="M-80,0 L-80,-165 C-80,-220 80,-220 80,-165 L80,0" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="3"/>'
+  + '<text y="-150" text-anchor="middle" style="font:900 52px Georgia;fill:#3A3F46">RIP</text><text y="-108" text-anchor="middle" style="font:700 22px Georgia;fill:#2E3238">Dr. Raj</text>'
+  + '<text y="-80" text-anchor="middle" style="font:italic 15px Georgia;fill:#2E3238">Partner. Father. Friend.</text>'
+  + '<circle cx="-70" cy="-6" r="12" fill="#C62D3A"/><circle cx="-52" cy="-10" r="10" fill="#E5B93C"/><circle cx="-60" cy="-22" r="9" fill="#F4EBDD"/><circle cx="66" cy="-8" r="12" fill="#C62D3A"/><circle cx="50" cy="-16" r="9" fill="#F4EBDD"/></g>', 470).replace('viewBox="0 0 1300 470" width="1300"','viewBox="0 0 560 470" width="560"')
+
+# 22b LIFE CAN HIT
+slide('''
+<div class="lifeHit">
+  <svg viewBox="-60 -150 120 230" width="120" height="230" class="candle" aria-hidden="true"><ellipse cx="0" cy="-92" rx="34" ry="44" fill="rgba(255,190,90,.25)" class="cGlow"/><rect x="-22" y="-60" width="44" height="130" rx="6" fill="#F4EBDD"/><rect x="-22" y="-60" width="16" height="130" fill="rgba(0,0,0,.12)"/><path d="M0,-64 L0,-74" stroke="#333" stroke-width="3"/><path class="cFl" d="M0,-72 C-14,-90 -6,-110 0,-128 C6,-110 14,-90 0,-72Z" fill="#FFC85A"/></svg>
+  <p class="lhA f">But life can change at any moment.</p>
+  <p class="lhB f">Unfortunately, it often does when we least expect it.</p>
+</div>
+''', 'sLife', hud=H(55, 6400000, '0,4,5', '111'))
+
 # 23 TWIST 2 partner dies
 slide(f'''
 <div class="kick red">Plot twist #2 &middot; 2041 &middot; John is 55</div>
-<h2>Dr. Raj, John&rsquo;s partner, passes away suddenly.</h2>
+<h2>Dr. Raj, John&rsquo;s partner, passed away suddenly.</h2>
 <div class="split">
-  <div class="sp">{scene(ground(520,420)+'<rect x="150" y="190" width="220" height="220" rx="10" fill="#F4EBDD" stroke="#C9A227" stroke-width="6"/>'+person('raj',260,380,.75,'coat')+'<rect x="240" y="410" width="40" height="0"/><path d="M420,400 L420,330" stroke="#E5B93C" stroke-width="12"/><path d="M420,318 C410,300 430,296 420,282 C432,296 432,312 420,318Z" fill="#F2A33A"/>', 470).replace('viewBox="0 0 1300 470" width="1300"','viewBox="0 0 520 470" width="520"')}</div>
+  <div class="sp">{RAJ_SCENE}</div>
   <div class="twist2">
     <p class="f"><b>Sarah</b> had drafted a buy-sell agreement. <b>Mehar</b> had funded it with insurance on both partners.</p>
     <p class="f">The corporation received the payout and bought Raj&rsquo;s shares at a fair price. <b>Raj&rsquo;s family got cash within weeks.</b></p>
@@ -549,13 +643,24 @@ slide(f'''
 ''', 'sSucc', hud=H(65, 11200000, '0,1,2,3,4,5,6', '111'))
 
 # 26 CHAPTER 7: 90
+HOME = ('<defs><pattern id="wp" width="40" height="40" patternUnits="userSpaceOnUse"><rect width="40" height="40" fill="#5A1A22"/><rect width="20" height="40" fill="#621E27"/><circle cx="10" cy="20" r="2.4" fill="rgba(229,185,60,.35)"/></pattern></defs>'
+  '<path d="M30,430 L30,110 L650,14 L1270,110 L1270,430Z" fill="url(#wp)"/>'
+  '<rect x="30" y="352" width="1240" height="78" fill="#6B4226"/>' + ''.join(f'<line x1="{x}" y1="352" x2="{x-30}" y2="430" stroke="rgba(0,0,0,.25)" stroke-width="2"/>' for x in range(110, 1270, 90)) +
+  '<rect x="30" y="344" width="1240" height="10" fill="#E8D6B0"/><ellipse cx="640" cy="404" rx="420" ry="22" fill="#8E1B26" opacity=".8"/>'
+  '<g><rect x="80" y="150" width="230" height="160" fill="#16213A"/>' + ''.join(f'<circle cx="{random.randint(92,298)}" cy="{random.randint(160,300)}" r="2.6" fill="#fff"/>' for _ in range(16)) +
+  '<path d="M80,280 Q195,262 310,282 L310,310 L80,310Z" fill="#E8EEF6"/><rect x="190" y="150" width="8" height="160" fill="#E8D6B0"/><rect x="80" y="226" width="230" height="8" fill="#E8D6B0"/><rect x="72" y="142" width="246" height="176" fill="none" stroke="#E8D6B0" stroke-width="10"/>'
+  '<path d="M64,138 C90,200 70,260 96,320 L64,320Z M326,138 C300,200 320,260 294,320 L326,320Z" fill="#9E1B26"/></g>'
+  '<rect x="470" y="140" width="80" height="62" fill="#3A1216" stroke="#C9A227" stroke-width="6"/><rect x="600" y="128" width="100" height="78" fill="#3A1216" stroke="#C9A227" stroke-width="6"/><rect x="750" y="140" width="80" height="62" fill="#3A1216" stroke="#C9A227" stroke-width="6"/>'
+  '<path d="M610,196 L630,170 L650,186 L668,162 L690,196Z" fill="#7A6A50"/><circle cx="510" cy="168" r="12" fill="#C9A9A0"/><circle cx="790" cy="168" r="12" fill="#C9A9A0"/>'
+  '<path d="M30,110 L650,14 L1270,110" fill="none" stroke="#E8D6B0" stroke-width="16" stroke-linejoin="round"/>'
+  '<path d="M30,110 L30,430 M1270,110 L1270,430" stroke="#E8D6B0" stroke-width="16"/>'
+  '<path d="M0,116 L650,0 L1300,116" fill="none" stroke="#8E1B26" stroke-width="12" stroke-linejoin="round"/>'
+  + ''.join(f'<circle cx="{120+k*58}" cy="{111-((120+k*58) if (120+k*58)<650 else 1300-(120+k*58))*0.155+14:.0f}" r="5" fill="{["#FF4D5E","#FFD27A","#7FE0A8","#FFFFFF"][k%4]}" class="hl{k%3}"/>' for k in range(19)))
 slide(chapter('Chapter Seven', 'Christmas 2076 · John is 90', 'The Last Christmas',
-    '<rect x="0" y="0" width="1300" height="430" rx="18" fill="#3A1216" opacity=".85"/><rect x="60" y="40" width="300" height="220" fill="#1F2A44"/>'
-    + ''.join(f'<circle cx="{random.randint(80,340)}" cy="{random.randint(60,240)}" r="3" fill="#fff"/>' for _ in range(18))
-    + tree(1100,410,1.2)+person('john',300,410,.9,'old')+person('emma',400,410,.86,'old'.replace('old',''))
+    HOME + tree(1120,410,1.0)+person('john',300,410,.9,'old')+person('emma',400,410,.86)
     + person('lily',540,410,.9)+person('max',660,410,.9)+person('lily',760,410,.5)+person('max',820,410,.45)+person('lily',880,410,.42)+person('max',940,410,.38)
     + label(300,428,'John, 90',size=18)),
-    'sChap', hud=H(90, 21500000, '0,1,2,3,4,5,6', '111'))
+    'sChap sHome', hud=H(90, 21500000, '0,1,2,3,4,5,6', '111'))
 
 # 26b CHRISTMAS MORNING REVEAL
 slide(f'''
@@ -611,17 +716,28 @@ slide(f'''
 </div>
 ''', 'sSplit')
 
-# 30 TWO DOCTORS
+# 29b JAKE AT 90
+JAKE90 = scene(ground(560,420) + tree(450,410,.55,lit=False) + cloud(190,40,.62)
+  + ''.join(f'<line class="rain" style="animation-delay:-{k*.13:.2f}s" x1="{140+k*14}" y1="92" x2="{134+k*14}" y2="122" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".7"/>' for k in range(8))
+  + person('jake',200,410,1.0,'old',mood='sad')
+  + '<g transform="translate(330,330)"><rect x="0" y="0" width="70" height="80" fill="#5A4A3A"/><rect x="6" y="-18" width="58" height="20" fill="#EFE6D4" transform="rotate(-6)"/><rect x="8" y="-30" width="58" height="16" fill="#E2D7C2" transform="rotate(4)"/><text x="36" y="-16" text-anchor="middle" style="font:900 12px sans-serif;fill:#B3202A">TAX BILL</text></g>', 470).replace('viewBox="0 0 1300 470" width="1300"','viewBox="0 0 560 470" width="560"')
 slide(f'''
-<div class="kick">This isn&rsquo;t just a story</div>
-<h2>Real numbers: two doctors, one difference</h2>
-<div class="docs">
-  <div class="dc f"><b>Dr. Brown</b><span>No whole life</span><div class="dv red">$2.7M</div><em>reached his family &middot; 72% lost to tax</em></div>
-  <div class="dc f win"><b>Dr. Smith</b><span>Added whole life</span><div class="dv green">$7.8M</div><em>reached his family &middot; 42% to tax</em></div>
+<div class="split jake90">
+  <div class="sp">{JAKE90}</div>
+  <div class="sp2">
+    <div class="kick red" style="text-align:left">Christmas 2076 &middot; Jake is 90</div>
+    <h2 class="lft">Jake&rsquo;s last Christmas felt very different.</h2>
+    <ul class="jkL">
+      <li class="f"><b>Burnt out.</b> He worked until 70 and missed years of his kids growing up.</li>
+      <li class="f"><b>Not enough wealth.</b> His savings were taxed every single year.</li>
+      <li class="f"><b>No plan for the business.</b> When his partner died, he went into debt to buy out the family.</li>
+      <li class="f"><b>No plan for his family.</b> A large tax bill, and nothing passing tax-free.</li>
+    </ul>
+    <p class="jkQ f">&ldquo;I always thought I&rsquo;d get to it next year.&rdquo;</p>
+  </div>
 </div>
-<p class="f mid">Same income. Same savings. <b>Nearly 3&times; more for the family.</b></p>
-<div class="src">Levine Financial Group, A Tale of Two Physicians (Dec 2025): corporate assets at death, age 85.</div>
-''', 'sDocs')
+<p class="f mid">Same start as John. Same income. Same family. <b class="gold">One simple decision apart.</b></p>
+''', 'sJake90')
 
 # 31 THE $100K DECISION
 fv60 = sum(100000 * 1.04 ** (60 - y) for y in range(41, 61))
@@ -638,6 +754,20 @@ slide(f'''
 <p class="f mid">Same $2 million saved. <b class="green">{money(john_fam-jake_fam)} more</b> for John&rsquo;s family.</p>
 <div class="src">Jake: $100K/yr ages 41&ndash;60 in taxable corporate investments at an assumed 4% after-tax growth, held to 90 ({money(jake90)}), about 50% combined tax at death. Illustrative only. John: illustration death benefit at 90.</div>
 ''', 'sBars')
+
+# 30 TWO DOCTORS
+slide(f'''
+<div class="stamp">Real case study</div>
+<div class="kick">Stepping out of the story</div>
+<h2>John and Jake are fictional. <span class="gold">This case is real.</span></h2>
+<p class="big">A published study compared two real physicians with the same income and savings.</p>
+<div class="docs">
+  <div class="dc f"><b>Dr. Brown</b><span>No whole life</span><div class="dv red">$2.7M</div><em>reached his family &middot; 72% lost to tax</em></div>
+  <div class="dc f win"><b>Dr. Smith</b><span>Added whole life</span><div class="dv green">$7.8M</div><em>reached his family &middot; 42% to tax</em></div>
+</div>
+<p class="f mid">Same income. Same savings. <b>Nearly 3&times; more for the family.</b></p>
+<div class="src">Levine Financial Group, A Tale of Two Physicians (Dec 2025): corporate assets at death, age 85.</div>
+''', 'sDocs')
 
 # 32 EVERYTHING ACCOMPLISHED + TEAM
 wl2 = ''.join(f'<li><i class="box on"></i>{w}</li>' for w in wl)
@@ -668,8 +798,8 @@ slide(f'''
 # 34 THANK YOU
 slide(f'''
 <div class="kick">Team All In</div>
-<h1 class="ttl"><span class="hatL">M<svg class="hat" viewBox="0 0 120 110" aria-hidden="true"><path d="M8,92 C30,40 62,8 98,14 C108,16 112,30 104,44 C96,58 92,72 96,88Z" fill="#D11F2E"/><path d="M8,92 C30,40 62,8 98,14 C80,20 54,46 40,90Z" fill="#9E1424"/><rect x="0" y="84" width="104" height="22" rx="11" fill="#FFF"/><circle cx="104" cy="44" r="13" fill="#FFF"/></svg></span>erry Christmas</h1>
-<p class="big">Thank you. Scan to book your one-on-one and see if you qualify.</p>
+<h1 class="ttl"><span class="hatL">H<svg class="hat" viewBox="0 0 120 110" aria-hidden="true"><path d="M8,92 C30,40 62,8 98,14 C108,16 112,30 104,44 C96,58 92,72 96,88Z" fill="#D11F2E"/><path d="M8,92 C30,40 62,8 98,14 C80,20 54,46 40,90Z" fill="#9E1424"/><rect x="0" y="84" width="104" height="22" rx="11" fill="#FFF"/><circle cx="104" cy="44" r="13" fill="#FFF"/></svg></span>appy Holidays</h1>
+<p class="big">Thank you, and happy holidays. Scan to book your one-on-one and see if you qualify.</p>
 <div class="qr"><img src="{QR}" alt="QR code"><span>Scan me</span></div>
 {scene(ground(1300,200)+tree(170,200,.6)+tree(1130,200,.6)+gift(300,200,.6)+gift(1000,200,.6,'#2F6E4C'), 230)}
 ''', 'sThanks')
