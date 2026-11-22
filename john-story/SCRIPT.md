@@ -94,3 +94,17 @@ The bar at the bottom of the story slides tracks John's age, his net worth, his 
 - **Chapter Five: The Storm (new, before the crash):** "2034. John is 48. And a storm was coming."
 - **Market crash:** new line: "Mehar called John that same morning and walked him through it, so nothing was sold in a panic."
 - **Runtime:** about 47 minutes. To stay near 40, hide Seg funds, Rogers, Real estate vs S&P and A question for the room from the ☰ menu.
+
+## Updates in version 8
+- **The hook (slide 2) is now clearly a real case:** "This is not part of John's story. This really happened to a family in Ontario." Their parents' RRSPs were worth about $715,000. The tax bill was over $660,000, and almost nothing was left. Both parents died in the same year. The source line at the bottom cites CTV News Toronto (September 2025).
+- **Going back and forward is now smooth.** When you go back, the slide appears already finished, with no replaying or flickering. When you go forward, animations start fresh.
+- **Settings (⚙ button, or press S):**
+  - Restart presentation from the beginning (also the R key). This resets every slide, the story bar and the timer.
+  - Snow & sparkle effects on/off.
+  - Smooth animations on/off (off = everything appears instantly, good for an older laptop or a weak projector).
+  - Story bar at the bottom on/off.
+  - Mehar's process badges on/off.
+  - "For internal use only" tag on/off.
+  - Click anywhere to advance on/off (turn off if you use a clicker, so a stray click doesn't skip a slide).
+  - Presenter timer: counts up to 40:00 and turns red when you go over. Click it to reset.
+- **B (or .) = black screen.** Press again to come back. Most presentation clickers have a black-screen button that sends this key.

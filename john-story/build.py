@@ -198,18 +198,19 @@ slide(f'''
 
 # 2 HOOK
 slide(f'''
-<div class="kick red">A true story · Ontario, 2024</div>
+<div class="kick red">A real case &middot; Ontario &middot; Reported by CTV News, 2025</div>
 <h2>Every year, Canadian families give the biggest gift of their lives&hellip;</h2>
 <p class="big f">&hellip;to the taxman. <span class="red">Most never meant to.</span></p>
+<p class="f mid realC">This is not part of John&rsquo;s story. <b>This really happened to a family in Ontario.</b></p>
 <div class="hookRow f">
-  <div class="hookCard"><span>Their parents&rsquo; RRSP</span><b>$715,000</b></div>
+  <div class="hookCard"><span>Their parents&rsquo; RRSPs</span><b>&asymp; $715,000</b></div>
   <div class="arrow">&#10140;</div>
-  <div class="hookCard tax"><span>Tax due in one year</span><b>&asymp; $659,000</b></div>
+  <div class="hookCard tax"><span>Tax bill</span><b>$660,000+</b></div>
   <div class="arrow">&#10140;</div>
-  <div class="hookCard left"><span>Left for two children</span>{counter(56000)}</div>
+  <div class="hookCard left"><span>What was left</span><b>Almost nothing</b></div>
 </div>
-<p class="f mid">Two parents, gone eleven months apart. A will, a cottage, and <b>no plan for the tax.</b></p>
-<div class="src">Source: SooToday / Village Media (2025); MoneySense, Ask a Planner (Oct 2025). Tax figures are a CFP&rsquo;s estimate.</div>
+<p class="f mid">Both parents died in the same year. Their daughter used nearly all of their retirement savings to pay the tax. <b>There was no plan for it.</b></p>
+<div class="src">Source: CTV News Toronto, &ldquo;Daughter hit with $660,000 tax bill when both parents died in same year&rdquo; (September 2025), ctvnews.ca/toronto/consumer-alert/article/daughter-hit-with-660000-tax-bill-when-both-parents-died-in-same-year/</div>
 ''', 'sHook')
 
 # 3 TWO OWNERS
@@ -331,7 +332,9 @@ def cda_bucket(p, w=300, h=420, cls=''):
                     for x, d in [(-60,0),(30,.45),(-15,.9),(55,1.35),(-45,1.8),(10,2.25),(40,2.7),(-30,3.15)])
     return (f'<svg viewBox="-160 -380 320 450" width="{w}" height="{h}" class="cdaB {cls}" style="overflow:visible">'
       f'<defs><clipPath id="cc{p}"><path d="M-117,-217 L117,-217 L92,-3 L-92,-3Z"/></clipPath>'
-      f'<linearGradient id="gf{p}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE9A0"/><stop offset=".35" stop-color="#F2CC5A"/><stop offset="1" stop-color="#B8860B"/></linearGradient></defs>'
+      f'<linearGradient id="gf{p}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE9A0"/><stop offset=".35" stop-color="#F2CC5A"/><stop offset="1" stop-color="#B8860B"/></linearGradient>'
+      f'<radialGradient id="gh{p}"><stop offset="0" stop-color="rgba(255,215,100,.55)"/><stop offset="1" stop-color="rgba(255,215,100,0)"/></radialGradient></defs>'
+      '<ellipse class="bkHalo" cx="0" cy="-100" rx="170" ry="150" fill="url(#gh{p})"/>'
       '<path d="M-120,-220 L120,-220 L94,0 L-94,0Z" fill="rgba(229,185,60,.10)"/>'
       f'<g class="bkGlow"><g clip-path="url(#cc{p})"><g class="bkFill"><rect x="-130" y="-225" width="260" height="230" fill="url(#gf{p})"/>'
       '<path class="bkWave" d="M-260,-222 q32,-10 65,0 t65,0 t65,0 t65,0 t65,0 t65,0 t65,0 t65,0 L260,-200 L-260,-200Z" fill="#FFF1BF" opacity=".8"/>'
@@ -880,8 +883,10 @@ html = f'''<!doctype html>
   <div class="garland" aria-hidden="true"><svg viewBox="0 0 1440 40" preserveAspectRatio="none"><path d="M0,6 Q90,34 180,8 T360,8 T540,8 T720,8 T900,8 T1080,8 T1260,8 T1440,8" fill="none" stroke="#1F4A30" stroke-width="5"/></svg>{bulbs}</div>
   <div class="holly hl" aria-hidden="true"></div><div class="holly hr" aria-hidden="true"></div>
   <div class="brand">TEAM <b>ALL IN</b></div>
-  <div id="ui"><button id="bToc" title="Slides (T)">&#9776;</button><button id="bEdit" title="Edit names (E)">&#9998;</button><button id="bFs" title="Full screen (F)">&#x26F6;</button></div>
+  <div id="ui"><button id="bToc" title="Slides (T)">&#9776;</button><button id="bEdit" title="Edit names (E)">&#9998;</button><button id="bSet" title="Settings (S)">&#9881;</button><button id="bFs" title="Full screen (F)">&#x26F6;</button></div>
   <div id="toc" class="panel"><div class="pH"><b>Slides</b><span>Click to jump &middot; eye to hide</span><button class="pX">&times;</button></div><div id="tocL"></div><div class="pF"><button id="tocAll">Show all</button></div></div>
+  <div id="set" class="panel"><div class="pH"><b>Settings</b><span>Saved on this computer</span><button class="pX">&times;</button></div><div id="setL" style="overflow:auto"></div><div class="pF"><button id="setReset">Reset settings</button></div></div>
+  <div id="timer" title="Click to restart the timer">0:00 / 40:00</div><div id="black"></div>
   <div id="edit" class="panel"><div class="pH"><b>Edit names &amp; title</b><button class="pX">&times;</button></div><div id="editL"></div><div class="pF"><button id="edReset">Reset</button><button id="edSave" class="pri">Save</button></div></div>
   <div class="deck">{"".join(SLIDES)}</div>
   <div id="tp" aria-hidden="true"><div class="tpG"><div class="tpSnow"></div><span>Years pass&hellip;</span><b id="tpY">2026</b><em id="tpA">John is 40</em></div></div>
