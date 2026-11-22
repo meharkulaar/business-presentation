@@ -209,3 +209,94 @@ svg .f{transform:none}
 .foot{position:absolute;left:0;right:0;bottom:15px;text-align:center;font-size:10.5px;color:#8A817A;z-index:6}
 .prog{position:absolute;left:10px;right:10px;top:10px;height:4px;z-index:7}.prog i{display:block;height:100%;width:0;background:var(--gold);transition:width .4s}
 body.lite .snow{display:none}
+
+/* =================== THEME v2: dark cranberry, tan parchment, gold glow =================== */
+html,body{background:#14040A}
+#stage{background:
+  radial-gradient(ellipse 70% 55% at 50% 38%,rgba(196,72,48,.28),transparent 70%),
+  radial-gradient(ellipse 120% 90% at 50% 120%,rgba(0,0,0,.65),transparent 60%),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E"),
+  linear-gradient(160deg,#4A0E16 0%,#330912 45%,#22060C 100%)}
+.frame{inset:12px;border:2px solid rgba(229,185,60,.75);border-radius:10px;box-shadow:0 0 22px rgba(229,185,60,.35),inset 0 0 22px rgba(229,185,60,.18),inset 0 0 0 7px rgba(20,4,10,.6),inset 0 0 0 8px rgba(229,185,60,.35)}
+.brand{color:#F3E2BF}.brand b{color:var(--gold2)}
+h1,h2{color:#F7E7C6;text-shadow:0 0 18px rgba(229,185,60,.45),0 2px 0 rgba(0,0,0,.4)}
+.kick{color:var(--gold2);text-shadow:0 0 12px rgba(229,185,60,.6)}
+.kick.red{color:#FF8A86;text-shadow:0 0 12px rgba(255,111,107,.55)}
+.big,.mid,.loan p,.twist p,.succ p,.twist2 p,.rogTxt p,.leg3 div,.lft,.subt,.chWhen{color:#EADBC0}
+.big b,.mid b,.loan b,.twist b,.succ b,.twist2 b,.rogTxt b,.leg3 b,.lft b{color:#FFF4DC}
+.red{color:#FF7D78}.gold{color:var(--gold2)}.green{color:#5FD69B}
+.once{color:var(--gold2);text-shadow:0 0 16px rgba(229,185,60,.6)}
+.src,.foot{color:rgba(234,219,192,.55)}
+.note2,.note3{color:#CDBB9A}
+.nm{fill:#F3E2BF !important}
+.chNum{color:var(--gold2)}
+.vs,.arrow,.fa{color:var(--gold2)}
+.rogBig b{color:var(--gold2);text-shadow:0 0 30px rgba(229,185,60,.7)}.rogBig span{color:#EADBC0}
+.ask{color:#FFF4DC}.ask .red{color:#FF7D78}
+.allg span{color:#7BE3AE}
+.ax{fill:#CDBB9A}.gl{stroke:rgba(234,219,192,.15)}.mk{fill:#F7E7C6}.lg.gold{fill:var(--gold2)}.lg.green{fill:#5FD69B}
+.ln.db{filter:drop-shadow(0 0 6px rgba(229,185,60,.9))}.ln.cv{stroke:#5FD69B;filter:drop-shadow(0 0 6px rgba(95,214,155,.8))}
+.bc span{color:#F7E7C6}.bc em{color:#CDBB9A}
+.bc.win .bb{box-shadow:0 0 40px rgba(229,185,60,.6)}
+/* ---- parchment cards with torn edges + glow ---- */
+.hookCard,.bs,.rc,.pb,.pc,.reC,.ft,.fam div,.dC,.fl,.cmp,.dc,.cta div,.roles div,.three div,.cdaPts>div:not(.note3),.scroll,.orn,.qr{
+  position:relative;isolation:isolate;background:none!important;border:0!important;border-radius:0!important;
+  box-shadow:0 0 34px rgba(229,185,60,.22),0 18px 30px rgba(0,0,0,.35)!important}
+.hookCard::before,.bs::before,.rc::before,.pb::before,.pc::before,.reC::before,.ft::before,.fam div::before,.dC::before,.fl::before,.cmp::before,.dc::before,.cta div::before,.roles div::before,.three div::before,.cdaPts>div:not(.note3)::before,.scroll::before,.qr::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:
+   radial-gradient(ellipse at 30% 20%,rgba(255,250,235,.55),transparent 60%),
+   radial-gradient(ellipse at 80% 90%,rgba(120,80,40,.25),transparent 55%),
+   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.6' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45  0 0 0 0 .32  0 0 0 0 .18  0 0 0 .28 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23p)'/%3E%3C/svg%3E"),
+   linear-gradient(170deg,#EBD9B4,#D9C08F);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='__TORN__'/%3E%3C/svg%3E") 0 0/100% 100%;
+          mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='__TORN__'/%3E%3C/svg%3E") 0 0/100% 100%}
+.orn{box-shadow:none!important}
+.hookCard b,.pc b,.dc b,.fl b,.cta b,.roles b,.three b,.pb b,.rc b,.fam b{color:#6B1218}
+.hookCard span,.pc span,.dC span,.fl span,.reC span,.bsR span{color:#6E5A44}
+.pc em,.pb span,.rc span,.fam span,.roles span,.three span,.cta span,.dc em,.cdaPts>div{color:#4A3A2A}
+.hookCard.tax b{color:#B3202A}.hookCard.left b,.pc.gold b,.fl.gold b,.dC.gold b,.reC em{color:#8A6510}
+.pc.green b,.fl.green b,.dC b,.reC.win b{color:#1F6B44}
+.bsR{border-bottom-color:rgba(110,80,50,.3)}.bsR.tot{border-top-color:#8A6510}
+.cR{border-bottom-color:rgba(110,80,50,.3)}.cj{color:#1F6B44}.ck{color:#B3202A}
+.rI{box-shadow:0 0 16px rgba(158,27,38,.5)}
+.orn span{color:#EADBC0}.orn i{box-shadow:0 0 18px rgba(201,206,214,.35)}
+.scroll{transform:rotate(-2deg)}
+/* rule pills / cards slightly rotated for hand-made feel */
+.hookCard:nth-child(3),.pc:nth-child(2),.pb:nth-child(2),.dC:nth-child(2){transform:rotate(.8deg)}
+.f.on.hookCard:nth-child(3),.f.on.pc:nth-child(2),.f.on.pb:nth-child(2),.f.on.dC:nth-child(2){transform:rotate(.8deg)}
+/* fragment entrance with glow flash */
+.f.on{animation:glowIn 1s ease-out}
+@keyframes glowIn{0%{filter:brightness(1.6)}100%{filter:none}}
+/* HUD */
+#hud{background:linear-gradient(180deg,rgba(28,6,10,.92),rgba(18,4,8,.95));border:1px solid rgba(229,185,60,.55);box-shadow:0 0 22px rgba(229,185,60,.25)}
+/* snow brighter on dark */
+.snow i{background:#fff;box-shadow:0 0 6px rgba(255,255,255,.8);opacity:.85}
+/* twinkling lights (opacity only, cheap) */
+.slide.active .tw{animation:tw 1.6s ease-in-out infinite alternate}
+@keyframes tw{to{opacity:.35}}
+/* ---- TITLE: old-deck style, gold glow, santa hat ---- */
+.ttl{font-family:"Inter","Segoe UI",system-ui,Helvetica,Arial,sans-serif;font-weight:900;letter-spacing:-.02em;font-size:104px;line-height:1.02;
+  background:linear-gradient(180deg,#FFF6DD 0%,#F6D77A 45%,#C9962A 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 22px rgba(229,185,60,.65)) drop-shadow(0 4px 0 rgba(60,10,14,.9));position:relative}
+.sCover .ttl{text-shadow:none}
+.hatL{position:relative;display:inline-block}
+.hat{position:absolute;width:.95em;height:.88em;left:-.32em;top:-.62em;transform:rotate(-22deg);filter:drop-shadow(0 4px 6px rgba(0,0,0,.5));-webkit-text-fill-color:initial}
+.slide.active .hat{animation:hatBob 3s ease-in-out infinite}
+@keyframes hatBob{0%,100%{transform:rotate(-22deg)}50%{transform:rotate(-15deg) translateY(-3px)}}
+.cover .rule{background:linear-gradient(90deg,transparent,var(--gold2),transparent);box-shadow:0 0 14px rgba(229,185,60,.8)}
+.cover{margin-top:34px}
+.sCover .kick{font-size:16px}
+.slide.active .ttl{animation:ttlIn 1.4s cubic-bezier(.2,1.2,.3,1) both}
+@keyframes ttlIn{0%{opacity:0;transform:scale(.86);letter-spacing:.06em}100%{opacity:1;transform:none}}
+.chap h1{font-size:72px;color:#F7E7C6}
+.nm{fill:#FFF4DC!important;stroke:#3A0A10;stroke-width:5px;paint-order:stroke;stroke-linejoin:round}
+:is(.hookCard,.bs,.rc,.pb,.pc,.reC,.ft,.fam div,.dC,.fl,.cmp,.dc,.cta div,.roles div,.three div,.cdaPts>div,.scroll) .red{color:#B3202A}
+:is(.hookCard,.bs,.rc,.pb,.pc,.reC,.ft,.fam div,.dC,.fl,.cmp,.dc,.cta div,.roles div,.three div,.cdaPts>div,.scroll) .green{color:#1F6B44}
+:is(.hookCard,.bs,.rc,.pb,.pc,.reC,.ft,.fam div,.dC,.fl,.cmp,.dc,.cta div,.roles div,.three div,.cdaPts>div,.scroll) .gold{color:#8A6510}
+.cdaPts>div.note3{color:#CDBB9A!important}
+.sCover .kick{margin-bottom:26px}
+.scene{overflow:hidden}
+.hat{width:.78em;height:.72em;left:-.16em;top:-.66em}
+.sCover .scene{height:330px;width:auto}
+.sCover .cover{margin-top:40px}

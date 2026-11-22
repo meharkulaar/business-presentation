@@ -27,6 +27,10 @@ def hair(style, col):
         'bun':   f'<circle cx="0" cy="-238" r="14" fill="{col}"/><path d="M-36,-196 C-38,-242 38,-242 36,-196 C31,-222 -31,-222 -36,-196Z" fill="{col}"/>',
         'pony':  f'<path d="M30,-214 C58,-206 58,-168 44,-160 C48,-184 40,-200 30,-206Z" fill="{col}"/><path d="M-36,-196 C-38,-242 38,-242 36,-196 C31,-222 -31,-222 -36,-196Z" fill="{col}"/>',
         'curly': ''.join(f'<circle cx="{x}" cy="{y}" r="13" fill="{col}"/>' for x, y in [(-28,-214),(-14,-228),(2,-232),(18,-228),(30,-214),(-34,-198),(34,-198)]),
+        'turban': f'<path d="M-40,-198 C-46,-246 -10,-262 6,-258 C30,-254 46,-236 40,-198 C26,-214 -26,-214 -40,-198Z" fill="{col}"/>'
+                  f'<path d="M-38,-206 C-20,-232 18,-244 40,-216" fill="none" stroke="rgba(0,0,0,.22)" stroke-width="4"/>'
+                  f'<path d="M-34,-222 C-14,-246 20,-250 34,-232" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="4"/>'
+                  f'<path d="M-6,-256 L0,-210 L6,-256" fill="rgba(0,0,0,.18)"/>',
         'grey':  f'<path d="M-36,-196 C-38,-236 38,-236 36,-196 C31,-216 -31,-216 -36,-196Z" fill="#D9D9D9"/>',
     }
     return s[style]
@@ -39,7 +43,7 @@ def person(kind, x, y, s=1.0, outfit=None, extra=''):
         'emma':  dict(hair=('long', '#A0522D'), top='#E8E4DA', bottom='#5B2A3A'),
         'lily':  dict(hair=('pony', '#7A4A26'), top='#C62D3A', bottom='#3E5C76'),
         'max':   dict(hair=('short', '#7A4A26'), top='#2F6E4C', bottom='#2E3440'),
-        'mehar': dict(hair=('side', '#1E1A18'), top='#1F2A44', bottom='#1F2A44', acc=['tie']),
+        'mehar': dict(hair=('turban', '#1E3F7A'), top='#1F2A44', bottom='#1F2A44', acc=['tie','beard']),
         'david': dict(hair=('short', '#9A8F86'), top='#5E6B78', bottom='#2E3440', acc=['glasses', 'tie']),
         'sarah': dict(hair=('bun', '#2A1A12'), top='#6B1F2A', bottom='#2B2B33'),
         'raj':   dict(hair=('short', '#1E1A18'), top='#FAFAFA', bottom='#2E3440', acc=['coat']),
@@ -71,6 +75,8 @@ def person(kind, x, y, s=1.0, outfit=None, extra=''):
     g.append('<circle cx="-12" cy="-200" r="3.6" fill="#2b2420"/><circle cx="12" cy="-200" r="3.6" fill="#2b2420"/>')
     g.append('<circle cx="-20" cy="-188" r="6" fill="#E8838A" opacity=".45"/><circle cx="20" cy="-188" r="6" fill="#E8838A" opacity=".45"/>')
     g.append('<path d="M-10,-185 Q0,-176 10,-185" fill="none" stroke="#7A3B2E" stroke-width="2.6" stroke-linecap="round"/>')
+    if 'beard' in P['acc']:
+        g.append('<path d="M-33,-204 C-34,-170 -18,-150 0,-148 C18,-150 34,-170 33,-204 C28,-186 18,-178 0,-178 C-18,-178 -28,-186 -33,-204Z" fill="#1E1A18"/><path d="M-12,-184 Q0,-178 12,-184" fill="none" stroke="#C48A5C" stroke-width="2.4" stroke-linecap="round"/>')
     if 'glasses' in P['acc']:
         g.append('<circle cx="-12" cy="-200" r="9" fill="none" stroke="#333" stroke-width="2"/><circle cx="12" cy="-200" r="9" fill="none" stroke="#333" stroke-width="2"/><path d="M-3,-200 L3,-200" stroke="#333" stroke-width="2"/>')
     if 'cane' in P['acc']:
@@ -90,7 +96,7 @@ def tree(x, y, s=1.0, lit=True):
     if lit:
         for i, (ox, oy) in enumerate([(-30,-170),(28,-160),(-55,-110),(50,-100),(0,-120),(-80,-50),(78,-45),(-20,-60),(30,-55),(0,-195)]):
             c = ['#C62D3A', '#E5B93C', '#C9CED6'][i % 3]
-            o.append(f'<circle cx="{ox}" cy="{oy}" r="8" fill="{c}"/>')
+            o.append(f'<circle class="tw" style="animation-delay:{i*0.37:.2f}s" cx="{ox}" cy="{oy}" r="8" fill="{c}"/>')
     o.append('</g>')
     return ''.join(o)
 
@@ -126,7 +132,7 @@ def desk(x, y, s=1.0):
             '</g>')
 
 def ground(w=1300, y=470):
-    return f'<path d="M0,{y} Q{w*.25},{y-26} {w*.5},{y-6} T{w},{y-14} L{w},{y+80} L0,{y+80}Z" fill="#FFFFFF" stroke="#E4E8EE" stroke-width="2"/>'
+    return f'<path d="M0,{y} Q{w*.25},{y-26} {w*.5},{y-6} T{w},{y-14} L{w},{y+80} L0,{y+80}Z" fill="#F1E9DE" stroke="#D8CBB8" stroke-width="2"/>'
 
 def gift(x, y, s=1.0, col='#9E1B26', txt=''):
     return (f'<g transform="translate({x},{y}) scale({s})"><rect x="-60" y="-100" width="120" height="100" fill="{col}"/>'
@@ -177,7 +183,7 @@ random.seed(3)
 slide(f'''
 <div class="cover">
   <div class="kick">Team All In presents</div>
-  <h1 class="ttl">The Gift That<br>Keeps Giving</h1>
+  <h1 class="ttl"><span class="hatL">T<svg class="hat" viewBox="0 0 120 110" aria-hidden="true"><path d="M8,92 C30,40 62,8 98,14 C108,16 112,30 104,44 C96,58 92,72 96,88Z" fill="#D11F2E"/><path d="M8,92 C30,40 62,8 98,14 C80,20 54,46 40,90Z" fill="#9E1424"/><rect x="0" y="84" width="104" height="22" rx="11" fill="#FFF"/><circle cx="104" cy="44" r="13" fill="#FFF"/></svg></span>he Gift That<br>Keeps Giving</h1>
   <div class="rule"></div>
   <p class="subt">A Christmas story about John, his business,<br>and the legacy he left behind.</p>
 </div>
@@ -254,7 +260,7 @@ slide(f'''
 
 # 8 CHAPTER 2
 slide(chapter('Chapter Two', 'January 2027 · John is 40', 'The Meeting',
-    '<rect x="0" y="0" width="1300" height="430" fill="#F7F1E3"/><rect x="980" y="60" width="200" height="140" fill="#E4E8EE" stroke="#C9CED6" stroke-width="3"/>'
+    '<rect x="0" y="0" width="1300" height="430" rx="18" fill="#3A1216" opacity=".85"/><rect x="980" y="60" width="200" height="140" fill="#E4E8EE" stroke="#C9CED6" stroke-width="3"/>'
     '<text x="1080" y="140" text-anchor="middle" style="font:700 22px Georgia;fill:#7A0F1A">TEAM ALL IN</text>'
     + person('john',470,410,1.0)+person('mehar',830,410,1.0)+desk(650,410,1.0)+label(470,150,'John',size=22)+label(830,150,'Mehar, his advisor',size=22)),
     'sChap', hud=H(40, 1509000))
@@ -478,7 +484,7 @@ slide(f'''
 
 # 26 CHAPTER 7: 90
 slide(chapter('Chapter Seven', 'Christmas 2076 · John is 90', 'The Last Christmas',
-    '<rect x="0" y="0" width="1300" height="430" fill="#F7F1E3"/><rect x="60" y="40" width="300" height="220" fill="#1F2A44"/>'
+    '<rect x="0" y="0" width="1300" height="430" rx="18" fill="#3A1216" opacity=".85"/><rect x="60" y="40" width="300" height="220" fill="#1F2A44"/>'
     + ''.join(f'<circle cx="{random.randint(80,340)}" cy="{random.randint(60,240)}" r="3" fill="#fff"/>' for _ in range(18))
     + tree(1100,410,1.2)+person('john',300,410,.9,'old')+person('emma',400,410,.86,'old'.replace('old',''))
     + person('lily',540,410,.9)+person('max',660,410,.9)+person('lily',760,410,.5)+person('max',820,410,.45)+person('lily',880,410,.42)+person('max',940,410,.38)
@@ -581,7 +587,7 @@ slide(f'''
 # 34 THANK YOU
 slide(f'''
 <div class="kick">Team All In</div>
-<h1 class="ttl">Merry Christmas</h1>
+<h1 class="ttl"><span class="hatL">M<svg class="hat" viewBox="0 0 120 110" aria-hidden="true"><path d="M8,92 C30,40 62,8 98,14 C108,16 112,30 104,44 C96,58 92,72 96,88Z" fill="#D11F2E"/><path d="M8,92 C30,40 62,8 98,14 C80,20 54,46 40,90Z" fill="#9E1424"/><rect x="0" y="84" width="104" height="22" rx="11" fill="#FFF"/><circle cx="104" cy="44" r="13" fill="#FFF"/></svg></span>erry Christmas</h1>
 <p class="big">Thank you. Scan to book your one-on-one and see if you qualify.</p>
 <div class="qr"><img src="{QR}" alt="QR code"><span>Scan me</span></div>
 {scene(ground(1300,200)+tree(170,200,.6)+tree(1130,200,.6)+gift(300,200,.6)+gift(1000,200,.6,'#2F6E4C'), 230)}
@@ -591,7 +597,7 @@ slide(f'''
 flakes = ''.join(f'<i style="left:{random.randint(0,100)}%;--d:{random.uniform(0,14):.1f}s;--t:{random.uniform(10,18):.1f}s;--s:{random.uniform(.5,1.2):.2f}"></i>' for _ in range(34))
 orn_hud = ''.join(f'<i title="{n}"></i>' for n in NEEDS)
 
-CSS = open(os.path.join(HERE, 'style.css')).read()
+CSS = open(os.path.join(HERE, 'style.css')).read().replace('__TORN__', open(os.path.join(HERE,'torn.txt')).read())
 JS = open(os.path.join(HERE, 'engine.js')).read()
 html = f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
