@@ -113,8 +113,6 @@ svg .f{transform:none}
 .cdaPts{width:620px;display:flex;flex-direction:column;gap:14px}
 .cdaPts>div{font-size:21px;line-height:1.4;color:#4A403A;background:#fff;border-left:5px solid var(--gold);padding:12px 18px;border-radius:0 12px 12px 0}
 .cdaPts>div.note3{background:none;border:0;padding:0 18px}
-.bkFill{transition:transform 2s ease}
-.sCda.active .bkFill{transform:translateY(-110px)}
 /* rogers */
 .rog{display:flex;gap:40px;align-items:center;margin-top:20px}
 .rogBig{text-align:center}.rogBig b{display:block;font:900 120px Georgia,serif;color:#A8841A;line-height:1}.rogBig span{font-size:18px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--wine)}
@@ -522,7 +520,6 @@ h2{font-size:46px}
 .bkTxt{font:900 60px Georgia,serif;fill:#FFF3C4;paint-order:stroke;stroke:#6B4A08;stroke-width:4px}
 .bkFill{transform:translateY(220px)}
 .slide.active .bkC.win.on .bkFill{animation:bkUp 5.5s cubic-bezier(.3,.6,.4,1) .5s forwards}
-@keyframes bkUp{to{transform:translateY(28px)}}
 .bkWave{animation:bkWv 2.4s linear infinite}
 @keyframes bkWv{to{transform:translateX(130px)}}
 .bkGlow{filter:drop-shadow(0 0 14px rgba(255,210,90,.85)) drop-shadow(0 0 30px rgba(229,185,60,.5))}
@@ -659,6 +656,10 @@ body.reduce .snow,body.reduce .bokeh{display:none}
 body.reduce *,body.reduce *::before,body.reduce *::after{animation-duration:.01s!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01s!important}
 .realC{margin-top:4px}.sHook .hookRow{margin-top:14px}
 body.lite .snow,body.lite .bokeh{display:none!important}
+
+/* v9: story bar sits above the disclaimer */
+#hud{bottom:54px}
+.slide[data-hud] .src{bottom:124px!important}
 </style></head>
 <body>
 <div id="stage">
