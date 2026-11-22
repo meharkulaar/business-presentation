@@ -167,3 +167,12 @@ New opening order: Cover → The real Ontario case → **How tonight works** →
   - The tiles: net worth $1.51M → $41.67M · tax-free to his family $0 → $14.18M · taken out in retirement $0 → $36.55M · 7 needs 0 → 7 of 7 · 3 rules against him → working for him · Christmas list 0 → 4 of 4.
   - Let it play, then walk through each tile. "One plan, started at 40. This is what it did."
   - Note: if you've turned the story bar off in Settings, this slide will be blank, so turn it back on before you present.
+
+## Updates in version 14 (53 slides)
+- **First the fundamentals, then the whole family (new, right after Mehar's step-by-step process):**
+  - "Before we touched the corporation, Mehar took John back to the fundamentals: pay yourself first, the 3 rules of money (compound, risk, tax), and the 3 goals of money (protection, income, legacy)."
+  - "Then he did a full analysis and plan for the whole family: John's personal coverage and retirement, Emma's own protection and savings, Lily and Max's education and coverage, with Sarah and David on wills, powers of attorney and tax."
+  - [click] "A complete job means the whole family. Tonight, we're focusing on what Mehar did for John's corporation."
+- **The CDA explanation** now comes right after "John had never heard of it" (slide 18), and answers his question "How do I fill it?"
+- **At 65, the notes beside the chart** are now torn tan paper, like the other cards.
+- **The final scoreboard** now opens into a torn tan-paper Christmas letter: "Christmas 2076 · John's Scoreboard", six tiles, signed "With gratitude, from John's team: Mehar, David & Sarah". It now fits on every screen size.

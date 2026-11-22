@@ -340,6 +340,26 @@ slide('''
 <p class="f mid roadEnd">A process, not a product. <b class="gold">That&rsquo;s the Team All In difference.</b></p>
 ''', 'sRoad', hud=H(40, NW(40)))
 
+# 8c THE FUNDAMENTALS + A COMPLETE PLAN
+slide('''
+<div class="kick">Where Mehar started</div>
+<h2>First the fundamentals. <span class="gold">Then the whole family.</span></h2>
+<div class="fund">
+  <div class="fdC paper f"><h3>The fundamentals of money</h3><ul>
+    <li><b>Saving:</b> pay yourself first, every month, before anything else.</li>
+    <li><b>The 3 rules of money:</b><div class="fdTags"><em>Compound</em><em>Risk</em><em>Tax</em></div>Make all three work <i>for</i> you, not against you.</li>
+    <li><b>The 3 goals of money:</b><div class="fdTags"><em class="g">Protection</em><em class="g">Income</em><em class="g">Legacy</em></div>Every dollar should serve at least one of them.</li>
+  </ul></div>
+  <div class="fdC paper f"><h3>A complete plan for the family</h3><ul>
+    <li><b>John:</b> personal coverage, disability and critical illness, and his retirement income.</li>
+    <li><b>Emma:</b> her own protection, savings and retirement plan.</li>
+    <li><b>Lily and Max:</b> education savings and their own coverage, locked in young.</li>
+    <li><b>All of it:</b> reviewed with Sarah and David: wills, powers of attorney and tax.</li>
+  </ul></div>
+</div>
+<p class="focus f">A complete job means the whole family. <b>Tonight, we&rsquo;re focusing on what Mehar did for John&rsquo;s corporation.</b></p>
+''', 'sFund', hud=H(40, NW(40)))
+
 # 9 7 NEEDS CHECK-UP (full-screen web)
 slide('''
 <div class="kick">The check-up</div>
@@ -423,6 +443,21 @@ slide(f'''
   </div>
 </div>
 ''', 'sShock', hud=H(40, NW(40)))
+
+# 15 CDA
+slide(f'''
+<div class="kick">The secret weapon</div>
+<h2>The Capital Dividend Account (CDA)</h2>
+<div class="split">
+  <div class="sp cdaAuto">{cda_bucket('B', 380, 520)}</div>
+  <div class="cdaPts">
+    <div class="f"><b>A notional account.</b> Not a bank account: a running tally of tax-free dollars in John&rsquo;s corporation.</div>
+    <div class="f"><b>What fills it:</b> the tax-free half of capital gains, capital dividends received, and the big one: <b class="gold">life insurance paid to the corporation.</b></div>
+    <div class="f"><b>What it does:</b> every dollar in it can be paid to John&rsquo;s family as a <b class="green">tax-free capital dividend.</b></div>
+    <div class="f note3">David tracks the balance and files the election. Mehar fills it.</div>
+  </div>
+</div>
+''', 'sCda', hud=H(40, NW(40)))
 
 # 10 3 HIDDEN PROBLEMS (with loonie)
 slide(f'''
@@ -538,21 +573,6 @@ slide(f'''
   <text x="1108" y="{py(i90["totalDB"])+5:.0f}" class="lg gold">Death benefit</text><text x="1108" y="{py(i90["totalCV"])+5:.0f}" class="lg green">Cash value</text>{marks}</svg>
 <div class="src">Same illustration. Total cash value and total death benefit, current dividend scale (not guaranteed). Age 90: cash value {money(i90["totalCV"])}, death benefit {money(i90["totalDB"])}.</div>
 ''', 'sChart', hud=H(41, NW(41), '0,4', '100'))
-
-# 15 CDA
-slide(f'''
-<div class="kick">The secret weapon</div>
-<h2>The Capital Dividend Account (CDA)</h2>
-<div class="split">
-  <div class="sp cdaAuto">{cda_bucket('B', 380, 520)}</div>
-  <div class="cdaPts">
-    <div class="f"><b>A notional account.</b> Not a bank account: a running tally of tax-free dollars in John&rsquo;s corporation.</div>
-    <div class="f"><b>What fills it:</b> the tax-free half of capital gains, capital dividends received, and the big one: <b class="gold">life insurance paid to the corporation.</b></div>
-    <div class="f"><b>What it does:</b> every dollar in it can be paid to John&rsquo;s family as a <b class="green">tax-free capital dividend.</b></div>
-    <div class="f note3">David tracks the balance and files the election. Mehar fills it.</div>
-  </div>
-</div>
-''', 'sCda', hud=H(41, NW(41), '0,4', '101'))
 
 # 16 ROGERS
 slide(f'''
@@ -799,10 +819,10 @@ slide(f'''
 <div class="svW">
   <div class="svCh f">{SAVE_CHART}<div class="svKey"><span class="k t">TFSA (seg funds)</span><span class="k r">RRSP (seg funds)</span><span class="k n">Non-registered</span><span class="ret12">Average return: 12% a year</span></div></div>
   <div class="svC">
-    <div class="svS f"><b>Ages 41 to 65: he puts money in</b><span>TFSA maxed <strong>$7,000</strong> &middot; RRSP maxed <strong>$33,810</strong> &middot; plus Mehar&rsquo;s flexible plan: <strong>$15,000</strong> non-registered. All averaging <strong>12% a year</strong>.</span></div>
-    <div class="svS f gold"><b>At 65: {money(sum(SAV[65][:3]))}</b><span>He put in about {money(PUT_IN)}. Compounding at 12% did the rest.</span></div>
-    <div class="svS f"><b>From 66: he takes money out</b><span>About 10% a year to live on: <strong>{money(SAV[66][3])}</strong> in the first year. It still earns 12%, so <strong>the balance keeps growing</strong> while he spends.</span></div>
-    <div class="svS f green"><b>By 90: {money(SAV_W)} taken out</b><span>And <strong>{money(sum(SAV[90][:3]))}</strong> still invested.</span></div>
+    <div class="svS paper f"><b>Ages 41 to 65: he puts money in</b><span>TFSA maxed <strong>$7,000</strong> &middot; RRSP maxed <strong>$33,810</strong> &middot; plus Mehar&rsquo;s flexible plan: <strong>$15,000</strong> non-registered. All averaging <strong>12% a year</strong>.</span></div>
+    <div class="svS paper f gold"><b>At 65: {money(sum(SAV[65][:3]))}</b><span>He put in about {money(PUT_IN)}. Compounding at 12% did the rest.</span></div>
+    <div class="svS paper f"><b>From 66: he takes money out</b><span>About 10% a year to live on: <strong>{money(SAV[66][3])}</strong> in the first year. It still earns 12%, so <strong>the balance keeps growing</strong> while he spends.</span></div>
+    <div class="svS paper f green"><b>By 90: {money(SAV_W)} taken out</b><span>And <strong>{money(sum(SAV[90][:3]))}</strong> still invested.</span></div>
   </div>
 </div>
 <div class="src">Illustrative: 2026 TFSA and RRSP limits held flat; an assumed 12% average annual return (not guaranteed), before tax. Withdrawals from 66 are about 10% of the balance each year.</div>
@@ -959,14 +979,14 @@ slide('''
 ''', 'sScore', hud=H(90, NW(90), '0,1,2,3,4,5,6', '111'))
 def _tile(lbl, a, b, cls=''):
     return f'<div class="sbT {cls}"><span>{lbl}</span><div class="sbV"><em>At 40</em><i>{a}</i></div><div class="sbV b"><em>At 90</em>{b}</div></div>'
-SCORE = ('<div id="hudBig"><div class="sbG">'
+SCORE = ('<div id="hudBig" class="paper"><div class="sbHead"><em>Christmas 2076</em><b>John&rsquo;s Scoreboard</b><span>From the day he met Mehar at 40, to his last Christmas at 90</span></div><div class="sbG">'
   + _tile('Net worth', '$1.51M', counter(int(NW(90))))
   + _tile('Tax-free to his family', '$0', counter(int(ILL[90]['totalDB'])), 'gold')
   + _tile('Taken out in retirement', '$0', counter(int(SAV_W)))
   + _tile('7 key needs covered', '0 of 7', '<b class="cnt" data-to="7" data-pre="" data-suf=" of 7">0 of 7</b>')
   + _tile('3 rules of money', 'Against him', '<b class="sbW">Working for him</b>', 'green')
   + _tile('Christmas list', '0 of 4', '<b class="cnt" data-to="4" data-pre="" data-suf=" of 4">0 of 4</b>', 'green')
-  + '</div></div>')
+  + '</div><div class="sbSig">With gratitude, from John&rsquo;s team: Mehar, David &amp; Sarah</div></div>')
 
 # 32 EVERYTHING ACCOMPLISHED + TEAM
 wl2 = ''.join(f'<li><i class="box on"></i>{w}</li>' for w in wl)
@@ -1004,8 +1024,8 @@ slide(f'''
 ''', 'sThanks')
 
 # service ribbons
-SVC = {'sRajPay': 7, 'sRajBS': 5, 'sNeeds': 2, 'sDollar': 3, 'sBuckets': 3, 'sShock': 3, 'sProbs': 3, 'sTeam': 4, 'sStruct': 5, 'sAio': 5, 'sPlan': 5, 'sSnap': 5,
-       'sChart': 5, 'sCda': 5, 'sLoc2': 7, 'sIfa': 7, 'sCrash': 7, 'sRaj': 7, 'sRetire': 7, 'sSucc': 7}
+SVC = {'sFund': 3, 'sRajPay': 7, 'sRajBS': 5, 'sNeeds': 2, 'sDollar': 3, 'sBuckets': 3, 'sShock': 3, 'sProbs': 3, 'sTeam': 4, 'sStruct': 5, 'sAio': 5, 'sPlan': 5, 'sSnap': 5,
+       'sChart': 5, 'sCda': 3, 'sLoc2': 7, 'sIfa': 7, 'sCrash': 7, 'sRaj': 7, 'sRetire': 7, 'sSucc': 7}
 for i, h in enumerate(SLIDES):
     cls = h.split('class="slide ', 1)[1].split('"', 1)[0].split()[0]
     if cls in SVC:
