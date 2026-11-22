@@ -84,3 +84,13 @@ The bar at the bottom of the story slides tracks John's age, his net worth, his 
 - **Real case study:** the Two Doctors slide now comes after the $100K bars, with a "Real case study" stamp. Say: "John and Jake are fictional. This case is real."
 - **Final slide:** Happy Holidays.
 - **Runtime:** about 45 minutes. To stay under 40, hide Seg funds, Rogers and Real estate vs S&P from the ☰ menu (about 4 to 5 minutes saved).
+
+## Updates in version 7 (46 slides)
+- **Chapter Two: The Meeting:** John arrives with his wishlist (debt-free in 10 years, more locations, retire by 65, take care of his family). Mehar says: "Let's go through your list together, step by step."
+- **Mehar's step-by-step process (new, right after The Meeting):** "In ten years of business, nobody had ever done this for John." [click through] Listen, Check-up, Educate, Team up, Design, Start, Review. [click] "A process, not a product. That's the Team All In difference."
+- **Process badge:** a small badge in the top-left corner of each later slide shows which step John is on (e.g. "Step 3 of 7: Educate"). Point to it as you go so the service stays front and centre.
+- **Personal dollar vs corporate dollar:** no premium numbers now. 50¢ vs 88¢. [click] Mehar: "John, if you could pay for your future with either dollar, which one would you use?" [click] John: "The 88-cent one. Obviously."
+- **The CDA:** the same glowing bucket from the two-buckets slide, with coins falling in as it fills.
+- **Chapter Five: The Storm (new, before the crash):** "2034. John is 48. And a storm was coming."
+- **Market crash:** new line: "Mehar called John that same morning and walked him through it, so nothing was sold in a panic."
+- **Runtime:** about 47 minutes. To stay near 40, hide Seg funds, Rogers, Real estate vs S&P and A question for the room from the ☰ menu.

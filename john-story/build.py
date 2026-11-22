@@ -266,10 +266,28 @@ slide(f'''
 
 # 8 CHAPTER 2
 slide(chapter('Chapter Two', 'December 28, 2026 · John is 40', 'The Meeting',
-    '<rect x="0" y="0" width="1300" height="430" rx="18" fill="#3A1216" opacity=".85"/><rect x="980" y="60" width="200" height="140" fill="#E4E8EE" stroke="#C9CED6" stroke-width="3"/>'
-    '<text x="1080" y="140" text-anchor="middle" style="font:700 22px Georgia;fill:#7A0F1A">TEAM ALL IN</text>'
-    + person('john',470,410,1.0)+person('mehar',830,410,1.0)+desk(650,410,1.0)+label(470,150,'John',size=22)+label(830,150,'Mehar, his advisor',size=22)),
+    '<g transform="translate(70,96) rotate(-3)"><rect x="0" y="0" width="270" height="280" rx="10" fill="#F4E7C8" stroke="#C9A227" stroke-width="4"/><text x="135" y="44" text-anchor="middle" style="font:900 24px Georgia;fill:#7A0F1A">John&#8217;s wishlist</text><line x1="24" y1="60" x2="246" y2="60" stroke="#C9A227" stroke-width="2"/>'+''.join(f'<rect x="24" y="{88+k*48}" width="22" height="22" rx="4" fill="#fff" stroke="#7A0F1A" stroke-width="3"/><text x="58" y="{106+k*48}" style="font:700 17px Georgia;fill:#3A2A1A">{t}</text>' for k,t in enumerate(['Debt-free in 10 years','More locations','Retire by 65','Take care of my family']))+'</g>'
+    + desk(760,410,1.0)+person('john',560,410,1.0,arm='hold')+'<g transform="translate(598,292) rotate(-8)"><rect width="46" height="60" rx="4" fill="#F4E7C8" stroke="#C9A227" stroke-width="2"/><rect x="8" y="12" width="9" height="9" fill="none" stroke="#7A0F1A" stroke-width="2"/><rect x="8" y="28" width="9" height="9" fill="none" stroke="#7A0F1A" stroke-width="2"/><rect x="8" y="44" width="9" height="9" fill="none" stroke="#7A0F1A" stroke-width="2"/></g>'
+    + person('mehar',960,410,1.0)+tree(1180,410,.62)
+    + '<text x="760" y="60" text-anchor="middle" class="capt">&ldquo;Let&rsquo;s go through your list together, step by step.&rdquo;</text>'
+    + label(560,150,'John',size=22)+label(960,150,'Mehar',size=22)),
     'sChap', hud=H(40, 1509000))
+
+# 8b MEHAR'S PROCESS
+STEPS = [('Listen', 'Your wishlist, your goals, your worries'),
+         ('Check-up', 'The 7 key needs of your corporation'),
+         ('Educate', 'The right dollar and the two buckets, explained simply'),
+         ('Team up', 'Your accountant and lawyer at the same table'),
+         ('Design', 'A plan built for you, with a real illustration'),
+         ('Start', 'Put it in place right away, not someday'),
+         ('Review', 'Every year, and whenever life changes')]
+slide('''
+<div class="kick">The Team All In service</div>
+<h2>Mehar walked John through it, <span class="gold">step by step.</span></h2>
+<p class="big">In ten years of business, nobody had ever done this for John.</p>
+<div class="road">''' + ''.join(f'<div class="rdS f"><i>{k+1}</i><b>{t}</b><span>{d}</span></div>' for k, (t, d) in enumerate(STEPS)) + '''</div>
+<p class="f mid roadEnd">A process, not a product. <b class="gold">That&rsquo;s the Team All In difference.</b></p>
+''', 'sRoad', hud=H(40, 1509000))
 
 # 9 7 NEEDS CHECK-UP (full-screen web)
 slide('''
@@ -285,34 +303,43 @@ def LOON(tax, cls):
             f'<polygon points="0.0,-120.0 64.9,-101.0 109.2,-49.8 118.8,17.1 90.7,78.6 33.8,115.1 -33.8,115.1 -90.7,78.6 -118.8,17.1 -109.2,-49.8 -64.9,-101.0" fill="url(#gLoon)" stroke="#8A6510" stroke-width="5"/><polygon points="0.0,-104.0 56.2,-87.5 94.6,-43.2 102.9,14.8 78.6,68.1 29.3,99.8 -29.3,99.8 -78.6,68.1 -102.9,14.8 -94.6,-43.2 -56.2,-87.5" fill="none" stroke="rgba(120,80,10,.55)" stroke-width="3"/>'
             f'<text y="22" text-anchor="middle" style="font:900 64px Georgia;fill:#7A5A10">$1</text>'
             f'<g clip-path="url(#lc{cls})"><circle r="120" fill="none" class="tW" stroke-width="240" style="--d:{d:.0f}px" transform="rotate(-90)"/></g></svg>')
+DL_MEHAR = scene(ground(220,400)+person('mehar',110,390,.95), 420).replace('viewBox="0 0 1300 420" width="1300" height="420"','viewBox="0 0 220 420" width="150" height="286"')
+DL_JOHN = scene(ground(220,400)+person('john',110,390,.95), 420).replace('viewBox="0 0 1300 420" width="1300" height="420"','viewBox="0 0 220 420" width="150" height="286"')
 slide(f'''
 <div class="kick">First, Mehar explained one simple idea</div>
-<h2>Which dollar pays: <span class="red">personal</span> or <span class="gold">corporate</span>?</h2>
+<h2>A <span class="red">personal</span> dollar vs a <span class="gold">corporate</span> dollar</h2>
 <svg width="0" height="0" style="position:absolute"><defs><radialGradient id="gLoon" cx=".4" cy=".35" r=".75"><stop offset="0" stop-color="#FFF0B0"/><stop offset=".5" stop-color="#E5B93C"/><stop offset="1" stop-color="#A87A12"/></radialGradient></defs></svg>
 <div class="dlR">
-  <div class="dlC f"><div class="dlT red">Personal dollar</div>{LOON(.5,'p')}<div class="dlV"><b class="red">50&cent;</b><span>left after personal tax (about half)</span></div>
-    <p>To pay a <b>$100,000</b> premium personally, John must earn about <b class="red">$200,000</b>.</p></div>
+  <div class="dlFig">{DL_MEHAR}</div>
+  <div class="dlC f"><div class="dlT red">Personal dollar</div>{LOON(.5,'p')}<div class="dlV"><b class="red">50&cent;</b><span>left after personal tax</span></div></div>
   <div class="dlVs f">vs</div>
-  <div class="dlC win f"><div class="dlT gold">Corporate dollar</div>{LOON(.12,'c')}<div class="dlV"><b class="green">88&cent;</b><span>left after small business tax</span></div>
-    <p>Paid by his corporation, the same premium takes about <b class="green">$113,600</b> of earnings.</p></div>
+  <div class="dlC win f"><div class="dlT gold">Corporate dollar</div>{LOON(.12,'c')}<div class="dlV"><b class="green">88&cent;</b><span>left after corporate tax</span></div></div>
+  <div class="dlFig">{DL_JOHN}</div>
 </div>
-<p class="f mid">Same $100,000 premium. <b class="gold">About $86,000 a year less income needed</b>, just by using the right dollar.</p>
+<div class="dlTalk">
+  <p class="f"><span class="who">Mehar</span>&ldquo;John, if you could pay for your future with either dollar, <b>which one would you use?</b>&rdquo;</p>
+  <p class="f j"><span class="who">John</span>&ldquo;The 88-cent one. Obviously.&rdquo;</p>
+</div>
 <div class="src">Approximate BC rates: small business about 11%, top personal rate about 53.5%. Rounded for illustration. Not tax advice; confirm with your accountant.</div>
 ''', 'sDollar', hud=H(40, 1509000))
 
 # 9b TWO BUCKETS
 _coins = ''.join(f'<g transform="translate({x},0)"><g class="coinF" style="animation-delay:{d}s"><ellipse rx="17" ry="17" fill="#F2CC5A" stroke="#A87A12" stroke-width="3"/><ellipse rx="10" ry="10" fill="none" stroke="#C99A2A" stroke-width="2"/><text y="6" text-anchor="middle" style="font:900 16px Georgia;fill:#8A6510">$</text></g></g>'
                  for x, d in [(-60,0),(30,.45),(-15,.9),(55,1.35),(-45,1.8),(10,2.25),(40,2.7),(-30,3.15)])
-CDA_BUCKET = ('<svg viewBox="-160 -380 320 450" width="300" height="420" style="overflow:visible">'
-  '<defs><clipPath id="cdaClip"><path d="M-117,-217 L117,-217 L92,-3 L-92,-3Z"/></clipPath>'
-  '<linearGradient id="gFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE9A0"/><stop offset=".35" stop-color="#F2CC5A"/><stop offset="1" stop-color="#B8860B"/></linearGradient></defs>'
-  '<path d="M-120,-220 L120,-220 L94,0 L-94,0Z" fill="rgba(229,185,60,.10)"/>'
-  '<g class="bkGlow"><g clip-path="url(#cdaClip)"><g class="bkFill"><rect x="-130" y="-225" width="260" height="230" fill="url(#gFill)"/>'
-  '<path class="bkWave" d="M-260,-222 q32,-10 65,0 t65,0 t65,0 t65,0 t65,0 t65,0 t65,0 t65,0 L260,-200 L-260,-200Z" fill="#FFF1BF" opacity=".8"/>'
-  + ''.join(f'<circle class="bkSpark" style="animation-delay:{k*.37:.2f}s" cx="{-70+k*20}" cy="-{30+(k*37)%150}" r="3" fill="#FFF8DC"/>' for k in range(8)) +
-  '</g></g></g>' + _coins +
-  '<path d="M-120,-220 L120,-220 L94,0 L-94,0Z" fill="none" stroke="#F2CC5A" stroke-width="7" stroke-linejoin="round"/>'
-  '<text x="0" y="-104" text-anchor="middle" class="bkTxt">CDA</text></svg>')
+def cda_bucket(p, w=300, h=420, cls=''):
+    coins = ''.join(f'<g transform="translate({x},0)"><g class="coinF" style="animation-delay:{d}s"><ellipse rx="17" ry="17" fill="#F2CC5A" stroke="#A87A12" stroke-width="3"/><ellipse rx="10" ry="10" fill="none" stroke="#C99A2A" stroke-width="2"/><text y="6" text-anchor="middle" style="font:900 16px Georgia;fill:#8A6510">$</text></g></g>'
+                    for x, d in [(-60,0),(30,.45),(-15,.9),(55,1.35),(-45,1.8),(10,2.25),(40,2.7),(-30,3.15)])
+    return (f'<svg viewBox="-160 -380 320 450" width="{w}" height="{h}" class="cdaB {cls}" style="overflow:visible">'
+      f'<defs><clipPath id="cc{p}"><path d="M-117,-217 L117,-217 L92,-3 L-92,-3Z"/></clipPath>'
+      f'<linearGradient id="gf{p}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE9A0"/><stop offset=".35" stop-color="#F2CC5A"/><stop offset="1" stop-color="#B8860B"/></linearGradient></defs>'
+      '<path d="M-120,-220 L120,-220 L94,0 L-94,0Z" fill="rgba(229,185,60,.10)"/>'
+      f'<g class="bkGlow"><g clip-path="url(#cc{p})"><g class="bkFill"><rect x="-130" y="-225" width="260" height="230" fill="url(#gf{p})"/>'
+      '<path class="bkWave" d="M-260,-222 q32,-10 65,0 t65,0 t65,0 t65,0 t65,0 t65,0 t65,0 t65,0 L260,-200 L-260,-200Z" fill="#FFF1BF" opacity=".8"/>'
+      + ''.join(f'<circle class="bkSpark" style="animation-delay:{k*.37:.2f}s" cx="{-70+k*20}" cy="-{30+(k*37)%150}" r="3" fill="#FFF8DC"/>' for k in range(8)) +
+      '</g></g></g>' + coins +
+      '<path d="M-120,-220 L120,-220 L94,0 L-94,0Z" fill="none" stroke="#F2CC5A" stroke-width="7" stroke-linejoin="round"/>'
+      '<text x="0" y="-104" text-anchor="middle" class="bkTxt">CDA</text></svg>')
+CDA_BUCKET = cda_bucket('A')
 
 slide('''
 <div class="kick">What Mehar showed him</div>
@@ -330,8 +357,8 @@ slide('''
 <p class="f mid">And how much of it could be in the <b class="gold">tax-free bucket</b> instead?</p>
 ''', 'sAsk')
 
-BUBBLE='<g class="f" transform="translate(-6,-104)"><path d="M150,92 L330,92 Q350,92 350,112 L350,160 Q350,180 330,180 L240,180 L210,214 L214,180 L150,180 Q130,180 130,160 L130,112 Q130,92 150,92Z" fill="#FBF3E2" stroke="#E5B93C" stroke-width="3"/><text x="240" y="128" text-anchor="middle" style="font:700 italic 20px Georgia;fill:#6B1218">A tax-free bucket?</text><text x="240" y="156" text-anchor="middle" style="font:700 italic 20px Georgia;fill:#6B1218">Nobody ever told me!</text></g>'
-SHOCK=scene(ground(620,420)+person('john',200,410,1.1,mood='shock')+person('mehar',440,410,1.05)+BUBBLE, 470).replace('viewBox="0 0 1300 470" width="1300" height="470"','viewBox="0 -40 620 510" width="620" height="510"')
+BUBBLE='<g transform="translate(-40,-128)"><g class="f"><path d="M150,92 L330,92 Q350,92 350,112 L350,160 Q350,180 330,180 L240,180 L210,214 L214,180 L150,180 Q130,180 130,160 L130,112 Q130,92 150,92Z" fill="#FBF3E2" stroke="#E5B93C" stroke-width="3"/><text x="240" y="128" text-anchor="middle" style="font:700 italic 20px Georgia;fill:#6B1218">A tax-free bucket?</text><text x="240" y="156" text-anchor="middle" style="font:700 italic 20px Georgia;fill:#6B1218">Nobody ever told me!</text></g></g>'
+SHOCK=scene(ground(620,420)+person('john',200,410,1.1,mood='shock')+person('mehar',440,410,1.05)+BUBBLE, 470).replace('viewBox="0 0 1300 470" width="1300" height="470"','viewBox="0 -100 620 570" width="620" height="570"')
 slide(f'''
 <div class="split shockS">
   <div class="sp">{SHOCK}</div>
@@ -464,7 +491,7 @@ slide(f'''
 <div class="kick">The secret weapon</div>
 <h2>The Capital Dividend Account (CDA)</h2>
 <div class="split">
-  <div class="sp">{scene(bucket(260,400,1.25,.18,'bkA'), 470).replace('viewBox="0 0 1300 470" width="1300"','viewBox="0 0 520 470" width="520"')}</div>
+  <div class="sp cdaAuto">{cda_bucket('B', 380, 520)}</div>
   <div class="cdaPts">
     <div class="f"><b>A notional account.</b> Not a bank account: a running tally of tax-free dollars in John&rsquo;s corporation.</div>
     <div class="f"><b>What fills it:</b> the tax-free half of capital gains, capital dividends received, and the big one: <b class="gold">life insurance paid to the corporation.</b></div>
@@ -562,13 +589,21 @@ slide(f'''
 <div class="src">IFA structures must be set up with your accountant and lender. Interest deductibility depends on how the loan is used. Not tax advice.</div>
 ''', 'sIfa', hud=H(46, 2600000, '0,4,5', '101'))
 
+# 20b CHAPTER 5
+slide(chapter('Chapter Five', '2034 · John is 48', 'The Storm',
+    ground(1300,400)+cloud(420,150,.95)+cloud(700,120,1.1)+cloud(960,160,.85)
+    + '<path d="M700,215 L670,285 L700,282 L676,350 L740,262 L708,266 L730,215Z" fill="#FFE08A" class="bolt"/>'
+    + clinic(300,390,.7,1)+clinic(1000,390,.7,2)+person('john',600,390,.85)+person('emma',690,390,.8)),
+    'sChap sStorm', hud=H(48, 2750000, '0,4,5', '111'))
+
 # 21 TWIST 1 crash
 slide(f'''
 <div class="kick red">Plot twist #1 &middot; 2034 &middot; John is 48</div>
 <h2>The market crashes 25%.</h2>
-{scene(ground(1300,380)+cloud(560,70,1.15)+cloud(800,90,.9)+'<line class="rain" style="animation-delay:-0.62s" x1="380" y1="167" x2="370" y2="201" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.80s" x1="402" y1="167" x2="392" y2="210" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.92s" x1="424" y1="121" x2="414" y2="204" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.78s" x1="446" y1="135" x2="436" y2="210" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.05s" x1="468" y1="130" x2="458" y2="193" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.37s" x1="490" y1="135" x2="480" y2="202" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.54s" x1="512" y1="156" x2="502" y2="197" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.01s" x1="534" y1="133" x2="524" y2="203" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.28s" x1="556" y1="169" x2="546" y2="202" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.16s" x1="578" y1="124" x2="568" y2="194" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.62s" x1="600" y1="148" x2="590" y2="194" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.13s" x1="622" y1="120" x2="612" y2="196" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.77s" x1="644" y1="130" x2="634" y2="195" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.29s" x1="666" y1="132" x2="656" y2="207" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.88s" x1="688" y1="160" x2="678" y2="196" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.18s" x1="710" y1="164" x2="700" y2="196" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.97s" x1="732" y1="144" x2="722" y2="199" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.02s" x1="754" y1="146" x2="744" y2="195" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.94s" x1="776" y1="136" x2="766" y2="192" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.33s" x1="798" y1="158" x2="788" y2="208" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.00s" x1="820" y1="163" x2="810" y2="212" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.34s" x1="842" y1="139" x2="832" y2="201" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.82s" x1="864" y1="150" x2="854" y2="212" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.32s" x1="886" y1="150" x2="876" y2="205" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.70s" x1="908" y1="123" x2="898" y2="198" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.98s" x1="930" y1="121" x2="920" y2="213" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.36s" x1="952" y1="145" x2="942" y2="190" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.55s" x1="974" y1="146" x2="964" y2="201" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><g transform="translate(980,90)"><rect x="0" y="0" width="240" height="160" rx="12" fill="rgba(20,4,8,.6)" stroke="rgba(255,111,107,.6)" stroke-width="2"/><polyline points="20,40 60,55 90,45 120,70 150,110 180,95 220,135" fill="none" stroke="#FF6F6B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M210,122 L224,138 L204,140Z" fill="#FF6F6B"/><text x="120" y="28" text-anchor="middle" style="font:900 22px Georgia;fill:#FF8A86">&#8722;25%</text></g>'+umbrella(650,215,1.0)+person('john',610,370,.8,arm='hold')+person('emma',710,370,.76), 420)}
+{scene(ground(1300,380)+'<g transform="translate(0,60)">'+cloud(560,70,1.0)+cloud(800,90,.8)+'<line class="rain" style="animation-delay:-0.62s" x1="380" y1="167" x2="370" y2="201" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.80s" x1="402" y1="167" x2="392" y2="210" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.92s" x1="424" y1="121" x2="414" y2="204" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.78s" x1="446" y1="135" x2="436" y2="210" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.05s" x1="468" y1="130" x2="458" y2="193" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.37s" x1="490" y1="135" x2="480" y2="202" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.54s" x1="512" y1="156" x2="502" y2="197" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.01s" x1="534" y1="133" x2="524" y2="203" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.28s" x1="556" y1="169" x2="546" y2="202" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.16s" x1="578" y1="124" x2="568" y2="194" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.62s" x1="600" y1="148" x2="590" y2="194" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.13s" x1="622" y1="120" x2="612" y2="196" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.77s" x1="644" y1="130" x2="634" y2="195" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.29s" x1="666" y1="132" x2="656" y2="207" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.88s" x1="688" y1="160" x2="678" y2="196" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.18s" x1="710" y1="164" x2="700" y2="196" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.97s" x1="732" y1="144" x2="722" y2="199" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.02s" x1="754" y1="146" x2="744" y2="195" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.94s" x1="776" y1="136" x2="766" y2="192" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.33s" x1="798" y1="158" x2="788" y2="208" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.00s" x1="820" y1="163" x2="810" y2="212" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.34s" x1="842" y1="139" x2="832" y2="201" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.82s" x1="864" y1="150" x2="854" y2="212" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.32s" x1="886" y1="150" x2="876" y2="205" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.70s" x1="908" y1="123" x2="898" y2="198" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.98s" x1="930" y1="121" x2="920" y2="213" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.36s" x1="952" y1="145" x2="942" y2="190" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><line class="rain" style="animation-delay:-0.55s" x1="974" y1="146" x2="964" y2="201" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".8"/></g><g transform="translate(980,90)"><rect x="0" y="0" width="240" height="160" rx="12" fill="rgba(20,4,8,.6)" stroke="rgba(255,111,107,.6)" stroke-width="2"/><polyline points="20,40 60,55 90,45 120,70 150,110 180,95 220,135" fill="none" stroke="#FF6F6B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M210,122 L224,138 L204,140Z" fill="#FF6F6B"/><text x="120" y="28" text-anchor="middle" style="font:900 22px Georgia;fill:#FF8A86">&#8722;25%</text></g>'+umbrella(650,215,1.0)+person('john',610,370,.8,arm='hold')+person('emma',710,370,.76), 420)}
 <div class="twist">
   <p class="f">John&rsquo;s seg funds had a <b>guaranteed floor</b>. When markets recovered, a <b>reset</b> locked in the new high.</p>
+  <p class="f"><b>Mehar called John that same morning</b> and walked him through it, so nothing was sold in a panic.</p>
   <p class="f">His policy&rsquo;s cash value <b class="green">didn&rsquo;t drop at all</b> ({money(ILL[48]["totalCV"])} and climbing).</p>
 </div>
 ''', 'sCrash', hud=H(48, 2750000, '0,4,5', '111'))
@@ -643,19 +678,25 @@ slide(f'''
 ''', 'sSucc', hud=H(65, 11200000, '0,1,2,3,4,5,6', '111'))
 
 # 26 CHAPTER 7: 90
-HOME = ('<defs><pattern id="wp" width="40" height="40" patternUnits="userSpaceOnUse"><rect width="40" height="40" fill="#5A1A22"/><rect width="20" height="40" fill="#621E27"/><circle cx="10" cy="20" r="2.4" fill="rgba(229,185,60,.35)"/></pattern></defs>'
-  '<path d="M30,430 L30,110 L650,14 L1270,110 L1270,430Z" fill="url(#wp)"/>'
-  '<rect x="30" y="352" width="1240" height="78" fill="#6B4226"/>' + ''.join(f'<line x1="{x}" y1="352" x2="{x-30}" y2="430" stroke="rgba(0,0,0,.25)" stroke-width="2"/>' for x in range(110, 1270, 90)) +
-  '<rect x="30" y="344" width="1240" height="10" fill="#E8D6B0"/><ellipse cx="640" cy="404" rx="420" ry="22" fill="#8E1B26" opacity=".8"/>'
-  '<g><rect x="80" y="150" width="230" height="160" fill="#16213A"/>' + ''.join(f'<circle cx="{random.randint(92,298)}" cy="{random.randint(160,300)}" r="2.6" fill="#fff"/>' for _ in range(16)) +
-  '<path d="M80,280 Q195,262 310,282 L310,310 L80,310Z" fill="#E8EEF6"/><rect x="190" y="150" width="8" height="160" fill="#E8D6B0"/><rect x="80" y="226" width="230" height="8" fill="#E8D6B0"/><rect x="72" y="142" width="246" height="176" fill="none" stroke="#E8D6B0" stroke-width="10"/>'
-  '<path d="M64,138 C90,200 70,260 96,320 L64,320Z M326,138 C300,200 320,260 294,320 L326,320Z" fill="#9E1B26"/></g>'
-  '<rect x="470" y="140" width="80" height="62" fill="#3A1216" stroke="#C9A227" stroke-width="6"/><rect x="600" y="128" width="100" height="78" fill="#3A1216" stroke="#C9A227" stroke-width="6"/><rect x="750" y="140" width="80" height="62" fill="#3A1216" stroke="#C9A227" stroke-width="6"/>'
-  '<path d="M610,196 L630,170 L650,186 L668,162 L690,196Z" fill="#7A6A50"/><circle cx="510" cy="168" r="12" fill="#C9A9A0"/><circle cx="790" cy="168" r="12" fill="#C9A9A0"/>'
-  '<path d="M30,110 L650,14 L1270,110" fill="none" stroke="#E8D6B0" stroke-width="16" stroke-linejoin="round"/>'
-  '<path d="M30,110 L30,430 M1270,110 L1270,430" stroke="#E8D6B0" stroke-width="16"/>'
-  '<path d="M0,116 L650,0 L1300,116" fill="none" stroke="#8E1B26" stroke-width="12" stroke-linejoin="round"/>'
-  + ''.join(f'<circle cx="{120+k*58}" cy="{111-((120+k*58) if (120+k*58)<650 else 1300-(120+k*58))*0.155+14:.0f}" r="5" fill="{["#FF4D5E","#FFD27A","#7FE0A8","#FFFFFF"][k%4]}" class="hl{k%3}"/>' for k in range(19)))
+def _roof_y(x):
+    return 130 - (x - 40) * 90 / 610 if x <= 650 else 40 + (x - 650) * 90 / 610
+HOUSE_P = 'M40,430 L40,130 L650,40 L1260,130 L1260,430'
+HOME = ('<defs><pattern id="wp" width="40" height="40" patternUnits="userSpaceOnUse"><rect width="40" height="40" fill="#5A1A22"/><rect width="20" height="40" fill="#621E27"/><circle cx="10" cy="20" r="2.4" fill="rgba(229,185,60,.35)"/></pattern>'
+  '<clipPath id="hIn"><path d="M40,430 L40,130 L650,40 L1260,130 L1260,430Z"/></clipPath></defs>'
+  '<g clip-path="url(#hIn)"><rect x="0" y="0" width="1300" height="430" fill="url(#wp)"/>'
+  '<rect x="0" y="356" width="1300" height="74" fill="#6B4226"/>' + ''.join(f'<line x1="{x}" y1="356" x2="{x}" y2="430" stroke="rgba(0,0,0,.28)" stroke-width="2"/>' for x in range(40, 1300, 80)) +
+  '<line x1="0" y1="393" x2="1300" y2="393" stroke="rgba(0,0,0,.2)" stroke-width="2"/>'
+  '<rect x="0" y="346" width="1300" height="10" fill="#E8D6B0"/></g>'
+  '<ellipse cx="650" cy="406" rx="400" ry="20" fill="#8E1B26" opacity=".85"/>'
+  '<g><rect x="90" y="170" width="220" height="150" fill="#16213A"/>' + ''.join(f'<circle cx="{random.randint(100,300)}" cy="{random.randint(180,290)}" r="2.6" fill="#fff"/>' for _ in range(14)) +
+  '<path d="M90,296 Q200,280 310,298 L310,320 L90,320Z" fill="#E8EEF6"/><rect x="196" y="170" width="8" height="150" fill="#E8D6B0"/><rect x="90" y="241" width="220" height="8" fill="#E8D6B0"/><rect x="85" y="165" width="230" height="160" fill="none" stroke="#E8D6B0" stroke-width="10"/>'
+  '<path d="M74,160 C96,215 80,270 102,330 L74,330Z M326,160 C304,215 320,270 298,330 L326,330Z" fill="#9E1B26"/></g>'
+  '<g fill="#3A1216" stroke="#C9A227" stroke-width="6"><rect x="480" y="160" width="80" height="62"/><rect x="600" y="148" width="100" height="78"/><rect x="740" y="160" width="80" height="62"/></g>'
+  '<path d="M610,216 L630,190 L650,206 L668,182 L690,216Z" fill="#7A6A50"/><circle cx="520" cy="188" r="12" fill="#C9A9A0"/><circle cx="780" cy="188" r="12" fill="#C9A9A0"/>'
+  f'<path d="{HOUSE_P}" fill="none" stroke="#8E1B26" stroke-width="22" stroke-linejoin="round"/>'
+  f'<path d="{HOUSE_P}" fill="none" stroke="#E8D6B0" stroke-width="6" stroke-linejoin="round"/>'
+  + ''.join(f'<line x1="{x}" y1="{_roof_y(x)+10:.1f}" x2="{x}" y2="{_roof_y(x)+20:.1f}" stroke="#1F4A30" stroke-width="2"/><circle cx="{x}" cy="{_roof_y(x)+25:.1f}" r="5.5" fill="{["#FF4D5E","#FFD27A","#7FE0A8","#FFFFFF"][k%4]}" class="hl{k%3}"/>'
+            for k, x in enumerate([x for x in range(100, 1220, 55) if abs(x - 650) > 20])))
 slide(chapter('Chapter Seven', 'Christmas 2076 · John is 90', 'The Last Christmas',
     HOME + tree(1120,410,1.0)+person('john',300,410,.9,'old')+person('emma',400,410,.86)
     + person('lily',540,410,.9)+person('max',660,410,.9)+person('lily',760,410,.5)+person('max',820,410,.45)+person('lily',880,410,.42)+person('max',940,410,.38)
@@ -803,6 +844,17 @@ slide(f'''
 <div class="qr"><img src="{QR}" alt="QR code"><span>Scan me</span></div>
 {scene(ground(1300,200)+tree(170,200,.6)+tree(1130,200,.6)+gift(300,200,.6)+gift(1000,200,.6,'#2F6E4C'), 230)}
 ''', 'sThanks')
+
+# service ribbons
+SVC = {'sNeeds': 2, 'sDollar': 3, 'sBuckets': 3, 'sShock': 3, 'sProbs': 3, 'sTeam': 4, 'sStruct': 5, 'sAio': 5, 'sPlan': 5, 'sSnap': 5,
+       'sChart': 5, 'sCda': 5, 'sLoc2': 7, 'sIfa': 7, 'sCrash': 7, 'sRaj': 7, 'sRetire': 7, 'sSucc': 7}
+for i, h in enumerate(SLIDES):
+    cls = h.split('class="slide ', 1)[1].split('"', 1)[0].split()[0]
+    if cls in SVC:
+        k = SVC[cls]
+        SLIDES[i] = h.replace('>', f'><div class="svc">&#9733; Mehar&rsquo;s process &middot; Step {k} of 7: <b>{STEPS[k-1][0]}</b></div>', 1)
+    elif 'sChap' in h.split('>', 1)[0] and 'He Starts Now' in h:
+        SLIDES[i] = h.replace('>', '><div class="svc">&#9733; Mehar&rsquo;s process &middot; Step 6 of 7: <b>Start</b></div>', 1)
 
 # ------------------------------------------------------------------ page
 flakes = ''.join(f'<i style="left:{random.uniform(-5,100):.1f}%;--d:-{random.uniform(0,22):.1f}s;--t:{random.uniform(14,26):.1f}s;--s:{random.uniform(.6,2.2):.2f};--x:{random.uniform(-60,60):.0f}px;--o:{random.uniform(.35,.95):.2f}"></i>' for _ in range(46))

@@ -598,3 +598,32 @@ h2{font-size:46px}
 .sThanks .big{margin-top:18px}
 .ifa.v .ifC{padding-left:74px}
 .ifa.v .ifN{display:flex;align-items:center;justify-content:center;text-align:center;padding:0}
+
+/* ===================== v7 ===================== */
+.slide.active .cdaAuto .bkFill{animation:bkUp 5.5s cubic-bezier(.3,.6,.4,1) .6s forwards}
+.slide.active .cdaAuto .bkGlow{animation:bkG 2.2s ease-in-out infinite alternate}
+.slide.active .cdaAuto .bkSpark{animation:spk 1.6s ease-in-out infinite}
+.slide.active .cdaAuto .coinF{animation:coinF 3.6s cubic-bezier(.5,0,.9,.6) infinite}
+.sCda .split{align-items:center}
+/* dollar slide */
+.dlR{gap:26px}.dlC{width:400px}
+.dlFig svg{display:block}
+.dlTalk{display:flex;flex-direction:column;gap:10px;align-items:center;margin-top:8px}
+.dlTalk p{font-size:22px;color:#FFF0D2;background:rgba(20,4,8,.55);border:1px solid rgba(229,185,60,.45);padding:10px 20px;border-radius:16px;box-shadow:0 0 18px rgba(229,185,60,.2)}
+.dlTalk p b{color:#F6D77A}.dlTalk p.j{border-color:rgba(123,227,174,.6);color:#CFF5E0}
+.dlTalk .who{font:800 13px "Segoe UI";letter-spacing:.16em;text-transform:uppercase;color:#E5B93C;margin-right:12px}
+.dlTalk p.j .who{color:#7BE3AE}
+/* process roadmap */
+.road{display:flex;gap:12px;margin-top:26px;position:relative}
+.road::before{content:"";position:absolute;left:60px;right:60px;top:30px;height:4px;background:linear-gradient(90deg,#E5B93C,#F6D77A,#E5B93C);box-shadow:0 0 12px rgba(229,185,60,.8);border-radius:2px}
+.rdS{width:168px;text-align:center;position:relative}
+.rdS i{display:flex;align-items:center;justify-content:center;width:60px;height:60px;margin:0 auto 12px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FFE9A0,#E5B93C 55%,#A87A12);color:#5A1A0A;font:900 26px Georgia;font-style:normal;box-shadow:0 0 22px rgba(229,185,60,.8);position:relative}
+.rdS b{display:block;font:900 22px Georgia,serif;color:#FFE7A6}
+.rdS span{display:block;font-size:15.5px;color:#EADBC0;margin-top:6px;line-height:1.35}
+.svc{position:absolute;top:62px;left:42px;z-index:5;font:600 13px "Segoe UI",sans-serif;letter-spacing:.06em;color:#F3E2BF;background:rgba(20,4,8,.6);border:1px solid rgba(229,185,60,.6);padding:6px 12px;border-radius:999px;box-shadow:0 0 14px rgba(229,185,60,.25)}
+.svc b{color:#F6D77A}
+.bolt{filter:drop-shadow(0 0 12px #FFE08A);animation:bolt 3s infinite}
+@keyframes bolt{0%,8%,14%,100%{opacity:0}10%,16%{opacity:1}}
+.road{margin-top:40px;gap:14px}.rdS{width:176px}.rdS i{width:70px;height:70px;font-size:30px}.road::before{top:35px}
+.rdS b{font-size:24px}.rdS span{font-size:17px}
+.roadEnd{margin-top:40px}
