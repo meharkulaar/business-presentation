@@ -723,8 +723,7 @@ body.lite .snow,body.lite .bokeh{display:none!important}
 .svS.paper{border:0;border-radius:0;background:none;padding:12px 18px}
 .svS.paper b{color:#6B1218}.svS.paper span{color:#4A3A2A}.svS.paper strong{color:#2E1E12}
 .svS.paper.gold b{color:#8A6510}.svS.paper.green b{color:#1F6B44}
-#hudBig.paper{position:absolute;inset:0;padding:22px 34px 18px;display:flex;flex-direction:column;gap:12px;box-shadow:0 0 40px rgba(229,185,60,.35),0 24px 40px rgba(0,0,0,.45)!important;transform:rotate(-.4deg)}
-#hud.big{background:transparent;border-color:transparent;box-shadow:none;transition:opacity .5s ease,left .9s cubic-bezier(.65,0,.35,1),right .9s cubic-bezier(.65,0,.35,1),bottom .9s cubic-bezier(.65,0,.35,1),height .9s cubic-bezier(.65,0,.35,1),border-radius .9s,background 0s 1.5s,border-color 0s 1.5s,box-shadow 0s 1.5s}
+#hudBig{padding:22px 34px 18px;display:flex;flex-direction:column;gap:12px}
 #hudBig .sbHead{text-align:center;line-height:1.1}
 #hudBig .sbHead em{display:block;font:italic 700 15px Georgia,serif;color:#9E1B26;letter-spacing:.06em}
 #hudBig .sbHead b{display:block;font:900 34px Georgia,serif!important;color:#6B1218!important;margin:2px 0}
@@ -751,3 +750,17 @@ body.lite .snow,body.lite .bokeh{display:none!important}
 .fdTags em.g{background:#8A6510}
 .focus{margin-top:18px;padding:12px 22px;border-radius:14px;border:1px solid rgba(229,185,60,.7);background:rgba(20,4,8,.6);box-shadow:0 0 22px rgba(229,185,60,.3);color:#FFF0D2;font-size:20px;text-align:center}
 .focus b{color:#F6D77A}
+
+/* v15: the story bar itself is torn tan paper */
+#hud.paper{padding:0 30px}
+#hud span{color:#7A5A3A}
+#hud b{color:#3A1A10}
+#hud .hNw b{color:#8A6510}
+#hud .hTrack{background:rgba(110,80,50,.28)}
+#hud #hDot{background:#E5B93C;border-color:#6B1218;box-shadow:0 0 8px rgba(229,185,60,.8)}
+#hud .hB{border-color:#8A6510}
+#hud #hOrn i{background:#CDBB97;border-color:#A08A66}
+#hud #hOrn i.on{background:#E5B93C;border-color:#8A6510;box-shadow:0 0 8px rgba(229,185,60,.9)}
+#hud #hRu em{background:#B3202A;color:#FFF4DC}
+#hud #hRu em.on{background:#E5B93C;color:#3A1A10}
+#hud.big{border-radius:0}

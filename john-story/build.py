@@ -979,7 +979,7 @@ slide('''
 ''', 'sScore', hud=H(90, NW(90), '0,1,2,3,4,5,6', '111'))
 def _tile(lbl, a, b, cls=''):
     return f'<div class="sbT {cls}"><span>{lbl}</span><div class="sbV"><em>At 40</em><i>{a}</i></div><div class="sbV b"><em>At 90</em>{b}</div></div>'
-SCORE = ('<div id="hudBig" class="paper"><div class="sbHead"><em>Christmas 2076</em><b>John&rsquo;s Scoreboard</b><span>From the day he met Mehar at 40, to his last Christmas at 90</span></div><div class="sbG">'
+SCORE = ('<div id="hudBig"><div class="sbHead"><em>Christmas 2076</em><b>John&rsquo;s Scoreboard</b><span>From the day he met Mehar at 40, to his last Christmas at 90</span></div><div class="sbG">'
   + _tile('Net worth', '$1.51M', counter(int(NW(90))))
   + _tile('Tax-free to his family', '$0', counter(int(ILL[90]['totalDB'])), 'gold')
   + _tile('Taken out in retirement', '$0', counter(int(SAV_W)))
@@ -1065,7 +1065,7 @@ html = f'''<!doctype html>
   <div id="edit" class="panel"><div class="pH"><b>Edit names &amp; title</b><button class="pX">&times;</button></div><div id="editL"></div><div class="pF"><button id="edReset">Reset</button><button id="edSave" class="pri">Save</button></div></div>
   <div class="deck">{"".join(SLIDES)}</div>
   <div id="tp" aria-hidden="true"><div class="tpG"><div class="tpSnow"></div><span>Years pass&hellip;</span><b id="tpY">2026</b><em id="tpA">John is 40</em></div></div>
-  <div id="hud">
+  <div id="hud" class="paper">
     <div class="hTime"><span>Age</span><div class="hTrack"><i id="hDot"></i></div><b id="hAge">40</b></div>
     <div class="hNw"><span>Net worth</span><b id="hNw">$0</b></div>
     <div class="hCda"><div class="hB"><i id="hBf"></i></div><div><span>Future CDA credit</span><b id="hCda">$0</b></div></div>
