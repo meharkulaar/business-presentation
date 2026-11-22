@@ -1090,6 +1090,31 @@ for i, h in enumerate(SLIDES):
     elif 'sChap' in h.split('>', 1)[0] and 'He Starts Now' in h:
         SLIDES[i] = h.replace('>', '><div class="svc">&#9733; Mehar&rsquo;s process &middot; Step 6 of 7: <b>Start</b></div>', 1)
 
+# action banners: every time John acts with Mehar's help
+TA, MS, PW = 'John takes action', 'Milestone', 'The plan at work'
+ACT = {'sShock': (TA, 'Decides to start filling his tax-free bucket, as soon as possible'),
+       'sTeam': (TA, 'Brings his accountant and his lawyer to the table with Mehar'),
+       'sPlan': (TA, 'Starts his corporate-owned whole life policy: $100K a year'),
+       'sSeg': (TA, 'Moves his TFSA and RRSP into seg funds, and starts investing $15K a year'),
+       'sLoc2': (TA, 'Opens clinic #2'),
+       'sIfa': (TA, 'Sets up an IFA: borrows $500K against his policy to fund clinic #2'),
+       'sRajBS': (TA, 'Sets up a funded buy-sell with his new partner, Raj'),
+       'sCrash': (TA, 'Stays the course: Mehar calls him the morning of the crash'),
+       'sDebt': (MS, 'Debt-free at 50: practice loan and mortgage paid off'),
+       'sRajPay': (PW, 'Raj&rsquo;s family is paid in full, and the clinic is saved'),
+       'sRetire': (TA, 'Retires at 65, with a holding company, estate freeze and income plan in place'),
+       'sSave': (TA, 'Stops saving and starts drawing income, while his money keeps growing'),
+       'sSucc': (TA, 'Passes the clinics to Lily; the insurance gives Max equal value'),
+       'sLegacy': (PW, 'His family receives $14.18M, tax-free')}
+for i, h in enumerate(SLIDES):
+    head = h.split('>', 1)[0]
+    cls = head.split('class="slide ', 1)[1].split('"', 1)[0].split()[0]
+    a = ACT.get(cls)
+    if not a and 'He Starts Now' in h and 'sChap' in head:
+        a = (TA, 'Starts the plan right away: December 30, the same month')
+    if a:
+        SLIDES[i] = h.replace('<section ', f'<section data-actl="{a[0]}" data-act="{a[1]}" ', 1)
+
 # ------------------------------------------------------------------ page
 flakes = ''.join(f'<i style="left:{random.uniform(-5,100):.1f}%;--d:-{random.uniform(0,22):.1f}s;--t:{random.uniform(14,26):.1f}s;--s:{random.uniform(.6,2.2):.2f};--x:{random.uniform(-60,60):.0f}px;--o:{random.uniform(.35,.95):.2f}"></i>' for _ in range(46))
 flakes2 = ''.join(f'<i style="left:{random.uniform(-5,100):.1f}%;--d:-{random.uniform(0,30):.1f}s;--t:{random.uniform(24,40):.1f}s;--s:{random.uniform(.3,.8):.2f};--x:{random.uniform(-30,30):.0f}px;--o:{random.uniform(.25,.6):.2f}"></i>' for _ in range(40))
@@ -1133,6 +1158,7 @@ html = f'''<!doctype html>
     <div class="hRules"><span>3 rules</span><div id="hRu"><em>Compound</em><em>Risk</em><em>Tax</em></div></div>
     {SCORE}
   </div>
+  <div id="act" aria-live="polite"><i>&#10003;</i><div><span id="actL">John takes action</span><b id="actT"></b><em>with Mehar&rsquo;s help</em></div></div>
   <div class="intl">FOR INTERNAL USE ONLY</div>
   <div class="foot">Illustrative story: John and Jake are fictional; net worth figures are illustrative. Policy values from a real Equitable illustration (current dividend scale, not guaranteed). We do not offer tax or legal advice; please consult a tax and/or legal professional.</div>
   <div class="prog"><i id="prog"></i></div>

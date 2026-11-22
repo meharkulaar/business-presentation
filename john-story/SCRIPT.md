@@ -200,3 +200,22 @@ New opening order: Cover → The real Ontario case → **How tonight works** →
 - **Raj passes away:** the text is now on torn paper, easy to read.
 - **Passing the torch:** John (65) is taller and labelled, and hands a lit torch to Lily.
 - **Raj buys in:** the line between John's and Raj's arms is gone.
+
+## Updates in version 18
+- **Action banners:** every time John acts with Mehar's help, a glowing gold banner slides up at the bottom of the screen for about 4.5 seconds: "✓ John takes action … with Mehar's help". Read it out, or pause and let it land. Milestones and payoffs get the same banner with "Milestone" or "The plan at work" on top. The banners appear on:
+  - **The moment:** decides to start filling his tax-free bucket as soon as possible.
+  - **The team:** brings his accountant and lawyer to the table with Mehar.
+  - **Chapter Three:** starts the plan right away, December 30.
+  - **The policy:** starts his corporate-owned whole life policy, $100K a year.
+  - **Seg funds:** moves his TFSA and RRSP into seg funds, and starts investing $15K a year.
+  - **Location #2:** opens clinic #2.
+  - **IFA:** borrows $500K against his policy to fund clinic #2.
+  - **Raj buys in:** sets up a funded buy-sell.
+  - **Market crash:** stays the course after Mehar's call.
+  - **Debt-free at 50** (milestone).
+  - **Raj's payout** (the plan at work).
+  - **Retires at 65:** holding company, estate freeze and income plan in place.
+  - **From saving to spending:** stops saving and starts drawing income.
+  - **Succession:** passes the clinics to Lily.
+  - **Legacy:** $14.18M tax-free (the plan at work).
+- **Fast-forward clock:** it now stops on the new year for a full second (the hands freeze and the year pulses) before fading into the slide.

@@ -63,14 +63,23 @@ function timePass(a0,a1){
   var tp=document.getElementById('tp'),y=document.getElementById('tpY'),g=document.getElementById('tpA');if(!tp)return;
   var s=slides[i];
   tp.classList.remove('on','out');void tp.offsetWidth;tp.classList.add('on');
-  var t0=performance.now(),d=1900;
-  (function f(t){var p=Math.max(0,Math.min(1,(t-t0)/d)),e=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2,a=Math.round(a0+(a1-a0)*e);y.textContent=1986+a;g.textContent='John is '+a;if(p<1)requestAnimationFrame(f);})(t0);
+  var t0=performance.now(),d=1500;tp.classList.remove('hold');
+  (function f(t){var p=Math.max(0,Math.min(1,(t-t0)/d)),e=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2,a=Math.round(a0+(a1-a0)*e);y.textContent=1986+a;g.textContent='John is '+a;if(p<1)requestAnimationFrame(f);else tp.classList.add('hold');})(t0);
   clearTimeout(tp._t1);clearTimeout(tp._t2);
   tp._t1=setTimeout(function(){tp.classList.add('out');
     // replay the slide's entrance now that the clock has gone
     if(slides[i]===s){s.classList.remove('active');void s.offsetWidth;s.classList.add('active');}
-  },2300);
-  tp._t2=setTimeout(function(){tp.classList.remove('on','out');},2900);
+  },2550);
+  tp._t2=setTimeout(function(){tp.classList.remove('on','out','hold');},3100);
+}
+var actEl=document.getElementById('act'),actT1,actT2;
+function showAct(s,dir,clocked){
+  clearTimeout(actT1);clearTimeout(actT2);actEl.classList.remove('on');
+  if(dir<=0||!s.dataset.act)return;
+  actT1=setTimeout(function(){if(slides[i]!==s)return;
+    document.getElementById('actL').textContent=s.dataset.actl;document.getElementById('actT').innerHTML=s.dataset.act;
+    actEl.classList.toggle('ms',s.dataset.actl!=='John takes action');
+    actEl.classList.add('on');actT2=setTimeout(function(){actEl.classList.remove('on');},4500);},clocked?3200:700);
 }
 function pour(){
   var c=document.querySelector('.hCda');if(!c)return;
@@ -90,7 +99,9 @@ function show(n,dir){
   }
   counters(s,dir>=0);
   var ag=s.dataset.age?+s.dataset.age:null;
-  if(dir>0&&ag!==null&&lastAge!==null&&ag-lastAge>=3&&!document.body.classList.contains('reduce'))timePass(lastAge,ag);
+  var clocked=false;
+  if(dir>0&&ag!==null&&lastAge!==null&&ag-lastAge>=3&&!document.body.classList.contains('reduce')){timePass(lastAge,ag);clocked=true;}
+  showAct(s,dir,clocked);
   if(ag!==null)lastAge=ag;
   var cd=s.dataset.cda?+s.dataset.cda:0;if(dir>0&&cd>lastCda+1)pour();lastCda=cd;
   updHud(s);

@@ -852,3 +852,20 @@ body.lite .snow,body.lite .bokeh{display:none!important}
 .santa{width:1180px;padding:26px 52px 22px}.snH{font-size:62px}.snH small{font-size:30px}
 .hn{font-size:36px}.hd{font-size:25px}.snL li{padding:10px 0}.snT{font-size:54px}
 .ifB b{font-size:25px}.ifB span{font-size:17px}.ifB.big b{font-size:30px}
+/* v18: action banner + clock hold */
+#act{position:absolute;left:50%;bottom:calc(46px + var(--ex,0px)*.2);z-index:12;display:flex;align-items:center;gap:16px;min-width:640px;max-width:1000px;padding:14px 30px 14px 18px;
+  transform:translate(-50%,140%) scale(.9);opacity:0;transition:transform .6s cubic-bezier(.2,1.3,.3,1),opacity .4s ease;pointer-events:none;
+  background:linear-gradient(180deg,#F6D77A,#D9A93A);border:2px solid #FFF4DC;border-radius:18px;box-shadow:0 0 40px rgba(255,215,100,.75),0 18px 40px rgba(0,0,0,.5)}
+#act.on{transform:translate(-50%,0) scale(1);opacity:1}
+#act i{flex:none;width:52px;height:52px;border-radius:50%;background:#1F6B44;color:#fff;font:900 30px/52px Georgia;font-style:normal;text-align:center;box-shadow:0 0 0 4px #FFF4DC}
+#act.on i{animation:actPop .6s ease .35s both}
+@keyframes actPop{0%{transform:scale(.3)}70%{transform:scale(1.2)}100%{transform:scale(1)}}
+#act span{display:block;font:900 13px "Segoe UI",sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#6B1218}
+#act b{display:block;font:900 25px Georgia,serif;color:#2E1206;line-height:1.2;margin:2px 0}
+#act em{display:block;font:italic 600 14px Georgia,serif;color:#5A3A12}
+#act.ms i{background:#6B1218}#act.ms em{display:none}
+body.reduce #act{transition:none}
+#tp.hold .cH{animation-play-state:paused!important}
+#tp.hold b{animation:yrPulse .5s ease both}
+@keyframes yrPulse{0%{transform:scale(1)}50%{transform:scale(1.12);text-shadow:0 0 50px rgba(255,215,100,1)}100%{transform:scale(1)}}
+#act{width:max-content;max-width:1150px}
