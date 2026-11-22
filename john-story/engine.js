@@ -69,13 +69,56 @@ function prev(){
   if(i>0)show(i-1,-1);
 }
 addEventListener('keydown',function(e){
-  if(['ArrowRight','ArrowDown','PageDown',' ','Enter'].indexOf(e.key)>=0){e.preventDefault();next();}
-  else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].indexOf(e.key)>=0){e.preventDefault();prev();}
+  if(['ArrowRight','ArrowDown','PageDown',' ','Enter'].indexOf(e.key)>=0){e.preventDefault();window.deck.next();}
+  else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].indexOf(e.key)>=0){e.preventDefault();window.deck.prev();}
   else if(e.key==='Home')show(0,1);else if(e.key==='End')show(slides.length-1,-1);
-  else if(e.key==='f'||e.key==='F'){if(!document.fullscreenElement)document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();else document.exitFullscreen();}
+  else if((e.key==='f'||e.key==='F')&&e.target.tagName!=='INPUT'){if(!document.fullscreenElement)document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();else document.exitFullscreen();}
   else if(e.key==='l'||e.key==='L')document.body.classList.toggle('lite');
 });
-addEventListener('click',function(e){if(e.clientX<innerWidth*.25)prev();else next();});
+addEventListener('click',function(e){if(e.target.closest('#ui,.panel'))return;if(e.clientX<innerWidth*.25)window.deck.prev();else window.deck.next();});
 window.deck={show:show,next:next,prev:prev,get i(){return i;},slides:slides};
 show(0,1);
+})();
+/* ===== UI: fullscreen, TOC with hide, name/title editor ===== */
+(function(){
+var D=window.deck,slides=D.slides;
+var $=function(id){return document.getElementById(id);};
+function fs(){if(!document.fullscreenElement){(document.documentElement.requestFullscreen||function(){}).call(document.documentElement);}else document.exitFullscreen();}
+$('bFs').onclick=function(e){e.stopPropagation();fs();this.blur();};
+['ui','toc','edit'].forEach(function(id){$(id).addEventListener('click',function(e){e.stopPropagation();});if(id!=='ui')$(id).addEventListener('keydown',function(e){if(e.target.tagName==='INPUT')e.stopPropagation();});});
+[].slice.call(document.querySelectorAll('.pX')).forEach(function(b){b.onclick=function(){b.closest('.panel').classList.remove('open');};});
+function toggle(id){var p=$(id),o=!p.classList.contains('open');document.querySelectorAll('.panel').forEach(function(x){x.classList.remove('open');});if(o){p.classList.add('open');if(id==='toc')buildToc();if(id==='edit')buildEdit();}}
+$('bToc').onclick=function(){toggle('toc');this.blur();};$('bEdit').onclick=function(){toggle('edit');this.blur();};
+addEventListener('keydown',function(e){if(e.target.tagName==='INPUT')return;if(e.key==='t'||e.key==='T')toggle('toc');if(e.key==='e'||e.key==='E')toggle('edit');},true);
+/* hidden slides */
+var hidden={};try{hidden=JSON.parse(localStorage.getItem('jsHidden')||'{}');}catch(_){}
+function saveH(){try{localStorage.setItem('jsHidden',JSON.stringify(hidden));}catch(_){}}
+var _show=D.show;
+function vis(n,dir){var k=n;while(k>0&&k<slides.length-1&&hidden[k])k+=dir;return hidden[k]?null:k;}
+var _n=D.next,_p=D.prev;
+D.next=function(){var s=slides[D.i];var left=[].slice.call(s.querySelectorAll('.f')).some(function(f){return !f.classList.contains('on');});if(left){_n();return;}var k=vis(D.i+1,1);if(k!==null&&k!==D.i)_show(k,1);};
+D.prev=function(){var s=slides[D.i];var any=s.querySelector('.f.on');if(any){_p();return;}var k=vis(D.i-1,-1);if(k!==null&&k!==D.i)_show(k,-1);};
+function title(s){var t=s.querySelector('h1,h2,.kick');return t?t.textContent.trim().replace(/\s+/g,' ').slice(0,46):'Slide';}
+function buildToc(){var L=$('tocL');L.innerHTML='';slides.forEach(function(s,k){var d=document.createElement('div');d.className='tI'+(k===D.i?' cur':'')+(hidden[k]?' hid':'');
+  d.innerHTML='<b>'+(k+1)+'</b><span></span>'+(k?'<em title="Hide / show">'+(hidden[k]?'&#10005;':'&#128065;')+'</em>':'');d.querySelector('span').textContent=title(s);
+  d.onclick=function(e){if(e.target.tagName==='EM'){hidden[k]=!hidden[k];if(!hidden[k])delete hidden[k];saveH();buildToc();return;}_show(k,1);buildToc();};L.appendChild(d);});}
+$('tocAll').onclick=function(){hidden={};saveH();buildToc();};
+/* names + title editor */
+var DEF={John:'John',Emma:'Emma',Lily:'Lily',Max:'Max',Mehar:'Mehar',David:'David',Sarah:'Sarah',Raj:'Raj',Jake:'Jake'};
+var LBL={John:'Main character',Emma:'His wife',Lily:'Daughter',Max:'Son',Mehar:'Advisor',David:'Accountant',Sarah:'Lawyer',Raj:'Partner dentist',Jake:'The twin'};
+var cur=Object.assign({},DEF);var T0={t1:$('t1').textContent,t2:$('t2').textContent};
+function walk(fn){var w=document.createTreeWalker($('stage').querySelector('.deck'),NodeFilter.SHOW_TEXT,null);var n;while((n=w.nextNode()))fn(n);}
+function esc(x){return x.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+function apply(map){walk(function(n){var v=n.nodeValue,o=v;Object.keys(map).forEach(function(k){if(cur[k]!==map[k]){v=v.replace(new RegExp('\\b'+esc(cur[k])+'\\b','g'),'\u0000'+k+'\u0000');}});
+  if(v!==o){v=v.replace(/\u0000(\w+)\u0000/g,function(_,k){return map[k];});n.nodeValue=v;}});cur=Object.assign({},map);}
+function setTitle(t){if(t.t1)$('t1').textContent=t.t1;if(t.t2)$('t2').textContent=t.t2;}
+var saved={};try{saved=JSON.parse(localStorage.getItem('jsNames')||'{}');}catch(_){}
+if(saved.names)apply(Object.assign({},DEF,saved.names));if(saved.title)setTitle(saved.title);
+function buildEdit(){var L=$('editL');L.innerHTML='';
+  var add=function(id,lab,val){var r=document.createElement('div');r.className='eR';r.innerHTML='<label></label><input>';r.querySelector('label').textContent=lab;var i=r.querySelector('input');i.value=val;i.dataset.k=id;L.appendChild(r);};
+  add('t1','Title line 1 (after the hat T)',$('t1').textContent);add('t2','Title line 2',$('t2').textContent);
+  Object.keys(DEF).forEach(function(k){add(k,LBL[k],cur[k]);});}
+$('edSave').onclick=function(){var m={},t={};[].slice.call(document.querySelectorAll('#editL input')).forEach(function(i){var v=i.value.trim();if(!v)return;if(i.dataset.k==='t1'||i.dataset.k==='t2')t[i.dataset.k]=v;else m[i.dataset.k]=v;});
+  apply(Object.assign({},cur,m));setTitle(t);try{localStorage.setItem('jsNames',JSON.stringify({names:cur,title:{t1:$('t1').textContent,t2:$('t2').textContent}}));}catch(_){}$('edit').classList.remove('open');};
+$('edReset').onclick=function(){apply(DEF);setTitle(T0);try{localStorage.removeItem('jsNames');}catch(_){}buildEdit();};
 })();
