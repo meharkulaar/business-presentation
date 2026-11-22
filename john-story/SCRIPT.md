@@ -176,3 +176,13 @@ New opening order: Cover → The real Ontario case → **How tonight works** →
 - **The CDA explanation** now comes right after "John had never heard of it" (slide 18), and answers his question "How do I fill it?"
 - **At 65, the notes beside the chart** are now torn tan paper, like the other cards.
 - **The final scoreboard** now opens into a torn tan-paper Christmas letter: "Christmas 2076 · John's Scoreboard", six tiles, signed "With gratitude, from John's team: Mehar, David & Sarah". It now fits on every screen size.
+
+## Updates in version 16 (54 slides)
+- **What fills the CDA (new, slide 19, right after the CDA explanation):** [click through each input] "Four things fill the tax-free bucket."
+  - "The non-taxable half of capital gains."
+  - "The non-taxable portion of gains on goodwill."
+  - "Capital dividends received from other corporations."
+  - [click] "And the biggest by far: corporate-owned life insurance, the death benefit minus the policy's cost base."
+  - "All of it comes out tax-free, as capital dividends to John, and to his family through his estate. For John, the policy is the big one."
+- **What happened when Raj died (slide 39):** the five notes are now torn tan paper.
+- **Final scoreboard (slide 51):** the letter is now bigger and centred, with no separate heading above it.

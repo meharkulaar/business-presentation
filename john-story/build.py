@@ -459,6 +459,31 @@ slide(f'''
 </div>
 ''', 'sCda', hud=H(40, NW(40)))
 
+# 15b WHAT FILLS THE CDA
+CF_IN = [(20, 'Capital gains', 'Non-taxable portion', 'The half of every capital gain that isn&rsquo;t taxed'),
+         (128, '', 'Gains on goodwill', 'The non-taxable portion (formerly &ldquo;eligible capital property&rdquo;)'),
+         (236, '', 'Capital dividends received', 'Tax-free dividends from other corporations'),
+         (362, 'Biggest input', 'Corporate-owned life insurance', 'Death benefit minus the policy&rsquo;s cost base')]
+def _cf_box(k, y, tag, t, d):
+    big = k == 3; h = 104 if big else 88; cy = y + h/2
+    path = f'M0,{h/2:.0f} C70,{h/2:.0f} 60,{262-y:.0f} 128,{262-y:.0f}'
+    tg = f'<div class="cfTag{" g" if big else ""}">{"&#9733; " if big else ""}{tag}</div>' if tag else ''
+    return (f'<div class="cfI paper f{" big" if big else ""}" style="top:{y}px;height:{h}px">{tg}<b>{t}</b><span>{d}</span>'
+            f'<svg class="cfA" width="140" height="10" style="overflow:visible"><path d="{path}" class="cfP{" g" if big else ""}" marker-end="url(#cfArr{"G" if big else ""})"/></svg></div>')
+CF_HTML = ''.join(_cf_box(k, *c) for k, c in enumerate(CF_IN))
+slide(f'''
+<div class="kick">How the tax-free bucket gets filled</div>
+<h2>What fills the CDA</h2>
+<svg width="0" height="0" style="position:absolute"><defs><marker id="cfArr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10Z" fill="#F2CC5A"/></marker><marker id="cfArrG" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10Z" fill="#7BE3AE"/></marker></defs></svg>
+<div class="cfW">
+  {CF_HTML}
+  <div class="cfB cdaAuto">{cda_bucket('C', 250, 350)}<div class="cfBl">A running tally of tax-free dollars</div></div>
+  <div class="cfO f"><svg class="cfA2" width="90" height="20" style="overflow:visible"><path d="M0,10 L78,10" class="cfP g" marker-end="url(#cfArrG)"/></svg>
+    <div class="cfOut paper"><b>Paid out tax-free</b><span>As capital dividends to John,</span><span>and to his family through his estate</span></div></div>
+</div>
+<p class="f mid">Four inputs. One tax-free bucket. <b class="gold">For John, the policy is the big one.</b></p>
+''', 'sCdaFill', hud=H(40, NW(40)))
+
 # 10 3 HIDDEN PROBLEMS (with loonie)
 slide(f'''
 <div class="kick">What Mehar found</div>
@@ -755,11 +780,11 @@ slide(f'''
 <div class="split rpS">
   <div class="snapP f rpSnap"><img src="{RSNAP}" alt="Raj's real Equitable illustration, year 9 highlighted"><i class="snapTag">Raj&rsquo;s real illustration</i></div>
   <div class="rpF">
-    <div class="rpR f"><b>9 years of premiums</b><span>The clinic corporation paid <strong>$900,000</strong> ($100K a year).</span></div>
-    <div class="rpR f gold"><b>Death benefit: {money(r53["totalDB"])}</b><span>Paid to the corporation, <strong>tax-free</strong>, within weeks.</span></div>
-    <div class="rpR f gold"><b>CDA credited</b><span>Almost all of it goes into the tax-free bucket (the payout minus the policy&rsquo;s cost base).</span></div>
-    <div class="rpR f green"><b>Raj&rsquo;s family: paid in full</b><span>The corporation buys his shares at the agreed price, paid out through the CDA as a <strong>tax-free capital dividend</strong>.</span></div>
-    <div class="rpR f green"><b>The clinic: protected</b><span>The rest carries the clinic while a new dentist is hired. John now owns 100%.</span></div>
+    <div class="rpR paper f"><b>9 years of premiums</b><span>The clinic corporation paid <strong>$900,000</strong> ($100K a year).</span></div>
+    <div class="rpR paper f gold"><b>Death benefit: {money(r53["totalDB"])}</b><span>Paid to the corporation, <strong>tax-free</strong>, within weeks.</span></div>
+    <div class="rpR paper f gold"><b>CDA credited</b><span>Almost all of it goes into the tax-free bucket (the payout minus the policy&rsquo;s cost base).</span></div>
+    <div class="rpR paper f green"><b>Raj&rsquo;s family: paid in full</b><span>The corporation buys his shares at the agreed price, paid out through the CDA as a <strong>tax-free capital dividend</strong>.</span></div>
+    <div class="rpR paper f green"><b>The clinic: protected</b><span>The rest carries the clinic while a new dentist is hired. John now owns 100%.</span></div>
   </div>
 </div>
 <div class="src">Raj: Equitable EquiMax illustration, male 44, $99,999.99/yr for 20 years, current dividend scale (not guaranteed); values at the end of year 9 (age 53). Buy-sell and capital dividend treatment must be set up with your lawyer and accountant.</div>
@@ -974,8 +999,7 @@ slide(f'''
 
 # 31c SCOREBOARD FINALE
 slide('''
-<div class="kick">The final scoreboard</div>
-<h2>John&rsquo;s life, by the numbers</h2>
+<h2 class="sr">The final scoreboard</h2>
 ''', 'sScore', hud=H(90, NW(90), '0,1,2,3,4,5,6', '111'))
 def _tile(lbl, a, b, cls=''):
     return f'<div class="sbT {cls}"><span>{lbl}</span><div class="sbV"><em>At 40</em><i>{a}</i></div><div class="sbV b"><em>At 90</em>{b}</div></div>'
@@ -1024,7 +1048,7 @@ slide(f'''
 ''', 'sThanks')
 
 # service ribbons
-SVC = {'sFund': 3, 'sRajPay': 7, 'sRajBS': 5, 'sNeeds': 2, 'sDollar': 3, 'sBuckets': 3, 'sShock': 3, 'sProbs': 3, 'sTeam': 4, 'sStruct': 5, 'sAio': 5, 'sPlan': 5, 'sSnap': 5,
+SVC = {'sCdaFill': 3, 'sFund': 3, 'sRajPay': 7, 'sRajBS': 5, 'sNeeds': 2, 'sDollar': 3, 'sBuckets': 3, 'sShock': 3, 'sProbs': 3, 'sTeam': 4, 'sStruct': 5, 'sAio': 5, 'sPlan': 5, 'sSnap': 5,
        'sChart': 5, 'sCda': 3, 'sLoc2': 7, 'sIfa': 7, 'sCrash': 7, 'sRaj': 7, 'sRetire': 7, 'sSucc': 7}
 for i, h in enumerate(SLIDES):
     cls = h.split('class="slide ', 1)[1].split('"', 1)[0].split()[0]

@@ -41,11 +41,11 @@ var bigT;
 function updHud(s){
   clearTimeout(bigT);
   var wasOn=hud.classList.contains('on'),big=s.classList.contains('sScore');
-  if(!big)hud.classList.remove('big');
+  if(!big)hud.classList.remove('xpand');
   if(!s.dataset.hud){hud.classList.remove('on');return;}
   hud.classList.add('on');
   if(big){var hb=document.getElementById('hudBig');[].slice.call(hb.querySelectorAll('.cnt')).forEach(function(b){b.textContent=(b.dataset.pre||'')+'0'+(b.dataset.suf||'');});
-    bigT=setTimeout(function(){hud.classList.add('big');bigT=setTimeout(function(){counters(hb,true);},1000);},wasOn?350:900);}
+    bigT=setTimeout(function(){hud.classList.add('xpand');bigT=setTimeout(function(){counters(hb,true);},1000);},wasOn?350:900);}
   var age=+s.dataset.age;
   document.getElementById('hAge').textContent=age;
   document.getElementById('hDot').style.left=((age-40)/50*100)+'%';
