@@ -243,9 +243,9 @@ slide('''
 <h2>That family didn&rsquo;t do anything wrong. <span class="gold">They just didn&rsquo;t have a plan.</span></h2>
 <p class="big">So instead of slides full of rules, I&rsquo;m going to show you what a plan looks like, through one story.</p>
 <div class="prec">
-  <div class="pcC f"><i>&#128214;</i><b>The family is fictional</b><span>John, his wife and his kids are made up, so we can follow a whole lifetime in 40 minutes.</span></div>
-  <div class="pcC f gold"><i>&#128202;</i><b>The numbers are real</b><span>A real Equitable policy illustration, and real Canadian cases along the way.</span></div>
-  <div class="pcC f"><i>&#129693;</i><b>Ask yourself one question</b><span>As you watch, ask: <strong>&ldquo;Is this me?&rdquo;</strong></span></div>
+  <div class="pcC f"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11v15H5.5C4.7 19 4 18.3 4 17.5Z"/><path d="M20 5.5c0-.8-.7-1.5-1.5-1.5H13v15h5.5c.8 0 1.5-.7 1.5-1.5Z"/><path d="M6.5 8h2.5M6.5 11h2.5M15 8h2.5M15 11h2.5"/></svg></i><b>The family is fictional</b><span>John, his wife and his kids are made up, so we can follow a whole lifetime in 40 minutes.</span></div>
+  <div class="pcC f gold"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16"/><rect x="5" y="12" width="3" height="6" rx=".6"/><rect x="10.5" y="8" width="3" height="10" rx=".6"/><rect x="16" y="4" width="3" height="14" rx=".6"/></svg></i><b>The numbers are real</b><span>A real Equitable policy illustration, and real Canadian cases along the way.</span></div>
+  <div class="pcC f"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14"/><circle cx="12" cy="17.2" r=".9" fill="currentColor" stroke="none"/></svg></i><b>Ask yourself one question</b><span>As you watch, ask: <strong>&ldquo;Is this me?&rdquo;</strong></span></div>
 </div>
 ''', 'sPrec')
 
@@ -267,10 +267,10 @@ slide(f'''
     <div class="kick" style="text-align:left">Meet John</div>
     <h2 class="lft">A dentist in BC who gives everything to his patients.</h2>
     <ul class="meetL">
-      <li class="f"><i>&#129463;</i><span><b>40 years old</b>, ten years into running his own clinic</span></li>
-      <li class="f"><i>&#10084;&#65039;</i><span>Married to <b>Emma</b> (39). <b>Lily</b> (6) wants to be a dentist like Dad. <b>Max</b> (4) wants to be a hockey player.</span></li>
-      <li class="f"><i>&#9200;</i><span>Works <b>55 hours a week</b>. This year he missed Lily&rsquo;s school concert.</span></li>
-      <li class="f"><i>&#128176;</i><span>A great income, a disciplined saver, and <b>no real plan</b> tying it all together</span></li>
+      <li class="f"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5c-2.5 0-3.5 2-3.5 4.5 0 2.5 1.2 4 1.8 6.5.5 2.5.8 6 2.4 6 1.5 0 1.6-3.5 2.3-5.5.5-1.4 1.5-1.4 2 0 .7 2 .8 5.5 2.3 5.5 1.6 0 1.9-3.5 2.4-6 .6-2.5 1.8-4 1.8-6.5 0-2.5-1-4.5-3.5-4.5-2 0-2.8 1-5 1s-3-1-5-1Z"/></svg></i><span><b>40 years old</b>, ten years into running his own clinic</span></li>
+      <li class="f"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.4 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10Z"/></svg></i><span>Married to <b>Emma</b> (39). <b>Lily</b> (6) wants to be a dentist like Dad. <b>Max</b> (4) wants to be a hockey player.</span></li>
+      <li class="f"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></i><span>Works <b>55 hours a week</b>. This year he missed Lily&rsquo;s school concert.</span></li>
+      <li class="f"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="9" cy="7" rx="5" ry="2.5"/><path d="M4 7v4c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5V7"/><ellipse cx="15" cy="13.5" rx="5" ry="2.5"/><path d="M10 13.5v4c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5v-4"/></svg></i><span>A great income, a disciplined saver, and <b>no real plan</b> tying it all together</span></li>
     </ul>
     <p class="meetQ f">&ldquo;I built a great practice. I just never had time to build a plan.&rdquo;</p>
   </div>
@@ -305,8 +305,8 @@ slide(f'''
 <div class="kick">The problem</div>
 <h2>But inside his corporation, John&rsquo;s money is stuck.</h2>
 <div class="rules3">
-  <div class="rc f"><div class="rI">&#8635;</div><b>The Compound Effect</b><span>$250K of corporate savings sits in GICs, earning almost nothing.</span><em>Against him</em></div>
-  <div class="rc f"><div class="rI">&#9888;</div><b>The Risk Effect</b><span>Everything he owns is tied to one clinic and one house.</span><em>Against him</em></div>
+  <div class="rc f"><div class="rI"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 8A8 8 0 0 0 5 9"/><path d="M19.5 3.5V8H15"/><path d="M4.5 16A8 8 0 0 0 19 15"/><path d="M4.5 20.5V16H9"/></svg></div><b>The Compound Effect</b><span>$250K of corporate savings sits in GICs, earning almost nothing.</span><em>Against him</em></div>
+  <div class="rc f"><div class="rI"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 21 19.5H3Z"/><path d="M12 9.5v5"/><circle cx="12" cy="17" r=".9" fill="currentColor" stroke="none"/></svg></div><b>The Risk Effect</b><span>Everything he owns is tied to one clinic and one house.</span><em>Against him</em></div>
   <div class="rc f"><div class="rI">%</div><b>The Tax Effect</b><span>Investment income in his corporation is taxed at about 50% in BC, every year.</span><em>Against him</em></div>
 </div>
 <p class="f mid">All three rules of money were working <b class="red">against</b> John.</p>
@@ -538,12 +538,12 @@ slide('''
 <div class="kick">How it&rsquo;s structured</div>
 <h2>Who owns it, who pays, and who gets paid</h2>
 <div class="stG">
-  <div class="stC f"><i>&#127970;</i><span>Owner &amp; payer</span><b>John&rsquo;s corporation</b><em>Pays with 88&cent; corporate dollars, not 50&cent; personal ones</em></div>
-  <div class="stC f"><i>&#128100;</i><span>Life insured</span><b>John</b><em>The policy is on his life</em></div>
-  <div class="stC f gold"><i>&#128176;</i><span>Inside the policy</span><b>Cash value grows</b><em>Tax-sheltered: guaranteed values plus dividends. He can borrow against it.</em></div>
-  <div class="stC f"><i>&#127963;</i><span>Beneficiary</span><b>John&rsquo;s corporation</b><em>Receives the tax-free death benefit</em></div>
-  <div class="stC f gold"><i>&#129699;</i><span>The CDA</span><b>Gets credited</b><em>Death benefit minus the policy&rsquo;s cost base goes into the tax-free bucket</em></div>
-  <div class="stC f green"><i>&#128106;</i><span>His family</span><b>Paid tax-free</b><em>As a capital dividend, out of the CDA</em></div>
+  <div class="stC f"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V6l8-3 8 3v14"/><path d="M3 20h18"/><path d="M8 9h2M14 9h2M8 13h2M14 13h2"/><path d="M10.5 20v-3h3v3"/></svg></i><span>Owner &amp; payer</span><b>John&rsquo;s corporation</b><em>Pays with 88&cent; corporate dollars, not 50&cent; personal ones</em></div>
+  <div class="stC f"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg></i><span>Life insured</span><b>John</b><em>The policy is on his life</em></div>
+  <div class="stC f gold"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20v-8"/><path d="M12 12c0-3.5 2.5-6 6.5-6 0 3.5-2.5 6-6.5 6Z"/><path d="M12 14c0-3-2-5-5.5-5 0 3 2 5 5.5 5Z"/><path d="M7 20h10"/></svg></i><span>Inside the policy</span><b>Cash value grows</b><em>Tax-sheltered: guaranteed values plus dividends. He can borrow against it.</em></div>
+  <div class="stC f"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9.5 12 4l9 5.5"/><path d="M4 20h16M5 17h14"/><path d="M6.5 10.5v6M10 10.5v6M14 10.5v6M17.5 10.5v6"/></svg></i><span>Beneficiary</span><b>John&rsquo;s corporation</b><em>Receives the tax-free death benefit</em></div>
+  <div class="stC f gold"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14l-1.6 12.5H6.6Z"/><path d="M5 7c0-2 3.1-3.5 7-3.5S19 5 19 7"/><path d="M9.5 12.5h5"/></svg></i><span>The CDA</span><b>Gets credited</b><em>Death benefit minus the policy&rsquo;s cost base goes into the tax-free bucket</em></div>
+  <div class="stC f green"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="7.5" r="2.5"/><circle cx="16" cy="7.5" r="2.5"/><circle cx="12" cy="13.2" r="1.8"/><path d="M3.5 19c0-3 2-5 4.5-5"/><path d="M20.5 19c0-3-2-5-4.5-5"/><path d="M9.5 20c0-2 1.1-3.3 2.5-3.3s2.5 1.3 2.5 3.3"/></svg></i><span>His family</span><b>Paid tax-free</b><em>As a capital dividend, out of the CDA</em></div>
 </div>
 <p class="f mid"><b>David</b> reviewed the tax. <b>Sarah</b> updated the corporate records and his will. <b>Mehar</b> designed the policy.</p>
 ''', 'sStruct', hud=H(40, NW(40), '0,4', '100'))
@@ -654,7 +654,7 @@ slide(f'''
 ''', 'sRe', hud=H(42, NW(42), '0,4', '101'))
 
 # 18 SEG FUNDS
-feat = [('&#128200;', 'Market growth'), ('&#128737;', '75&ndash;100% guarantee'), ('&#8635;', 'Resets lock in gains'), ('&#128274;', 'Creditor protection'), ('&#9993;', 'Skips probate'), ('&#127963;', 'Assuris protection')]
+feat = [('<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>', 'Market growth'), ('<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 19.5 6v5.5c0 4.6-3.2 8-7.5 9.5-4.3-1.5-7.5-4.9-7.5-9.5V6Z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>', '75&ndash;100% guarantee'), ('<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 8A8 8 0 0 0 5 9"/><path d="M19.5 3.5V8H15"/><path d="M4.5 16A8 8 0 0 0 19 15"/><path d="M4.5 20.5V16H9"/></svg>', 'Resets lock in gains'), ('<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/><circle cx="12" cy="15.2" r="1.2"/></svg>', 'Creditor protection'), ('<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h7.5L19 8v12.5H7Z"/><path d="M14.5 3.5V8H19"/><path d="M10 12.5h6M10 16h6"/></svg>', 'Skips probate'), ('<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5.5"/><path d="M9.2 13.8 7.5 21l4.5-2.5 4.5 2.5-1.7-7.2"/><path d="M10 9l1.5 1.5 3-3"/></svg>', 'Assuris protection')]
 fh = ''.join(f'<div class="ft f"><i>{a}</i>{b}</div>' for a, b in feat)
 slide(f'''
 <div class="kick">Why segregated funds</div>

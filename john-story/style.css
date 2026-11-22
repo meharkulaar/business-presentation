@@ -869,3 +869,11 @@ body.reduce #act{transition:none}
 #tp.hold b{animation:yrPulse .5s ease both}
 @keyframes yrPulse{0%{transform:scale(1)}50%{transform:scale(1.12);text-shadow:0 0 50px rgba(255,215,100,1)}100%{transform:scale(1)}}
 #act{width:max-content;max-width:1150px}
+/* v19: custom line icons */
+.ico{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;display:inline-block}
+.pcC i{color:#9E1B26;font-size:46px;line-height:1}.pcC.gold i{color:#8A6510}
+.stC i{color:#9E1B26;font-size:38px;line-height:1}.stC.gold i{color:#8A6510}.stC.green i{color:#1F6B44}
+.meetL i{color:#F6D77A;font-size:26px;filter:drop-shadow(0 0 6px rgba(229,185,60,.6))}
+.ft i{color:#9E1B26;font-size:32px;line-height:1;display:flex}
+.rI{display:flex;align-items:center;justify-content:center}.rI .ico{font-size:34px;stroke-width:2.2}
+.meetL i{font-size:30px}.meetL li{align-items:center}
