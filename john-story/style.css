@@ -462,3 +462,53 @@ h2{font-size:46px}
 .nwSvg{top:96px}
 .aoBd{font-size:13.5px}.aoBt{font-size:19px}
 .nwD{font-size:16px}.nwT{font-size:24px}
+
+/* =================== v5: adaptive full screen + new pieces =================== */
+#stage{width:1440px;height:810px}
+.slide{padding-top:calc(74px + var(--ex,0px)*.8)}
+.slide.sCover{padding-top:0}
+.nwSvg,.aoSvg{left:50%!important;margin-left:-720px}
+.nwSvg{top:calc(96px + var(--ex,0px)*.8)!important}
+.aoSvg{top:calc(150px + var(--ex,0px)*.8)!important}
+.src{bottom:calc(104px)}
+/* time passes snow globe */
+#tp{position:absolute;inset:0;z-index:8;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:0;background:radial-gradient(circle,rgba(20,4,8,.55),rgba(20,4,8,.85));transition:opacity .4s}
+#tp.on{opacity:1}
+.tpG{width:330px;height:330px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;
+ background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.25),rgba(255,255,255,.04) 45%,rgba(229,185,60,.12) 100%);border:3px solid rgba(255,236,190,.7);box-shadow:0 0 60px rgba(229,185,60,.5),inset 0 0 40px rgba(255,255,255,.15);transform:scale(.8);transition:transform .6s cubic-bezier(.2,1.5,.4,1)}
+#tp.on .tpG{transform:scale(1)}
+.tpG span{font:italic 22px Georgia,serif;color:#F3E2BF}.tpG b{font:900 92px Georgia,serif;color:#FFE7A6;text-shadow:0 0 24px rgba(229,185,60,.8);line-height:1}.tpG em{font-style:normal;font:700 20px "Segoe UI";color:#F3E2BF;letter-spacing:.1em;margin-top:6px}
+.tpSnow{position:absolute;inset:0;background:radial-gradient(circle,#fff 0 2px,transparent 3px) 0 0/40px 40px,radial-gradient(circle,#fff 0 1.5px,transparent 2.5px) 20px 20px/50px 50px;opacity:.5;animation:tpS 2s linear infinite}
+@keyframes tpS{to{background-position:0 160px,20px 220px}}
+/* coins pouring into hud bucket */
+.hCda{position:relative}
+.coinP{position:absolute;top:-60px;width:12px;height:12px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FFF0B0,#E5B93C 60%,#A47A15);box-shadow:0 0 8px rgba(229,185,60,.9);animation:coinP 1.1s ease-in both;z-index:2}
+@keyframes coinP{0%{opacity:0;transform:translateY(0)}20%{opacity:1}90%{opacity:1;transform:translateY(64px)}100%{opacity:0;transform:translateY(70px)}}
+/* team quotes */
+.roles q{display:block;font:italic 15.5px/1.35 Georgia,serif;color:#6B1218;margin-top:8px;quotes:none}
+/* ask the room */
+.askQ{font:700 58px/1.15 Georgia,serif;color:#F7E7C6;text-align:center;max-width:1100px;margin-top:120px;text-shadow:0 0 22px rgba(229,185,60,.5)}
+.askQ b{color:#FF8A86}
+.sAsk .mid{margin-top:34px}
+/* gift reveal */
+.giftR{position:relative;width:1300px}
+.gLid.f{transform:none;transform-box:fill-box;transform-origin:left bottom}
+.gLid.f.on{animation:lidPop .9s cubic-bezier(.2,1.4,.4,1) forwards}
+@keyframes lidPop{0%{transform:none}100%{transform:translate(-120px,-120px) rotate(-28deg)}}
+.gVal{position:absolute;left:50%;top:150px;transform:translate(-50%,30px) scale(.6);text-align:center;opacity:0}
+.gVal.on{opacity:1;transform:translate(-50%,-40px) scale(1);transition:all 1s cubic-bezier(.2,1.3,.4,1) .4s}
+.gVal span{display:block;font:700 15px "Segoe UI";letter-spacing:.2em;text-transform:uppercase;color:#FFE7A6}
+.gVal b{display:block;font:900 96px Georgia,serif;color:#FFE7A6;text-shadow:0 0 40px rgba(229,185,60,1),0 0 90px rgba(229,185,60,.6)}
+/* split screen */
+.splitS{display:flex;gap:0;width:1300px;margin-top:10px;border-radius:14px;overflow:hidden;border:1px solid rgba(229,185,60,.5)}
+.half{flex:1;padding:12px 18px 14px;position:relative}
+.half.john{background:linear-gradient(180deg,rgba(229,185,60,.12),rgba(20,4,8,.3))}
+.half.jake{background:rgba(20,4,8,.45);border-left:2px solid rgba(229,185,60,.5)}
+.slide.active .half.jake{animation:grey 6s ease forwards}
+@keyframes grey{to{filter:grayscale(1) brightness(.75)}}
+.hName{font:900 42px Georgia,serif;text-align:center;color:#FFE7A6;text-shadow:0 0 14px rgba(229,185,60,.6)}
+.half.jake .hName{color:#C9CED6}
+.half svg{display:block;margin:-6px auto 0;height:220px;width:auto}
+.spR{display:flex;justify-content:space-between;gap:12px;padding:11px 6px;border-bottom:1px dashed rgba(234,219,192,.2);font-size:21px}
+.spR span{color:#CDBB9A;font-weight:700;white-space:nowrap}.spR b{color:#7BE3AE;text-align:right}
+.half.jake .spR b{color:#FF8A86}

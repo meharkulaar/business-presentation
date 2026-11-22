@@ -1,7 +1,13 @@
 (function(){
 var stage=document.getElementById('stage');
-function fit(){var s=Math.min(innerWidth/1440,innerHeight/810);stage.style.transform='scale('+s+')';}
-addEventListener('resize',fit);fit();
+function fit(){
+  var W=innerWidth,Hh=innerHeight,a=W/Hh,w,h;
+  if(a>=1440/810){h=810;w=Math.round(810*a);}else{w=1440;h=Math.round(1440/a);}
+  stage.style.width=w+'px';stage.style.height=h+'px';stage.style.marginLeft=(-w/2)+'px';stage.style.marginTop=(-h/2)+'px';
+  stage.style.transform='scale('+(W/w)+')';
+  stage.style.setProperty('--ex',((h-810)/2)+'px');stage.style.setProperty('--exw',((w-1440)/2)+'px');
+}
+addEventListener('resize',fit);document.addEventListener('fullscreenchange',function(){setTimeout(fit,60);});fit();
 
 var slides=[].slice.call(document.querySelectorAll('.slide')),i=0;
 var NEED_TOTAL=7, nwShown=0, cdaMax=14183158;
@@ -46,6 +52,18 @@ function updHud(s){
   [].slice.call(document.querySelectorAll('#hRu em')).forEach(function(o,k){o.classList.toggle('on',r[k]==='1');});
 }
 
+var lastAge=null,lastCda=0;
+function timePass(a0,a1){
+  var tp=document.getElementById('tp'),y=document.getElementById('tpY'),g=document.getElementById('tpA');if(!tp)return;
+  tp.classList.remove('on');void tp.offsetWidth;tp.classList.add('on');
+  var t0=performance.now(),d=1300;
+  (function f(t){var p=Math.min(1,(t-t0)/d),e=1-Math.pow(1-p,3),a=Math.round(a0+(a1-a0)*e);y.textContent=1986+a;g.textContent='John is '+a;if(p<1)requestAnimationFrame(f);})(t0);
+  setTimeout(function(){tp.classList.remove('on');},2000);
+}
+function pour(){
+  var c=document.querySelector('.hCda');if(!c)return;
+  for(var k=0;k<6;k++){var e=document.createElement('i');e.className='coinP';e.style.left=(4+Math.random()*16)+'px';e.style.animationDelay=(k*.12)+'s';c.appendChild(e);(function(e){setTimeout(function(){e.remove();},1600);})(e);}
+}
 function show(n,dir){
   n=Math.max(0,Math.min(slides.length-1,n));
   slides[i].classList.remove('active');
@@ -55,6 +73,10 @@ function show(n,dir){
   // restart CSS animations on entry
   [].slice.call(s.querySelectorAll('.ln,.bkFill')).forEach(function(e){e.style.animation='none';e.offsetWidth;e.style.animation='';});
   counters(s,dir>=0);
+  var ag=s.dataset.age?+s.dataset.age:null;
+  if(dir>0&&ag!==null&&lastAge!==null&&ag-lastAge>=3)timePass(lastAge,ag);
+  if(ag!==null)lastAge=ag;
+  var cd=s.dataset.cda?+s.dataset.cda:0;if(dir>0&&cd>lastCda+1)pour();lastCda=cd;
   updHud(s);
   document.getElementById('prog').style.width=((n+1)/slides.length*100)+'%';
 }

@@ -60,3 +60,13 @@ The bar at the bottom of the story slides tracks John's age, his net worth, his 
 - **IFA (new, replaces the famous-names slide):** pay the premium, pledge the policy, reinvest the loan in clinic #2, and the policy keeps growing. "Walt Disney and Ray Kroc are widely reported to have done the same. One dollar, two jobs."
 - **Market crash:** a new scene with storm clouds, rain, John holding an umbrella over Emma, and a −25% chart.
 - Runtime is now about 40 minutes (38 slides). If you're tight on time, hide "Seg funds" or "Real numbers: two doctors" from the ☰ menu.
+
+## Updates in version 5
+- **Full screen now fills every screen.** Press F (or the ⛶ button). The slide stretches to fit your MacBook, a 16:9 projector, an ultrawide or a 4:3 screen, with no black bars.
+- **A question for the room (new, after Two buckets):** "What's sitting in *your* corporation's taxable bucket right now?" [pause, let people think] [click] "And how much of it could be in the tax-free bucket instead?" Don't ask for answers out loud. Let it land.
+- **The team:** David and Sarah now each have a quote. Read one aloud: "Insurance with no agreements behind it is half a plan. We made every document match."
+- **"Years pass…" snow globe:** whenever the story jumps 3 or more years, a snow globe shows the new year and John's age. Pause for a beat and let it play.
+- **CDA coins:** each time the future CDA credit rises in the bottom bar, gold coins pour into the bucket. Point at it.
+- **Christmas morning (new, before The legacy):** "Christmas morning, years later. John's grandchildren open the last gift he left." [click] The lid comes off. [click] "$14.18 million, passed to his family tax-free."
+- **Two lives, playing at once (replaces Side by side):** John on the left, Jake on the right. [click through each row] Watch Jake's side slowly fade to grey.
+- Runtime is now about **42 minutes (40 slides)**. To get under 40, hide "Seg funds" and "Real numbers: two doctors" from the ☰ menu (each saves about a minute).

@@ -289,6 +289,12 @@ slide('''
 </div>
 ''', 'sBuckets', hud=H(40, 1509000))
 
+slide('''
+<div class="kick">A question for the room</div>
+<div class="askQ">What&rsquo;s sitting in <span class="red">your</span> corporation&rsquo;s <b>taxable bucket</b> right now?</div>
+<p class="f mid">And how much of it could be in the <b class="gold">tax-free bucket</b> instead?</p>
+''', 'sAsk')
+
 BUBBLE='<g class="f"><path d="M150,92 L330,92 Q350,92 350,112 L350,160 Q350,180 330,180 L240,180 L210,214 L214,180 L150,180 Q130,180 130,160 L130,112 Q130,92 150,92Z" fill="#FBF3E2" stroke="#E5B93C" stroke-width="3"/><text x="240" y="128" text-anchor="middle" style="font:700 italic 20px Georgia;fill:#6B1218">A tax-free bucket?</text><text x="240" y="156" text-anchor="middle" style="font:700 italic 20px Georgia;fill:#6B1218">Nobody ever told me!</text></g>'
 SHOCK=scene(ground(620,420)+person('john',200,410,1.1,mood='shock')+person('mehar',440,410,1.05)+BUBBLE, 470).replace('viewBox="0 0 1300 470" width="1300"','viewBox="0 0 620 470" width="620"')
 slide(f'''
@@ -322,8 +328,8 @@ slide(f'''
 {scene(ground(1300,400)+person('david',260,390,1.0)+person('john',520,390,1.05)+person('sarah',780,390,1.0)+person('mehar',1040,390,1.0)
        +label(260,430,'David, CPA',size=20)+label(520,430,'John',size=20)+label(780,430,'Sarah, lawyer',size=20)+label(1040,430,'Mehar, advisor',size=20), 440)}
 <div class="roles">
-  <div class="f"><b>David &middot; accountant</b><span>Tax returns, CDA tracking, capital dividend elections</span></div>
-  <div class="f"><b>Sarah &middot; lawyer</b><span>Wills, holding company, shareholder agreement, estate freeze</span></div>
+  <div class="f"><b>David &middot; accountant</b><span>Tax returns, CDA tracking, capital dividend elections</span><q>&ldquo;I&rsquo;d watched his passive income get taxed every year. This finally fixed it.&rdquo;</q></div>
+  <div class="f"><b>Sarah &middot; lawyer</b><span>Wills, holding company, shareholder agreement, estate freeze</span><q>&ldquo;Insurance with no agreements behind it is half a plan. We made every document match.&rdquo;</q></div>
   <div class="f"><b>Mehar &middot; advisor</b><span>The strategy: insurance, investments, and keeping everyone working together</span></div>
 </div>
 <p class="note2">John brought David and Sarah to the table himself.</p>
@@ -551,6 +557,18 @@ slide(chapter('Chapter Seven', 'Christmas 2076 · John is 90', 'The Last Christm
     + label(300,428,'John, 90',size=18)),
     'sChap', hud=H(90, 21500000, '0,1,2,3,4,5,6', '111'))
 
+# 26b CHRISTMAS MORNING REVEAL
+slide(f'''
+<div class="kick">Christmas morning, years later</div>
+<h2>John&rsquo;s grandchildren open the last gift he left.</h2>
+<div class="giftR">
+  {scene(ground(1300,420)+person('lily',300,410,.62)+person('max',390,410,.56)+person('lily',910,410,.58)+person('max',1000,410,.5)
+    +'<g class="gBox"><rect x="540" y="250" width="220" height="160" fill="#9E1B26"/><rect x="540" y="250" width="110" height="160" fill="rgba(255,255,255,.08)"/><rect x="636" y="250" width="28" height="160" fill="#E5B93C"/></g>'
+    +'<g class="f gLid"><rect x="526" y="214" width="248" height="40" fill="#B32533"/><rect x="636" y="214" width="28" height="40" fill="#E5B93C"/><path d="M650,214 C600,150 570,200 650,214 C730,200 700,150 650,214Z" fill="#E5B93C"/></g>', 470)}
+  <div class="f gVal"><span>Passed to his family, tax-free</span><b>{money(ILL[90]["totalDB"])}</b></div>
+</div>
+''', 'sGift', hud=H(90, 21500000, '0,1,2,3,4,5,6', '111'))
+
 # 27 LEGACY
 slide(f'''
 <div class="kick">The legacy</div>
@@ -576,19 +594,22 @@ slide(f'''
 <p class="once f">Jake decided to &ldquo;think about it.&rdquo;</p>
 ''', 'sJake')
 
-# 29 SIDE BY SIDE
+# 29 SPLIT SCREEN
 cmp = [('Age 46', 'Opened clinic #2', 'Cash stuck in the corporation'),
        ('Age 48: crash', 'Guaranteed floor, policy untouched', 'Lost 25% overnight'),
-       ('Debt-free', 'Age 50', 'Age 58'),
-       ('Age 55: partner dies', 'Buy-sell funded, business saved', 'No agreement, borrowed to buy out the family'),
+       ('Debt-free', 'At 50', 'At 58'),
+       ('Age 55: partner dies', 'Buy-sell funded, business saved', 'No agreement: went into debt'),
        ('Locations', '3', '1'),
        ('Retired', 'At 65', 'At 70')]
-ch = ''.join(f'<div class="cR f"><span>{a}</span><b class="cj">{b}</b><b class="ck">{c}</b></div>' for a, b, c in cmp)
+lj = ''.join(f'<div class="spR f"><span>{a}</span><b>{b}</b></div>' for a, b, c in cmp)
+rk = ''.join(f'<div class="spR f"><span>{a}</span><b>{c}</b></div>' for a, b, c in cmp)
 slide(f'''
-<div class="kick">Two lives, side by side</div>
-<div class="cmp"><div class="cR cH"><span></span><b class="cj">John</b><b class="ck">Jake</b></div>{ch}</div>
-<div class="src">Illustrative story. John and Jake are fictional.</div>
-''', 'sCmp')
+<div class="kick">Two lives, playing at once</div>
+<div class="splitS">
+  <div class="half john"><div class="hName">John</div>{scene(ground(600,300)+person('john',300,290,.95), 310).replace('viewBox="0 0 1300 310" width="1300"','viewBox="0 0 600 310" width="560"')}<div class="rows">{lj}</div></div>
+  <div class="half jake"><div class="hName">Jake</div>{scene(ground(600,300)+person('jake',300,290,.95,mood='sad'), 310).replace('viewBox="0 0 1300 310" width="1300"','viewBox="0 0 600 310" width="560"')}<div class="rows">{rk}</div></div>
+</div>
+''', 'sSplit')
 
 # 30 TWO DOCTORS
 slide(f'''
@@ -681,6 +702,7 @@ html = f'''<!doctype html>
   <div id="toc" class="panel"><div class="pH"><b>Slides</b><span>Click to jump &middot; eye to hide</span><button class="pX">&times;</button></div><div id="tocL"></div><div class="pF"><button id="tocAll">Show all</button></div></div>
   <div id="edit" class="panel"><div class="pH"><b>Edit names &amp; title</b><button class="pX">&times;</button></div><div id="editL"></div><div class="pF"><button id="edReset">Reset</button><button id="edSave" class="pri">Save</button></div></div>
   <div class="deck">{"".join(SLIDES)}</div>
+  <div id="tp" aria-hidden="true"><div class="tpG"><div class="tpSnow"></div><span>Years pass&hellip;</span><b id="tpY">2026</b><em id="tpA">John is 40</em></div></div>
   <div id="hud">
     <div class="hTime"><span>Age</span><div class="hTrack"><i id="hDot"></i></div><b id="hAge">40</b></div>
     <div class="hNw"><span>Net worth</span><b id="hNw">$0</b></div>
