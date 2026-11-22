@@ -1,0 +1,49 @@
+# The Gift That Keeps Giving: John's Story. Timed presenter script
+
+About **38 minutes**. Press next (or **[click]**) to reveal each item. Press F for full screen and L for lite mode (no snow).
+The bar at the bottom of the story slides tracks John's age, his net worth, his future CDA credit, the 7 needs (ornaments) and the 3 rules. Point at it as it changes.
+
+| Time | # | Slide | Say |
+|---|---|---|---|
+| 00:00 | 1 | The Gift That Keeps Giving | Merry Christmas, and thank you for being here. Tonight I'm not going to give you a lecture. I'm going to tell you a story. |
+| 00:45 | 2 | The hook | Every year, Canadian families give the biggest gift of their lives... [click] to the taxman. Most never meant to. [click] This happened in Ontario last year. Their parents' RRSP was $715,000. Tax due in one year: about $659,000. Left for two children... [let it count down to $56,000, pause] [click] A will, a cottage, and no plan for the tax. |
+| 02:15 | 3 | Two owners | This is a story about two business owners. Same life, same income, same chances. One decision apart. [click] Jake. [click] Once upon a time... |
+| 03:00 | 4 | Chapter 1: The Rat Race | Christmas Eve. John is 40. It's 9:47 at night and he's still at the clinic, while Emma and the kids decorate the tree without him. |
+| 04:00 | 5 | Meet John | Dentist, 10 years in. [click through] Revenue of $500K to $750K. $500K still owing on a practice loan. A $1M mortgage. Corporate savings, an RRSP, a maxed-out TFSA. Net worth: about $1.5 million. On paper, he's doing great. |
+| 05:15 | 6 | The problem | But he works harder every year, and his net worth barely moves. [click through] His savings earn almost nothing. Everything is tied to one clinic. And his corporate investments are taxed about 50% every year. [click] All three rules of money were against him. Watch the bottom bar: three red rules. |
+| 06:45 | 7 | Christmas list | He wasn't asking for a sports car. [click through his list] He wanted his time back. So in January, he made an appointment. |
+| 07:30 | 8 | Chapter 2: The Meeting | He sat down with Mehar. |
+| 08:00 | 9 | The 7 needs | Every corporation has seven key needs. [click through the ornaments] John had covered none of them. Mehar didn't sell him anything that day. He showed him the gaps. |
+| 09:30 | 10 | 3 hidden problems | Three hidden problems. [click] One: the estate tax trap. [click] Two: trapped money. Inside the corporation his dollar is worth 88 cents; take it out and it's 50. [click] Three: nothing multiplying. |
+| 11:00 | 11 | The team | And here's what John did right: he didn't replace his team, he completed it. He brought in David, his accountant, and Sarah, his lawyer. [click through roles] Everyone has a role. |
+| 12:00 | 12 | Chapter 3: The Plan | Spring. John is 41. Watch the bar: the first ornaments light up. |
+| 12:30 | 13 | The policy | The plan: a permanent, whole life policy owned by his corporation. [click] $100,000 a year for 20 years, then the dividends pay it. [click] $5.47 million of tax-free protection from day one. [click] $3.86 million of cash value by 65, which he can borrow against. And he kept his TFSA maxed every year. |
+| 14:00 | 14 | Watching it grow | $2 million in premiums. Look what it becomes. Debt-free, retirement, and $14.18 million by 90. These are real numbers from a real illustration. |
+| 15:00 | 15 | The CDA | This is the secret weapon: the Capital Dividend Account. [click through] It's a notional account, a running tally. Life insurance paid to the corporation fills it. And every dollar in it goes to John's family tax-free. David tracks it. Mehar fills it. |
+| 16:30 | 16 | Rogers | Sound too good to be true? [click] The Rogers family: about $102 million through the CDA, tax-free. [click through] The CRA challenged it. The court ruled for the family. John doesn't need $102 million. He needs the same playbook. |
+| 18:00 | 17 | Real estate vs S&P | John was about to buy a second rental condo. Then Mehar showed him this. $180,000 in 1980: [click] a Vancouver house, $1.88 million. [click] The S&P 500: $37.3 million. [pause] He kept his home and put new money into segregated funds instead. |
+| 19:30 | 18 | Seg funds | Growth and guarantees in one place. [click through] Emma liked the guarantee, Sarah liked skipping probate, and John liked sleeping at night. |
+| 20:30 | 19 | Location #2 | Christmas 2032. John is 46, and location number two opens. [click] He borrowed against his policy to fund it, [click] and the policy kept growing as if he'd never touched it. His corporate dollar worked twice. |
+| 21:45 | 20 | Famous names | He wasn't the first. [click through] Walt Disney. Ray Kroc. And now John. The policy wasn't just protection. It was the engine. |
+| 22:45 | 21 | Plot twist #1 | Plot twist. 2034: the market crashes 25%. [click] His seg funds had a guaranteed floor, and a reset locked in the recovery. [click] His policy's cash value didn't drop at all. |
+| 24:00 | 22 | Debt-free at 50 | Christmas 2036. [click through] The practice loan: gone. The mortgage: gone. Right on schedule: 10 years. First item on his list: checked. |
+| 25:00 | 23 | Plot twist #2 | 2041. His partner, Dr. Raj, passes away suddenly. [pause] [click through] Sarah had drafted the buy-sell. Mehar had funded it. Raj's family got cash within weeks, and the business survived. Look at the bar: buy-sell and key person, lit. |
+| 26:45 | 24 | Retirement at 65 | Christmas 2051. Three clinics, and John retires right on time. [click through] Sarah set up his holdco and estate freeze. David timed his tax-free dividends. Mehar turned it all into income. |
+| 28:00 | 25 | Succession | Lily takes over the clinics. [click] And Max receives equal value from the insurance, so nobody has to sell a clinic to be fair. All seven ornaments: lit. |
+| 29:00 | 26 | Chapter 7: The Last Christmas | Christmas 2076. John is 90. Emma, the kids, the grandkids. [pause] It's his last Christmas. |
+| 29:45 | 27 | The legacy | When John passed, the tax bill was already planned for. [click through] $14.18 million to his corporation, credited to the CDA, paid to his family tax-free. Seg funds skipped probate. The TFSA passed tax-free. Nothing had to be sold. |
+| 31:00 | 28 | But remember Jake? | But remember Jake? Same everything. [click] Jake decided to "think about it." |
+| 31:45 | 29 | Side by side | [click through each row] The crash, the debt, his partner dying with no agreement, one location, retiring at 70. |
+| 33:00 | 30 | Two Doctors | And this isn't just a story. [click] A real study: Dr. Brown's family got $2.7 million. [click] Dr. Smith's got $7.8 million. Same income. Nearly three times more. |
+| 34:15 | 31 | At age 90 | The same $100,000 a year. [click] Jake's family: about $4.8 million after tax. [click] John's family: $14.18 million, tax-free. |
+| 35:30 | 32 | Christmas list, done | Every item, checked. John didn't get lucky. He had a team: Mehar, David and Sarah. [click through] Seven needs, three rules, three goals. [click] Who's on your team? [pause] |
+| 36:30 | 33 | Let's Write Your Story | No matter your age, income or goals, this belongs in your plan. [click through the three steps] |
+| 37:30 | 34 | Merry Christmas | Thank you, and Merry Christmas. Scan to book your one-on-one. |
+
+**End: about 38:00.** Then Q&A.
+
+## Accuracy notes for you
+- John and Jake are fictional. Their net worth figures and Jake's timeline are illustrative.
+- The policy values come from the real Equitable illustration (male 40, BC, $99,999.99/yr, premium offset from age 61, current dividend scale, not guaranteed).
+- Jake's $4.8M assumes his $100K a year grew at 4% after tax and lost about half to tax at death. Illustrative.
+- Famous-name stories are worded as "widely reported", because exact details vary by source.
