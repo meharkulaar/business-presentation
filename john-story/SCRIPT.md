@@ -127,3 +127,18 @@ The bar at the bottom of the story slides tracks John's age, his net worth, his 
   - The policy's cash value from the real illustration, minus the $500K IFA loan from age 46.
   - TFSA, RRSP and non-registered at 12%. After 65 he draws about 10% a year to live on.
   - Everything is shown before tax and is illustrative.
+
+## Updates in version 11 (50 slides): a smoother opening
+New opening order: Cover → The real Ontario case → **How tonight works** → Two owners → Chapter One → **Meet John** → John's finances → **His savings plan** → The problem → Christmas list.
+- **How tonight works (new):** "That family didn't do anything wrong. They just didn't have a plan. So instead of slides full of rules, I'm going to show you what a plan looks like, through one story." [click through] "The family is fictional. The numbers are real. And as you watch, ask yourself one question: is this me?"
+- **Meet John (new):** "This is John. Forty, a dentist in BC, ten years into his own clinic. Emma, Lily who's 6 and wants to be a dentist like Dad, and Max who's 4 and wants to play hockey. He works 55 hours a week, and this year he missed Lily's school concert." [click] "I built a great practice. I just never had time to build a plan." [pause] "Sound familiar?"
+- **John's finances:** now titled "On paper, John is doing great."
+- **His savings plan (new chart):**
+  - "Here's what John already does right. Every year until 65 he maxes his TFSA, maxes his RRSP, and invests another $25,000. That's $65,810 a year, earning an average of 12%."
+  - "By 65 that's $13.18M. He only put in about $1.65M; compounding did the rest."
+  - "Then he stops adding and starts taking money out, about 10% a year, $1.48M in the first year. Because it still earns 12%, the balance keeps growing while he spends."
+  - "By 90 he's taken out $40.67M and still has $16.08M invested."
+- **The problem:** now clearly about his **corporation**: "But inside his corporation, John's money is stuck." His $250K of corporate savings sits in GICs, taxed at about 50%.
+- **Retirement at 65:** "He stops adding to his investments and starts taking money out, about $1.48M in year one, while the rest keeps growing."
+- **Raj buys in (new, after the IFA):** "When Raj bought in, Mehar set up the same plan for him. The clinic corporation owns a whole life policy on each partner. Sarah wrote the buy-sell agreement. If one partner dies, the policy pays the corporation, the CDA is credited, and the family is bought out with cash. And Raj's policy builds cash value too." The Buy & Sell ornament lights up here, and it pays off later when Raj passes away.
+- **Runtime:** about 50 minutes. For a 40-minute version, hide: A question for the room, Seg funds, Rogers, Real estate vs S&P, Real case study (two doctors), and the $100K bars.

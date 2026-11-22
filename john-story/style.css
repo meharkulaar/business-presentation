@@ -240,7 +240,7 @@ h1,h2{color:#F7E7C6;text-shadow:0 0 18px rgba(229,185,60,.45),0 2px 0 rgba(0,0,0
 .hookCard,.bs,.rc,.pb,.pc,.reC,.ft,.fam div,.dC,.fl,.cmp,.dc,.cta div,.roles div,.three div,.cdaPts>div:not(.note3),.scroll,.orn,.qr{
   position:relative;isolation:isolate;background:none!important;border:0!important;border-radius:0!important;
   box-shadow:0 0 34px rgba(229,185,60,.22),0 18px 30px rgba(0,0,0,.35)!important}
-.stC::before,.ifC::before,.hookCard::before,.bs::before,.rc::before,.pb::before,.pc::before,.reC::before,.ft::before,.fam div::before,.dC::before,.fl::before,.cmp::before,.dc::before,.cta div::before,.roles div::before,.three div::before,.cdaPts>div:not(.note3)::before,.scroll::before,.qr::before{
+.pcC::before,.stC::before,.ifC::before,.hookCard::before,.bs::before,.rc::before,.pb::before,.pc::before,.reC::before,.ft::before,.fam div::before,.dC::before,.fl::before,.cmp::before,.dc::before,.cta div::before,.roles div::before,.three div::before,.cdaPts>div:not(.note3)::before,.scroll::before,.qr::before{
   content:"";position:absolute;inset:0;z-index:-1;
   background:
    radial-gradient(ellipse at 30% 20%,rgba(255,250,235,.55),transparent 60%),
@@ -658,3 +658,33 @@ body.lite .snow,body.lite .bokeh{display:none!important}
 #hud{bottom:54px}
 .slide[data-hud] .src{bottom:124px!important}
 .sBuckets .bkC b{margin-top:2px}.sBuckets .bkRow{margin-top:0}
+
+/* ===================== v11 ===================== */
+.prec{display:flex;gap:24px;margin-top:26px}
+.pcC{width:360px;padding:24px 22px;text-align:center;position:relative;isolation:isolate;box-shadow:0 0 34px rgba(229,185,60,.22),0 18px 30px rgba(0,0,0,.35)}
+.pcC i{display:block;font-size:40px;font-style:normal}.pcC b{display:block;font:900 24px Georgia,serif;color:#6B1218;margin:8px 0 6px}.pcC span{font-size:17px;color:#4A3A2A}
+.pcC.gold b{color:#8A6510}
+.meetL{list-style:none;padding:0;margin:12px 0 0;max-width:640px}
+.meetL li{display:flex;gap:14px;align-items:flex-start;color:#EADBC0;font-size:20px;padding:9px 0;border-bottom:1px dashed rgba(234,219,192,.18)}
+.meetL i{font-style:normal;font-size:24px;width:32px;flex:none}.meetL b{color:#FFF4DC}
+.meetQ{font:italic 26px Georgia,serif;color:#F6D77A;margin-top:14px;text-shadow:0 0 14px rgba(229,185,60,.4)}
+.svW{display:flex;gap:28px;align-items:center;margin-top:10px}
+.svCh{width:760px}
+.svSvg .gl{stroke:rgba(234,219,192,.15)}.svSvg .gt{font:600 14px "Segoe UI";fill:#CDBB9A}
+.ph1{fill:rgba(123,227,174,.07)}.ph2{fill:rgba(229,185,60,.09)}
+.phT{font:800 14px "Segoe UI";letter-spacing:.08em;fill:#7BE3AE}.phT.b{fill:#F6D77A}
+.svT{fill:#7BE3AE;opacity:.85}.svR{fill:#E5B93C;opacity:.85}.svN{fill:#E8836F;opacity:.8}
+.svDot{fill:#FFF4DC;filter:drop-shadow(0 0 8px #F2CC5A)}.svV{font:800 17px "Segoe UI";fill:#FFE7A6}
+.svKey{display:flex;gap:18px;justify-content:center;margin-top:2px}.svKey .k{font-size:15px;color:#EADBC0;display:flex;align-items:center;gap:6px}
+.svKey .k::before{content:"";width:14px;height:14px;border-radius:3px}.k.t::before{background:#7BE3AE}.k.r::before{background:#E5B93C}.k.n::before{background:#E8836F}
+.svCh path{clip-path:inset(0 100% 0 0)}.slide.active .svCh.on path{animation:svIn 2.4s ease forwards}
+@keyframes svIn{to{clip-path:inset(0 0 0 0)}}
+.svC{width:440px;display:flex;flex-direction:column;gap:10px}
+.svS{padding:10px 14px;border-left:4px solid #7BE3AE;background:rgba(20,4,8,.5);border-radius:8px}
+.svS b{display:block;font:900 19px Georgia,serif;color:#FFF0D2}.svS span{font-size:15.5px;color:#E3D3B8;line-height:1.4}.svS strong{color:#FFF4DC}
+.svS.gold{border-left-color:#E5B93C}.svS.gold b{color:#F6D77A}.svS.green{border-left-color:#7BE3AE}.svS.green b{color:#7BE3AE}
+.bsF{display:flex;flex-direction:column;gap:12px;max-width:660px}
+.bfS{display:flex;gap:14px;align-items:flex-start;padding:12px 16px;background:rgba(20,4,8,.5);border:1px solid rgba(229,185,60,.35);border-radius:12px}
+.bfS i{flex:none;width:34px;height:34px;border-radius:50%;background:#B3202A;color:#fff;font:900 18px Georgia;font-style:normal;display:flex;align-items:center;justify-content:center}
+.bfS span{color:#E3D3B8;font-size:17.5px;line-height:1.4}.bfS b{color:#FFF4DC}.bfS em{color:#F6D77A}.bfS .gold{color:#F6D77A}
+.bfS.gold{border-color:rgba(229,185,60,.8);box-shadow:0 0 18px rgba(229,185,60,.25)}.bfS.gold i{background:#E5B93C;color:#5A1A0A}
