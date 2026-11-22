@@ -188,7 +188,7 @@ New opening order: Cover → The real Ontario case → **How tonight works** →
 - **Final scoreboard (slide 51):** the letter is now bigger and centred, with no separate heading above it.
 
 ## Updates in version 17
-- **The 7 key needs:** now Santa's handwritten checklist. Each click marks a need with a red ✗ and a handwritten note. It ends with "0 of 7 covered!"
+- **The 7 key needs:** now a handwritten checklist titled "The 7 Key Needs". Each click marks a need with a red ✗ and a handwritten note. It ends with "0 of 7 covered!"
 - **Chapter Three, "THE PLAN" gift:** outlined and glowing, so it reads from the back of the room.
 - **Watching it grow:** hover over the chart to see any year's age, death benefit, cash value and premiums paid. The key milestones are still written on the chart.
 - **Fast-forward clock:** whenever the story jumps 3 or more years, a full-screen clock spins while the year counts up, then the next slide plays in. It replaces the snow globe, and it's skipped when Smooth animations is off in Settings.

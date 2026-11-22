@@ -378,7 +378,7 @@ def _need(k, t, d):
 slide('''
 <div class="kick">The check-up</div>
 <div class="santa paper">
-  <div class="snH"><span class="snHat">&#127877;</span>Santa&rsquo;s Checklist<small>John&rsquo;s corporation &middot; the 7 key needs</small></div>
+  <div class="snH">The 7 Key Needs<small>of John&rsquo;s corporation</small></div>
   <ul class="snL">''' + ''.join(_need(k, t, d) for k, (t, d) in enumerate(NEED_NOTES)) + '''</ul>
   <div class="snT f">0 of 7 covered!</div>
 </div>
