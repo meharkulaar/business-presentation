@@ -1,0 +1,418 @@
+{
+ "source": "Equimax Wealth Accumulator, Male 40 non-smoker, BC, $99,999.99/yr, premium offset from year 21 (age 61), current dividend scale (not guaranteed)",
+ "rows": [
+  {
+   "age": 41,
+   "year": 1,
+   "gtdCV": 59653,
+   "totalCV": 72397,
+   "totalDB": 5469167
+  },
+  {
+   "age": 42,
+   "year": 2,
+   "gtdCV": 130152,
+   "totalCV": 159134,
+   "totalDB": 5524686
+  },
+  {
+   "age": 43,
+   "year": 3,
+   "gtdCV": 216920,
+   "totalCV": 266019,
+   "totalDB": 5589430
+  },
+  {
+   "age": 44,
+   "year": 4,
+   "gtdCV": 298265,
+   "totalCV": 371504,
+   "totalDB": 5663123
+  },
+  {
+   "age": 45,
+   "year": 5,
+   "gtdCV": 385033,
+   "totalCV": 486688,
+   "totalDB": 5745709
+  },
+  {
+   "age": 46,
+   "year": 6,
+   "gtdCV": 482646,
+   "totalCV": 617197,
+   "totalDB": 5836994
+  },
+  {
+   "age": 47,
+   "year": 7,
+   "gtdCV": 580260,
+   "totalCV": 752507,
+   "totalDB": 5937161
+  },
+  {
+   "age": 48,
+   "year": 8,
+   "gtdCV": 688720,
+   "totalCV": 904202,
+   "totalDB": 6045772
+  },
+  {
+   "age": 49,
+   "year": 9,
+   "gtdCV": 802603,
+   "totalCV": 1066859,
+   "totalDB": 6163206
+  },
+  {
+   "age": 50,
+   "year": 10,
+   "gtdCV": 927332,
+   "totalCV": 1246160,
+   "totalDB": 6289373
+  },
+  {
+   "age": 51,
+   "year": 11,
+   "gtdCV": 1024946,
+   "totalCV": 1405394,
+   "totalDB": 6424172
+  },
+  {
+   "age": 52,
+   "year": 12,
+   "gtdCV": 1122560,
+   "totalCV": 1571316,
+   "totalDB": 6567780
+  },
+  {
+   "age": 53,
+   "year": 13,
+   "gtdCV": 1225596,
+   "totalCV": 1748580,
+   "totalDB": 6720718
+  },
+  {
+   "age": 54,
+   "year": 14,
+   "gtdCV": 1323210,
+   "totalCV": 1930309,
+   "totalDB": 6882365
+  },
+  {
+   "age": 55,
+   "year": 15,
+   "gtdCV": 1426247,
+   "totalCV": 2124144,
+   "totalDB": 7053594
+  },
+  {
+   "age": 56,
+   "year": 16,
+   "gtdCV": 1529284,
+   "totalCV": 2326484,
+   "totalDB": 7234811
+  },
+  {
+   "age": 57,
+   "year": 17,
+   "gtdCV": 1632321,
+   "totalCV": 2539451,
+   "totalDB": 7425488
+  },
+  {
+   "age": 58,
+   "year": 18,
+   "gtdCV": 1740781,
+   "totalCV": 2767392,
+   "totalDB": 7626022
+  },
+  {
+   "age": 59,
+   "year": 19,
+   "gtdCV": 1843818,
+   "totalCV": 2999950,
+   "totalDB": 7836630
+  },
+  {
+   "age": 60,
+   "year": 20,
+   "gtdCV": 1946854,
+   "totalCV": 3245562,
+   "totalDB": 8057288
+  },
+  {
+   "age": 61,
+   "year": 21,
+   "gtdCV": 2017353,
+   "totalCV": 3362155,
+   "totalDB": 8080704
+  },
+  {
+   "age": 62,
+   "year": 22,
+   "gtdCV": 2082429,
+   "totalCV": 3481844,
+   "totalDB": 8114175
+  },
+  {
+   "age": 63,
+   "year": 23,
+   "gtdCV": 2142082,
+   "totalCV": 3602679,
+   "totalDB": 8158192
+  },
+  {
+   "age": 64,
+   "year": 24,
+   "gtdCV": 2201735,
+   "totalCV": 3730573,
+   "totalDB": 8212843
+  },
+  {
+   "age": 65,
+   "year": 25,
+   "gtdCV": 2255965,
+   "totalCV": 3860674,
+   "totalDB": 8278347
+  },
+  {
+   "age": 66,
+   "year": 26,
+   "gtdCV": 2304772,
+   "totalCV": 3993495,
+   "totalDB": 8354804
+  },
+  {
+   "age": 67,
+   "year": 27,
+   "gtdCV": 2407809,
+   "totalCV": 4192001,
+   "totalDB": 8441930
+  },
+  {
+   "age": 68,
+   "year": 28,
+   "gtdCV": 2510846,
+   "totalCV": 4397117,
+   "totalDB": 8540797
+  },
+  {
+   "age": 69,
+   "year": 29,
+   "gtdCV": 2619306,
+   "totalCV": 4617493,
+   "totalDB": 8651082
+  },
+  {
+   "age": 70,
+   "year": 30,
+   "gtdCV": 2722342,
+   "totalCV": 4842972,
+   "totalDB": 8773118
+  },
+  {
+   "age": 71,
+   "year": 31,
+   "gtdCV": 2830802,
+   "totalCV": 5088232,
+   "totalDB": 8906681
+  },
+  {
+   "age": 72,
+   "year": 32,
+   "gtdCV": 2939262,
+   "totalCV": 5342251,
+   "totalDB": 9052886
+  },
+  {
+   "age": 73,
+   "year": 33,
+   "gtdCV": 3047722,
+   "totalCV": 5605501,
+   "totalDB": 9212295
+  },
+  {
+   "age": 74,
+   "year": 34,
+   "gtdCV": 3156182,
+   "totalCV": 5885551,
+   "totalDB": 9384342
+  },
+  {
+   "age": 75,
+   "year": 35,
+   "gtdCV": 3264642,
+   "totalCV": 6179953,
+   "totalDB": 9569950
+  },
+  {
+   "age": 76,
+   "year": 36,
+   "gtdCV": 3373102,
+   "totalCV": 6485461,
+   "totalDB": 9769864
+  },
+  {
+   "age": 77,
+   "year": 37,
+   "gtdCV": 3476139,
+   "totalCV": 6801204,
+   "totalDB": 9984125
+  },
+  {
+   "age": 78,
+   "year": 38,
+   "gtdCV": 3584598,
+   "totalCV": 7134317,
+   "totalDB": 10213437
+  },
+  {
+   "age": 79,
+   "year": 39,
+   "gtdCV": 3682212,
+   "totalCV": 7478052,
+   "totalDB": 10457263
+  },
+  {
+   "age": 80,
+   "year": 40,
+   "gtdCV": 3785249,
+   "totalCV": 7835366,
+   "totalDB": 10717263
+  },
+  {
+   "age": 81,
+   "year": 41,
+   "gtdCV": 3882863,
+   "totalCV": 8210277,
+   "totalDB": 10992381
+  },
+  {
+   "age": 82,
+   "year": 42,
+   "gtdCV": 3980477,
+   "totalCV": 8598722,
+   "totalDB": 11283710
+  },
+  {
+   "age": 83,
+   "year": 43,
+   "gtdCV": 4072668,
+   "totalCV": 9000951,
+   "totalDB": 11591057
+  },
+  {
+   "age": 84,
+   "year": 44,
+   "gtdCV": 4164859,
+   "totalCV": 9422968,
+   "totalDB": 11914486
+  },
+  {
+   "age": 85,
+   "year": 45,
+   "gtdCV": 4251627,
+   "totalCV": 9853310,
+   "totalDB": 12254314
+  },
+  {
+   "age": 86,
+   "year": 46,
+   "gtdCV": 4332971,
+   "totalCV": 10298119,
+   "totalDB": 12609918
+  },
+  {
+   "age": 87,
+   "year": 47,
+   "gtdCV": 4414316,
+   "totalCV": 10755782,
+   "totalDB": 12981355
+  },
+  {
+   "age": 88,
+   "year": 48,
+   "gtdCV": 4490238,
+   "totalCV": 11227390,
+   "totalDB": 13367747
+  },
+  {
+   "age": 89,
+   "year": 49,
+   "gtdCV": 4560737,
+   "totalCV": 11712696,
+   "totalDB": 13768336
+  },
+  {
+   "age": 90,
+   "year": 50,
+   "gtdCV": 4625813,
+   "totalCV": 12203356,
+   "totalDB": 14183158
+  },
+  {
+   "age": 91,
+   "year": 51,
+   "gtdCV": 4690889,
+   "totalCV": 12720804,
+   "totalDB": 14610539
+  },
+  {
+   "age": 92,
+   "year": 52,
+   "gtdCV": 4745119,
+   "totalCV": 13236973,
+   "totalDB": 15050946
+  },
+  {
+   "age": 93,
+   "year": 53,
+   "gtdCV": 4799349,
+   "totalCV": 13770860,
+   "totalDB": 15503343
+  },
+  {
+   "age": 94,
+   "year": 54,
+   "gtdCV": 4853579,
+   "totalCV": 14322145,
+   "totalDB": 15967053
+  },
+  {
+   "age": 95,
+   "year": 55,
+   "gtdCV": 4902386,
+   "totalCV": 14894751,
+   "totalDB": 16439934
+  },
+  {
+   "age": 96,
+   "year": 56,
+   "gtdCV": 4956616,
+   "totalCV": 15498956,
+   "totalDB": 16919547
+  },
+  {
+   "age": 97,
+   "year": 57,
+   "gtdCV": 5021692,
+   "totalCV": 16149321,
+   "totalDB": 17401066
+  },
+  {
+   "age": 98,
+   "year": 58,
+   "gtdCV": 5103036,
+   "totalCV": 16858689,
+   "totalDB": 17876015
+  },
+  {
+   "age": 99,
+   "year": 59,
+   "gtdCV": 5222342,
+   "totalCV": 17687736,
+   "totalDB": 18327127
+  }
+ ]
+}

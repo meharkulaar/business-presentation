@@ -26,7 +26,7 @@
 3. **"Once upon a time..."** Meet John.
 
 ## Chapter 1: Christmas, age 40. The rat race (4 min)
-4. John at 40: a dental clinic, revenue of $500K–$750K, starting net worth of about $1.4M (home $1.6M, clinic $900K, $250K corporate savings, $150K RRSP), a $1M practice loan ($500K still owing), a $1M home mortgage. Exhausted.
+4. John at 40: a dental clinic, revenue of $500K–$750K, starting net worth of about $1.5M (home $1.6M, clinic $900K, $250K corporate savings, $150K RRSP, a maxed-out TFSA of $109K, which he keeps topping up every year), a $1M practice loan ($500K still owing), a $1M home mortgage. Exhausted.
 5. His goals: debt-free by 50, more locations, retire by 65.
 6. The problem: cash is piling up in his corporation and taxed every year. The 3 Rules are all **red**.
 
@@ -37,7 +37,7 @@
 
 ## Chapter 3: The plan (6 min)
 10. Why 10%: the seed and tree.
-11. The plan: a permanent (whole life) policy, from the real illustration (male 40, $99,999 a year for 15 years), funded from his corporate savings plus profit (not shown as "10%" for John).
+11. The plan: a permanent (whole life) policy from the real illustration: Equimax Wealth Accumulator, male 40, BC, $99,999 a year for 20 years (ages 41–60), then dividends pay the premium. Funded from corporate savings plus profit. Real values: cash value $1.25M at 50, $3.86M at 65, $12.2M at 90; death benefit $5.47M at 41, $8.28M at 65, **$14.18M at 90** (current dividend scale, not guaranteed).
 12. The loonie: a corporate dollar vs a personal dollar.
 13. The **CDA**: what it is (a notional account) and how John's fills over time.
 14. Real case: **the Rogers family** ($102M through the CDA).
