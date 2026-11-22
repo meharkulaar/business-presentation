@@ -185,7 +185,7 @@ def counter(to, pre='$', suf='', cls=''):
 
 
 # ---- John's net worth model (story bar)
-TFSA_MAX, RRSP_MAX, NONREG, RET = 7000, 33810, 25000, 0.12
+TFSA_MAX, RRSP_MAX, NONREG, RET = 7000, 33810, 15000, 0.12
 def ACCTS(a):
     t, r, n = 109000, 150000, 0
     for y in range(41, a + 1):
@@ -250,17 +250,9 @@ slide(f'''
 <p class="once f">Once upon a time&hellip;</p>
 ''', 'sTwo')
 
-# 4 CHAPTER 1
-slide(chapter('Chapter One', 'Christmas Eve, 2026 · John is 40', 'The Rat Race',
-    ground(1300,400)+clinic(330,400,1.0)+person('john',520,400,.95,'coat')+
-    '<g><rect x="760" y="140" width="380" height="260" fill="#F4EBDD" stroke="#C9B79C" stroke-width="2"/><rect x="800" y="180" width="300" height="180" fill="#F7C96B"/>'
-    + person('emma',880,360,.62)+person('lily',960,360,.42)+person('max',1020,360,.36)+tree(1070,360,.4)+'</g>'
-    +'<text x="520" y="120" text-anchor="middle" class="nm" style="fill:#5E6670;font-size:22px">9:47 p.m. &mdash; still at the clinic</text>'),
-    'sChap', hud=H(40, NW(40)))
-
 # 4b MEET JOHN
 MEET = scene(ground(560,420) + house(120,410,.6) + person('john',262,410,1.0) + person('emma',360,410,.93) + person('lily',446,410,.6) + person('max',518,410,.5)
-  + label(262,452,'John, 40') + label(360,452,'Emma') + label(446,452,'Lily, 6') + label(520,452,'Max, 4'), 470).replace('viewBox="0 0 1300 470" width="1300"','viewBox="0 0 560 470" width="560"')
+  + label(262,452,'John, 40') + label(360,452,'Emma, 39') + label(446,452,'Lily, 6') + label(520,452,'Max, 4'), 470).replace('viewBox="0 0 1300 470" width="1300"','viewBox="0 0 560 470" width="560"')
 slide(f'''
 <div class="split meetS">
   <div class="sp">{MEET}</div>
@@ -269,7 +261,7 @@ slide(f'''
     <h2 class="lft">A dentist in BC who gives everything to his patients.</h2>
     <ul class="meetL">
       <li class="f"><i>&#129463;</i><span><b>40 years old</b>, ten years into running his own clinic</span></li>
-      <li class="f"><i>&#10084;&#65039;</i><span>Married to <b>Emma</b>. <b>Lily</b> (6) wants to be a dentist like Dad. <b>Max</b> (4) wants to be a hockey player.</span></li>
+      <li class="f"><i>&#10084;&#65039;</i><span>Married to <b>Emma</b> (39). <b>Lily</b> (6) wants to be a dentist like Dad. <b>Max</b> (4) wants to be a hockey player.</span></li>
       <li class="f"><i>&#9200;</i><span>Works <b>55 hours a week</b>. This year he missed Lily&rsquo;s school concert.</span></li>
       <li class="f"><i>&#128176;</i><span>A great income, a disciplined saver, and <b>no real plan</b> tying it all together</span></li>
     </ul>
@@ -279,68 +271,27 @@ slide(f'''
 <p class="f mid">Sound familiar?</p>
 ''', 'sMeet', hud=H(40, NW(40)))
 
+# 4 CHAPTER 1
+slide(chapter('Chapter One', 'Christmas Eve, 2026 · John is 40', 'The Rat Race',
+    ground(1300,400)+clinic(330,400,1.0)+person('john',520,400,.95,'coat')+
+    '<g><rect x="760" y="140" width="380" height="260" fill="#F4EBDD" stroke="#C9B79C" stroke-width="2"/><rect x="800" y="180" width="300" height="180" fill="#F7C96B"/>'
+    + person('emma',880,360,.62)+person('lily',960,360,.42)+person('max',1020,360,.36)+tree(1070,360,.4)+'</g>'
+    +'<text x="520" y="120" text-anchor="middle" class="nm" style="fill:#5E6670;font-size:22px">9:47 p.m. &mdash; still at the clinic</text>'),
+    'sChap', hud=H(40, NW(40)))
+
 # 5 JOHN'S NUMBERS
 rows = [('Clinic revenue', '$500K&ndash;$750K a year', ''), ('Practice loan', '$1M &middot; <b class="red">$500K still owing</b>', ''),
         ('Home', '$1.6M &middot; <b class="red">$1M mortgage</b>', ''), ('Clinic value', '$900K', ''),
-        ('Corporate savings', '$250K', ''), ('RRSP', '$150K', ''), ('TFSA', '$109K &middot; <b class="green">maxed out</b>', ''), ('Saves yearly', '<b class="green">TFSA + RRSP maxed</b> + $25K', '')]
+        ('Corporate savings', '$250K', ''), ('RRSP', '$150K', ''), ('TFSA', '$109K &middot; <b class="green">maxed out</b>', ''), ('Investing', '<b class="green">TFSA + RRSP maxed</b> &middot; <b class="red">nothing else</b>', '')]
 rhtml = ''.join(f'<div class="bsR f"><span>{a}</span><b>{b}</b></div>' for a, b, _ in rows)
 slide(f'''
 <div class="kick">John&rsquo;s finances</div>
 <h2>On paper, John is doing great.</h2>
 <div class="split">
   <div class="bs">{rhtml}<div class="bsR tot f"><span>Net worth</span>{counter(1509000)}</div></div>
-  <div class="sp">{scene(ground(520,420)+person('john',160,410,1.0,'coat')+person('emma',290,410,.92)+person('lily',380,410,.6)+person('max',450,410,.5)+label(160,452,'John')+label(290,452,'Emma')+label(380,452,'Lily, 6')+label(450,452,'Max, 4'), 470).replace('viewBox="0 0 1300 470" width="1300"','viewBox="0 0 520 470" width="520"')}</div>
+  <div class="sp">{scene(ground(520,420)+person('john',160,410,1.0,'coat')+person('emma',290,410,.92)+person('lily',380,410,.6)+person('max',450,410,.5)+label(160,452,'John')+label(290,452,'Emma, 39')+label(380,452,'Lily, 6')+label(450,452,'Max, 4'), 470).replace('viewBox="0 0 1300 470" width="1300"','viewBox="0 0 520 470" width="520"')}</div>
 </div>
 ''', 'sNums', hud=H(40, NW(40)))
-
-# 5b JOHN'S SAVINGS PLAN
-def _save_series():
-    t, r, n = 109000, 150000, 0; rows = {40: (t, r, n, 0)}; wsum = 0
-    for y in range(41, 91):
-        if y <= 65: t = t*1.12 + 7000; r = r*1.12 + 33810; n = n*1.12 + 25000; w = 0
-        else:
-            w = (t + r + n)*1.12*.1; wsum += w; t *= 1.12*.9; r *= 1.12*.9; n *= 1.12*.9
-        rows[y] = (t, r, n, w)
-    return rows, wsum
-SAV, SAV_W = _save_series()
-def _save_chart():
-    W, Hh, L, T, B = 760, 390, 70, 56, 330; mx = 18e6
-    X = lambda a: L + (a - 40)/50*(W - L - 20); Y = lambda v: B - v/mx*(B - T)
-    g = [f'<svg viewBox="0 0 {W} {Hh}" width="{W}" height="{Hh}" class="svSvg">']
-    g.append(f'<rect x="{X(40):.0f}" y="{T}" width="{X(65)-X(40):.0f}" height="{B-T}" class="ph1"/><rect x="{X(65):.0f}" y="{T}" width="{X(90)-X(65):.0f}" height="{B-T}" class="ph2"/>')
-    for v in range(0, 19, 6):
-        g.append(f'<line x1="{L}" x2="{W-20}" y1="{Y(v*1e6):.0f}" y2="{Y(v*1e6):.0f}" class="gl"/><text x="{L-10}" y="{Y(v*1e6)+5:.0f}" class="gt" text-anchor="end">${v}M</text>')
-    for a in (40, 50, 65, 80, 90):
-        g.append(f'<text x="{X(a):.0f}" y="{B+24}" class="gt" text-anchor="middle">{a}</text>')
-    layers = [(lambda r: r[0], 'svT'), (lambda r: r[0]+r[1], 'svR'), (lambda r: r[0]+r[1]+r[2], 'svN')]
-    prev = None
-    for fn, cls in layers:
-        top = [(X(a), Y(fn(SAV[a]))) for a in range(40, 91)]
-        base = [(X(a), Y(prev(SAV[a]) if prev else 0)) for a in range(90, 39, -1)]
-        g.append('<path class="' + cls + '" d="M' + ' L'.join(f'{x:.1f},{y:.1f}' for x, y in top + base) + 'Z"/>')
-        prev = fn
-    tot = lambda a: sum(SAV[a][:3])
-    g.append(f'<circle cx="{X(65):.0f}" cy="{Y(tot(65)):.0f}" r="7" class="svDot"/><text x="{X(65)-12:.0f}" y="{Y(tot(65))-14:.0f}" class="svV" text-anchor="end">{money(tot(65))} at 65</text>')
-    g.append(f'<circle cx="{X(90):.0f}" cy="{Y(tot(90)):.0f}" r="7" class="svDot"/><text x="{X(90)-6:.0f}" y="{Y(tot(90))-14:.0f}" class="svV" text-anchor="end">{money(tot(90))} at 90</text>')
-    g.append(f'<text x="{(X(40)+X(65))/2:.0f}" y="22" class="phT" text-anchor="middle">BUILDING: adds $65,810 a year</text>')
-    g.append(f'<text x="{(X(65)+X(90))/2:.0f}" y="22" class="phT b" text-anchor="middle">LIVING OFF IT: takes money out</text>')
-    g.append(f'<text x="{L}" y="{Hh-6}" class="gt">John&rsquo;s age</text></svg>')
-    return ''.join(g)
-SAVE_CHART = _save_chart()
-slide(f'''
-<div class="kick">What John already does right</div>
-<h2>He saves. <span class="gold">Every single year, until 65.</span></h2>
-<div class="svW">
-  <div class="svCh f">{SAVE_CHART}<div class="svKey"><span class="k t">TFSA</span><span class="k r">RRSP</span><span class="k n">Non-registered</span></div></div>
-  <div class="svC">
-    <div class="svS f"><b>Ages 41 to 65: he puts money in</b><span>TFSA maxed: <strong>$7,000</strong> &middot; RRSP maxed: <strong>$33,810</strong> &middot; plus <strong>$25,000</strong> invested. All earning an average of <strong>12%</strong>.</span></div>
-    <div class="svS f gold"><b>At 65: {money(sum(SAV[65][:3]))}</b><span>He put in about $1.65M. Compounding did the rest.</span></div>
-    <div class="svS f"><b>From 66: he takes money out</b><span>About 10% a year to live on: <strong>{money(SAV[66][3])}</strong> in the first year. His money still earns 12%, so <strong>the balance keeps growing</strong> while he spends.</span></div>
-    <div class="svS f green"><b>By 90: {money(SAV_W)} taken out</b><span>And <strong>{money(sum(SAV[90][:3]))}</strong> still invested.</span></div>
-  </div>
-</div>
-<div class="src">Illustrative: 2026 TFSA and RRSP limits held flat, an assumed 12% average annual return (not guaranteed), before tax. Withdrawals from 66 are about 10% of the balance each year.</div>
-''', 'sSave', hud=H(40, NW(40)))
 
 # 6 RAT RACE: 3 RULES RED
 slide(f'''
@@ -640,6 +591,7 @@ slide(f'''
 <div class="kick">Why segregated funds</div>
 <h2>Growth <span class="gold">and</span> guarantees, in one place</h2>
 <div class="feats">{fh}</div>
+<div class="flexP f"><b>Mehar&rsquo;s flexible investment plan</b><span>John had only ever maxed his TFSA and RRSP. Now: <strong>both moved into seg funds</strong>, kept maxed every year, <strong>plus $15,000 a year</strong> in non-registered investments. Target: an average of <strong class="g12">12% a year</strong>.</span></div>
 <p class="f mid"><b>Emma</b> liked the guarantee. <b>Sarah</b> liked that it skips probate. <b>John</b> liked sleeping at night.</p>
 ''', 'sSeg', hud=H(42, NW(42), '0,4', '101'))
 
@@ -803,8 +755,58 @@ slide(f'''
   <div class="f"><b>David</b><span>timed tax-free capital dividends and his retirement income.</span></div>
   <div class="f"><b>Mehar</b><span>turned the policy and seg funds into tax-efficient income.</span></div>
 </div>
-<p class="f mid">&#10003; Open more locations &nbsp; &#10003; Retire by 65 &nbsp;&middot;&nbsp; He stops adding to his investments (<b class="gold">{money(sum(ACCTS(65)))}</b>) and starts taking money out, about <b class="gold">{money(SAV[66][3])}</b> in year one, while the rest keeps growing.</p>
+<p class="f mid">&#10003; Open more locations &nbsp; &#10003; Retire by 65</p>
 ''', 'sRetire', hud=H(65, NW(65), '0,2,3,4,5', '111'))
+
+# 5b JOHN'S SAVINGS PLAN
+def _save_series():
+    t, r, n = 109000, 150000, 0; rows = {40: (t, r, n, 0)}; wsum = 0
+    for y in range(41, 91):
+        if y <= 65: t = t*1.12 + TFSA_MAX; r = r*1.12 + RRSP_MAX; n = n*1.12 + NONREG; w = 0
+        else:
+            w = (t + r + n)*1.12*.1; wsum += w; t *= 1.12*.9; r *= 1.12*.9; n *= 1.12*.9
+        rows[y] = (t, r, n, w)
+    return rows, wsum
+SAV, SAV_W = _save_series()
+def _save_chart():
+    W, Hh, L, T, B = 760, 390, 70, 56, 330; mx = 18e6
+    X = lambda a: L + (a - 40)/50*(W - L - 20); Y = lambda v: B - v/mx*(B - T)
+    g = [f'<svg viewBox="0 0 {W} {Hh}" width="{W}" height="{Hh}" class="svSvg">']
+    g.append(f'<rect x="{X(40):.0f}" y="{T}" width="{X(65)-X(40):.0f}" height="{B-T}" class="ph1"/><rect x="{X(65):.0f}" y="{T}" width="{X(90)-X(65):.0f}" height="{B-T}" class="ph2"/>')
+    for v in range(0, 19, 6):
+        g.append(f'<line x1="{L}" x2="{W-20}" y1="{Y(v*1e6):.0f}" y2="{Y(v*1e6):.0f}" class="gl"/><text x="{L-10}" y="{Y(v*1e6)+5:.0f}" class="gt" text-anchor="end">${v}M</text>')
+    for a in (40, 50, 65, 80, 90):
+        g.append(f'<text x="{X(a):.0f}" y="{B+24}" class="gt" text-anchor="middle">{a}</text>')
+    layers = [(lambda r: r[0], 'svT'), (lambda r: r[0]+r[1], 'svR'), (lambda r: r[0]+r[1]+r[2], 'svN')]
+    prev = None
+    for fn, cls in layers:
+        top = [(X(a), Y(fn(SAV[a]))) for a in range(40, 91)]
+        base = [(X(a), Y(prev(SAV[a]) if prev else 0)) for a in range(90, 39, -1)]
+        g.append('<path class="' + cls + '" d="M' + ' L'.join(f'{x:.1f},{y:.1f}' for x, y in top + base) + 'Z"/>')
+        prev = fn
+    tot = lambda a: sum(SAV[a][:3])
+    g.append(f'<circle cx="{X(65):.0f}" cy="{Y(tot(65)):.0f}" r="7" class="svDot"/><text x="{X(65)-12:.0f}" y="{Y(tot(65))-14:.0f}" class="svV" text-anchor="end">{money(tot(65))} at 65</text>')
+    g.append(f'<circle cx="{X(90):.0f}" cy="{Y(tot(90)):.0f}" r="7" class="svDot"/><text x="{X(90)-6:.0f}" y="{Y(tot(90))-14:.0f}" class="svV" text-anchor="end">{money(tot(90))} at 90</text>')
+    g.append(f'<text x="{(X(40)+X(65))/2:.0f}" y="22" class="phT" text-anchor="middle">BUILDING: adds $55,810 a year</text>')
+    g.append(f'<text x="{(X(65)+X(90))/2:.0f}" y="22" class="phT b" text-anchor="middle">LIVING OFF IT: takes money out</text>')
+    g.append(f'<text x="{L}" y="{Hh-6}" class="gt">John&rsquo;s age</text></svg>')
+    return ''.join(g)
+SAVE_CHART = _save_chart()
+PUT_IN = (TFSA_MAX + RRSP_MAX + NONREG) * 25
+slide(f'''
+<div class="kick">From saving to spending</div>
+<h2>At 65, John stops adding and <span class="gold">starts taking money out.</span></h2>
+<div class="svW">
+  <div class="svCh f">{SAVE_CHART}<div class="svKey"><span class="k t">TFSA (seg funds)</span><span class="k r">RRSP (seg funds)</span><span class="k n">Non-registered</span><span class="ret12">Average return: 12% a year</span></div></div>
+  <div class="svC">
+    <div class="svS f"><b>Ages 41 to 65: he puts money in</b><span>TFSA maxed <strong>$7,000</strong> &middot; RRSP maxed <strong>$33,810</strong> &middot; plus Mehar&rsquo;s flexible plan: <strong>$15,000</strong> non-registered. All averaging <strong>12% a year</strong>.</span></div>
+    <div class="svS f gold"><b>At 65: {money(sum(SAV[65][:3]))}</b><span>He put in about {money(PUT_IN)}. Compounding at 12% did the rest.</span></div>
+    <div class="svS f"><b>From 66: he takes money out</b><span>About 10% a year to live on: <strong>{money(SAV[66][3])}</strong> in the first year. It still earns 12%, so <strong>the balance keeps growing</strong> while he spends.</span></div>
+    <div class="svS f green"><b>By 90: {money(SAV_W)} taken out</b><span>And <strong>{money(sum(SAV[90][:3]))}</strong> still invested.</span></div>
+  </div>
+</div>
+<div class="src">Illustrative: 2026 TFSA and RRSP limits held flat; an assumed 12% average annual return (not guaranteed), before tax. Withdrawals from 66 are about 10% of the balance each year.</div>
+''', 'sSave', hud=H(65, NW(65), '0,2,3,4,5', '111'))
 
 # 25 SUCCESSION
 slide(f'''
@@ -950,6 +952,22 @@ slide(f'''
 <div class="src">Levine Financial Group, A Tale of Two Physicians (Dec 2025): corporate assets at death, age 85.</div>
 ''', 'sDocs')
 
+# 31c SCOREBOARD FINALE
+slide('''
+<div class="kick">The final scoreboard</div>
+<h2>John&rsquo;s life, by the numbers</h2>
+''', 'sScore', hud=H(90, NW(90), '0,1,2,3,4,5,6', '111'))
+def _tile(lbl, a, b, cls=''):
+    return f'<div class="sbT {cls}"><span>{lbl}</span><div class="sbV"><em>At 40</em><i>{a}</i></div><div class="sbV b"><em>At 90</em>{b}</div></div>'
+SCORE = ('<div id="hudBig"><div class="sbG">'
+  + _tile('Net worth', '$1.51M', counter(int(NW(90))))
+  + _tile('Tax-free to his family', '$0', counter(int(ILL[90]['totalDB'])), 'gold')
+  + _tile('Taken out in retirement', '$0', counter(int(SAV_W)))
+  + _tile('7 key needs covered', '0 of 7', '<b class="cnt" data-to="7" data-pre="" data-suf=" of 7">0 of 7</b>')
+  + _tile('3 rules of money', 'Against him', '<b class="sbW">Working for him</b>', 'green')
+  + _tile('Christmas list', '0 of 4', '<b class="cnt" data-to="4" data-pre="" data-suf=" of 4">0 of 4</b>', 'green')
+  + '</div></div>')
+
 # 32 EVERYTHING ACCOMPLISHED + TEAM
 wl2 = ''.join(f'<li><i class="box on"></i>{w}</li>' for w in wl)
 slide(f'''
@@ -1033,6 +1051,7 @@ html = f'''<!doctype html>
     <div class="hCda"><div class="hB"><i id="hBf"></i></div><div><span>Future CDA credit</span><b id="hCda">$0</b></div></div>
     <div class="hNeeds"><span>7 needs</span><div id="hOrn">{orn_hud}</div></div>
     <div class="hRules"><span>3 rules</span><div id="hRu"><em>Compound</em><em>Risk</em><em>Tax</em></div></div>
+    {SCORE}
   </div>
   <div class="intl">FOR INTERNAL USE ONLY</div>
   <div class="foot">Illustrative story: John and Jake are fictional; net worth figures are illustrative. Policy values from a real Equitable illustration (current dividend scale, not guaranteed). We do not offer tax or legal advice; please consult a tax and/or legal professional.</div>

@@ -21,7 +21,7 @@ function runCount(b,animate){
   cancelAnimationFrame(b._r);
   if(!animate){put(to);return;}
   var t0=performance.now(),d=1600;
-  (function f(t){var p=Math.min(1,(t-t0)/d),e=1-Math.pow(1-p,3);put(to*e);if(p<1)b._r=requestAnimationFrame(f);})(t0);
+  (function f(t){var p=Math.max(0,Math.min(1,(t-t0)/d)),e=1-Math.pow(1-p,3);put(to*e);if(p<1)b._r=requestAnimationFrame(f);})(t0);
 }
 function counters(scope,animate){
   [].slice.call(scope.querySelectorAll('.cnt')).forEach(function(b){
@@ -35,11 +35,17 @@ var hud=document.getElementById('hud');
 function tweenNw(to){
   var el=document.getElementById('hNw'),from=nwShown,t0=performance.now();nwShown=to;
   cancelAnimationFrame(el._r);
-  (function f(t){var p=Math.min(1,(t-t0)/900),e=1-Math.pow(1-p,3);el.textContent=short(from+(to-from)*e);if(p<1)el._r=requestAnimationFrame(f);})(t0);
+  (function f(t){var p=Math.max(0,Math.min(1,(t-t0)/900)),e=1-Math.pow(1-p,3);el.textContent=short(from+(to-from)*e);if(p<1)el._r=requestAnimationFrame(f);})(t0);
 }
+var bigT;
 function updHud(s){
+  clearTimeout(bigT);
+  var wasOn=hud.classList.contains('on'),big=s.classList.contains('sScore');
+  if(!big)hud.classList.remove('big');
   if(!s.dataset.hud){hud.classList.remove('on');return;}
   hud.classList.add('on');
+  if(big){var hb=document.getElementById('hudBig');[].slice.call(hb.querySelectorAll('.cnt')).forEach(function(b){b.textContent=(b.dataset.pre||'')+'0'+(b.dataset.suf||'');});
+    bigT=setTimeout(function(){hud.classList.add('big');bigT=setTimeout(function(){counters(hb,true);},1000);},wasOn?350:900);}
   var age=+s.dataset.age;
   document.getElementById('hAge').textContent=age;
   document.getElementById('hDot').style.left=((age-40)/50*100)+'%';
@@ -57,7 +63,7 @@ function timePass(a0,a1){
   var tp=document.getElementById('tp'),y=document.getElementById('tpY'),g=document.getElementById('tpA');if(!tp)return;
   tp.classList.remove('on');void tp.offsetWidth;tp.classList.add('on');
   var t0=performance.now(),d=1300;
-  (function f(t){var p=Math.min(1,(t-t0)/d),e=1-Math.pow(1-p,3),a=Math.round(a0+(a1-a0)*e);y.textContent=1986+a;g.textContent='John is '+a;if(p<1)requestAnimationFrame(f);})(t0);
+  (function f(t){var p=Math.max(0,Math.min(1,(t-t0)/d)),e=1-Math.pow(1-p,3),a=Math.round(a0+(a1-a0)*e);y.textContent=1986+a;g.textContent='John is '+a;if(p<1)requestAnimationFrame(f);})(t0);
   setTimeout(function(){tp.classList.remove('on');},2000);
 }
 function pour(){

@@ -151,3 +151,19 @@ New opening order: Cover → The real Ontario case → **How tonight works** →
   - "The corporation paid $900,000 over nine years. The death benefit of $5.16M was paid to the corporation tax-free. Almost all of it was credited to the CDA."
   - "Raj's family was bought out in full, paid as a tax-free capital dividend. The rest carried the clinic while a new dentist was hired, and John now owns 100%."
 - Source: Equitable EquiMax illustration, male 44, $99,999.99/yr 20-pay, current dividend scale (not guaranteed).
+
+## Updates in version 13 (52 slides)
+- **New order:** Meet John comes before Chapter One (Christmas Eve). Emma is 39.
+- **John's finances:** a new row, "Investing: TFSA + RRSP maxed · nothing else". Before Mehar, John wasn't investing anything beyond his registered accounts.
+- **The savings chart is gone from the opening.**
+- **Seg funds:** a new box, "Mehar's flexible investment plan." Say: "John had only ever maxed his TFSA and RRSP. Mehar moved both into seg funds, kept them maxed every year, and added $15,000 a year in non-registered investments, targeting an average of 12% a year."
+- **From saving to spending (new, right after retirement at 65):**
+  - "From 41 to 65 he put in $55,810 a year (TFSA, RRSP and the $15K plan), about $1.40M in total. At an average of 12% a year, that became $11.84M by 65."
+  - "Then he stops adding and starts taking money out, about 10% a year, $1.33M in the first year. It still earns 12%, so the balance keeps growing while he spends."
+  - "By 90 he's taken out $36.55M and still has $14.46M invested."
+- **Net worth in the story bar:** age 41 $1.92M · 46 $4.77M · 50 $7.47M · 55 $11.94M · 65 $25.03M · 90 $41.67M.
+- **The final scoreboard (new, after the two doctors and before "Who's on your team?"):**
+  - The story bar slides in, then smoothly expands to fill the screen, and six tiles count up, comparing John at 40 with John at 90.
+  - The tiles: net worth $1.51M → $41.67M · tax-free to his family $0 → $14.18M · taken out in retirement $0 → $36.55M · 7 needs 0 → 7 of 7 · 3 rules against him → working for him · Christmas list 0 → 4 of 4.
+  - Let it play, then walk through each tile. "One plan, started at 40. This is what it did."
+  - Note: if you've turned the story bar off in Settings, this slide will be blank, so turn it back on before you present.
