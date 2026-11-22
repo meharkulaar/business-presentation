@@ -108,3 +108,22 @@ The bar at the bottom of the story slides tracks John's age, his net worth, his 
   - Click anywhere to advance on/off (turn off if you use a clicker, so a stray click doesn't skip a slide).
   - Presenter timer: counts up to 40:00 and turns red when you go over. Click it to reset.
 - **B (or .) = black screen.** Press again to come back. Most presentation clickers have a black-screen button that sends this key.
+
+## Updates in version 9 and 10
+- **Two buckets:** the buckets are smaller, so the captions no longer touch the story bar.
+- **Meet John:** a new row, "Saves yearly: TFSA + RRSP maxed + $25K". Say: "Every year he maxes out his TFSA ($7,000) and his RRSP ($33,810), and invests another $25,000. We've assumed an average return of 12%."
+- **Net worth in the story bar now includes those savings:**
+  - Age 41: about $1.92M
+  - Age 46: $4.85M
+  - Age 50: $7.65M
+  - Age 55: $12.31M
+  - Age 65: $26.36M
+  - Age 90: $43.29M
+- **Retirement at 65:** "His TFSA, RRSP and investments: $13.18M."
+- **How the net worth is calculated (for Q&A):**
+  - Home $1.6M growing 3% a year, with the mortgage and practice loan paid off by 50.
+  - Each clinic worth $900K growing 4% a year (clinic #2 at 46, #3 at 55), frozen at 65 when the estate freeze passes future growth to Lily.
+  - Corporate savings $250K growing 5%.
+  - The policy's cash value from the real illustration, minus the $500K IFA loan from age 46.
+  - TFSA, RRSP and non-registered at 12%. After 65 he draws about 10% a year to live on.
+  - Everything is shown before tax and is illustrative.

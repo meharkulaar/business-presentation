@@ -182,6 +182,22 @@ def H(age, nw, needs='', rules='000', cda=None):
 def counter(to, pre='$', suf='', cls=''):
     return f'<b class="cnt {cls}" data-to="{to}" data-pre="{pre}" data-suf="{suf}">{pre}0{suf}</b>'
 
+
+# ---- John's net worth model (story bar)
+TFSA_MAX, RRSP_MAX, NONREG, RET = 7000, 33810, 25000, 0.12
+def ACCTS(a):
+    t, r, n = 109000, 150000, 0
+    for y in range(41, a + 1):
+        if y <= 65: t = t*(1+RET) + TFSA_MAX; r = r*(1+RET) + RRSP_MAX; n = n*(1+RET) + NONREG
+        else: t *= (1+RET)*.9; r *= (1+RET)*.9; n *= (1+RET)*.9
+    return t, r, n
+def NW(a):
+    home = 1.6e6*1.03**(a-40); mort = 1e6*max(0, (50-a)/10); loan = 5e5*max(0, (50-a)/10)
+    bv = lambda st: 9e5*1.04**(min(a, 65)-st) if a >= st else 0
+    bus = bv(40) + bv(46) + bv(55)
+    corp = 2.5e5*1.05**(a-40); cv = ILL[a]['totalCV'] if a >= 41 else 0; ifa = 5e5 if a >= 46 else 0
+    return round(home - mort + bus - loan + corp + cv - ifa + sum(ACCTS(a)), -3)
+
 # ================================================================== SLIDES
 random.seed(3)
 
@@ -227,12 +243,12 @@ slide(chapter('Chapter One', 'Christmas Eve, 2026 · John is 40', 'The Rat Race'
     '<g><rect x="760" y="140" width="380" height="260" fill="#F4EBDD" stroke="#C9B79C" stroke-width="2"/><rect x="800" y="180" width="300" height="180" fill="#F7C96B"/>'
     + person('emma',880,360,.62)+person('lily',960,360,.42)+person('max',1020,360,.36)+tree(1070,360,.4)+'</g>'
     +'<text x="520" y="120" text-anchor="middle" class="nm" style="fill:#5E6670;font-size:22px">9:47 p.m. &mdash; still at the clinic</text>'),
-    'sChap', hud=H(40, 1509000))
+    'sChap', hud=H(40, NW(40)))
 
 # 5 JOHN'S NUMBERS
 rows = [('Clinic revenue', '$500K&ndash;$750K a year', ''), ('Practice loan', '$1M &middot; <b class="red">$500K still owing</b>', ''),
         ('Home', '$1.6M &middot; <b class="red">$1M mortgage</b>', ''), ('Clinic value', '$900K', ''),
-        ('Corporate savings', '$250K', ''), ('RRSP', '$150K', ''), ('TFSA', '$109K &middot; <b class="green">maxed out</b>', '')]
+        ('Corporate savings', '$250K', ''), ('RRSP', '$150K', ''), ('TFSA', '$109K &middot; <b class="green">maxed out</b>', ''), ('Saves yearly', '<b class="green">TFSA + RRSP maxed</b> + $25K', '')]
 rhtml = ''.join(f'<div class="bsR f"><span>{a}</span><b>{b}</b></div>' for a, b, _ in rows)
 slide(f'''
 <div class="kick">Meet John</div>
@@ -241,7 +257,8 @@ slide(f'''
   <div class="bs">{rhtml}<div class="bsR tot f"><span>Net worth</span>{counter(1509000)}</div></div>
   <div class="sp">{scene(ground(520,420)+person('john',160,410,1.0,'coat')+person('emma',290,410,.92)+person('lily',380,410,.6)+person('max',450,410,.5)+label(160,452,'John')+label(290,452,'Emma')+label(380,452,'Lily, 6')+label(450,452,'Max, 4'), 470).replace('viewBox="0 0 1300 470" width="1300"','viewBox="0 0 520 470" width="520"')}</div>
 </div>
-''', 'sNums', hud=H(40, 1509000))
+<div class="src">From here on, John maxes out his TFSA ($7,000) and RRSP ($33,810) every year and invests another $25,000 a year in non-registered investments, all assumed to earn an average of 12% a year. Illustrative, not guaranteed.</div>
+''', 'sNums', hud=H(40, NW(40)))
 
 # 6 RAT RACE: 3 RULES RED
 slide(f'''
@@ -253,7 +270,7 @@ slide(f'''
   <div class="rc f"><div class="rI">%</div><b>The Tax Effect</b><span>Investment income in his corporation is taxed at about 50% in BC, every year.</span><em>Against him</em></div>
 </div>
 <p class="f mid">All three rules of money were working <b class="red">against</b> John.</p>
-''', 'sRules', hud=H(40, 1509000))
+''', 'sRules', hud=H(40, NW(40)))
 
 # 7 WISH LIST
 wl = ['Pay off every debt in 10 years', 'Open more locations', 'Retire by 65', 'Take care of Emma and the kids, forever']
@@ -263,7 +280,7 @@ slide(f'''
   <div class="scroll"><div class="scT">John&rsquo;s Christmas List</div><ul class="wl">{wlh}</ul><div class="scSig">&mdash; J.</div></div>
   <div class="sp2"><h2 class="lft">He wasn&rsquo;t asking for a sports car.</h2><p class="lft big">He wanted his <b>time</b> back, and a future his family could count on.</p><p class="lft f mid">So that same week, between Christmas and New Year&rsquo;s, <b>he called Mehar.</b></p></div>
 </div>
-''', 'sList', hud=H(40, 1509000))
+''', 'sList', hud=H(40, NW(40)))
 
 # 8 CHAPTER 2
 slide(chapter('Chapter Two', 'December 28, 2026 · John is 40', 'The Meeting',
@@ -272,7 +289,7 @@ slide(chapter('Chapter Two', 'December 28, 2026 · John is 40', 'The Meeting',
     + person('mehar',960,410,1.0)+tree(1180,410,.62)
     + '<text x="760" y="60" text-anchor="middle" class="capt">&ldquo;Let&rsquo;s go through your list together, step by step.&rdquo;</text>'
     + label(560,150,'John',size=22)+label(960,150,'Mehar',size=22)),
-    'sChap', hud=H(40, 1509000))
+    'sChap', hud=H(40, NW(40)))
 
 # 8b MEHAR'S PROCESS
 STEPS = [('Listen', 'Your wishlist, your goals, your worries'),
@@ -288,7 +305,7 @@ slide('''
 <p class="big">In ten years of business, nobody had ever done this for John.</p>
 <div class="road">''' + ''.join(f'<div class="rdS f"><i>{k+1}</i><b>{t}</b><span>{d}</span></div>' for k, (t, d) in enumerate(STEPS)) + '''</div>
 <p class="f mid roadEnd">A process, not a product. <b class="gold">That&rsquo;s the Team All In difference.</b></p>
-''', 'sRoad', hud=H(40, 1509000))
+''', 'sRoad', hud=H(40, NW(40)))
 
 # 9 7 NEEDS CHECK-UP (full-screen web)
 slide('''
@@ -322,7 +339,7 @@ slide(f'''
   <p class="f j"><span class="who">John</span>&ldquo;The 88-cent one. Obviously.&rdquo;</p>
 </div>
 <div class="src">Approximate BC rates: small business about 11%, top personal rate about 53.5%. Rounded for illustration. Not tax advice; confirm with your accountant.</div>
-''', 'sDollar', hud=H(40, 1509000))
+''', 'sDollar', hud=H(40, NW(40)))
 
 # 9b TWO BUCKETS
 _coins = ''.join(f'<g transform="translate({x},0)"><g class="coinF" style="animation-delay:{d}s"><ellipse rx="17" ry="17" fill="#F2CC5A" stroke="#A87A12" stroke-width="3"/><ellipse rx="10" ry="10" fill="none" stroke="#C99A2A" stroke-width="2"/><text y="6" text-anchor="middle" style="font:900 16px Georgia;fill:#8A6510">$</text></g></g>'
@@ -342,17 +359,17 @@ def cda_bucket(p, w=300, h=420, cls=''):
       '</g></g></g>' + coins +
       '<path d="M-120,-220 L120,-220 L94,0 L-94,0Z" fill="none" stroke="#F2CC5A" stroke-width="7" stroke-linejoin="round"/>'
       '<text x="0" y="-104" text-anchor="middle" class="bkTxt">CDA</text></svg>')
-CDA_BUCKET = cda_bucket('A')
+CDA_BUCKET = cda_bucket('A', 240, 336)
 
 slide('''
 <div class="kick">What Mehar showed him</div>
 <h2>Every dollar in John&rsquo;s corporation sits in one of <span class="gold">two buckets.</span></h2>
 <div class="bkRow">
-  <div class="bkC f"><svg viewBox="-160 -260 320 330" width="300" height="300"><path d="M-120,-220 L120,-220 L94,0 L-94,0Z" fill="rgba(179,32,42,.18)" stroke="#E0303E" stroke-width="7" stroke-linejoin="round"/><text x="0" y="-92" text-anchor="middle" style="font:900 68px Georgia;fill:#FF7D78">%</text><g class="drip"><circle class="leak" style="animation-delay:0.0s" cx="-40" cy="20" r="11" fill="#E5B93C"/><circle class="leak" style="animation-delay:0.5s" cx="-20" cy="20" r="11" fill="#E5B93C"/><circle class="leak" style="animation-delay:1.0s" cx="0" cy="20" r="11" fill="#E5B93C"/><circle class="leak" style="animation-delay:1.5s" cx="20" cy="20" r="11" fill="#E5B93C"/><circle class="leak" style="animation-delay:2.0s" cx="40" cy="20" r="11" fill="#E5B93C"/></g></svg><b class="red">Taxable bucket</b><span>Salary, dividends, investment income: <strong>taxed on the way out</strong>, up to about half.</span></div>
+  <div class="bkC f"><svg viewBox="-160 -260 320 330" width="232" height="240"><path d="M-120,-220 L120,-220 L94,0 L-94,0Z" fill="rgba(179,32,42,.18)" stroke="#E0303E" stroke-width="7" stroke-linejoin="round"/><text x="0" y="-92" text-anchor="middle" style="font:900 68px Georgia;fill:#FF7D78">%</text><g class="drip"><circle class="leak" style="animation-delay:0.0s" cx="-40" cy="20" r="11" fill="#E5B93C"/><circle class="leak" style="animation-delay:0.5s" cx="-20" cy="20" r="11" fill="#E5B93C"/><circle class="leak" style="animation-delay:1.0s" cx="0" cy="20" r="11" fill="#E5B93C"/><circle class="leak" style="animation-delay:1.5s" cx="20" cy="20" r="11" fill="#E5B93C"/><circle class="leak" style="animation-delay:2.0s" cx="40" cy="20" r="11" fill="#E5B93C"/></g></svg><b class="red">Taxable bucket</b><span>Salary, dividends, investment income: <strong>taxed on the way out</strong>, up to about half.</span></div>
   <div class="bkVs f">vs</div>
   <div class="bkC win f">'''+CDA_BUCKET+'''<b class="gold">Tax-free bucket</b><span>The Capital Dividend Account: <strong>every dollar comes out tax-free.</strong></span></div>
 </div>
-''', 'sBuckets', hud=H(40, 1509000))
+''', 'sBuckets', hud=H(40, NW(40)))
 
 slide('''
 <div class="kick">A question for the room</div>
@@ -372,7 +389,7 @@ slide(f'''
     <p class="lft big f"><b class="gold">&ldquo;How do I fill it?&rdquo;</b> he asked. <b>&ldquo;And how soon can we start?&rdquo;</b></p>
   </div>
 </div>
-''', 'sShock', hud=H(40, 1509000))
+''', 'sShock', hud=H(40, NW(40)))
 
 # 10 3 HIDDEN PROBLEMS (with loonie)
 slide(f'''
@@ -384,7 +401,7 @@ slide(f'''
     <div class="loons"><div class="loon"><i style="--p:50%"></i></div><b class="red">50&cent;</b><div class="loon"><i style="--p:12%"></i></div><b class="green">88&cent;</b></div></div>
   <div class="pb f"><div class="pbN">3</div><b>Money not multiplying</b><span>His savings sit in GICs, taxed every year. Nothing is building on its own.</span></div>
 </div>
-''', 'sProbs', hud=H(40, 1509000))
+''', 'sProbs', hud=H(40, NW(40)))
 
 # 11 THE TEAM
 slide(f'''
@@ -398,13 +415,13 @@ slide(f'''
   <div class="f"><b>Mehar &middot; advisor</b><span>The strategy: insurance, investments, and keeping everyone working together</span></div>
 </div>
 <p class="note2">John brought David and Sarah to the table himself.</p>
-''', 'sTeam', hud=H(40, 1509000))
+''', 'sTeam', hud=H(40, NW(40)))
 
 # 12 CHAPTER 3
 slide(chapter('Chapter Three', 'December 30, 2026 · the same month', 'He Starts Now',
     ground(1300,400)+gift(650,390,1.6,txt='THE PLAN')+person('john',400,400,.95,arm='up')+person('mehar',900,400,.95)+tree(1130,400,.8)
     +'<text x="650" y="60" text-anchor="middle" class="capt">&ldquo;Why wait until next year? Time is the one thing I can&rsquo;t buy back.&rdquo;</text>'),
-    'sChap', hud=H(40, 1509000, '0,4', '100'))
+    'sChap', hud=H(40, NW(40), '0,4', '100'))
 
 # 12b HOW IT'S STRUCTURED
 slide('''
@@ -419,7 +436,7 @@ slide('''
   <div class="stC f green"><i>&#128106;</i><span>His family</span><b>Paid tax-free</b><em>As a capital dividend, out of the CDA</em></div>
 </div>
 <p class="f mid"><b>David</b> reviewed the tax. <b>Sarah</b> updated the corporate records and his will. <b>Mehar</b> designed the policy.</p>
-''', 'sStruct', hud=H(40, 1509000, '0,4', '100'))
+''', 'sStruct', hud=H(40, NW(40), '0,4', '100'))
 
 # 12c ALL IN ONE
 slide('''
@@ -432,7 +449,7 @@ slide('''
  <g class="f"><rect x="520" y="200" width="400" height="130" rx="20" class="aoPol"/><text x="720" y="250" class="aoPolT">Permanent Policy</text><text x="720" y="280" class="aoPolS">(Whole Life)</text><text x="720" y="308" class="aoPolS">Cash value + tax-free death benefit</text></g>
  <g class="f aoB"><path class="aoL" d="M720,330 C720,380 170,380 170,430"/><rect x="68" y="430" width="204" height="92" rx="14" class="aoBox"/><text x="170" y="468" class="aoBt">Tax-free growth</text><text x="170" y="494" class="aoBd">Cash value compounds sheltered</text></g><g class="f aoB"><path class="aoL" d="M720,330 C720,380 390,380 390,430"/><rect x="288" y="430" width="204" height="92" rx="14" class="aoBox"/><text x="390" y="468" class="aoBt">Borrow anytime</text><text x="390" y="494" class="aoBd">Collateral for bank loans</text></g><g class="f aoB"><path class="aoL" d="M720,330 C720,380 610,380 610,430"/><rect x="508" y="430" width="204" height="92" rx="14" class="aoBox"/><text x="610" y="468" class="aoBt">Debt protection</text><text x="610" y="494" class="aoBd">Pays off loans at death</text></g><g class="f aoB"><path class="aoL" d="M720,330 C720,380 830,380 830,430"/><rect x="728" y="430" width="204" height="92" rx="14" class="aoBox"/><text x="830" y="468" class="aoBt">Key person</text><text x="830" y="494" class="aoBd">Protects the clinic</text></g><g class="f aoB"><path class="aoL" d="M720,330 C720,380 1050,380 1050,430"/><rect x="948" y="430" width="204" height="92" rx="14" class="aoBox"/><text x="1050" y="468" class="aoBt">Buy-sell funding</text><text x="1050" y="494" class="aoBd">Partner buyout ready</text></g><g class="f aoB"><path class="aoL" d="M720,330 C720,380 1270,380 1270,430"/><rect x="1168" y="430" width="204" height="92" rx="14" class="aoBox"/><text x="1270" y="468" class="aoBt">Tax-free estate</text><text x="1270" y="494" class="aoBd">Paid out through the CDA</text></g>
 <g class="f"><path class="aoL gold aoBack" d="M920,262 C1070,262 1060,92 906,62" marker-end="url(#aoArr)"/><text x="1068" y="140" class="aoRt">Back to the business</text><text x="1068" y="166" class="aoRd">Borrow against the cash value</text><text x="1068" y="190" class="aoRd">to reinvest, or for personal use</text></g></svg>
-''', 'sAio', hud=H(40, 1509000, '0,4', '100'))
+''', 'sAio', hud=H(40, NW(40), '0,4', '100'))
 
 # 13 THE POLICY
 i41, i50, i65, i90 = ILL[41], ILL[50], ILL[65], ILL[90]
@@ -446,7 +463,7 @@ slide(f'''
 </div>
 <p class="f mid">Funded from his corporate savings and profit. And he kept his TFSA <b>maxed every year</b>.</p>
 <div class="src">Equitable Equimax Wealth Accumulator illustration, male 40, non-smoker, BC, $99,999.99/yr, premium offset from age 61, current dividend scale. Dividends are not guaranteed.</div>
-''', 'sPlan', hud=H(41, 1560000, '0,4', '100'))
+''', 'sPlan', hud=H(41, NW(41), '0,4', '100'))
 
 # 13b THE REAL ILLUSTRATION
 import base64
@@ -467,7 +484,7 @@ slide(f'''
   </div>
 </div>
 <div class="src">Equitable EquiMax Wealth Accumulator illustration: male 40, non-smoker, BC, paid-up additions, current dividend scale (not guaranteed). Every client&rsquo;s illustration is different.</div>
-''', 'sSnap', hud=H(41, 1560000, '0,4', '100'))
+''', 'sSnap', hud=H(41, NW(41), '0,4', '100'))
 
 # 14 GROWTH CHART (real data)
 ages = list(range(41, 91))
@@ -487,7 +504,7 @@ slide(f'''
   <polyline class="ln db" points="{db}"/><polyline class="ln cv" points="{cv}"/>
   <text x="1108" y="{py(i90["totalDB"])+5:.0f}" class="lg gold">Death benefit</text><text x="1108" y="{py(i90["totalCV"])+5:.0f}" class="lg green">Cash value</text>{marks}</svg>
 <div class="src">Same illustration. Total cash value and total death benefit, current dividend scale (not guaranteed). Age 90: cash value {money(i90["totalCV"])}, death benefit {money(i90["totalDB"])}.</div>
-''', 'sChart', hud=H(41, 1560000, '0,4', '100'))
+''', 'sChart', hud=H(41, NW(41), '0,4', '100'))
 
 # 15 CDA
 slide(f'''
@@ -502,7 +519,7 @@ slide(f'''
     <div class="f note3">David tracks the balance and files the election. Mehar fills it.</div>
   </div>
 </div>
-''', 'sCda', hud=H(41, 1560000, '0,4', '101'))
+''', 'sCda', hud=H(41, NW(41), '0,4', '101'))
 
 # 16 ROGERS
 slide(f'''
@@ -518,7 +535,7 @@ slide(f'''
 </div>
 <p class="f mid">John doesn&rsquo;t need $102 million. <b>He needs the same playbook.</b></p>
 <div class="src">Rogers Enterprises (2015) Inc. v. The Queen, Tax Court of Canada.</div>
-''', 'sRogers', hud=H(41, 1560000, '0,4', '101'))
+''', 'sRogers', hud=H(41, NW(41), '0,4', '101'))
 
 # 17 RE vs S&P
 slide(f'''
@@ -532,7 +549,7 @@ slide(f'''
 </div>
 <p class="f mid">He kept his home. He put new money into <b>segregated funds</b> instead.</p>
 <div class="src">House: Metro Vancouver detached benchmark, Dec 2025 (Greater Vancouver REALTORS&reg;). S&amp;P 500 total return (DQYDJ), 2024 rolled forward by 2025 (+17.4%). Past performance does not guarantee future results.</div>
-''', 'sRe', hud=H(42, 1640000, '0,4', '101'))
+''', 'sRe', hud=H(42, NW(42), '0,4', '101'))
 
 # 18 SEG FUNDS
 feat = [('&#128200;', 'Market growth'), ('&#128737;', '75&ndash;100% guarantee'), ('&#8635;', 'Resets lock in gains'), ('&#128274;', 'Creditor protection'), ('&#9993;', 'Skips probate'), ('&#127963;', 'Assuris protection')]
@@ -542,7 +559,7 @@ slide(f'''
 <h2>Growth <span class="gold">and</span> guarantees, in one place</h2>
 <div class="feats">{fh}</div>
 <p class="f mid"><b>Emma</b> liked the guarantee. <b>Sarah</b> liked that it skips probate. <b>John</b> liked sleeping at night.</p>
-''', 'sSeg', hud=H(42, 1640000, '0,4', '101'))
+''', 'sSeg', hud=H(42, NW(42), '0,4', '101'))
 
 # 19 CHAPTER 4 + location 2 + famous names
 slide(f'''
@@ -553,7 +570,7 @@ slide(f'''
   <p class="f">John <b>borrowed against his policy&rsquo;s cash value</b> ({money(ILL[46]["totalCV"])}) to fund it.</p>
   <p class="f">The policy kept growing as if he had never touched it. <b class="gold">His corporate dollar worked twice.</b></p>
 </div>
-''', 'sLoc2', hud=H(46, 2600000, '0,4,5', '101'))
+''', 'sLoc2', hud=H(46, NW(46), '0,4,5', '101'))
 
 # 20 IFA EXPLAINED
 def _ifa_chart():
@@ -590,14 +607,14 @@ slide(f'''
 <div class="ifaCh f">{IFA_CHART}<p>Walt Disney and Ray Kroc are widely reported to have used their policies the same way. <b class="gold">One dollar, two jobs.</b></p></div>
 </div>
 <div class="src">IFA structures must be set up with your accountant and lender. Interest deductibility depends on how the loan is used. Not tax advice.</div>
-''', 'sIfa', hud=H(46, 2600000, '0,4,5', '101'))
+''', 'sIfa', hud=H(46, NW(46), '0,4,5', '101'))
 
 # 20b CHAPTER 5
 slide(chapter('Chapter Five', '2034 · John is 48', 'The Storm',
     ground(1300,400)+cloud(420,150,.95)+cloud(700,120,1.1)+cloud(960,160,.85)
     + '<path d="M700,215 L670,285 L700,282 L676,350 L740,262 L708,266 L730,215Z" fill="#FFE08A" class="bolt"/>'
     + clinic(300,390,.7,1)+clinic(1000,390,.7,2)+person('john',600,390,.85)+person('emma',690,390,.8)),
-    'sChap sStorm', hud=H(48, 2750000, '0,4,5', '111'))
+    'sChap sStorm', hud=H(48, NW(48), '0,4,5', '111'))
 
 # 21 TWIST 1 crash
 slide(f'''
@@ -609,7 +626,7 @@ slide(f'''
   <p class="f"><b>Mehar called John that same morning</b> and walked him through it, so nothing was sold in a panic.</p>
   <p class="f">His policy&rsquo;s cash value <b class="green">didn&rsquo;t drop at all</b> ({money(ILL[48]["totalCV"])} and climbing).</p>
 </div>
-''', 'sCrash', hud=H(48, 2750000, '0,4,5', '111'))
+''', 'sCrash', hud=H(48, NW(48), '0,4,5', '111'))
 
 # 22 DEBT-FREE AT 50
 slide(f'''
@@ -621,7 +638,7 @@ slide(f'''
   <div class="dC f gold"><span>Policy cash value</span><b>{money(i50["totalCV"])}</b></div>
 </div>
 <p class="f mid">Two clinics paid off his debts faster. <b>&#10003; Pay off every debt in 10 years.</b></p>
-''', 'sDebt', hud=H(50, 4100000, '0,4,5', '111'))
+''', 'sDebt', hud=H(50, NW(50), '0,4,5', '111'))
 
 RAJ_SCENE = scene(ground(560,420)
   + '<g class="rajGhost">' + person('raj',170,400,.82,'coat') + '</g>'
@@ -639,7 +656,7 @@ slide('''
   <p class="lhA f">But life can change at any moment.</p>
   <p class="lhB f">Unfortunately, it often does when we least expect it.</p>
 </div>
-''', 'sLife', hud=H(55, 6400000, '0,4,5', '111'))
+''', 'sLife', hud=H(55, NW(55), '0,4,5', '111'))
 
 # 23 TWIST 2 partner dies
 slide(f'''
@@ -654,7 +671,7 @@ slide(f'''
     <p class="f mid2">No lawsuits. No fire sale. <b class="green">The business survived.</b></p>
   </div>
 </div>
-''', 'sRaj', hud=H(55, 6400000, '0,2,3,4,5', '111'))
+''', 'sRaj', hud=H(55, NW(55), '0,2,3,4,5', '111'))
 
 # 24 CHAPTER 6: 65
 slide(f'''
@@ -666,8 +683,8 @@ slide(f'''
   <div class="f"><b>David</b><span>timed tax-free capital dividends and his retirement income.</span></div>
   <div class="f"><b>Mehar</b><span>turned the policy and seg funds into tax-efficient income.</span></div>
 </div>
-<p class="f mid">&#10003; Open more locations &nbsp; &#10003; Retire by 65</p>
-''', 'sRetire', hud=H(65, 11200000, '0,2,3,4,5', '111'))
+<p class="f mid">&#10003; Open more locations &nbsp; &#10003; Retire by 65 &nbsp;&middot;&nbsp; His TFSA, RRSP and investments: <b class="gold">{money(sum(ACCTS(65)))}</b></p>
+''', 'sRetire', hud=H(65, NW(65), '0,2,3,4,5', '111'))
 
 # 25 SUCCESSION
 slide(f'''
@@ -678,7 +695,7 @@ slide(f'''
   <p class="f"><b>Lily</b> inherits the business she runs.</p>
   <p class="f"><b>Max</b> receives equal value from the insurance, so nobody has to sell a clinic to be fair.</p>
 </div>
-''', 'sSucc', hud=H(65, 11200000, '0,1,2,3,4,5,6', '111'))
+''', 'sSucc', hud=H(65, NW(65), '0,1,2,3,4,5,6', '111'))
 
 # 26 CHAPTER 7: 90
 def _roof_y(x):
@@ -704,7 +721,7 @@ slide(chapter('Chapter Seven', 'Christmas 2076 · John is 90', 'The Last Christm
     HOME + tree(1120,410,1.0)+person('john',300,410,.9,'old')+person('emma',400,410,.86)
     + person('lily',540,410,.9)+person('max',660,410,.9)+person('lily',760,410,.5)+person('max',820,410,.45)+person('lily',880,410,.42)+person('max',940,410,.38)
     + label(300,428,'John, 90',size=18)),
-    'sChap sHome', hud=H(90, 21500000, '0,1,2,3,4,5,6', '111'))
+    'sChap sHome', hud=H(90, NW(90), '0,1,2,3,4,5,6', '111'))
 
 # 26b CHRISTMAS MORNING REVEAL
 slide(f'''
@@ -716,7 +733,7 @@ slide(f'''
     +'<g class="f gLid"><rect x="526" y="214" width="248" height="40" fill="#B32533"/><rect x="636" y="214" width="28" height="40" fill="#E5B93C"/><path d="M650,214 C600,150 570,200 650,214 C730,200 700,150 650,214Z" fill="#E5B93C"/></g>', 470)}
   <div class="f gVal"><span>Passed to his family, tax-free</span><b>{money(ILL[90]["totalDB"])}</b></div>
 </div>
-''', 'sGift', hud=H(90, 21500000, '0,1,2,3,4,5,6', '111'))
+''', 'sGift', hud=H(90, NW(90), '0,1,2,3,4,5,6', '111'))
 
 # 27 LEGACY
 slide(f'''
@@ -733,7 +750,7 @@ slide(f'''
   <div class="f">The business stayed with Lily. <b>Nothing had to be sold.</b></div>
 </div>
 <div class="src">Death benefit from the illustration at age 90 (current dividend scale, not guaranteed). The CDA is credited with the death benefit less the policy&rsquo;s adjusted cost basis.</div>
-''', 'sLegacy', hud=H(90, 21500000, '0,1,2,3,4,5,6', '111'))
+''', 'sLegacy', hud=H(90, NW(90), '0,1,2,3,4,5,6', '111'))
 
 # 28 JAKE
 slide(f'''
@@ -825,7 +842,7 @@ slide(f'''
     <p class="lft f ask">Who&rsquo;s on <b class="red">your</b> team?</p>
   </div>
 </div>
-''', 'sDone', hud=H(90, 21500000, '0,1,2,3,4,5,6', '111'))
+''', 'sDone', hud=H(90, NW(90), '0,1,2,3,4,5,6', '111'))
 
 # 33 CTA
 slide(f'''
