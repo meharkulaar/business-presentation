@@ -236,3 +236,11 @@ New opening order: Cover → The real Ontario case → **How tonight works** →
 - **Location #2:** "Clinic #2 brings in about $750K a year, just like the first. Revenue doubles to about $1.5M."
 - **Retirement at 65:** "Three clinics, $1M a year each: about $3M a year in revenue."
 - **Net worth in the story bar:** age 40 $1.76M · 41 $2.18M · 46 $5.10M · 50 $7.88M · 55 $12.46M · 65 $25.88M · 90 $44.53M.
+
+## Updates in version 22
+- **Personal insurance:** after the needs analysis, John agrees to **$2.5M of personal life insurance (permanent plus term) and $250K of critical illness**. Keep it to one sentence; tonight is about the corporation.
+- **The hook (slide 2):** new illustration. Parliament's Peace Tower, a taxman holding a "TAX BILL $660,000, DUE NOW" and carrying off a money bag marked RRSP, and the daughter left with one coin. The three numbers sit beside it.
+- **The problem (slide 8):** a tug of war. John pulls alone against Compound, Risk and Tax, and the rope's marker has slipped to their side. "All three rules of money were pulling against him."
+- **Three hidden problems:** "Trapped money" now shows a locked safe full of cash.
+- **Rogers:** the scales of justice tip toward the family, with a gavel.
+- **Debt-free at 50:** John and Emma cheer while the mortgage and clinic loan papers burn in the fireplace, with confetti falling.

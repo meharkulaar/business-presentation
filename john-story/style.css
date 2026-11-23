@@ -877,3 +877,20 @@ body.reduce #act{transition:none}
 .ft i{color:#9E1B26;font-size:32px;line-height:1;display:flex}
 .rI{display:flex;align-items:center;justify-content:center}.rI .ico{font-size:34px;stroke-width:2.2}
 .meetL i{font-size:30px}.meetL li{align-items:center}
+/* v22: illustrations */
+.hookS{gap:30px;margin-top:6px}
+.hookCol{display:flex;flex-direction:column;gap:12px;width:400px}
+.hookCol .hookCard{padding:12px 20px!important;text-align:center}.hookCol .hookCard b{font-size:40px}
+.sHook .scene{height:380px;width:auto}
+.tugW svg{display:block;height:270px;width:auto;margin:0 auto}
+.sRules .rules3{margin-top:6px}.sRules .rc{padding:16px 20px}.sRules .rI{width:48px;height:48px;margin-bottom:6px}.sRules .rI .ico{font-size:26px}
+.safeI{display:block;margin:4px auto 6px;filter:drop-shadow(0 4px 6px rgba(0,0,0,.3))}
+.sProbs .loons{margin-top:8px}
+.debtS svg{display:block;height:250px;width:auto;margin:0 auto}
+.sDebt .debt{margin-top:6px}.sDebt .dC{padding:14px 20px}.sDebt .dC b{font-size:42px}
+.conf{animation:conf 3.2s linear infinite}
+@keyframes conf{0%{transform:translateY(-40px) rotate(0)}100%{transform:translateY(220px) rotate(540deg)}}
+.conf{transform-box:fill-box;transform-origin:center}
+.courtI{filter:drop-shadow(0 0 16px rgba(229,185,60,.45))}
+.scaleB{transform-box:fill-box;transform-origin:50% 0;animation:scl 3s ease-in-out infinite alternate}
+@keyframes scl{from{transform:rotate(-14deg)}to{transform:rotate(-8deg)}}
