@@ -322,3 +322,9 @@ New opening order: Cover → The real Ontario case → **How tonight works** →
 - **Two lives (split screen):** new rows. Investing: John's seg funds and flexible plan at about 12% vs Jake's rental condos and bank mutual funds with low returns. Crash: Jake panic-sold at the bottom and then got a tax bill. Protection: seg fund guarantees and skipping probate vs no guarantees and probate fees.
 - **The wealth gap (replaces the $100K bars):** at 90, John vs Jake: net worth $52.1M vs $24.0M · paid out tax-free through the CDA $23.2M vs $0 · estimated tax at death $4.9M vs $6.9M · reached the family $47.2M vs $17.1M. "The difference wasn't luck. John was open to learning, and he took action, because he understood the value of time." (Illustrative assumptions are in the footnote.)
 - **Let's Write Your Story:** "Today is the second-best day to start. The best day was yesterday."
+
+## Updates in version 32
+- **Tug of war:** the rope now runs through each player's own two hands, with no extra hands.
+- **Ten years earlier:** moved to just before Chapter Three (when John applies).
+- **Two lives (split screen):** Jake's side is now in red. New rows: Planning (full corporate + personal plan vs just $500K of term life) · Investing (flexible plan with seg funds at about 12% vs bank TFSA/RRSP and random mutual funds) · Age 65 insurance (covered for life vs term expired, very expensive to renew) · Policies at 90 ($19.79M cash value + $23.19M death benefit vs $0).
+- **The wealth gap at 90 (Jake vs John):** net worth $15.3M vs $52.1M · whole life cash value combined $0 vs $19.8M · death benefit tax-free through the CDA combined $0 vs $23.2M · tax bill the family must pay $2.05M vs $0 (John's $4.92M bill was paid by his policies) · reached the family $13.2M vs $47.2M. That's $34M more for John's family.

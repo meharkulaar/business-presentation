@@ -285,22 +285,15 @@ def tug():
     g.append('<path d="M650,392 L650,448" stroke="#B3202A" stroke-width="5" stroke-dasharray="10 8"/><text x="650" y="466" text-anchor="middle" style="font:800 13px sans-serif;fill:#7A0F1A;letter-spacing:.12em">CENTRE</text>')
     g.append('<path d="M196,404 L276,402 M206,412 L270,410 M214,396 L262,395" stroke="#B9C2CC" stroke-width="4" stroke-linecap="round"/>' + ''.join(f'<circle cx="{x}" cy="{y}" r="{r}" fill="#FFFFFF" opacity=".9"/>' for x, y, r in ((268,392,7),(282,384,5),(256,386,4),(292,394,4))))
     g.append('<path d="M420,196 L580,196" stroke="#FF6F6B" stroke-width="6" stroke-linecap="round"/><path d="M580,182 L604,196 L580,210Z" fill="#FF6F6B"/><text x="500" y="182" text-anchor="middle" style="font:900 22px Georgia;fill:#FF8A86">Losing ground</text>')
-    # people
-    g.append('<g transform="translate(24,0) rotate(12 300 400)">' + person('john',300,400,1.0,arm='hold',mood='shock') + '</g>')
-    xs = [850, 990, 1130]
-    for k, (kind, nm) in enumerate([('rc','Compound'), ('rr','Risk'), ('rt','Tax')]):
-        x = xs[k]
-        g.append(f'<g transform="rotate(13 {x} 400)">' + person(kind, x, 400, .95, arm=None) + f'<rect x="{x-60}" y="232" width="120" height="34" rx="7" fill="#FBF6EA" stroke="#B3202A" stroke-width="2.5"/><text x="{x}" y="256" text-anchor="middle" style="font:900 21px Georgia;fill:#B3202A">{nm}</text></g>')
-    # thick braided rope on top, at hand height
-    rope = 'M372,318 C560,328 760,326 1210,316'
+    rope = 'M395,297 C520,322 760,326 1225,323'
     g.append(f'<path d="{rope}" stroke="#6E4A22" stroke-width="22" fill="none" stroke-linecap="round"/><path d="{rope}" stroke="#C9A066" stroke-width="16" fill="none" stroke-linecap="round"/>'
              f'<path d="{rope}" stroke="#8A6236" stroke-width="16" fill="none" stroke-dasharray="7 9" stroke-linecap="butt"/>')
-    # hands gripping the rope
-    for hx, hy in ((372,318),(398,319),(842,322),(872,322),(982,321),(1012,321),(1122,319),(1152,318)):
-        g.append(f'<circle cx="{hx}" cy="{hy}" r="12" fill="#F1C9A0" stroke="#B88A60" stroke-width="2"/>')
-    # flag tied to the rope, pulled past centre toward their side
-    g.append('<g class="tugFlag"><path d="M760,326 L760,392" stroke="#7A0F1A" stroke-width="4"/><path d="M760,334 L812,348 L760,364Z" fill="#E8433A" stroke="#7A0F1A" stroke-width="2"/></g>'
-             '<circle cx="760" cy="326" r="9" fill="#B3202A" stroke="#FFE7A6" stroke-width="2"/>')
+    g.append('<g class="tugFlag"><path d="M760,328 L760,394" stroke="#7A0F1A" stroke-width="4"/><path d="M760,336 L812,350 L760,366Z" fill="#E8433A" stroke="#7A0F1A" stroke-width="2"/></g>'
+             '<circle cx="760" cy="327" r="9" fill="#B3202A" stroke="#FFE7A6" stroke-width="2"/>')
+    g.append('<g transform="translate(24,0) rotate(12 300 400)">' + person('john',300,400,1.0,arm='hold',mood='shock') + '</g>')
+    for k, (kind, nm) in enumerate([('rc','Compound'), ('rr','Risk'), ('rt','Tax')]):
+        x = [850, 990, 1130][k]
+        g.append(f'<g transform="rotate(13 {x} 400)">' + person(kind, x, 400, .95, arm=None) + f'<rect x="{x-60}" y="232" width="120" height="34" rx="7" fill="#FBF6EA" stroke="#B3202A" stroke-width="2.5"/><text x="{x}" y="256" text-anchor="middle" style="font:900 21px Georgia;fill:#B3202A">{nm}</text></g>')
     g.append(label(300,442,'John',size=20))
     return scene(ground(1300,400) + ''.join(g), 470)
 TUG_SCENE = tug().replace('viewBox="0 0 1300 470" width="1300" height="470"','viewBox="180 160 1080 320" width="1080" height="320"')
@@ -605,32 +598,6 @@ slide(f'''
 # 8 CHAPTER 2
 chap_full('Chapter Two', 'December 28, 2026 &middot; John is 40', 'The Meeting', ch2(), 'sChap', hud=H(40, NW(40)))
 
-# 8a TEN YEARS EARLIER
-def _office_half(x0, sep):
-    g = []
-    g.append(f'<rect x="{x0}" y="0" width="650" height="520" fill="{"#3A3424" if sep else "#1F3A3A"}"/>' + ''.join(f'<path d="M{x},0 V440" stroke="rgba(255,255,255,.04)" stroke-width="16"/>' for x in range(x0+20, x0+650, 48)))
-    g.append(f'<rect x="{x0}" y="440" width="650" height="80" fill="{"#5A4A32" if sep else "#5A3A22"}"/><rect x="{x0}" y="434" width="650" height="9" fill="#E8D6B0"/>')
-    g.append(f'<rect x="{x0+40}" y="130" width="170" height="150" fill="#0E1A30" stroke="#E8D6B0" stroke-width="9"/><path d="M{x0+125},130 V280 M{x0+40},205 H{x0+210}" stroke="#E8D6B0" stroke-width="5"/>')
-    g.append(f'<rect x="{x0+500}" y="150" width="130" height="290" fill="#5A3A22"/>' + ''.join(f'<rect x="{x0+508+k*20}" y="{170+r*72}" width="14" height="54" fill="{["#9E1B26","#2F6E4C","#C9962A","#3E5C76","#E8D6B0","#6B4A8A"][(k+r)%6]}"/>' for r in range(4) for k in range(6)))
-    return ''.join(g)
-def flash_split():
-    defs = '<filter id="sepF"><feColorMatrix type="matrix" values=".39 .77 .19 0 0  .35 .69 .17 0 0  .27 .53 .13 0 0  0 0 0 1 0"/></filter>'
-    L = '<g filter="url(#sepF)">' + _office_half(0, True) + person('john', 150, 470, 1.18) + person('mehar', 440, 470, 1.12) + '<rect x="160" y="380" width="360" height="20" rx="4" fill="#7A4A2A"/><rect x="175" y="400" width="330" height="120" fill="#5E3820"/>' + '</g>'
-    Rh = _office_half(650, False) + person('john', 800, 470, 1.18, mood='sad') + person('mehar', 1100, 470, 1.12) + '<rect x="810" y="380" width="360" height="20" rx="4" fill="#7A4A2A"/><rect x="825" y="400" width="330" height="120" fill="#5E3820"/>'
-    tags = ('<g><rect x="20" y="460" width="210" height="40" rx="20" fill="rgba(40,24,10,.85)" stroke="#C9A47A"/><text x="125" y="487" text-anchor="middle" style="font:700 21px Caveat,cursive;fill:#FFE7A6">2016 &#183; John is 30</text></g>'
-            '<g><rect x="1070" y="460" width="210" height="40" rx="20" fill="rgba(10,30,30,.85)" stroke="#7BE3AE"/><text x="1175" y="487" text-anchor="middle" style="font:700 21px Caveat,cursive;fill:#CFF5E0">2026 &#183; John is 40</text></g>')
-    div = '<rect x="646" y="0" width="8" height="520" fill="#C9962A"/><rect x="649" y="0" width="2" height="520" fill="#FFE7A6"/>'
-    b1 = '<g class="f">' + bubble(40, 24, 280, ['&#8220;Let me think', 'about it&#8230;&#8221;'], 160, 162, size=22) + '</g>'
-    b2 = '<g class="f">' + bubble(668, 18, 300, ['&#8220;I wish I&#8217;d listened', 'to you ten years ago.&#8221;'], 800, 162, size=20) + '</g>'
-    b3 = '<g class="f">' + bubble(980, 10, 300, ['&#8220;That&#8217;s okay. We can&#8217;t', 'change the past. Let&#8217;s', 'focus on today, and', 'on your future.&#8221;'], 1100, 172, size=19, bold_last=True) + '</g>'
-    return f'<svg class="flashSvg" viewBox="0 0 1300 520" width="1300" height="520" aria-hidden="true"><defs>{defs}</defs>{L}{Rh}{div}{tags}{b1}{b2}{b3}</svg>'
-FLASH = flash_split()
-slide(f'''
-<div class="kick">But this wasn&rsquo;t their first meeting</div>
-<h2>Ten years earlier, Mehar had shown John these same strategies.</h2>
-{FLASH}
-''', 'sFlash')
-
 # 8b MEHAR'S PROCESS
 STEPS = [('Listen', 'Your wishlist, your goals, your worries'),
          ('Check-up', 'The 7 key needs of your corporation'),
@@ -829,6 +796,32 @@ slide(f'''
 </div>
 <p class="note2">John brought David and Sarah to the table himself.</p>
 ''', 'sTeam', hud=H(40, NW(40)))
+
+# 8a TEN YEARS EARLIER
+def _office_half(x0, sep):
+    g = []
+    g.append(f'<rect x="{x0}" y="0" width="650" height="520" fill="{"#3A3424" if sep else "#1F3A3A"}"/>' + ''.join(f'<path d="M{x},0 V440" stroke="rgba(255,255,255,.04)" stroke-width="16"/>' for x in range(x0+20, x0+650, 48)))
+    g.append(f'<rect x="{x0}" y="440" width="650" height="80" fill="{"#5A4A32" if sep else "#5A3A22"}"/><rect x="{x0}" y="434" width="650" height="9" fill="#E8D6B0"/>')
+    g.append(f'<rect x="{x0+40}" y="130" width="170" height="150" fill="#0E1A30" stroke="#E8D6B0" stroke-width="9"/><path d="M{x0+125},130 V280 M{x0+40},205 H{x0+210}" stroke="#E8D6B0" stroke-width="5"/>')
+    g.append(f'<rect x="{x0+500}" y="150" width="130" height="290" fill="#5A3A22"/>' + ''.join(f'<rect x="{x0+508+k*20}" y="{170+r*72}" width="14" height="54" fill="{["#9E1B26","#2F6E4C","#C9962A","#3E5C76","#E8D6B0","#6B4A8A"][(k+r)%6]}"/>' for r in range(4) for k in range(6)))
+    return ''.join(g)
+def flash_split():
+    defs = '<filter id="sepF"><feColorMatrix type="matrix" values=".39 .77 .19 0 0  .35 .69 .17 0 0  .27 .53 .13 0 0  0 0 0 1 0"/></filter>'
+    L = '<g filter="url(#sepF)">' + _office_half(0, True) + person('john', 150, 470, 1.18) + person('mehar', 440, 470, 1.12) + '<rect x="160" y="380" width="360" height="20" rx="4" fill="#7A4A2A"/><rect x="175" y="400" width="330" height="120" fill="#5E3820"/>' + '</g>'
+    Rh = _office_half(650, False) + person('john', 800, 470, 1.18, mood='sad') + person('mehar', 1100, 470, 1.12) + '<rect x="810" y="380" width="360" height="20" rx="4" fill="#7A4A2A"/><rect x="825" y="400" width="330" height="120" fill="#5E3820"/>'
+    tags = ('<g><rect x="20" y="460" width="210" height="40" rx="20" fill="rgba(40,24,10,.85)" stroke="#C9A47A"/><text x="125" y="487" text-anchor="middle" style="font:700 21px Caveat,cursive;fill:#FFE7A6">2016 &#183; John is 30</text></g>'
+            '<g><rect x="1070" y="460" width="210" height="40" rx="20" fill="rgba(10,30,30,.85)" stroke="#7BE3AE"/><text x="1175" y="487" text-anchor="middle" style="font:700 21px Caveat,cursive;fill:#CFF5E0">2026 &#183; John is 40</text></g>')
+    div = '<rect x="646" y="0" width="8" height="520" fill="#C9962A"/><rect x="649" y="0" width="2" height="520" fill="#FFE7A6"/>'
+    b1 = '<g class="f">' + bubble(40, 24, 280, ['&#8220;Let me think', 'about it&#8230;&#8221;'], 160, 162, size=22) + '</g>'
+    b2 = '<g class="f">' + bubble(668, 18, 300, ['&#8220;I wish I&#8217;d listened', 'to you ten years ago.&#8221;'], 800, 162, size=20) + '</g>'
+    b3 = '<g class="f">' + bubble(980, 10, 300, ['&#8220;That&#8217;s okay. We can&#8217;t', 'change the past. Let&#8217;s', 'focus on today, and', 'on your future.&#8221;'], 1100, 172, size=19, bold_last=True) + '</g>'
+    return f'<svg class="flashSvg" viewBox="0 0 1300 520" width="1300" height="520" aria-hidden="true"><defs>{defs}</defs>{L}{Rh}{div}{tags}{b1}{b2}{b3}</svg>'
+FLASH = flash_split()
+slide(f'''
+<div class="kick">But this wasn&rsquo;t their first meeting</div>
+<h2>Ten years earlier, Mehar had shown John these same strategies.</h2>
+{FLASH}
+''', 'sFlash')
 
 # 12 CHAPTER 3
 chap_full('Chapter Three', 'December 30, 2026 &middot; the same month', 'He Starts Now', ch3(), 'sChap', hud=H(40, NW(40), '0,4', '100'))
@@ -1290,14 +1283,16 @@ slide(f'''
 ''', 'sJake')
 
 # 29 SPLIT SCREEN
-cmp = [('Investing', 'Seg funds + flexible plan, about 12% a year', 'Rental condos + bank mutual funds, low returns'),
+CV90 = ILL[90]['totalCV'] + P2[90]['totalCV']
+cmp = [('Planning', 'Full corporate + personal plan', 'None: just $500K of term life'),
+       ('Investing', 'Flexible plan: seg funds, about 12% a year', 'Bank TFSA/RRSP + random mutual funds'),
        ('Age 46', 'Opened clinic #2', 'Cash stuck in the corporation'),
        ('Age 48: crash', 'Guaranteed floor, policy untouched', 'Panic-sold at the bottom, then a tax bill'),
-       ('Protection', 'Seg fund guarantees, skips probate', 'No guarantees, probate fees'),
        ('Debt-free', 'At 50', 'At 58'),
        ('Age 55: partner dies', 'Buy-sell funded, business saved', 'No agreement: went into debt'),
-       ('Locations', '3', '1'),
-       ('Retired', 'At 65', 'At 70')]
+       ('Age 65: insurance', 'Covered for life', 'Term expired; renewal very expensive'),
+       ('Retired', 'At 65, 3 clinics', 'At 70, 1 clinic'),
+       ('Policies at 90', f'{money(CV90)} cash value + {money(TOT90)} death benefit', '$0')]
 lj = ''.join(f'<div class="spR f"><span>{a}</span><b>{b}</b></div>' for a, b, c in cmp)
 rk = ''.join(f'<div class="spR f"><span>{a}</span><b>{c}</b></div>' for a, b, c in cmp)
 slide(f'''
@@ -1335,15 +1330,18 @@ slide(f'''
 def _jake_nw(a):
     home = 1.6e6*1.03**(a-40); mort = 1e6*max(0, (58-a)/18); loan = 5e5*max(0, (58-a)/18)
     bus = 9e5*1.04**(min(a, 70)-40)
-    corp = 5e5*1.04**(a-40) + sum(100000*1.04**(min(a,90)-y) for y in range(41, min(a,60)+1))
+    corp = 5e5*1.02**(a-40) + sum(60000*1.02**(min(a,90)-y) for y in range(41, min(a,60)+1))
     t, r, n = 109000, 150000, 0
     for y in range(41, a+1):
-        if y <= 65: t = t*1.05 + 7000; r = r*1.05 + 33810; n = n*1.05 + 15000
-        else: t *= 1.05*.9; r *= 1.05*.9; n *= 1.05*.9
+        if y <= 65: t = t*1.035 + 3500; r = r*1.035 + 12000; n = n*1.035 + (8000 if y % 3 else 0)
+        else: t *= 1.035*.9; r *= 1.035*.9; n *= 1.035*.9
         if y == 48: n *= .75
-    return home - mort + bus - loan + corp + t + r + n, corp, r, n
+        if 66 <= y <= 80: corp -= 45000
+    rent = 6e5*1.025**(a-46) - 3e5*max(0, (70-a)/24) if a >= 46 else 0
+    global J_RENTGAIN; J_RENTGAIN = max(0, 6e5*1.025**(a-46) - 6e5) if a >= 46 else 0
+    return home - mort + bus - loan + corp + t + r + n + rent, corp, r, n
 J_NW, J_CORP, J_RRSP, J_NR = _jake_nw(90)
-J_TAX = 0.5*J_CORP + 0.5*J_RRSP + 0.25*J_NR
+J_TAX = 0.5*J_CORP + 0.5*J_RRSP + 0.25*J_NR + 0.27*J_RENTGAIN
 J_FAM = J_NW - J_TAX
 JN_NW = NW(90)
 JN_TAX = 0.5*SAV[90][1] + 0.25*SAV[90][2]
@@ -1357,13 +1355,14 @@ slide(f'''
 <h2>The wealth gap, and the tax bill Jake never planned for</h2>
 <div class="wg">
   {_bar('Net worth', J_NW, JN_NW, MXW)}
-  {_bar('Paid out tax-free through the CDA', 0, TOT90, MXW, 'gold')}
-  {_bar('Estimated tax at death', J_TAX, JN_TAX, MXW, 'red')}
+  {_bar('Whole life cash value (combined)', 0, CV90, MXW, 'gold')}
+  {_bar('Death benefit, tax-free via CDA (combined)', 0, TOT90, MXW, 'gold')}
+  {_bar('Tax bill at death the family must pay', J_TAX, 0, MXW, 'red')}
   {_bar('What reached the family', J_FAM, JN_FAM, MXW, 'green')}
 </div>
-<p class="f mid">Jake never used his CDA, so his corporate savings were taxed again on the way out. <b class="green">{money(JN_FAM - J_FAM)} more</b> reached John&rsquo;s family.</p>
+<p class="f mid">John&rsquo;s {money(JN_TAX)} tax bill was paid by his policies. Jake never used his CDA, so his family paid his tax bill, and his corporate savings were taxed twice. <b class="green">{money(JN_FAM - J_FAM)} more</b> reached John&rsquo;s family.</p>
 <p class="f mid wgTie">The difference wasn&rsquo;t luck. John was <b>open to learning</b>, and he <b>took action</b>, because he understood the value of time.</p>
-<div class="src">Illustrative. Jake: same income and savings, 5% average return (real estate and bank mutual funds), panic-sold 25% lower in the 2034 crash, one clinic, debt-free at 58; tax at death about 50% on corporate assets and RRSP, 25% on non-registered gains. John: net worth from the story bar; both policies&rsquo; death benefits paid through the CDA. Not tax advice.</div>
+<div class="src">Illustrative. Jake: no whole life; $500K term expired at 65, then about $45K/yr to renew; corporate savings in GICs (about 2% after tax); TFSA/RRSP at the bank and irregular mutual-fund investing at about 3.5%; panic-sold 25% lower in the 2034 crash; a rental condo bought at 46 (about 2.5% growth), one clinic, debt-free at 58; tax at death about 50% on corporate assets and RRSP, 25% on non-registered gains. John: net worth from the story bar; both policies&rsquo; death benefits paid through the CDA. Not tax advice.</div>
 ''', 'sBars')
 
 # 30 TWO DOCTORS

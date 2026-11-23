@@ -1050,3 +1050,9 @@ html,body{background:#000}
 .wg{gap:22px}.wgB{height:36px}
 .wgB em{right:auto;left:0;top:-16px;transform:none;font-size:11px}
 .shockS .sp .scene{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%)!important;mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%)!important}
+.half.jake .spR b{color:#FF6F6B!important}.half.jake .spR span{color:#E8A8A4}
+.sSplit .spR{padding:5px 6px;font-size:15.5px}.sSplit .half svg{height:140px}
+.wg{gap:18px}
+.slide.active .half.jake{animation:none!important;filter:none!important}
+.half.jake svg,.half.jake .hName{filter:grayscale(1) brightness(.85)}
+.half.jake{background:rgba(30,14,16,.6)!important}
