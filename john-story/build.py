@@ -358,13 +358,62 @@ slide(f'''
 <p class="f mid">Sound familiar?</p>
 ''', 'sMeet', hud=H(40, NW(40)))
 
-# 4 CHAPTER 1
-slide(chapter('Chapter One', 'Christmas Eve, 2026 · John is 40', 'The Rat Race',
-    ground(1300,400)+clinic(330,400,1.0)+person('john',520,400,.95,'coat')+
-    '<g><rect x="760" y="140" width="380" height="260" fill="#F4EBDD" stroke="#C9B79C" stroke-width="2"/><rect x="800" y="180" width="300" height="180" fill="#F7C96B"/>'
-    + person('emma',880,360,.62)+person('lily',960,360,.42)+person('max',1020,360,.36)+tree(1070,360,.4)+'</g>'
-    +'<text x="520" y="120" text-anchor="middle" class="nm" style="fill:#5E6670;font-size:22px">9:47 p.m. &mdash; still at the clinic</text>'),
-    'sChap', hud=H(40, NW(40)))
+# 4 CHAPTER 1: THE RAT RACE (full-screen split)
+def rat_race():
+    import random as _r; _r.seed(11)
+    L = []
+    # ---- left: cold office at night
+    L.append('<defs><linearGradient id="rOff" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1A2230"/><stop offset="1" stop-color="#0E131C"/></linearGradient>'
+             '<linearGradient id="rHome" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7A3424"/><stop offset="1" stop-color="#4A1C14"/></linearGradient>'
+             '<radialGradient id="rLamp" cx=".5" cy="0" r="1"><stop offset="0" stop-color="rgba(255,226,150,.55)"/><stop offset="1" stop-color="rgba(255,226,150,0)"/></radialGradient>'
+             '<radialGradient id="rFire" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="rgba(255,170,80,.55)"/><stop offset="1" stop-color="rgba(255,170,80,0)"/></radialGradient>'
+             '<clipPath id="rcL"><rect width="720" height="810"/></clipPath><clipPath id="rcR"><rect x="720" width="720" height="810"/></clipPath></defs>')
+    L.append('<g clip-path="url(#rcL)"><rect width="720" height="810" fill="url(#rOff)"/>')
+    L.append('<rect x="70" y="150" width="250" height="230" fill="#0A1426" stroke="#3A4558" stroke-width="10"/><path d="M195,150 V380 M70,265 H320" stroke="#3A4558" stroke-width="6"/>'
+             + ''.join(f'<circle cx="{_r.randint(80,310)}" cy="{_r.randint(160,370)}" r="{_r.choice([1.5,2,2.5])}" fill="#DDE6F0" opacity=".8"/>' for _ in range(26)))
+    L.append('<g transform="translate(612,372)"><circle r="46" fill="#F4ECD6" stroke="#8A6510" stroke-width="6"/>' + ''.join(f'<line y1="-38" y2="-31" stroke="#3A2A1A" stroke-width="3" transform="rotate({k*30})"/>' for k in range(12))
+             + '<line y1="4" y2="-22" stroke="#3A2A1A" stroke-width="6" stroke-linecap="round" transform="rotate(292)"/><line y1="6" y2="-34" stroke="#3A2A1A" stroke-width="4" stroke-linecap="round" transform="rotate(282)"/><circle r="4" fill="#3A2A1A"/></g>')
+    L.append('<path d="M150,470 L360,250 L570,470Z" fill="url(#rLamp)"/>')
+    L.append(person('john', 360, 690, 1.35, 'coat', mood='sad', arm='hold'))
+    L.append('<path d="M326,388 C318,376 322,368 330,364" stroke="#BFE3F5" stroke-width="5" fill="none" stroke-linecap="round"/>')
+    L.append('<rect x="40" y="560" width="660" height="30" rx="6" fill="#5A3A22"/><rect x="60" y="590" width="620" height="230" fill="#4A2E1A"/><rect x="60" y="590" width="620" height="230" fill="url(#gShade)" opacity=".5"/>')
+    for bx, n in ((95, 9), (520, 7), (600, 11)):
+        L.append(''.join(f'<rect x="{bx + _r.randint(-4,4)}" y="{556 - k*13}" width="{70 + _r.randint(-6,6)}" height="12" rx="2" fill="{_r.choice(["#E8E2D2","#D9C9A4","#F4EBDD","#C9B79C"])}" stroke="#8A7A5A" stroke-width="1.5"/>' for k in range(n)))
+    L.append('<rect x="200" y="470" width="150" height="90" rx="6" fill="#20262E" stroke="#4A5260" stroke-width="5"/><rect x="210" y="480" width="130" height="66" fill="#3E7FB8" opacity=".85"/><rect x="262" y="555" width="26" height="10" fill="#4A5260"/>')
+    L.append('<path d="M226,525 L250,505 L270,515 L300,492 L326,500" stroke="#E8F4FF" stroke-width="3" fill="none"/>')
+    L.append('<g transform="translate(440,540)"><rect x="-34" y="-14" width="68" height="20" rx="6" fill="#2A2E36"/><path d="M-28,-14 C-28,-34 28,-34 28,-14" stroke="#2A2E36" stroke-width="10" fill="none"/>'
+             '<path d="M44,-40 l10,-8 M50,-26 l14,-2 M44,-12 l12,6" stroke="#FF6F6B" stroke-width="3" stroke-linecap="round" class="ring"/></g>')
+    L.append('<g transform="translate(150,548)"><rect x="-14" y="-24" width="28" height="30" rx="4" fill="#E8E2D2"/><path d="M14,-16 c10,0 10,14 0,14" stroke="#E8E2D2" stroke-width="4" fill="none"/></g>')
+    L.append('<rect width="720" height="810" fill="rgba(10,20,40,.18)"/></g>')
+    # ---- right: warm home, sad family
+    L.append('<g clip-path="url(#rcR)"><rect x="720" width="720" height="810" fill="url(#rHome)"/>'
+             + ''.join(f'<path d="M{x},0 V810" stroke="rgba(255,220,170,.05)" stroke-width="18"/>' for x in range(740, 1440, 48)))
+    L.append('<rect x="720" y="640" width="720" height="170" fill="#5A3A22"/>' + ''.join(f'<path d="M{x},640 V810" stroke="rgba(0,0,0,.25)" stroke-width="2"/>' for x in range(760, 1440, 90)) + '<rect x="720" y="632" width="720" height="10" fill="#E8D6B0"/>')
+    L.append('<rect x="790" y="150" width="200" height="200" fill="#16213A" stroke="#E8D6B0" stroke-width="10"/><path d="M890,150 V350 M790,250 H990" stroke="#E8D6B0" stroke-width="6"/>'
+             + ''.join(f'<circle cx="{_r.randint(800,980)}" cy="{_r.randint(160,340)}" r="2.2" fill="#fff"/>' for _ in range(16)) + '<path d="M790,320 Q890,300 990,322 L990,350 L790,350Z" fill="#E8EEF6"/>')
+    L.append('<rect x="1030" y="400" width="240" height="240" fill="#8A3A2A"/><rect x="1015" y="385" width="270" height="22" rx="4" fill="#5A3A22"/><rect x="1080" y="470" width="140" height="170" rx="70" fill="#1A0A06"/><rect x="1080" y="550" width="140" height="90" fill="#1A0A06"/>'
+             '<ellipse cx="1150" cy="590" rx="150" ry="110" fill="url(#rFire)"/><path class="tFl" d="M1120,638 C1100,600 1118,570 1140,548 C1144,572 1160,578 1160,595 C1170,580 1176,560 1170,540 C1196,570 1200,612 1192,638Z" fill="#FF9A3A"/>'
+             '<path class="tFl" d="M1136,638 C1128,616 1136,598 1148,588 C1150,604 1160,606 1162,618 C1168,608 1170,596 1168,586 C1180,604 1182,624 1176,638Z" fill="#FFD27A"/>')
+    for k, (cx, t) in enumerate(((1060, 'EMMA'), (1110, 'LILY'), (1160, 'MAX'), (1225, 'DAD'))):
+        L.append(f'<g transform="translate({cx},408)"><path d="M-14,0 V40 C-14,56 4,60 16,50 L22,44 C14,40 10,34 10,26 V0Z" fill="{"#B3202A" if t != "DAD" else "#2F6E4C"}" stroke="#FFF4DC" stroke-width="2"/><rect x="-16" y="-4" width="28" height="12" rx="3" fill="#FFF4DC"/></g>')
+    L.append('<text x="1225" y="448" text-anchor="middle" style="font:900 9px sans-serif;fill:#FFF4DC">DAD</text>')
+    L.append(tree(1360, 640, 1.05))
+    L.append('<g transform="translate(860,640)"><rect x="-80" y="-120" width="160" height="80" rx="18" fill="#3E5C76"/><rect x="-96" y="-150" width="40" height="120" rx="16" fill="#35506A"/><rect x="56" y="-150" width="40" height="120" rx="16" fill="#35506A"/><rect x="-80" y="-180" width="160" height="70" rx="20" fill="#35506A"/><rect x="-70" y="-40" width="10" height="40" fill="#2A2A2A"/><rect x="60" y="-40" width="10" height="40" fill="#2A2A2A"/></g>')
+    L.append('<text x="860" y="575" text-anchor="middle" style="font:italic 700 16px Georgia;fill:rgba(255,231,166,.75)">Dad&rsquo;s chair</text>')
+    L.append(person('emma', 980, 650, 1.1, mood='sad'))
+    L.append(person('lily', 1070, 650, .78, mood='sad', arm='hold'))
+    L.append('<g transform="translate(1108,520) rotate(6)"><rect x="-26" y="-34" width="52" height="40" fill="#FFF" stroke="#C9B79C" stroke-width="2"/><path d="M-6,-20 c-6,-8 -16,0 -8,8 l8,8 8,-8 c8,-8 -2,-16 -8,-8Z" fill="#E8433A"/><text y="2" text-anchor="middle" style="font:700 9px sans-serif;fill:#3A2A1A">FOR DAD</text></g>')
+    L.append(person('max', 1250, 650, .62, mood='sad'))
+    L.append(gift(1310, 650, .35) + gift(1395, 650, .3, '#2F6E4C'))
+    L.append('</g>')
+    # ---- divider + captions
+    L.append('<rect x="714" y="0" width="12" height="810" fill="#C9962A"/><rect x="718" y="0" width="4" height="810" fill="#FFE7A6"/>')
+    return '<svg class="ratSvg" viewBox="0 0 1440 810" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' + ''.join(L) + '</svg>'
+slide(f'''
+{rat_race()}
+<div class="ratC l">9:47 p.m. &middot; still at the clinic</div><div class="ratC r">At home &middot; waiting for Dad</div>
+<div class="ratTop"><div class="chNum">Chapter One</div><div class="chWhen">Christmas Eve, 2026 &middot; John is 40</div><h1>The Rat Race</h1></div>
+''', 'sChap sRat', hud=H(40, NW(40)))
 
 # 5 JOHN'S NUMBERS
 rows = [('Clinic revenue', 'about $750K a year', ''), ('Practice loan', '$1M &middot; <b class="red">$500K still owing</b>', ''),

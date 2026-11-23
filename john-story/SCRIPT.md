@@ -266,3 +266,9 @@ New opening order: Cover → The real Ontario case → **How tonight works** →
   - Say it slowly: "Because his money was working, John didn't have to work every hour. From the first year, he took Emma and the kids away a few times a year. He never missed a game, a recital or a parent-teacher night. He was there for every first day of school, and he cheered at every graduation."
   - [click] "Remember the concert I missed when Lily was six? I never missed another one."
   - [pause]
+
+## Updates in version 25
+- **Chapter One: The Rat Race:** now a full-screen split scene.
+  - **Left, cold and dark:** John hunched at his desk at 9:47 p.m. under one lamp, with piles of files, the phone ringing and the clock on the wall.
+  - **Right, warm:** Emma, Lily and Max at home by the fire and the tree, all sad. Lily holds a card "For Dad", his stocking hangs on the mantle, and "Dad's chair" is empty.
+  - Let it sit for a few seconds before you speak: "Christmas Eve. 9:47 at night. John is still at the clinic... and at home, his family is waiting."
