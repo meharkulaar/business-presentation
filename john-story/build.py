@@ -369,8 +369,8 @@ def rat_race():
              '<radialGradient id="rFire" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="rgba(255,170,80,.55)"/><stop offset="1" stop-color="rgba(255,170,80,0)"/></radialGradient>'
              '<clipPath id="rcL"><rect width="720" height="810"/></clipPath><clipPath id="rcR"><rect x="720" width="720" height="810"/></clipPath></defs>')
     L.append('<g clip-path="url(#rcL)"><rect width="720" height="810" fill="url(#rOff)"/>')
-    L.append('<rect x="70" y="150" width="250" height="230" fill="#0A1426" stroke="#3A4558" stroke-width="10"/><path d="M195,150 V380 M70,265 H320" stroke="#3A4558" stroke-width="6"/>'
-             + ''.join(f'<circle cx="{_r.randint(80,310)}" cy="{_r.randint(160,370)}" r="{_r.choice([1.5,2,2.5])}" fill="#DDE6F0" opacity=".8"/>' for _ in range(26)))
+    L.append('<rect x="40" y="300" width="210" height="200" fill="#0A1426" stroke="#3A4558" stroke-width="10"/><path d="M145,300 V500 M40,400 H250" stroke="#3A4558" stroke-width="6"/>'
+             + ''.join(f'<circle cx="{_r.randint(50,240)}" cy="{_r.randint(310,490)}" r="{_r.choice([1.5,2,2.5])}" fill="#DDE6F0" opacity=".8"/>' for _ in range(22)))
     L.append('<g transform="translate(612,372)"><circle r="46" fill="#F4ECD6" stroke="#8A6510" stroke-width="6"/>' + ''.join(f'<line y1="-38" y2="-31" stroke="#3A2A1A" stroke-width="3" transform="rotate({k*30})"/>' for k in range(12))
              + '<line y1="4" y2="-22" stroke="#3A2A1A" stroke-width="6" stroke-linecap="round" transform="rotate(292)"/><line y1="6" y2="-34" stroke="#3A2A1A" stroke-width="4" stroke-linecap="round" transform="rotate(282)"/><circle r="4" fill="#3A2A1A"/></g>')
     L.append('<path d="M150,470 L360,250 L570,470Z" fill="url(#rLamp)"/>')
@@ -389,8 +389,7 @@ def rat_race():
     L.append('<g clip-path="url(#rcR)"><rect x="720" width="720" height="810" fill="url(#rHome)"/>'
              + ''.join(f'<path d="M{x},0 V810" stroke="rgba(255,220,170,.05)" stroke-width="18"/>' for x in range(740, 1440, 48)))
     L.append('<rect x="720" y="640" width="720" height="170" fill="#5A3A22"/>' + ''.join(f'<path d="M{x},640 V810" stroke="rgba(0,0,0,.25)" stroke-width="2"/>' for x in range(760, 1440, 90)) + '<rect x="720" y="632" width="720" height="10" fill="#E8D6B0"/>')
-    L.append('<rect x="790" y="150" width="200" height="200" fill="#16213A" stroke="#E8D6B0" stroke-width="10"/><path d="M890,150 V350 M790,250 H990" stroke="#E8D6B0" stroke-width="6"/>'
-             + ''.join(f'<circle cx="{_r.randint(800,980)}" cy="{_r.randint(160,340)}" r="2.2" fill="#fff"/>' for _ in range(16)) + '<path d="M790,320 Q890,300 990,322 L990,350 L790,350Z" fill="#E8EEF6"/>')
+    L.append('<g transform="translate(880,290) scale(.85)"><circle r="62" fill="none" stroke="#2F6E4C" stroke-width="26"/><circle r="62" fill="none" stroke="#3E8A5E" stroke-width="10" stroke-dasharray="6 10"/>' + ''.join(f'<circle cx="{62*__import__("math").cos(k*0.7):.0f}" cy="{62*__import__("math").sin(k*0.7):.0f}" r="6" fill="#C62D3A"/>' for k in range(9)) + '<ellipse cx="-16" cy="58" rx="16" ry="10" fill="#C62D3A"/><ellipse cx="16" cy="58" rx="16" ry="10" fill="#C62D3A"/><circle cy="58" r="7" fill="#9E1B26"/><path d="M-4,62 L-14,88 M4,62 L14,88" stroke="#C62D3A" stroke-width="7" stroke-linecap="round"/></g>')
     L.append('<rect x="1030" y="400" width="240" height="240" fill="#8A3A2A"/><rect x="1015" y="385" width="270" height="22" rx="4" fill="#5A3A22"/><rect x="1080" y="470" width="140" height="170" rx="70" fill="#1A0A06"/><rect x="1080" y="550" width="140" height="90" fill="#1A0A06"/>'
              '<ellipse cx="1150" cy="590" rx="150" ry="110" fill="url(#rFire)"/><path class="tFl" d="M1120,638 C1100,600 1118,570 1140,548 C1144,572 1160,578 1160,595 C1170,580 1176,560 1170,540 C1196,570 1200,612 1192,638Z" fill="#FF9A3A"/>'
              '<path class="tFl" d="M1136,638 C1128,616 1136,598 1148,588 C1150,604 1160,606 1162,618 C1168,608 1170,596 1168,586 C1180,604 1182,624 1176,638Z" fill="#FFD27A"/>')
