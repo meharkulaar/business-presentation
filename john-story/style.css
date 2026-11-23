@@ -894,3 +894,11 @@ body.reduce #act{transition:none}
 .courtI{filter:drop-shadow(0 0 16px rgba(229,185,60,.45))}
 .scaleB{transform-box:fill-box;transform-origin:50% 0;animation:scl 3s ease-in-out infinite alternate}
 @keyframes scl{from{transform:rotate(-14deg)}to{transform:rotate(-8deg)}}
+/* v23 */
+.flash{position:relative}.flash svg{filter:sepia(.75) saturate(.7) brightness(.95)}
+.flTag{position:absolute;top:8px;left:50%;transform:translateX(-50%) rotate(-3deg);font:700 28px "Caveat",cursive;color:#FFE7A6;background:rgba(60,30,10,.65);padding:2px 16px;border-radius:8px;border:1px dashed rgba(255,231,166,.6)}
+.lftT{align-items:flex-start;margin-top:14px}.lftT p{text-align:left;max-width:620px}
+.dlTalk p.j2{border-color:rgba(255,231,166,.6)}
+.cvInc{max-width:1180px;margin:6px auto 0;padding:10px 22px;text-align:center}
+.cvInc b{display:block;font:900 19px Georgia,serif;color:#6B1218}.cvInc span{font-size:15.5px;color:#4A3A2A}.cvInc strong{color:#2E1E12}
+.sSave .svW{margin-top:2px}.sSave .svSvg{height:340px;width:auto}

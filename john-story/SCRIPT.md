@@ -244,3 +244,12 @@ New opening order: Cover → The real Ontario case → **How tonight works** →
 - **Three hidden problems:** "Trapped money" now shows a locked safe full of cash.
 - **Rogers:** the scales of justice tip toward the family, with a gavel.
 - **Debt-free at 50:** John and Emma cheer while the mortgage and clinic loan papers burn in the fireplace, with confetti falling.
+
+## Updates in version 23 (55 slides)
+- **Christmas list:** "...between Christmas and New Year's, he called Mehar *again*."
+- **Ten years earlier (new, right after Chapter Two: The Meeting):** shown in sepia, "2016 · John is 30".
+  - "But this wasn't their first meeting. Ten years earlier, Mehar had shown John these same strategies. John liked the ideas, then said what most of us say: 'Let me think about it.' Life got busy, and ten years went by."
+  - [click] John: "I wish I'd listened to you ten years ago."
+  - [click] Mehar: "That's okay. We can't change the past. Let's focus on today, and on your future."
+  - This sets up Jake later: Jake also "decided to think about it", and he never came back.
+- **From saving to spending (age 65):** a new paper note: "Plus: income from his policies' cash value. In retirement John also draws from the cash value of his personal permanent policy. And over the years he used some of the corporate policy's cash value for personal needs too, borrowing against it with David's help, while the policies kept growing." The action banner now mentions both policies.

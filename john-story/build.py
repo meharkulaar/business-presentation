@@ -395,7 +395,7 @@ wlh = ''.join(f'<li class="f"><i class="box"></i>{w}</li>' for w in wl)
 slide(f'''
 <div class="split">
   <div class="scroll"><div class="scT">John&rsquo;s Christmas List</div><ul class="wl">{wlh}</ul><div class="scSig">&mdash; J.</div></div>
-  <div class="sp2"><h2 class="lft">He wasn&rsquo;t asking for a sports car.</h2><p class="lft big">He wanted his <b>time</b> back, and a future his family could count on.</p><p class="lft f mid">So that same week, between Christmas and New Year&rsquo;s, <b>he called Mehar.</b></p></div>
+  <div class="sp2"><h2 class="lft">He wasn&rsquo;t asking for a sports car.</h2><p class="lft big">He wanted his <b>time</b> back, and a future his family could count on.</p><p class="lft f mid">So that same week, between Christmas and New Year&rsquo;s, <b>he called Mehar again.</b></p></div>
 </div>
 ''', 'sList', hud=H(40, NW(40)))
 
@@ -407,6 +407,25 @@ slide(chapter('Chapter Two', 'December 28, 2026 · John is 40', 'The Meeting',
     + '<text x="760" y="60" text-anchor="middle" class="capt">&ldquo;Let&rsquo;s go through your list together, step by step.&rdquo;</text>'
     + label(560,150,'John',size=22)+label(960,150,'Mehar',size=22)),
     'sChap', hud=H(40, NW(40)))
+
+# 8a TEN YEARS EARLIER
+FLASH = scene(ground(560,420) + desk(280,410,.9) + person('john',150,410,.95) + person('mehar',410,410,.95)
+  + '<g transform="translate(250,300)"><rect x="-26" y="-6" width="52" height="34" rx="3" fill="#FBF6EA" transform="rotate(-6)"/><path d="M-18,4 H14 M-18,12 H10 M-18,20 H16" stroke="#B9AE96" stroke-width="3" transform="rotate(-6)"/></g>'
+  + label(150,452,'John, 30') + label(410,452,'Mehar'), 470).replace('viewBox="0 0 1300 470" width="1300"','viewBox="0 0 560 470" width="560"')
+slide(f'''
+<div class="kick">But this wasn&rsquo;t their first meeting</div>
+<h2>Ten years earlier, Mehar had shown John these same strategies.</h2>
+<div class="split flashS">
+  <div class="sp flash f">{FLASH}<div class="flTag">2016 &middot; John is 30</div></div>
+  <div class="sp2">
+    <p class="lft big f">John liked the ideas. Then he said what most of us say: <b>&ldquo;Let me think about it.&rdquo;</b> Life got busy, and ten years went by.</p>
+    <div class="dlTalk lftT">
+      <p class="f j2"><span class="who">John</span>&ldquo;I wish I&rsquo;d listened to you ten years ago.&rdquo;</p>
+      <p class="f"><span class="who">Mehar</span>&ldquo;That&rsquo;s okay. We can&rsquo;t change the past. <b>Let&rsquo;s focus on today, and on your future.</b>&rdquo;</p>
+    </div>
+  </div>
+</div>
+''', 'sFlash')
 
 # 8b MEHAR'S PROCESS
 STEPS = [('Listen', 'Your wishlist, your goals, your worries'),
@@ -957,6 +976,7 @@ slide(f'''
     <div class="svS paper f green"><b>By 90: {money(SAV_W)} taken out</b><span>And <strong>{money(sum(SAV[90][:3]))}</strong> still invested.</span></div>
   </div>
 </div>
+<div class="cvInc paper f"><b>Plus: income from his policies&rsquo; cash value</b><span>In retirement John also draws from the cash value of his <strong>personal permanent policy</strong>. And over the years, he used some of the <strong>corporate policy&rsquo;s cash value</strong> for personal needs too, borrowing against it with David&rsquo;s help, while the policies kept growing.</span></div>
 <div class="src">Illustrative: 2026 TFSA and RRSP limits held flat; an assumed 12% average annual return (not guaranteed), before tax. Withdrawals from 66 are about 10% of the balance each year.</div>
 ''', 'sSave', hud=H(65, NW(65), '0,2,3,4,5', '111'))
 
@@ -1184,7 +1204,7 @@ ACT = {'sShock': (TA, 'Decides to start filling his tax-free bucket, as soon as 
        'sDebt': (MS, 'Debt-free at 50: practice loan and mortgage paid off'),
        'sRajPay': (PW, 'Raj&rsquo;s family is paid in full, and the clinic is saved'),
        'sRetire': (TA, 'Retires at 65, with a holding company, estate freeze and income plan in place'),
-       'sSave': (TA, 'Stops saving and starts drawing income, while his money keeps growing'),
+       'sSave': (TA, 'Starts drawing retirement income: his investments, plus cash value from his personal and corporate policies'),
        'sSucc': (TA, 'Passes the clinics to Lily; the insurance gives Max equal value'),
        'sLegacy': (PW, 'His family receives $14.18M, tax-free')}
 for i, h in enumerate(SLIDES):
