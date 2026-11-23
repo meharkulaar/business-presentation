@@ -89,7 +89,7 @@ def person(kind, x, y, s=1.0, outfit=None, extra='', mood='smile', arm=None):
     if 'cane' in P['acc']:
         g.append('<path d="M62,0 L62,-80 Q62,-94 50,-94" fill="none" stroke="#6B4A2E" stroke-width="6" stroke-linecap="round"/>')
     g.append(extra)
-    return f'<g transform="translate({x},{y}) scale({s})">{"".join(g)}</g>'
+    return f'<g class="pp" style="--pd:{(x * 0.37) % 3.2:.2f}s"><g transform="translate({x},{y}) scale({s})">{"".join(g)}</g></g>'
 
 def tree(x, y, s=1.0, lit=True):
     o = [f'<g transform="translate({x},{y}) scale({s})">',

@@ -284,3 +284,8 @@ New opening order: Cover → The real Ontario case → **How tonight works** →
    - Chips under the title: three clinics at about $1M each · Sarah · David · Mehar.
 7. **The Last Christmas:** the family home, with John and Emma at 90, Lily and Max, and four grandkids by the fire and the tree.
 - **The Last Christmas:** Lily's husband and Max's wife now stand with them.
+
+## Updates in version 27: chapter transitions and subtle motion
+- **Every chapter title page opens with a theatre curtain:** red velvet curtains with gold trim close over the screen, then sweep apart as the scene comes into focus. If the clock fast-forward plays first, the curtain waits for it. Turning Smooth animations off in Settings skips the curtain.
+- **The title animates in:** "Chapter X" spreads into place, the date fades up, and the title pops in.
+- **Characters breathe and sway gently, out of step with each other:** a little more on the chapter pages, very subtle everywhere else. The snow, fires, fireworks, rain, lightning and tree lights keep moving too.

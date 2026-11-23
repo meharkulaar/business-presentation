@@ -72,6 +72,14 @@ function timePass(a0,a1){
   },2550);
   tp._t2=setTimeout(function(){tp.classList.remove('on','out','hold');},3100);
 }
+var curt=document.getElementById('curt'),curtT;
+function curtain(s,dir,clocked){
+  clearTimeout(curtT);curt.classList.remove('shut','open');
+  if(dir<=0||!(s.classList.contains('sFull')||s.classList.contains('sRat'))||document.body.classList.contains('reduce'))return;
+  curt.classList.add('shut');void curt.offsetWidth;
+  curtT=setTimeout(function(){curt.classList.remove('shut');curt.classList.add('open');
+    if(slides[i]===s){s.classList.remove('active');void s.offsetWidth;s.classList.add('active');}},clocked?2600:120);
+}
 var actEl=document.getElementById('act'),actT1,actT2;
 function showAct(s,dir,clocked){
   clearTimeout(actT1);clearTimeout(actT2);actEl.classList.remove('on');
@@ -102,6 +110,7 @@ function show(n,dir){
   var clocked=false;
   if(dir>0&&ag!==null&&lastAge!==null&&ag-lastAge>=3&&!document.body.classList.contains('reduce')){timePass(lastAge,ag);clocked=true;}
   showAct(s,dir,clocked);
+  curtain(s,dir,clocked);
   if(ag!==null)lastAge=ag;
   var cd=s.dataset.cda?+s.dataset.cda:0;if(dir>0&&cd>lastCda+1)pour();lastCda=cd;
   updHud(s);

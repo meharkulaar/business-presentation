@@ -942,3 +942,24 @@ body.reduce #act{transition:none}
 .fw{opacity:0;transform-box:fill-box;transform-origin:center;animation:fw 1.8s ease-out infinite}
 @keyframes fw{0%{opacity:0;transform:scale(.2)}30%{opacity:1}100%{opacity:0;transform:scale(1.6)}}
 .fChips{bottom:auto;top:calc(262px + var(--ex,0px)*.8)}
+/* v27: curtain transition + subtle idle motion */
+#curt{position:absolute;inset:0;z-index:11;pointer-events:none;overflow:hidden}
+#curt i{position:absolute;top:0;bottom:0;width:51%;transform:translateX(-102%);
+  background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,0) 18%,rgba(0,0,0,0) 80%,rgba(0,0,0,.45)),repeating-linear-gradient(90deg,#5A0C15 0,#8E1B26 34px,#B32533 52px,#8E1B26 70px,#5A0C15 100px);
+  box-shadow:inset -14px 0 0 #C9962A,inset -18px 0 0 #FFE7A6,0 0 40px rgba(0,0,0,.6)}
+#curt .cL{left:0}
+#curt .cR{right:0;transform:translateX(102%);box-shadow:inset 14px 0 0 #C9962A,inset 18px 0 0 #FFE7A6,0 0 40px rgba(0,0,0,.6)}
+#curt.shut i{transform:translateX(0)!important;transition:none}
+#curt.open i{transition:transform 1.5s cubic-bezier(.7,0,.25,1)}
+#curt.open .cL{transform:translateX(-102%) skewX(-4deg)}#curt.open .cR{transform:translateX(102%) skewX(4deg)}
+.slide.active.sFull .ratSvg,.slide.active.sRat .ratSvg{animation:chapIn 2.6s cubic-bezier(.2,.8,.2,1) both}
+@keyframes chapIn{0%{transform:scale(1.14);filter:brightness(.4) blur(4px)}55%{filter:brightness(1) blur(0)}100%{transform:scale(1);filter:none}}
+.slide.active .pp{transform-box:fill-box;transform-origin:50% 100%;animation:ppIdle 3.4s ease-in-out infinite alternate;animation-delay:calc(var(--pd,0s) * -1)}
+@keyframes ppIdle{0%{transform:translateY(0) rotate(-.7deg)}100%{transform:translateY(-3px) rotate(.7deg)}}
+.slide.active.sFull .pp,.slide.active.sRat .pp{animation-name:ppIdleBig;animation-duration:3s}
+@keyframes ppIdleBig{0%{transform:translateY(0) rotate(-1.2deg) scaleY(1)}100%{transform:translateY(-5px) rotate(1.2deg) scaleY(1.01)}}
+.slide.active.sFull .ratTop .chNum{animation:chNumIn 1s ease .2s both}
+@keyframes chNumIn{from{opacity:0;letter-spacing:1em}to{opacity:1}}
+.slide.active.sFull .ratTop .chWhen{animation:fadeUp .9s ease .5s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+body.reduce .pp{animation:none!important}

@@ -1416,7 +1416,7 @@ html = f'''<!doctype html>
   <div id="ui"><button id="bToc" title="Slides (T)">&#9776;</button><button id="bEdit" title="Edit names (E)">&#9998;</button><button id="bSet" title="Settings (S)">&#9881;</button><button id="bFs" title="Full screen (F)">&#x26F6;</button></div>
   <div id="toc" class="panel"><div class="pH"><b>Slides</b><span>Click to jump &middot; eye to hide</span><button class="pX">&times;</button></div><div id="tocL"></div><div class="pF"><button id="tocAll">Show all</button></div></div>
   <div id="set" class="panel"><div class="pH"><b>Settings</b><span>Saved on this computer</span><button class="pX">&times;</button></div><div id="setL" style="overflow:auto"></div><div class="pF"><button id="setReset">Reset settings</button></div></div>
-  <div id="timer" title="Click to restart the timer">0:00 / 40:00</div><div id="black"></div>
+  <div id="timer" title="Click to restart the timer">0:00 / 40:00</div><div id="black"></div><div id="curt" aria-hidden="true"><i class="cL"></i><i class="cR"></i></div>
   <div id="edit" class="panel"><div class="pH"><b>Edit names &amp; title</b><button class="pX">&times;</button></div><div id="editL"></div><div class="pF"><button id="edReset">Reset</button><button id="edSave" class="pri">Save</button></div></div>
   <div class="deck">{"".join(SLIDES)}</div>
   <div id="tp" aria-hidden="true"><div class="tpC">
