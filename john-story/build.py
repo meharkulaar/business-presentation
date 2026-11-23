@@ -203,7 +203,7 @@ def NW(a):
     home = 1.6e6*1.03**(a-40); mort = 1e6*max(0, (50-a)/10); loan = 5e5*max(0, (50-a)/10)
     bv = lambda st: 9e5*1.04**(min(a, 65)-st) if a >= st else 0
     bus = bv(40) + bv(46) + bv(55)
-    corp = 2.5e5*1.05**(a-40); cv = ILL[a]['totalCV'] if a >= 41 else 0; ifa = 5e5 if a >= 46 else 0
+    corp = 5e5*1.05**(a-40); cv = ILL[a]['totalCV'] if a >= 41 else 0; ifa = 5e5 if a >= 46 else 0
     return round(home - mort + bus - loan + corp + cv - ifa + sum(ACCTS(a)), -3)
 
 # ================================================================== SLIDES
@@ -287,15 +287,15 @@ slide(chapter('Chapter One', 'Christmas Eve, 2026 · John is 40', 'The Rat Race'
     'sChap', hud=H(40, NW(40)))
 
 # 5 JOHN'S NUMBERS
-rows = [('Clinic revenue', '$500K&ndash;$750K a year', ''), ('Practice loan', '$1M &middot; <b class="red">$500K still owing</b>', ''),
+rows = [('Clinic revenue', 'about $750K a year', ''), ('Practice loan', '$1M &middot; <b class="red">$500K still owing</b>', ''),
         ('Home', '$1.6M &middot; <b class="red">$1M mortgage</b>', ''), ('Clinic value', '$900K', ''),
-        ('Corporate savings', '$250K', ''), ('RRSP', '$150K', ''), ('TFSA', '$109K &middot; <b class="green">maxed out</b>', ''), ('Investing', '<b class="green">TFSA + RRSP maxed</b> &middot; <b class="red">nothing else</b>', '')]
+        ('Corporate savings', '$500K retained earnings', ''), ('RRSP', '$150K', ''), ('TFSA', '$109K &middot; <b class="green">maxed out</b>', ''), ('Investing', '<b class="green">TFSA + RRSP maxed</b> &middot; <b class="red">nothing else</b>', ''), ('Insurance', '$500K term life &middot; $50K critical illness', '')]
 rhtml = ''.join(f'<div class="bsR f"><span>{a}</span><b>{b}</b></div>' for a, b, _ in rows)
 slide(f'''
 <div class="kick">John&rsquo;s finances</div>
 <h2>On paper, John is doing great.</h2>
 <div class="split">
-  <div class="bs">{rhtml}<div class="bsR tot f"><span>Net worth</span>{counter(1509000)}</div></div>
+  <div class="bs">{rhtml}<div class="bsR tot f"><span>Net worth</span>{counter(int(NW(40)))}</div></div>
   <div class="sp">{scene(ground(520,420)+person('john',160,410,1.0,'coat')+person('emma',290,410,.92)+person('lily',380,410,.6)+person('max',450,410,.5)+label(160,452,'John')+label(290,452,'Emma, 39')+label(380,452,'Lily, 6')+label(450,452,'Max, 4'), 470).replace('viewBox="0 0 1300 470" width="1300"','viewBox="0 0 520 470" width="520"')}</div>
 </div>
 ''', 'sNums', hud=H(40, NW(40)))
@@ -305,7 +305,7 @@ slide(f'''
 <div class="kick">The problem</div>
 <h2>But inside his corporation, John&rsquo;s money is stuck.</h2>
 <div class="rules3">
-  <div class="rc f"><div class="rI"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 8A8 8 0 0 0 5 9"/><path d="M19.5 3.5V8H15"/><path d="M4.5 16A8 8 0 0 0 19 15"/><path d="M4.5 20.5V16H9"/></svg></div><b>The Compound Effect</b><span>$250K of corporate savings sits in GICs, earning almost nothing.</span><em>Against him</em></div>
+  <div class="rc f"><div class="rI"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 8A8 8 0 0 0 5 9"/><path d="M19.5 3.5V8H15"/><path d="M4.5 16A8 8 0 0 0 19 15"/><path d="M4.5 20.5V16H9"/></svg></div><b>The Compound Effect</b><span>$500K of retained earnings sits in GICs, earning almost nothing.</span><em>Against him</em></div>
   <div class="rc f"><div class="rI"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 21 19.5H3Z"/><path d="M12 9.5v5"/><circle cx="12" cy="17" r=".9" fill="currentColor" stroke="none"/></svg></div><b>The Risk Effect</b><span>Everything he owns is tied to one clinic and one house.</span><em>Against him</em></div>
   <div class="rc f"><div class="rI">%</div><b>The Tax Effect</b><span>Investment income in his corporation is taxed at about 50% in BC, every year.</span><em>Against him</em></div>
 </div>
@@ -358,7 +358,7 @@ slide('''
     <li><b>The 3 goals of money:</b><div class="fdTags"><em class="g">Protection</em><em class="g">Income</em><em class="g">Legacy</em></div>Every dollar should serve at least one of them.</li>
   </ul></div>
   <div class="fdC paper f"><h3>A complete plan for the family</h3><ul>
-    <li><b>John:</b> personal coverage, disability and critical illness, and his retirement income.</li>
+    <li><b>John:</b> his $500K of term life and $50K of critical illness was a good start, but a proper needs analysis showed big gaps. He agreed to raise it to <b>$1.5M life and $250K critical illness</b>.</li>
     <li><b>Emma:</b> her own protection, savings and retirement plan.</li>
     <li><b>Lily and Max:</b> education savings and their own coverage, locked in young.</li>
     <li><b>All of it:</b> reviewed with Sarah and David: wills, powers of attorney and tax.</li>
@@ -672,6 +672,7 @@ slide(f'''
 <div class="loan">
   <p class="f">John <b>borrowed against his policy&rsquo;s cash value</b> ({money(ILL[46]["totalCV"])}) to fund it.</p>
   <p class="f">The policy kept growing as if he had never touched it. <b class="gold">His corporate dollar worked twice.</b></p>
+  <p class="f">Clinic #2 brings in about <b>$750K a year</b>, just like the first one. <b class="green">Revenue doubles to about $1.5M.</b></p>
 </div>
 ''', 'sLoc2', hud=H(46, NW(46), '0,4,5', '101'))
 
@@ -820,14 +821,14 @@ slide(f'''
 # 24 CHAPTER 6: 65
 slide(f'''
 <div class="kick">Chapter Six &middot; Christmas 2051 &middot; John is 65</div>
-<h2>Three clinics. And John retires, right on time.</h2>
+<h2>Three clinics, $1M a year each. <span class="gold">John retires on time.</span></h2>
 {scene(ground(1300,360)+clinic(230,350,.7,1)+clinic(520,350,.7,2)+clinic(810,350,.7,3)+person('john',1070,350,.8)+person('emma',1150,350,.76), 390)}
 <div class="three">
   <div class="f"><b>Sarah</b><span>set up his holding company, an estate freeze and an updated will.</span></div>
   <div class="f"><b>David</b><span>timed tax-free capital dividends and his retirement income.</span></div>
   <div class="f"><b>Mehar</b><span>turned the policy and seg funds into tax-efficient income.</span></div>
 </div>
-<p class="f mid">&#10003; Open more locations &nbsp; &#10003; Retire by 65</p>
+<p class="f mid">About <b>$3M a year</b> in revenue &nbsp;&middot;&nbsp; &#10003; Open more locations &nbsp; &#10003; Retire by 65</p>
 ''', 'sRetire', hud=H(65, NW(65), '0,2,3,4,5', '111'))
 
 # 5b JOHN'S SAVINGS PLAN
@@ -1036,7 +1037,7 @@ slide('''
 def _tile(lbl, a, b, cls=''):
     return f'<div class="sbT {cls}"><span>{lbl}</span><div class="sbV"><em>At 40</em><i>{a}</i></div><div class="sbV b"><em>At 90</em>{b}</div></div>'
 SCORE = ('<div id="hudBig"><div class="sbHead"><em>Christmas 2076</em><b>John&rsquo;s Scoreboard</b><span>From the day he met Mehar at 40, to his last Christmas at 90</span></div><div class="sbG">'
-  + _tile('Net worth', '$1.51M', counter(int(NW(90))))
+  + _tile('Net worth', money(NW(40)), counter(int(NW(90))))
   + _tile('Tax-free to his family', '$0', counter(int(ILL[90]['totalDB'])), 'gold')
   + _tile('Taken out in retirement', '$0', counter(int(SAV_W)))
   + _tile('7 key needs covered', '0 of 7', '<b class="cnt" data-to="7" data-pre="" data-suf=" of 7">0 of 7</b>')
@@ -1094,6 +1095,7 @@ for i, h in enumerate(SLIDES):
 TA, MS, PW = 'John takes action', 'Milestone', 'The plan at work'
 ACT = {'sShock': (TA, 'Decides to start filling his tax-free bucket, as soon as possible'),
        'sTeam': (TA, 'Brings his accountant and his lawyer to the table with Mehar'),
+       'sFund': (TA, 'Increases his personal protection to $1.5M life and $250K critical illness'),
        'sPlan': (MS, 'Application approved: his corporate-owned whole life policy starts, $100K a year'),
        'sSeg': (TA, 'Moves his TFSA and RRSP into seg funds, and starts investing $15K a year'),
        'sLoc2': (TA, 'Opens clinic #2'),

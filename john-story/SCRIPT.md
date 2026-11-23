@@ -224,3 +224,15 @@ New opening order: Cover → The real Ontario case → **How tonight works** →
 - **Real case study (two doctors slide):** "John and Jake are fictional. This case study is real. A real case study and comparison was done: same income, same savings, one difference."
 - **Chapter Three banner:** "John takes action: applies for the plan, and goes through the application process with Mehar." Say: "He didn't wait. That same week, he applied and Mehar walked him through the application."
 - **The policy banner:** now a milestone: "Application approved: his corporate-owned whole life policy starts, $100K a year."
+
+## Updates in version 21
+- **John's finances:**
+  - Clinic revenue is about $750K a year.
+  - Corporate savings are $500K of retained earnings.
+  - New row: "Insurance: $500K term life · $50K critical illness".
+  - Net worth at 40 is now $1,759,000.
+- **The problem:** "$500K of retained earnings sits in GICs, earning almost nothing."
+- **First the fundamentals, then the whole family (keep it brief):** "John had $500K of term life and $50K of critical illness. A good start, but a proper needs analysis showed big gaps. Mehar walked him through it, and he agreed to raise it to $1.5M of life and $250K of critical illness. But tonight we're focusing on his corporation." Action banner: increases his personal protection.
+- **Location #2:** "Clinic #2 brings in about $750K a year, just like the first. Revenue doubles to about $1.5M."
+- **Retirement at 65:** "Three clinics, $1M a year each: about $3M a year in revenue."
+- **Net worth in the story bar:** age 40 $1.76M · 41 $2.18M · 46 $5.10M · 50 $7.88M · 55 $12.46M · 65 $25.88M · 90 $44.53M.
