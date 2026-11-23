@@ -189,14 +189,21 @@ function apply(map){walk(function(n){var v=n.nodeValue,o=v;Object.keys(map).forE
   if(v!==o){v=v.replace(/\u0000(\w+)\u0000/g,function(_,k){return map[k];});n.nodeValue=v;}});cur=Object.assign({},map);}
 function setTitle(t){if(t.t1)$('t1').textContent=t.t1;if(t.t2)$('t2').textContent=t.t2;}
 var saved={};try{saved=JSON.parse(localStorage.getItem('jsNames')||'{}');}catch(_){}
+var clinicName='Smile Dental';
+function fitClinic(){[].slice.call(document.querySelectorAll('text.clinicNm')).forEach(function(t){t.removeAttribute('textLength');t.removeAttribute('lengthAdjust');
+  var mw=+t.dataset.w||146,l=0;try{l=t.getComputedTextLength();}catch(_){}if(l>mw){t.setAttribute('textLength',mw);t.setAttribute('lengthAdjust','spacingAndGlyphs');}});}
+function setClinic(nm){clinicName=nm;[].slice.call(document.querySelectorAll('text.clinicNm')).forEach(function(t){var n=+t.dataset.n;t.textContent=nm.toUpperCase()+(n>1?' #'+n:'');});fitClinic();}
+window.__fitClinic=fitClinic;
+if(saved.clinic)setClinic(saved.clinic);
 if(saved.names)apply(Object.assign({},DEF,saved.names));if(saved.title)setTitle(saved.title);
 function buildEdit(){var L=$('editL');L.innerHTML='';
   var add=function(id,lab,val){var r=document.createElement('div');r.className='eR';r.innerHTML='<label></label><input>';r.querySelector('label').textContent=lab;var i=r.querySelector('input');i.value=val;i.dataset.k=id;L.appendChild(r);};
   add('t1','Title line 1 (after the hat T)',$('t1').textContent);add('t2','Title line 2',$('t2').textContent);
+  add('clinic','Clinic name',clinicName);
   Object.keys(DEF).forEach(function(k){add(k,LBL[k],cur[k]);});}
-$('edSave').onclick=function(){var m={},t={};[].slice.call(document.querySelectorAll('#editL input')).forEach(function(i){var v=i.value.trim();if(!v)return;if(i.dataset.k==='t1'||i.dataset.k==='t2')t[i.dataset.k]=v;else m[i.dataset.k]=v;});
-  apply(Object.assign({},cur,m));setTitle(t);try{localStorage.setItem('jsNames',JSON.stringify({names:cur,title:{t1:$('t1').textContent,t2:$('t2').textContent}}));}catch(_){}$('edit').classList.remove('open');};
-$('edReset').onclick=function(){apply(DEF);setTitle(T0);try{localStorage.removeItem('jsNames');}catch(_){}buildEdit();};
+$('edSave').onclick=function(){var m={},t={};[].slice.call(document.querySelectorAll('#editL input')).forEach(function(i){var v=i.value.trim();if(!v)return;if(i.dataset.k==='clinic'){setClinic(v);return;}if(i.dataset.k==='t1'||i.dataset.k==='t2')t[i.dataset.k]=v;else m[i.dataset.k]=v;});
+  apply(Object.assign({},cur,m));setTitle(t);try{localStorage.setItem('jsNames',JSON.stringify({names:cur,clinic:clinicName,title:{t1:$('t1').textContent,t2:$('t2').textContent}}));}catch(_){}$('edit').classList.remove('open');};
+$('edReset').onclick=function(){apply(DEF);setTitle(T0);setClinic('Smile Dental');try{localStorage.removeItem('jsNames');}catch(_){}buildEdit();};
 })();
 
 /* ===== Settings ===== */

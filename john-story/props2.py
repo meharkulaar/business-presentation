@@ -126,7 +126,7 @@ def clinic(x, y, s=1.0, n=1):
             '<rect x="-112" y="-176" width="224" height="176" fill="url(#gWall)"/><rect x="40" y="-176" width="72" height="176" fill="rgba(0,0,0,.08)"/>'
             '<rect x="-122" y="-196" width="244" height="24" fill="#F4F2F8"/><rect x="-122" y="-176" width="244" height="6" fill="rgba(0,0,0,.12)"/>'
             '<rect x="-80" y="-168" width="160" height="28" rx="4" fill="#7A0F1A"/>'
-            f'<text x="0" y="-148" text-anchor="middle" style="fill:#F7E7C6;font:700 14px Georgia,serif;letter-spacing:.1em">SMILE DENTAL{" #"+str(n) if n>1 else ""}</text>'
+            f'<text x="0" y="-148" text-anchor="middle" class="clinicNm" data-n="{n}" data-w="146" style="fill:#F7E7C6;font:700 14px Georgia,serif;letter-spacing:.1em">SMILE DENTAL{" #"+str(n) if n>1 else ""}</text>'
             '<rect x="-92" y="-126" width="62" height="52" fill="url(#gGlass)" stroke="#5E6B78" stroke-width="5"/><path d="M-61,-126 L-61,-74" stroke="#5E6B78" stroke-width="3"/>'
             '<rect x="30" y="-126" width="62" height="52" fill="url(#gGlass)" stroke="#5E6B78" stroke-width="5"/><path d="M61,-126 L61,-74" stroke="#5E6B78" stroke-width="3"/>'
             '<path d="M-96,-130 L-26,-130 L-30,-120 L-92,-120Z M26,-130 L96,-130 L92,-120 L30,-120Z" fill="#9E1B26"/>'

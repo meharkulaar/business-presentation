@@ -125,7 +125,7 @@ def clinic(x, y, s=1.0, n=1):
     return (f'<g transform="translate({x},{y}) scale({s})">'
             '<rect x="-110" y="-170" width="220" height="170" fill="#FFFFFF" stroke="#C9CED6" stroke-width="3"/>'
             '<rect x="-120" y="-190" width="240" height="26" fill="#9E1B26"/>'
-            f'<text x="0" y="-171" text-anchor="middle" style="fill:#fff;font:700 15px Georgia,serif;letter-spacing:.08em">SMILE DENTAL {"#"+str(n) if n>1 else ""}</text>'
+            f'<text x="0" y="-171" text-anchor="middle" class="clinicNm" data-n="{n}" data-w="220" style="fill:#fff;font:700 15px Georgia,serif;letter-spacing:.08em">SMILE DENTAL{" #"+str(n) if n>1 else ""}</text>'
             '<rect x="-85" y="-140" width="60" height="50" fill="#CFE3F0"/><rect x="25" y="-140" width="60" height="50" fill="#CFE3F0"/>'
             '<rect x="-22" y="-80" width="44" height="80" fill="#7A8794"/>'
             '<path d="M-6,-120 C-14,-136 6,-140 0,-128 C-6,-140 14,-136 6,-120 L4,-104 L0,-112 L-4,-104Z" fill="#9E1B26" transform="translate(0,6)"/>'
@@ -1283,7 +1283,7 @@ slide(f'''
 # 29 SPLIT SCREEN
 CV90 = ILL[90]['totalCV'] + P2[90]['totalCV']
 cmp = [('Planning', 'Full corporate + personal plan', 'None: just $500K of term life'),
-       ('Investing', 'Flexible plan: seg funds, about 12% a year', 'Bank TFSA/RRSP + random mutual funds'),
+       ('Investing', 'Flexible plan: seg funds, about 12% a year', 'Barely invested; a rental condo lost value'),
        ('Age 46', 'Opened clinic #2', 'Cash stuck in the corporation'),
        ('Age 48: crash', 'Guaranteed floor, policy untouched', 'Panic-sold at the bottom, then a tax bill'),
        ('Debt-free', 'At 50', 'At 63: his partner&rsquo;s death set him back'),
@@ -1326,17 +1326,23 @@ slide(f'''
 
 # 31 WEALTH GAP + TAX AT DEATH
 def _jake_nw(a):
+    global J_RENTGAIN
     home = 1.6e6*1.03**(a-40); mort = 1e6*max(0, (63-a)/23); loan = 5e5*max(0, (63-a)/23)
     bus = 9e5*1.04**(min(a, 70)-40)
-    corp = 5e5*1.02**(a-40) + sum(60000*1.02**(min(a,90)-y) for y in range(41, min(a,60)+1))
+    corp = 5e5*1.02**(a-40) + sum(30000*1.02**(min(a,90)-y) for y in range(41, min(a,60)+1))
     t, r, n = 109000, 150000, 0
     for y in range(41, a+1):
-        if y <= 65: t = t*1.035 + 3500; r = r*1.035 + 12000; n = n*1.035 + (8000 if y % 3 else 0)
-        else: t *= 1.035*.9; r *= 1.035*.9; n *= 1.035*.9
-        if y == 48: n *= .75
+        if y <= 65: t = t*1.03 + (2000 if y % 2 else 0); r = r*1.03 + (5000 if y % 3 == 0 else 0); n = n*1.03 + (3000 if y % 4 == 0 else 0)
+        else: t *= 1.03*.88; r *= 1.03*.88; n *= 1.03*.88
+        if y == 48: n *= .7
+        if 47 <= y <= 70: corp -= 14000
         if 66 <= y <= 80: corp -= 45000
-    rent = 6e5*1.025**(a-46) - 3e5*max(0, (70-a)/24) if a >= 46 else 0
-    global J_RENTGAIN; J_RENTGAIN = max(0, 6e5*1.025**(a-46) - 6e5) if a >= 46 else 0
+    rent = (6e5*.8*1.01**(a-47) - 4.5e5*max(0, (71-a)/25)) if a >= 46 else 0
+    buyout = 6e5 if a >= 55 else 0
+    heloc = 0
+    for y in range(71, a+1): heloc = heloc*1.05 + 120000
+    corp -= buyout; home -= heloc
+    J_RENTGAIN = 0
     return home - mort + bus - loan + corp + t + r + n + rent, corp, r, n
 J_NW, J_CORP, J_RRSP, J_NR = _jake_nw(90)
 J_TAX = 0.5*J_CORP + 0.5*J_RRSP + 0.25*J_NR + 0.27*J_RENTGAIN
@@ -1366,7 +1372,7 @@ slide(f'''
   <div class="frC paper f"><b>Peace of mind</b><span class="jn">John: every need covered, a plan for everyone</span><span class="jk">Jake: stress, a tax bill and no plan</span></div>
 </div>
 <p class="f mid wgTie">The difference wasn&rsquo;t luck. John was <b>open to learning</b>, and he <b>took action</b>, because he understood the value of time.</p>
-<div class="src">Illustrative. Jake: no whole life; $500K term expired at 65, then about $45K/yr to renew; corporate savings in GICs (about 2% after tax); TFSA/RRSP at the bank and irregular mutual-fund investing at about 3.5%; panic-sold 25% lower in the 2034 crash; a rental condo bought at 46 (about 2.5% growth), one clinic, debt-free at 63; tax at death about 50% on corporate assets and RRSP, 25% on non-registered gains. John: net worth from the story bar; both policies&rsquo; death benefits paid through the CDA. Not tax advice.</div>
+<div class="src">Illustrative. Jake: no whole life; $500K term expired at 65, then about $45K/yr to renew; corporate savings in GICs (about 2% after tax); barely invested (small, irregular TFSA/RRSP and mutual-fund deposits at about 3%); a rental condo bought at 46 on advice that &ldquo;real estate is the best investment&rdquo; fell 20% and cost about $14K/yr to carry; panic-sold 30% lower in the 2034 crash; borrowed $600K to buy out his late partner&rsquo;s family; from 71 he borrowed about $120K/yr against his home to live on; one clinic, debt-free at 63; tax at death about 50% on corporate assets and RRSP. John: net worth from the story bar; both policies&rsquo; death benefits paid through the CDA. Not tax advice.</div>
 ''', 'sBars')
 
 # 30 TWO DOCTORS

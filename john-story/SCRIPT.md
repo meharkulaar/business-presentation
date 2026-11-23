@@ -342,3 +342,14 @@ New opening order: Cover → The real Ontario case → **How tonight works** →
 - **Rogers:** the story text is now on torn paper.
 - **Two lives:** Jake is debt-free at 63, not 58, because his partner's death set him back.
 - **Wealth gap:** four new cards compare John and Jake on time, money, family time and peace of mind.
+
+## Updates in version 34
+- **Clinic name editor:** press E (or the ✎ button) and change "Clinic name". Every clinic sign updates (with #2 and #3 added automatically), and long names squeeze to fit inside the sign. It's saved on that computer, and Reset puts back "Smile Dental".
+- **Jake's wealth is lower still:**
+  - He barely invested: small, irregular deposits at about 3%.
+  - He bought a rental condo at 46 because he was told "real estate is the best investment". It fell 20% and cost about $14K a year to carry.
+  - He panic-sold 30% lower in the crash.
+  - He borrowed $600K to buy out his late partner's family.
+  - From 71 he borrowed against his home to live on.
+- **At 90:** Jake's net worth is $7.8M vs John's $52.1M. $7.3M reached Jake's family vs $47.2M for John's.
+- **Split screen, investing row for Jake:** "Barely invested; a rental condo lost value."
