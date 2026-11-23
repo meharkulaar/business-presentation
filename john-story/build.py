@@ -868,24 +868,6 @@ slide(f'''
 <p class="f mid">Two clinics paid off his debts faster. <b>&#10003; Pay off every debt in 10 years.</b></p>
 ''', 'sDebt', hud=H(50, NW(50) - 0, '0,3,4,5', '111', cda=ILL[50]['totalDB']))
 
-RAJ_SCENE = scene(ground(560,420)
-  + '<g class="rajGhost">' + person('raj',170,400,.82,'coat') + '</g>'
-  + '<ellipse class="halo" cx="170" cy="182" rx="36" ry="10"/>'
-  + '<g transform="translate(380,410)"><path d="M-95,0 L-95,-170 C-95,-235 95,-235 95,-170 L95,0Z" fill="#8E949C"/><path d="M-95,0 L-95,-170 C-95,-235 95,-235 95,-170 L95,0Z" fill="url(#gShade)"/>'
-  + '<path d="M-80,0 L-80,-165 C-80,-220 80,-220 80,-165 L80,0" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="3"/>'
-  + '<text y="-150" text-anchor="middle" style="font:900 52px Georgia;fill:#3A3F46">RIP</text><text y="-108" text-anchor="middle" style="font:700 22px Georgia;fill:#2E3238">Dr. Raj</text>'
-  + '<text y="-82" text-anchor="middle" style="font:700 15px Georgia;fill:#2E3238">1988 &#8211; 2041</text><text y="-60" text-anchor="middle" style="font:italic 14px Georgia;fill:#2E3238">Partner. Father. Friend.</text>'
-  + '<circle cx="-70" cy="-6" r="12" fill="#C62D3A"/><circle cx="-52" cy="-10" r="10" fill="#E5B93C"/><circle cx="-60" cy="-22" r="9" fill="#F4EBDD"/><circle cx="66" cy="-8" r="12" fill="#C62D3A"/><circle cx="50" cy="-16" r="9" fill="#F4EBDD"/></g>', 470).replace('viewBox="0 0 1300 470" width="1300"','viewBox="0 0 560 470" width="560"')
-
-# 22b LIFE CAN HIT
-slide('''
-<div class="lifeHit">
-  <svg viewBox="-60 -150 120 230" width="120" height="230" class="candle" aria-hidden="true"><ellipse cx="0" cy="-92" rx="34" ry="44" fill="rgba(255,190,90,.25)" class="cGlow"/><rect x="-22" y="-60" width="44" height="130" rx="6" fill="#F4EBDD"/><rect x="-22" y="-60" width="16" height="130" fill="rgba(0,0,0,.12)"/><path d="M0,-64 L0,-74" stroke="#333" stroke-width="3"/><path class="cFl" d="M0,-72 C-14,-90 -6,-110 0,-128 C6,-110 14,-90 0,-72Z" fill="#FFC85A"/></svg>
-  <p class="lhA f">But life can change at any moment.</p>
-  <p class="lhB f">Unfortunately, it often does when we least expect it.</p>
-</div>
-''', 'sLife', hud=H(55, NW(55), '0,3,4,5', '111'))
-
 # 22c POLICY #2
 J2SNAP = 'data:image/jpeg;base64,' + base64.b64encode(open(os.path.join(HERE, 'source', 'john2-snap.jpg'), 'rb').read()).decode()
 slide(f'''
@@ -903,6 +885,25 @@ slide(f'''
 </div>
 <div class="src">Policy #2: Equitable EquiMax illustration, male 50, non-smoker, BC, $149,999.99/yr for 15 years, current dividend scale (not guaranteed).</div>
 ''', 'sPol2', hud=H(50, NW(50), '0,3,4,5', '111'))
+
+
+RAJ_SCENE = scene(ground(560,420)
+  + '<g class="rajGhost">' + person('raj',170,400,.82,'coat') + '</g>'
+  + '<ellipse class="halo" cx="170" cy="182" rx="36" ry="10"/>'
+  + '<g transform="translate(380,410)"><path d="M-95,0 L-95,-170 C-95,-235 95,-235 95,-170 L95,0Z" fill="#8E949C"/><path d="M-95,0 L-95,-170 C-95,-235 95,-235 95,-170 L95,0Z" fill="url(#gShade)"/>'
+  + '<path d="M-80,0 L-80,-165 C-80,-220 80,-220 80,-165 L80,0" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="3"/>'
+  + '<text y="-150" text-anchor="middle" style="font:900 52px Georgia;fill:#3A3F46">RIP</text><text y="-108" text-anchor="middle" style="font:700 22px Georgia;fill:#2E3238">Dr. Raj</text>'
+  + '<text y="-82" text-anchor="middle" style="font:700 15px Georgia;fill:#2E3238">1988 &#8211; 2041</text><text y="-60" text-anchor="middle" style="font:italic 14px Georgia;fill:#2E3238">Partner. Father. Friend.</text>'
+  + '<circle cx="-70" cy="-6" r="12" fill="#C62D3A"/><circle cx="-52" cy="-10" r="10" fill="#E5B93C"/><circle cx="-60" cy="-22" r="9" fill="#F4EBDD"/><circle cx="66" cy="-8" r="12" fill="#C62D3A"/><circle cx="50" cy="-16" r="9" fill="#F4EBDD"/></g>', 470).replace('viewBox="0 0 1300 470" width="1300"','viewBox="0 0 560 470" width="560"')
+
+# 22b LIFE CAN HIT
+slide('''
+<div class="lifeHit">
+  <svg viewBox="-60 -150 120 230" width="120" height="230" class="candle" aria-hidden="true"><ellipse cx="0" cy="-92" rx="34" ry="44" fill="rgba(255,190,90,.25)" class="cGlow"/><rect x="-22" y="-60" width="44" height="130" rx="6" fill="#F4EBDD"/><rect x="-22" y="-60" width="16" height="130" fill="rgba(0,0,0,.12)"/><path d="M0,-64 L0,-74" stroke="#333" stroke-width="3"/><path class="cFl" d="M0,-72 C-14,-90 -6,-110 0,-128 C6,-110 14,-90 0,-72Z" fill="#FFC85A"/></svg>
+  <p class="lhA f">But life can change at any moment.</p>
+  <p class="lhB f">Unfortunately, it often does when we least expect it.</p>
+</div>
+''', 'sLife', hud=H(55, NW(55), '0,3,4,5', '111'))
 
 # 23 TWIST 2 partner dies
 slide(f'''
