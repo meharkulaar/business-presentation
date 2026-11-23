@@ -1283,13 +1283,14 @@ slide(f'''
 # 29 SPLIT SCREEN
 CV90 = ILL[90]['totalCV'] + P2[90]['totalCV']
 cmp = [('Planning', 'Full corporate + personal plan', 'None: just $500K of term life'),
-       ('Investing', 'Flexible plan: seg funds, about 12% a year', 'Barely invested; a rental condo lost value'),
+       ('Investing', 'Flexible plan: seg funds, about 12% a year', 'Barely invested; bought real estate on advice, a rental condo lost value'),
        ('Age 46', 'Opened clinic #2', 'Cash stuck in the corporation'),
        ('Age 48: crash', 'Guaranteed floor, policy untouched', 'Panic-sold at the bottom, then a tax bill'),
        ('Debt-free', 'At 50', 'At 63: his partner&rsquo;s death set him back'),
        ('Age 55: partner dies', 'Buy-sell funded, business saved', 'No agreement: went into debt'),
        ('Age 65: insurance', 'Covered for life', 'Term expired; renewal very expensive'),
        ('Retired', 'At 65, 3 clinics', 'At 70, 1 clinic'),
+       ('Succession', 'Lily takes over; Max gets equal value', 'No plan: family can&rsquo;t take over; clinic sold at a discount'),
        ('Policies at 90', f'{money(CV90)} cash value + {money(TOT90)} death benefit', '$0')]
 lj = ''.join(f'<div class="spR f"><span>{a}</span><b>{b}</b></div>' for a, b, c in cmp)
 rk = ''.join(f'<div class="spR f"><span>{a}</span><b>{c}</b></div>' for a, b, c in cmp)
@@ -1339,14 +1340,25 @@ def _jake_nw(a):
         if 66 <= y <= 80: corp -= 45000
     rent = (6e5*.8*1.01**(a-47) - 4.5e5*max(0, (71-a)/25)) if a >= 46 else 0
     buyout = 6e5 if a >= 55 else 0
+    global J_COT, J_COTG, J_BLD, J_CLIN, J_RENT, J_HOMEEQ
+    J_COT = (8e5*1.035**(a-45) - 6e5*max(0, (70-a)/25)) if a >= 45 else 0
+    J_COTG = 8e5*1.035**(a-45) - 8e5 if a >= 45 else 0
+    J_BLD = (1.5e6*1.03**(a-50) - 1.2e6*max(0, (75-a)/25)) if a >= 50 else 0
+    J_CLIN = bus
     heloc = 0
     for y in range(71, a+1): heloc = heloc*1.05 + 120000
     corp -= buyout; home -= heloc
-    J_RENTGAIN = 0
-    return home - mort + bus - loan + corp + t + r + n + rent, corp, r, n
+    J_RENTGAIN = max(0, 6e5*.8*1.01**(a-47) - 6e5); J_RENT = rent; J_HOMEEQ = home - mort
+    return home - mort + bus - loan + corp + t + r + n + rent + J_COT + J_BLD, corp, r, n
 J_NW, J_CORP, J_RRSP, J_NR = _jake_nw(90)
-J_TAX = 0.5*J_CORP + 0.5*J_RRSP + 0.25*J_NR + 0.27*J_RENTGAIN
-J_FAM = J_NW - J_TAX
+J_CORPV = J_CORP + J_BLD + 0.7*J_CLIN
+J_T_SH = 0.626*J_CORPV
+J_T_COT = 0.2675*J_COTG
+J_T_INV = 0.2675*J_RENTGAIN + 0.535*120000 + 0.535*J_RRSP + 0.2675*0.5*J_NR
+J_T_PRO = 0.014*(J_CORPV + J_COT + J_RENT + max(0, J_HOMEEQ) + J_NR)
+J_TAX = J_T_SH + J_T_COT + J_T_INV + J_T_PRO
+J_FIRE = 0.3*J_CLIN
+J_FAM = J_NW - J_TAX - J_FIRE
 JN_NW = NW(90)
 JN_TAX = 0.5*SAV[90][1] + 0.25*SAV[90][2]
 JN_FAM = JN_NW - JN_TAX
@@ -1364,6 +1376,7 @@ slide(f'''
   {_bar('Tax bill at death the family must pay', J_TAX, 0, MXW, 'red')}
   {_bar('What reached the family', J_FAM, JN_FAM, MXW, 'green')}
 </div>
+<div class="taxBk f"><b>Jake&rsquo;s {money(J_TAX)} tax bill:</b><span>Corporate shares taxed twice (deemed sale at death, then dividends on wind-up): <strong>{money(J_T_SH)}</strong></span><span>Cottage capital gain: <strong>{money(J_T_COT)}</strong></span><span>Rental condo, RRSP and investments: <strong>{money(J_T_INV)}</strong></span><span>BC probate (1.4%): <strong>{money(J_T_PRO)}</strong></span><span>His family couldn&rsquo;t take over the clinic, so it sold at a discount: <strong>&minus;{money(J_FIRE)}</strong></span></div>
 <p class="f mid">John&rsquo;s {money(JN_TAX)} tax bill was paid by his policies. Jake never used his CDA, so his family paid his tax bill, and his corporate savings were taxed twice. <b class="green">{money(JN_FAM - J_FAM)} more</b> reached John&rsquo;s family.</p>
 <div class="frR">
   <div class="frC paper f"><b>Time</b><span class="jn">John: retired at 65, three clinics run by his team</span><span class="jk">Jake: worked until 70, still at the clinic</span></div>
@@ -1372,7 +1385,7 @@ slide(f'''
   <div class="frC paper f"><b>Peace of mind</b><span class="jn">John: every need covered, a plan for everyone</span><span class="jk">Jake: stress, a tax bill and no plan</span></div>
 </div>
 <p class="f mid wgTie">The difference wasn&rsquo;t luck. John was <b>open to learning</b>, and he <b>took action</b>, because he understood the value of time.</p>
-<div class="src">Illustrative. Jake: no whole life; $500K term expired at 65, then about $45K/yr to renew; corporate savings in GICs (about 2% after tax); barely invested (small, irregular TFSA/RRSP and mutual-fund deposits at about 3%); a rental condo bought at 46 on advice that &ldquo;real estate is the best investment&rdquo; fell 20% and cost about $14K/yr to carry; panic-sold 30% lower in the 2034 crash; borrowed $600K to buy out his late partner&rsquo;s family; from 71 he borrowed about $120K/yr against his home to live on; one clinic, debt-free at 63; tax at death about 50% on corporate assets and RRSP. John: net worth from the story bar; both policies&rsquo; death benefits paid through the CDA. Not tax advice.</div>
+<div class="src">Illustrative. Jake: no whole life; $500K term expired at 65, then about $45K/yr to renew; corporate savings in GICs (about 2% after tax); barely invested (small, irregular TFSA/RRSP and mutual-fund deposits); real estate on advice: a cottage at 45 ($800K, 3.5%/yr), a clinic building in his corporation at 50 ($1.5M), a rental condo at 46 that fell 20%; panic-sold 30% lower in the crash; $600K partner buyout; home borrowing from 71. Tax at death (BC, top rates): deemed disposition at fair market value, 50% capital gains inclusion (the proposed increase was cancelled in March 2025) about 26.75%; RRSP fully taxed at 53.5%; corporate shares without post-mortem planning taxed twice, about 63% combined; CCA recapture on the rental; probate 1.4% above $50K; principal residence exempt. John: both policies&rsquo; death benefits paid through the CDA. Not tax advice.</div>
 ''', 'sBars')
 
 # 30 TWO DOCTORS

@@ -353,3 +353,19 @@ New opening order: Cover → The real Ontario case → **How tonight works** →
   - From 71 he borrowed against his home to live on.
 - **At 90:** Jake's net worth is $7.8M vs John's $52.1M. $7.3M reached Jake's family vs $47.2M for John's.
 - **Split screen, investing row for Jake:** "Barely invested; a rental condo lost value."
+
+## Updates in version 35: Jake's tax bill at death
+- **Jake's estate is taxed under Canada's deemed-disposition rules (BC, top rates). His tax bill is now $6.13M:**
+  - Corporate shares taxed twice (deemed sale at death, then dividends when the corporation is wound up, with no post-mortem planning): about $5.0M.
+  - Cottage capital gain: $792K.
+  - Rental condo, RRSP and investments: $118K.
+  - BC probate at 1.4%: $218K.
+- **No succession plan:** Jake's family couldn't take over the clinic, so it sold at a discount ($876K lost). This is now also a row on the split screen.
+- **At 90:** Jake's net worth is $16.5M, but only $9.5M reached his family. John's family received $47.2M, and his $4.92M tax bill was paid by his policies.
+- **Rules used:**
+  - 50% capital gains inclusion (the proposed increase was cancelled in March 2025), about 26.75% at the top BC rate.
+  - The RRSP is fully taxed at 53.5%.
+  - About 63% combined on corporate value without planning.
+  - Rental CCA recapture.
+  - Probate of 1.4% above $50K.
+  - His home is exempt as his principal residence.
