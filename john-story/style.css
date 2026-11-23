@@ -1014,3 +1014,11 @@ html,body{background:#000}
 .ifD{margin-bottom:-8px}
 .ratSvg,.halfL svg{overflow:visible}
 #stage.wide .ratSvg{-webkit-mask-image:linear-gradient(90deg,transparent var(--wfa),#000 var(--wfb),#000 calc(100% - var(--wfb)),transparent calc(100% - var(--wfa)));mask-image:linear-gradient(90deg,transparent var(--wfa),#000 var(--wfb),#000 calc(100% - var(--wfb)),transparent calc(100% - var(--wfa)))}
+/* v30: no bottom fade on scenes (labels stay crisp); snow feathers itself */
+.scene{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 4%,#000 96%,transparent 100%)!important;mask-image:linear-gradient(90deg,transparent 0,#000 4%,#000 96%,transparent 100%)!important;-webkit-mask-composite:source-over;mask-composite:add}
+.slide[data-hud].sFull .ratSvg,.slide[data-hud].sRat .ratSvg{top:0;bottom:auto;height:calc(100% - 104px)}
+.slide[data-hud].sHalf .halfL{bottom:104px}
+.slide[data-hud].sRat .ratC{bottom:124px}
+.slide[data-hud] .halfL svg{height:100%}
+.sp .scene,.giftR .scene{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 16%,#000 84%,transparent 100%)!important;mask-image:linear-gradient(90deg,transparent 0,#000 16%,#000 84%,transparent 100%)!important}
+.sp .scene,.giftR .scene{overflow:visible!important;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 16%,#000 84%,transparent 100%),linear-gradient(180deg,#000 calc(100% - 4px),transparent 100%)!important;-webkit-mask-composite:source-in!important;mask-image:linear-gradient(90deg,transparent 0,#000 16%,#000 84%,transparent 100%),linear-gradient(180deg,#000 calc(100% - 4px),transparent 100%)!important;mask-composite:intersect!important}

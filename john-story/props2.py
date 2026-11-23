@@ -2,7 +2,7 @@
 GDEFS = '''<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <linearGradient id="gShade" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".16"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".28"/></linearGradient>
 <radialGradient id="gFace" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset="1" stop-color="#000" stop-opacity=".14"/></radialGradient>
-<linearGradient id="gSnow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#D9D4E6"/></linearGradient>
+<linearGradient id="gSnow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#D9D4E6"/></linearGradient><linearGradient id="gSnowF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".6" stop-color="#E6E3EF"/><stop offset="1" stop-color="#D9D4E6" stop-opacity="0"/></linearGradient>
 <linearGradient id="gTree" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2E7D4F"/><stop offset=".5" stop-color="#1F5E3A"/><stop offset="1" stop-color="#123D25"/></linearGradient>
 <linearGradient id="gWall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7F2EA"/><stop offset="1" stop-color="#DCD3C4"/></linearGradient>
 <linearGradient id="gGlass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE7A8"/><stop offset="1" stop-color="#F2B95A"/></linearGradient>
@@ -135,7 +135,7 @@ def clinic(x, y, s=1.0, n=1):
             '<path d="M-112,0 L112,0 L122,8 L-122,8Z" fill="#F4F2F8"/></g>')
 
 def ground(w=1300, y=470):
-    return (f'<path d="M0,{y} Q{w*.25},{y-26} {w*.5},{y-6} T{w},{y-14} L{w},{y+80} L0,{y+80}Z" fill="url(#gSnow)"/>'
+    return (f'<path d="M0,{y} Q{w*.25},{y-26} {w*.5},{y-6} T{w},{y-14} L{w},{y+80} L0,{y+80}Z" fill="url(#gSnowF)"/>'
             f'<path d="M0,{y+12} Q{w*.3},{y-6} {w*.6},{y+8} T{w},{y+2}" fill="none" stroke="rgba(150,140,180,.35)" stroke-width="3"/>')
 
 def umbrella(x, y, s=1.0):
