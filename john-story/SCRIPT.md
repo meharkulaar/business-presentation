@@ -369,3 +369,4 @@ New opening order: Cover → The real Ontario case → **How tonight works** →
   - Rental CCA recapture.
   - Probate of 1.4% above $50K.
   - His home is exempt as his principal residence.
+- **Wealth gap slide:** the footnote is shorter and sits clear of the cards on every screen size. The full tax assumptions are listed in version 35 above.

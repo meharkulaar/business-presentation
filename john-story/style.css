@@ -1068,3 +1068,7 @@ html,body{background:#000}
 .taxBk{width:1180px;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;justify-content:center;margin-top:6px;padding:8px 14px;border:1px solid rgba(255,111,107,.55);border-radius:12px;background:rgba(60,8,12,.55)}
 .taxBk b{color:#FF8A86;font:900 16px Georgia,serif}.taxBk span{font-size:13.5px;color:#F3D9D6;background:rgba(255,255,255,.05);padding:3px 10px;border-radius:999px}.taxBk strong{color:#FFB3B0}
 .sBars .wgTie{margin-top:2px!important}
+.sBars h2{margin-bottom:4px}.sBars .wg{gap:12px;margin-top:4px}.sBars .wgB{height:28px}
+.sBars .frR{margin-top:4px}.sBars .frC{padding:7px 12px}.sBars .frC span{font-size:14px}
+.sBars .taxBk{padding:6px 12px;margin-top:4px}
+.sBars .src{bottom:62px!important}
