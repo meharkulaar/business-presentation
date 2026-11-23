@@ -358,6 +358,105 @@ slide(f'''
 <p class="f mid">Sound familiar?</p>
 ''', 'sMeet', hud=H(40, NW(40)))
 
+# ---- full-screen chapter title pages
+def full_svg(inner, defs=''):
+    return f'<svg class="ratSvg" viewBox="0 0 1440 810" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs>{defs}</defs>{inner}</svg>'
+def chap_full(num, when, title, svg, cls, hud=None, chips=''):
+    ch = f'<div class="fChips">{chips}</div>' if chips else ''
+    slide(f"""{svg}{ch}<div class="ratTop"><div class="chNum">{num}</div><div class="chWhen">{when}</div><h1>{title}</h1></div>""", cls + ' sFull', hud=hud)
+def chips(*items):
+    return ''.join(f'<div class="fChip f">{t}</div>' for t in items)
+def wall_room(c1, c2, stripe='rgba(255,255,255,.04)'):
+    return (f'<rect width="1440" height="810" fill="url(#wr)"/>' + ''.join(f'<path d="M{x},0 V640" stroke="{stripe}" stroke-width="20"/>' for x in range(30, 1440, 60))
+            + '<rect y="640" width="1440" height="170" fill="#5A3A22"/>' + ''.join(f'<path d="M{x},640 V810" stroke="rgba(0,0,0,.25)" stroke-width="2"/>' for x in range(60, 1440, 100))
+            + '<rect y="630" width="1440" height="12" fill="#E8D6B0"/>', f'<linearGradient id="wr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{c1}"/><stop offset="1" stop-color="{c2}"/></linearGradient>')
+def win(x, y, w, h, extra=''):
+    import random as _r; _r.seed(x)
+    return (f'<rect x="{x}" y="{y}" width="{w}" height="{h}" fill="#0E1A30"/>' + ''.join(f'<circle cx="{_r.randint(x+10,x+w-10)}" cy="{_r.randint(y+10,y+h-40)}" r="2.2" fill="#fff" opacity=".85"/>' for _ in range(int(w*h/2500)))
+            + extra + f'<path d="M{x},{y+h-24} Q{x+w*.3},{y+h-36} {x+w*.55},{y+h-28} T{x+w},{y+h-30} V{y+h} H{x}Z" fill="#DCE6F0"/>'
+            + f'<rect x="{x}" y="{y}" width="{w}" height="{h}" fill="none" stroke="#E8D6B0" stroke-width="12"/><path d="M{x+w/2},{y} V{y+h} M{x},{y+h/2} H{x+w}" stroke="#E8D6B0" stroke-width="7"/>'
+            + f'<rect x="{x-12}" y="{y+h-4}" width="{w+24}" height="14" fill="#C9B79C"/>')
+def calendar(x, y, day):
+    return (f'<g transform="translate({x},{y})"><rect x="-55" y="-60" width="110" height="120" rx="6" fill="#FBF6EA" stroke="#B9AE96" stroke-width="3"/><rect x="-55" y="-60" width="110" height="34" rx="6" fill="#B3202A"/>'
+            f'<text y="-36" text-anchor="middle" style="font:900 18px Georgia;fill:#FFF4DC">DEC</text><text y="34" text-anchor="middle" style="font:900 54px Georgia;fill:#2E1E12">{day}</text></g>')
+def office(extra_win=''):
+    bg, d = wall_room('#1F3A3A', '#132626')
+    shelf = '<g><rect x="1110" y="300" width="290" height="340" fill="#5A3A22"/>' + ''.join(f'<rect x="1110" y="{300+k*85}" width="290" height="10" fill="#3E2614"/>' for k in range(5))
+    import random as _r; _r.seed(5)
+    for k in range(4):
+        x = 1122
+        while x < 1386:
+            w = _r.randint(14, 26); h = _r.randint(48, 70)
+            shelf += f'<rect x="{x}" y="{385+k*85-h}" width="{w}" height="{h}" fill="{_r.choice(["#9E1B26","#2F6E4C","#C9962A","#3E5C76","#E8D6B0","#6B4A8A"])}"/>'
+            x += w + 3
+    shelf += '</g>'
+    return bg + win(90, 300, 330, 240, extra_win) + shelf, d
+def big_desk():
+    return ('<rect x="480" y="560" width="560" height="26" rx="6" fill="#6B4226"/><rect x="500" y="586" width="520" height="230" fill="#5A3A22"/><rect x="500" y="586" width="520" height="230" fill="url(#gShade)" opacity=".45"/>'
+            '<rect x="520" y="600" width="480" height="4" fill="rgba(255,255,255,.08)"/>')
+
+# Chapter Two: The Meeting
+def ch2():
+    bg, d = office()
+    paper = '<g transform="translate(700,552) rotate(-4)"><rect x="-70" y="-14" width="140" height="22" rx="2" fill="#F4E7C8" stroke="#C9A227" stroke-width="2"/><text y="2" text-anchor="middle" style="font:700 12px Georgia;fill:#7A0F1A">John&#8217;s wishlist</text></g>'
+    return full_svg(bg + calendar(560, 380, '28') + person('john', 420, 690, 1.3, arm='hold') + person('mehar', 1020, 690, 1.3) + big_desk() + paper
+                    + '<g transform="translate(900,556)"><rect x="-20" y="-18" width="40" height="22" rx="4" fill="#FFF"/><path d="M20,-12 c10,0 10,12 0,12" stroke="#FFF" stroke-width="4" fill="none"/></g>', d)
+
+# Chapter Three: He Starts Now
+def ch3():
+    fw = ''.join(f'<g transform="translate({cx},{cy})" class="fw" style="animation-delay:{dl}s">' + ''.join(f'<path d="M0,0 L{24*__import__("math").cos(k*0.785):.1f},{24*__import__("math").sin(k*0.785):.1f}" stroke="{c}" stroke-width="3" stroke-linecap="round"/>' for k in range(8)) + '</g>'
+                 for cx, cy, c, dl in ((170, 360, '#FFD27A', 0), (320, 340, '#FF6F6B', .6), (250, 420, '#7BE3AE', 1.2)))
+    bg, d = office(fw)
+    form = '<g transform="translate(740,552) rotate(-3)"><rect x="-80" y="-16" width="160" height="26" rx="2" fill="#FBF6EA" stroke="#B9AE96" stroke-width="2"/><text y="2" text-anchor="middle" style="font:700 11px Georgia;fill:#2E1E12">APPLICATION</text></g>'
+    pen = '<path d="M806,548 L842,520" stroke="#1E1E24" stroke-width="6" stroke-linecap="round"/><path d="M806,548 L800,554" stroke="#E5B93C" stroke-width="4"/>'
+    return full_svg(bg + calendar(480, 340, '30') + tree(1290, 640, .9) + person('john', 800, 690, 1.3, arm='hold') + person('mehar', 1000, 690, 1.25, arm='up')
+                    + big_desk() + gift(600, 560, 1.15, txt='THE PLAN') + form + pen, d)
+
+# Chapter Four: Location #2
+def street(sky1, sky2):
+    d = f'<linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{sky1}"/><stop offset="1" stop-color="{sky2}"/></linearGradient>'
+    import random as _r; _r.seed(9)
+    g = '<rect width="1440" height="810" fill="url(#sk)"/>' + ''.join(f'<circle cx="{_r.randint(0,1440)}" cy="{_r.randint(10,330)}" r="{_r.choice([1.2,1.8,2.4])}" fill="#fff" opacity=".7"/>' for _ in range(60))
+    g += '<path d="M0,520 L120,470 L260,500 L420,450 L600,490 L780,440 L960,486 L1140,446 L1300,480 L1440,456 V640 H0Z" fill="rgba(20,20,40,.45)"/>'
+    g += '<path d="M0,620 Q360,590 720,612 T1440,606 V810 H0Z" fill="#E8EEF6"/><path d="M0,640 Q360,616 720,634 T1440,630" stroke="rgba(160,170,190,.6)" stroke-width="3" fill="none"/>'
+    return g, d
+def ch4():
+    g, d = street('#2A1E46', '#5A3A5E')
+    banner = '<g transform="translate(760,640)"><path d="M-60,0 L-40,-110 M60,0 L40,-110" stroke="#5A3A22" stroke-width="8"/><rect x="-64" y="-120" width="128" height="78" rx="6" fill="#B3202A" stroke="#FFE7A6" stroke-width="3"/><text y="-88" text-anchor="middle" style="font:900 20px Georgia;fill:#FFE7A6">GRAND</text><text y="-60" text-anchor="middle" style="font:900 20px Georgia;fill:#FFE7A6">OPENING</text></g>'
+    ribbon = '<path d="M820,600 C900,590 960,612 1000,598 C1060,612 1120,590 1180,600" stroke="#C62D3A" stroke-width="10" fill="none"/><path d="M990,590 l-24,30 M1010,590 l24,30" stroke="#C62D3A" stroke-width="8"/><circle cx="1000" cy="596" r="12" fill="#C62D3A"/>'
+    sc = '<g transform="translate(1000,560) rotate(-20)"><path d="M0,0 L70,-14 M0,0 L70,14" stroke="#B9C2CC" stroke-width="8" stroke-linecap="round"/><circle cx="-14" cy="-10" r="12" fill="none" stroke="#E5B93C" stroke-width="6"/><circle cx="-14" cy="10" r="12" fill="none" stroke="#E5B93C" stroke-width="6"/></g>'
+    return full_svg(g + clinic(330, 620, 1.35, 1) + clinic(1000, 620, 1.6, 2) + banner + person('emma', 560, 700, 1.0, arm='up') + person('lily', 640, 700, .66, arm='up') + person('max', 700, 700, .56)
+                    + ribbon + person('john', 900, 710, 1.15, 'coat', arm='hold') + person('raj', 1100, 710, 1.15, 'coat', arm='hold') + sc, d)
+
+# Chapter Five: The Storm
+def ch5():
+    d = '<linearGradient id="st" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14141E"/><stop offset="1" stop-color="#3A3446"/></linearGradient>'
+    import random as _r; _r.seed(4)
+    rain = ''.join(f'<line class="rain" style="animation-delay:-{_r.uniform(0,1):.2f}s" x1="{x}" y1="{_r.randint(250,330)}" x2="{x-14}" y2="{_r.randint(360,420)}" stroke="#AFC3D6" stroke-width="2.5" stroke-linecap="round" opacity=".7"/>' for x in range(20, 1440, 26))
+    g = ('<rect width="1440" height="810" fill="url(#st)"/>' + cloud(260, 300, 1.3) + cloud(640, 270, 1.6) + cloud(1060, 300, 1.4) + cloud(1340, 320, 1.0) + rain
+         + '<path d="M760,330 L720,430 L760,426 L726,520 L812,400 L770,404 L800,330Z" fill="#FFE08A" class="bolt"/>'
+         + '<path d="M0,620 Q360,600 720,615 T1440,610 V810 H0Z" fill="#C9D2DC"/>'
+         + clinic(250, 625, 1.25, 1) + clinic(1210, 625, 1.25, 2) + umbrella(720, 470, 1.25) + person('john', 670, 700, 1.15, arm='hold', mood='shock') + person('emma', 790, 700, 1.1))
+    return full_svg(g, d)
+
+# Chapter Six: Retirement
+def ch6():
+    g, d = street('#3A2050', '#E08A5A')
+    keys = '<g transform="translate(724,560)"><circle r="12" fill="none" stroke="#E5B93C" stroke-width="5"/><path d="M8,8 L30,30 M22,22 L28,16 M26,26 L32,20" stroke="#E5B93C" stroke-width="5" stroke-linecap="round"/></g>'
+    return full_svg(g + clinic(220, 610, 1.15, 1) + clinic(520, 610, 1.15, 2) + clinic(1260, 610, 1.15, 3)
+                    + person('john', 680, 710, 1.2, arm='hold') + keys + person('lily', 820, 710, 1.12, arm='hold') + person('emma', 960, 710, 1.05) + person('max', 1070, 710, 1.1), d)
+
+# Chapter Seven: The Last Christmas
+def ch7():
+    bg, d = wall_room('#6B2A22', '#3E1610', 'rgba(255,220,170,.05)')
+    fire = ('<rect x="560" y="390" width="320" height="250" fill="#8A3A2A"/><rect x="540" y="372" width="360" height="24" rx="4" fill="#5A3A22"/><rect x="630" y="460" width="180" height="180" rx="90" fill="#1A0A06"/><rect x="630" y="550" width="180" height="90" fill="#1A0A06"/>'
+            '<path class="tFl" d="M680,638 C660,600 676,566 700,540 C704,566 720,574 720,592 C732,576 740,552 732,530 C762,566 768,610 758,638Z" fill="#FF9A3A"/><path class="tFl" d="M700,638 C690,614 698,594 712,582 C714,600 726,604 728,618 C736,606 738,592 736,580 C750,602 752,624 744,638Z" fill="#FFD27A"/>'
+            '<path d="M540,372 Q600,392 660,372 T780,372 T900,372" stroke="#2F6E4C" stroke-width="12" fill="none"/>' + ''.join(f'<circle cx="{560+k*44}" cy="{378 + (6 if k%2 else 0)}" r="6" fill="{["#FF4D5E","#FFD27A","#7BE3AE"][k%3]}"/>' for k in range(8)))
+    return full_svg(bg + win(90, 300, 300, 240) + fire + tree(1270, 640, 1.1)
+                    + person('john', 260, 700, 1.15, 'old') + person('emma', 380, 700, 1.08, 'old') + person('lily', 1000, 700, 1.05) + person('max', 1110, 700, 1.05)
+                    + person('lily', 540, 710, .55) + person('max', 610, 710, .5) + person('lily', 830, 710, .52) + person('max', 900, 710, .46)
+                    + label(260, 742, 'John, 90', size=20), d)
+
 # 4 CHAPTER 1: THE RAT RACE (full-screen split)
 def rat_race():
     import random as _r; _r.seed(11)
@@ -373,9 +472,6 @@ def rat_race():
              + ''.join(f'<circle cx="{_r.randint(68,316)}" cy="{_r.randint(292,480)}" r="{_r.choice([1.5,2,2.5])}" fill="#DDE6F0" opacity=".85"/>' for _ in range(28)))
     L.append('<g transform="translate(612,372)"><circle r="46" fill="#F4ECD6" stroke="#8A6510" stroke-width="6"/>' + ''.join(f'<line y1="-38" y2="-31" stroke="#3A2A1A" stroke-width="3" transform="rotate({k*30})"/>' for k in range(12))
              + '<line y1="4" y2="-22" stroke="#3A2A1A" stroke-width="6" stroke-linecap="round" transform="rotate(292)"/><line y1="6" y2="-34" stroke="#3A2A1A" stroke-width="4" stroke-linecap="round" transform="rotate(282)"/><circle r="4" fill="#3A2A1A"/></g>')
-    L.append('<ellipse cx="470" cy="560" rx="200" ry="70" fill="url(#rLamp)"/>')
-    L.append('<g class="dLamp"><ellipse cx="600" cy="558" rx="40" ry="9" fill="#2A2E36"/><path d="M600,556 L566,470 L512,432" stroke="#3A3F48" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'
-             '<circle cx="566" cy="470" r="8" fill="#4A505A"/><path d="M470,452 L512,410 L548,446 Z" fill="#2F6E4C" stroke="#1F4A30" stroke-width="3"/><ellipse cx="496" cy="456" rx="22" ry="7" fill="#FFE9A0" transform="rotate(45 496 456)"/></g>')
     L.append(person('john', 360, 690, 1.35, 'coat', mood='sad', arm='hold'))
     L.append('<path d="M326,388 C318,376 322,368 330,364" stroke="#BFE3F5" stroke-width="5" fill="none" stroke-linecap="round"/>')
     L.append('<rect x="40" y="560" width="660" height="30" rx="6" fill="#5A3A22"/><rect x="60" y="590" width="620" height="230" fill="#4A2E1A"/><rect x="60" y="590" width="620" height="230" fill="url(#gShade)" opacity=".5"/>')
@@ -454,13 +550,7 @@ slide(f'''
 ''', 'sList', hud=H(40, NW(40)))
 
 # 8 CHAPTER 2
-slide(chapter('Chapter Two', 'December 28, 2026 · John is 40', 'The Meeting',
-    '<g transform="translate(70,96) rotate(-3)"><rect x="0" y="0" width="270" height="280" rx="10" fill="#F4E7C8" stroke="#C9A227" stroke-width="4"/><text x="135" y="44" text-anchor="middle" style="font:900 24px Georgia;fill:#7A0F1A">John&#8217;s wishlist</text><line x1="24" y1="60" x2="246" y2="60" stroke="#C9A227" stroke-width="2"/>'+''.join(f'<rect x="24" y="{88+k*48}" width="22" height="22" rx="4" fill="#fff" stroke="#7A0F1A" stroke-width="3"/><text x="58" y="{106+k*48}" style="font:700 17px Georgia;fill:#3A2A1A">{t}</text>' for k,t in enumerate(['Debt-free in 10 years','More locations','Retire by 65','Take care of my family']))+'</g>'
-    + desk(760,410,1.0)+person('john',560,410,1.0,arm='hold')+'<g transform="translate(598,292) rotate(-8)"><rect width="46" height="60" rx="4" fill="#F4E7C8" stroke="#C9A227" stroke-width="2"/><rect x="8" y="12" width="9" height="9" fill="none" stroke="#7A0F1A" stroke-width="2"/><rect x="8" y="28" width="9" height="9" fill="none" stroke="#7A0F1A" stroke-width="2"/><rect x="8" y="44" width="9" height="9" fill="none" stroke="#7A0F1A" stroke-width="2"/></g>'
-    + person('mehar',960,410,1.0)+tree(1180,410,.62)
-    + '<text x="760" y="60" text-anchor="middle" class="capt">&ldquo;Let&rsquo;s go through your list together, step by step.&rdquo;</text>'
-    + label(560,150,'John',size=22)+label(960,150,'Mehar',size=22)),
-    'sChap', hud=H(40, NW(40)))
+chap_full('Chapter Two', 'December 28, 2026 &middot; John is 40', 'The Meeting', ch2(), 'sChap', hud=H(40, NW(40)))
 
 # 8a TEN YEARS EARLIER
 FLASH = scene(ground(560,420) + desk(280,410,.9) + person('john',150,410,.95) + person('mehar',410,410,.95)
@@ -678,10 +768,7 @@ slide(f'''
 ''', 'sTeam', hud=H(40, NW(40)))
 
 # 12 CHAPTER 3
-slide(chapter('Chapter Three', 'December 30, 2026 · the same month', 'He Starts Now',
-    ground(1300,400)+gift(650,390,1.6,txt='THE PLAN')+person('john',400,400,.95,arm='up')+person('mehar',900,400,.95)+tree(1130,400,.8)
-    +'<text x="650" y="60" text-anchor="middle" class="capt">&ldquo;Why wait until next year? Time is the one thing I can&rsquo;t buy back.&rdquo;</text>'),
-    'sChap', hud=H(40, NW(40), '0,4', '100'))
+chap_full('Chapter Three', 'December 30, 2026 &middot; the same month', 'He Starts Now', ch3(), 'sChap', hud=H(40, NW(40), '0,4', '100'))
 
 # 12b HOW IT'S STRUCTURED
 slide('''
@@ -815,17 +902,9 @@ slide(f'''
 <p class="f mid"><b>Emma</b> liked the guarantee. <b>Sarah</b> liked that it skips probate. <b>John</b> liked sleeping at night.</p>
 ''', 'sSeg', hud=H(42, NW(42), '0,4', '101'))
 
-# 19 CHAPTER 4 + location 2 + famous names
-slide(f'''
-<div class="kick">Chapter Four &middot; Christmas 2032 &middot; John is 46</div>
-<h2>Location #2 opens.</h2>
-{scene(ground(1300,380)+clinic(300,370,.85,1)+clinic(640,370,.85,2)+person('john',920,370,.85,'coat')+person('raj',1060,370,.85,'coat')+label(1060,405,'Dr. Raj, his new partner',size=18), 420)}
-<div class="loan">
-  <p class="f">John <b>borrowed against his policy&rsquo;s cash value</b> ({money(ILL[46]["totalCV"])}) to fund it.</p>
-  <p class="f">The policy kept growing as if he had never touched it. <b class="gold">His corporate dollar worked twice.</b></p>
-  <p class="f">Clinic #2 brings in about <b>$750K a year</b>, just like the first one. <b class="green">Revenue doubles to about $1.5M.</b></p>
-</div>
-''', 'sLoc2', hud=H(46, NW(46), '0,4,5', '101'))
+# 19 CHAPTER 4: LOCATION #2 (full title page)
+chap_full('Chapter Four', 'Christmas 2032 &middot; John is 46', 'Location #2', ch4(), 'sLoc2', hud=H(46, NW(46), '0,4,5', '101'),
+  chips=chips(f'Funded by borrowing against his policy&rsquo;s cash value ({money(ILL[46]["totalCV"])})', 'The policy kept growing as if he&rsquo;d never touched it', 'Clinic #2 adds about $750K a year: revenue doubles to $1.5M'))
 
 # 20 IFA EXPLAINED
 def _ifa_chart():
@@ -887,11 +966,7 @@ slide(f'''
 ''', 'sRajBS', hud=H(46, NW(46), '0,3,4,5', '101'))
 
 # 20b CHAPTER 5
-slide(chapter('Chapter Five', '2034 · John is 48', 'The Storm',
-    ground(1300,400)+cloud(420,150,.95)+cloud(700,120,1.1)+cloud(960,160,.85)
-    + '<path d="M700,215 L670,285 L700,282 L676,350 L740,262 L708,266 L730,215Z" fill="#FFE08A" class="bolt"/>'
-    + clinic(300,390,.7,1)+clinic(1000,390,.7,2)+person('john',600,390,.85)+person('emma',690,390,.8)),
-    'sChap sStorm', hud=H(48, NW(48), '0,3,4,5', '111'))
+chap_full('Chapter Five', '2034 &middot; John is 48', 'The Storm', ch5(), 'sChap sStorm', hud=H(48, NW(48), '0,3,4,5', '111'))
 
 # 21 TWIST 1 crash
 slide(f'''
@@ -989,18 +1064,9 @@ slide(f'''
 <div class="src">Raj: Equitable EquiMax illustration, male 44, $99,999.99/yr for 20 years, current dividend scale (not guaranteed); values at the end of year 9 (age 53). Buy-sell and capital dividend treatment must be set up with your lawyer and accountant.</div>
 ''', 'sRajPay', hud=H(55, NW(55), '0,2,3,4,5', '111'))
 
-# 24 CHAPTER 6: 65
-slide(f'''
-<div class="kick">Chapter Six &middot; Christmas 2051 &middot; John is 65</div>
-<h2>Three clinics, $1M a year each. <span class="gold">John retires on time.</span></h2>
-{scene(ground(1300,360)+clinic(230,350,.7,1)+clinic(520,350,.7,2)+clinic(810,350,.7,3)+person('john',1070,350,.8)+person('emma',1150,350,.76), 390)}
-<div class="three">
-  <div class="f"><b>Sarah</b><span>set up his holding company, an estate freeze and an updated will.</span></div>
-  <div class="f"><b>David</b><span>timed tax-free capital dividends and his retirement income.</span></div>
-  <div class="f"><b>Mehar</b><span>turned the policy and seg funds into tax-efficient income.</span></div>
-</div>
-<p class="f mid">About <b>$3M a year</b> in revenue &nbsp;&middot;&nbsp; &#10003; Open more locations &nbsp; &#10003; Retire by 65</p>
-''', 'sRetire', hud=H(65, NW(65), '0,2,3,4,5', '111'))
+# 24 CHAPTER 6: RETIREMENT (full title page)
+chap_full('Chapter Six', 'Christmas 2051 &middot; John is 65', 'Retirement, Right on Time', ch6(), 'sRetire', hud=H(65, NW(65), '0,2,3,4,5', '111'),
+  chips=chips('Three clinics, about $1M a year each', '<b>Sarah:</b> holding company, estate freeze, updated will', '<b>David:</b> tax-free dividends and retirement income', '<b>Mehar:</b> policies and seg funds into tax-efficient income'))
 
 # 5b JOHN'S SAVINGS PLAN
 def _save_series():
@@ -1121,11 +1187,7 @@ HOME = ('<defs><pattern id="wp" width="40" height="40" patternUnits="userSpaceOn
   f'<path d="{HOUSE_P}" fill="none" stroke="#E8D6B0" stroke-width="6" stroke-linejoin="round"/>'
   + ''.join(f'<line x1="{x}" y1="{_roof_y(x)+10:.1f}" x2="{x}" y2="{_roof_y(x)+20:.1f}" stroke="#1F4A30" stroke-width="2"/><circle cx="{x}" cy="{_roof_y(x)+25:.1f}" r="5.5" fill="{["#FF4D5E","#FFD27A","#7FE0A8","#FFFFFF"][k%4]}" class="hl{k%3}"/>'
             for k, x in enumerate([x for x in range(100, 1220, 55) if abs(x - 650) > 20])))
-slide(chapter('Chapter Seven', 'Christmas 2076 · John is 90', 'The Last Christmas',
-    HOME + tree(1120,410,1.0)+person('john',300,410,.9,'old')+person('emma',400,410,.86)
-    + person('lily',540,410,.9)+person('max',660,410,.9)+person('lily',760,410,.5)+person('max',820,410,.45)+person('lily',880,410,.42)+person('max',940,410,.38)
-    + label(300,428,'John, 90',size=18)),
-    'sChap sHome', hud=H(90, NW(90), '0,1,2,3,4,5,6', '111'))
+chap_full('Chapter Seven', 'Christmas 2076 &middot; John is 90', 'The Last Christmas', ch7(), 'sChap sHome', hud=H(90, NW(90), '0,1,2,3,4,5,6', '111'))
 
 # 26b CHRISTMAS MORNING REVEAL
 slide(f'''

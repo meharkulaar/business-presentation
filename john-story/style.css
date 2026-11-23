@@ -929,3 +929,16 @@ body.reduce #act{transition:none}
 .ratC.r{left:75%;color:#FFE7A6;background:rgba(40,10,6,.85);border:1px solid #C9962A}
 .ratTop h1{filter:drop-shadow(0 4px 0 rgba(0,0,0,.95)) drop-shadow(0 0 14px rgba(0,0,0,.95)) drop-shadow(0 0 28px rgba(0,0,0,.8)) drop-shadow(0 0 20px rgba(229,185,60,.55));font-size:84px}
 .ratTop .chWhen,.ratTop .chNum{text-shadow:0 2px 6px rgba(0,0,0,.95),0 0 14px rgba(0,0,0,.9)}
+/* v26: full-screen chapter title pages */
+.sFull{padding:0!important}
+.sFull .ratTop h1{font-size:84px;margin-top:2px;background:linear-gradient(180deg,#FFF6DD,#F2CC6B 60%,#C9962A);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 4px 0 rgba(0,0,0,.95)) drop-shadow(0 0 14px rgba(0,0,0,.95)) drop-shadow(0 0 28px rgba(0,0,0,.8)) drop-shadow(0 0 20px rgba(229,185,60,.55))}
+.sFull .ratTop .chWhen,.sFull .ratTop .chNum{text-shadow:0 2px 6px rgba(0,0,0,.95),0 0 14px rgba(0,0,0,.9)}
+.slide.active.sFull .ratTop h1{animation:ttlIn 1.2s cubic-bezier(.2,1.2,.3,1) both}
+.slide.active.sFull .ratSvg{animation:ratZoom 14s ease-out both}
+.fChips{position:absolute;z-index:3;left:0;right:0;bottom:150px;display:flex;flex-wrap:wrap;gap:10px 14px;justify-content:center;padding:0 80px}
+.fChip{font:600 18px "Segoe UI",sans-serif;color:#FFF0D2;background:rgba(20,6,10,.82);border:1px solid rgba(229,185,60,.65);padding:9px 20px;border-radius:999px;box-shadow:0 0 16px rgba(0,0,0,.5)}
+.fChip b{color:#F6D77A}
+.fw{opacity:0;transform-box:fill-box;transform-origin:center;animation:fw 1.8s ease-out infinite}
+@keyframes fw{0%{opacity:0;transform:scale(.2)}30%{opacity:1}100%{opacity:0;transform:scale(1.6)}}
+.fChips{bottom:auto;top:calc(262px + var(--ex,0px)*.8)}

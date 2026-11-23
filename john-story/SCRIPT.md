@@ -272,3 +272,14 @@ New opening order: Cover → The real Ontario case → **How tonight works** →
   - **Left, cold and dark:** John hunched at his desk at 9:47 p.m. under one lamp, with piles of files, the phone ringing and the clock on the wall.
   - **Right, warm:** Emma, Lily and Max at home by the fire and the tree, all sad. Lily holds a card "For Dad", his stocking hangs on the mantle, and "Dad's chair" is empty.
   - Let it sit for a few seconds before you speak: "Christmas Eve. 9:47 at night. John is still at the clinic... and at home, his family is waiting."
+
+## Updates in version 26: every chapter has its own full-screen title page
+1. **The Rat Race:** the split scene, now without the desk lamp.
+2. **The Meeting:** Mehar's office on a snowy evening. John hands his wishlist across the desk, with bookshelves behind and the calendar on Dec 28.
+3. **He Starts Now:** John signs his application at Mehar's desk beside the glowing "THE PLAN" gift, with New Year's fireworks outside and the calendar on Dec 30.
+4. **Location #2:** a snowy street at dusk with a "Grand Opening" sign. John and Raj cut the ribbon at Smile Dental #2 while Emma and the kids cheer.
+   - Chips under the title: funded by borrowing against his policy's cash value · the policy kept growing · clinic #2 adds about $750K a year.
+5. **The Storm:** a full-screen storm, with lightning and rain over both clinics and John holding the umbrella over Emma.
+6. **Retirement, Right on Time:** three lit clinics at sunset, with John handing Lily the keys.
+   - Chips under the title: three clinics at about $1M each · Sarah · David · Mehar.
+7. **The Last Christmas:** the family home, with John and Emma at 90, Lily and Max, and four grandkids by the fire and the tree.
