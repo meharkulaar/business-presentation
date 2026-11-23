@@ -299,3 +299,14 @@ New opening order: Cover → The real Ontario case → **How tonight works** →
   - **Re-fit now,** plus a readout of the detected window and screen size.
 - **Toolbar (slides list, edit, settings, full screen):** hidden until you move the mouse to the top-right corner. It stays visible while a panel is open.
 - **Tip for AirPlay or HDMI:** connect first, then press F for full screen on the TV display. If the edges look cut off, open Settings (S) and add 3–5% safe margins.
+
+## Updates in version 29
+- **The taxman (slide 2):** the illustration now fills the whole left half of the screen. The text and the three numbers sit on the right.
+- **Meet John:** the family scene fills the left half, with the bullet points on the right.
+- **No floating ground:** every illustration's snow or floor now runs to the edge of its scene and fades softly into the slide.
+- **Tug of war:** the dashed line is now a red "CENTRE" line on the ground, and the flag has been pulled well over to their side. John leans forward as he's dragged, skidding in the snow, under a red "Losing ground" arrow.
+- **Ten years earlier:** a split screen of Mehar's office. On the left, 2016 in sepia: John, 30, says "Let me think about it…". On the right, 2026 in colour: John says "I wish I'd listened to you ten years ago," and Mehar answers "That's okay. We can't change the past. Let's focus on today, and on your future." Each bubble appears on a click.
+- **First the fundamentals:** John also started a flexible savings and investment plan (more on that later). The "All of it… Sarah and David" line has been removed.
+- **Bigger:** the two buckets, the loonies on the personal vs corporate dollar slide, and the "Nobody ever told me!" scene.
+- **The moment:** Mehar now replies in his own bubble: "We talked about this ten years ago, my friend. You weren't ready then, and that's okay. You're ready now."
+- **Screen-shape checks:** every slide was checked on MacBook, 16:9 TV, ultrawide and 4:3. On narrow screens the full-screen pictures show whole instead of being cropped. On very wide screens they're shown whole with soft edges.

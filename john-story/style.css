@@ -975,3 +975,42 @@ html,body{background:#000}
 #ui::before{content:"";position:absolute;inset:-26px -30px -30px -40px}
 #ui:hover,#ui:focus-within,#stage:has(.panel.open) #ui{opacity:1!important}
 #ui::before{z-index:0}#ui button{position:relative;z-index:1}
+/* v29: big half-screen illustrations, edge-to-edge ground */
+.scene{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%),linear-gradient(180deg,#000 82%,transparent 100%);-webkit-mask-composite:source-in;
+  mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%),linear-gradient(180deg,#000 82%,transparent 100%);mask-composite:intersect}
+.sCover .scene{-webkit-mask-image:none;mask-image:none}
+.halfL{position:absolute;left:0;top:0;bottom:0;width:50%;z-index:0;-webkit-mask-image:linear-gradient(90deg,#000 82%,transparent);mask-image:linear-gradient(90deg,#000 82%,transparent)}
+.halfL svg{width:100%;height:100%;display:block}
+.sHalf{padding-left:calc(50% + 10px)!important;padding-right:calc(56px + var(--exw,0px)*.2)!important;align-items:flex-start!important}
+.sHalf>*:not(.halfL){position:relative;z-index:1}
+.sHalf .kick{text-align:left;width:100%}
+.sHalf h2.lft{text-align:left;max-width:100%}
+.sHook .hookCol{width:100%;max-width:560px;flex-direction:column;gap:10px;margin-top:10px}
+.sHook .hookCol .hookCard{display:flex;justify-content:space-between;align-items:center;padding:10px 22px!important}
+.sHook .hookCol .hookCard b{font-size:32px}
+.sHook .big{font-size:24px!important;margin:4px 0}.sHook .realC{font-size:19px;margin-top:4px}
+.hkEnd{font-size:19px;color:#EADBC0;margin-top:12px;max-width:600px}.hkEnd b{color:#FFF4DC}
+.srcR{left:calc(50% + 10px)!important;right:40px!important;text-align:left}
+.sHook .scene{height:auto}
+.meetR{max-width:640px}.meetSF{font-size:24px;color:#EADBC0;margin-top:12px}
+.sMeet .meetL li{font-size:19px}
+.sNums .sp svg{width:620px;height:auto}
+.flashSvg{display:block;width:1300px;height:auto;margin-top:8px;border-radius:14px;box-shadow:0 0 30px rgba(229,185,60,.25)}
+.shockS .sp svg{width:700px;height:auto}.shockS .sp2{max-width:560px}
+.sBuckets .bkRow{margin-top:-6px}
+.sHalf>.src{position:absolute!important;z-index:1}
+.sHook .hookCard{width:auto!important}.sHook .hookCard span{white-space:nowrap}
+.sHook .hookCol{width:560px}
+.halfL{-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)}
+/* v29c: clash fixes across screen shapes */
+.slide:not([data-hud]) .src{bottom:50px!important}
+.sFull .svc{display:none}
+.sNums .sp svg{width:540px}
+.sRules .tugW svg{height:230px}.sRules .rc{padding:12px 18px}
+.sDollar .lnS{width:270px;height:270px}.sDollar .dlV b{font-size:52px}.sDollar .dlTalk{gap:6px;margin-top:4px}.sDollar .dlTalk p{padding:7px 18px;font-size:20px}
+.sDollar .dlFig svg{height:240px;width:auto}
+.ifD{height:440px;transform:scale(.94);transform-origin:top center;margin-bottom:-26px}
+.sDebt .dC s{margin:2px 0 6px}
+.ifD{margin-bottom:-8px}
+.ratSvg,.halfL svg{overflow:visible}
+#stage.wide .ratSvg{-webkit-mask-image:linear-gradient(90deg,transparent var(--wfa),#000 var(--wfb),#000 calc(100% - var(--wfb)),transparent calc(100% - var(--wfa)));mask-image:linear-gradient(90deg,transparent var(--wfa),#000 var(--wfb),#000 calc(100% - var(--wfb)),transparent calc(100% - var(--wfa)))}

@@ -224,6 +224,28 @@ slide(f'''
 </div>
 ''', 'sCover')
 
+# ---- v29 helpers
+def STARS(n, ymax, seed):
+    import random as _r; _r.seed(seed)
+    return ''.join(f'<circle cx="{_r.randint(8,712)}" cy="{_r.randint(12,ymax)}" r="{_r.choice([1.3,1.8,2.3])}" fill="#fff" opacity="{_r.uniform(.35,.8):.2f}"/>' for _ in range(n))
+def half_svg(inner, defs=''):
+    return f'<div class="halfL"><svg viewBox="0 0 720 810" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><defs>{defs}</defs>{inner}</svg></div>'
+def snow_floor(y=640, w=720):
+    return f'<path d="M-40,{y+10} Q{w*.25},{y-14} {w*.5},{y+2} T{w+40},{y-4} V830 H-40Z" fill="url(#gSnow)"/><path d="M-40,{y+16} Q{w*.25},{y-6} {w*.5},{y+10} T{w+40},{y+4}" stroke="rgba(160,170,190,.55)" stroke-width="3" fill="none"/>'
+def bubble(x, y, w, lines, tx, ty, size=19, cls='', fill='#FBF3E2', ink='#6B1218', bold_last=False):
+    lh = size * 1.3; h = 22 + lh * len(lines)
+    cx = x + w / 2
+    tb = min(max(tx, x + 30), x + w - 30)
+    g = [f'<g class="bub {cls}">',
+         f'<path d="M{tb-14},{y+h-2} L{tx},{ty} L{tb+14},{y+h-2}Z" fill="{fill}" stroke="#E5B93C" stroke-width="3" stroke-linejoin="round"/>',
+         f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="16" fill="{fill}" stroke="#E5B93C" stroke-width="3"/>',
+         f'<path d="M{tb-12},{y+h-3} L{tb+12},{y+h-3}" stroke="{fill}" stroke-width="7"/>']
+    for k, t in enumerate(lines):
+        wt = 900 if (bold_last and k == len(lines) - 1) else 700
+        g.append(f'<text x="{cx}" y="{y + 11 + lh*(k+1) - size*.25:.0f}" text-anchor="middle" style="font:italic {wt} {size}px Georgia;fill:{ink}">{t}</text>')
+    g.append('</g>')
+    return ''.join(g)
+
 # ---- v22 illustrations
 def peace_tower(x, y, s=1.0):
     g = [f'<g transform="translate({x},{y}) scale({s})">']
@@ -247,6 +269,11 @@ def tax_bill(x, y, s=1.0, rot=-8):
             '<path d="M-42,-18 H42 M-42,-4 H30 M-42,10 H38" stroke="#C9BFA8" stroke-width="4"/>'
             '<text y="40" text-anchor="middle" style="font:900 22px Georgia;fill:#2E1E12">$660,000</text>'
             '<rect x="-46" y="48" width="92" height="18" rx="3" fill="none" stroke="#B3202A" stroke-width="2.5" transform="rotate(-6)"/><text y="62" text-anchor="middle" transform="rotate(-6)" style="font:900 11px sans-serif;fill:#B3202A;letter-spacing:.12em">DUE NOW</text></g>')
+HOOK_HALF = half_svg('<rect x="-400" y="-900" width="1520" height="905" fill="#1A0810"/><rect width="720" height="810" fill="url(#hkSky)"/>' + STARS(40, 420, 3)
+  + peace_tower(210, 690, 1.3) + snow_floor(680)
+  + person('tax', 330, 712, 1.5, arm='hold') + money_bag(412, 538, 1.34) + tax_bill(196, 518, 1.42)
+  + person('dau', 535, 712, 1.35, mood='sad') + '<circle cx="601" cy="592" r="14" fill="#E5B93C" stroke="#8A6510" stroke-width="3"/>',
+  '<linearGradient id="hkSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1A0810"/><stop offset="1" stop-color="#4A1520"/></linearGradient>')
 HOOK_SCENE = scene(ground(620,420) + peace_tower(200,410,.82)
   + person('tax',390,410,.95,arm='hold') + money_bag(442,300,.85) + tax_bill(302,286,.9)
   + person('dau',556,410,.9,mood='sad') + '<circle cx="600" cy="330" r="10" fill="#E5B93C" stroke="#8A6510" stroke-width="2"/>'
@@ -256,11 +283,14 @@ def tug():
     g = []
     g.append('<path d="M330,262 C560,272 760,272 1000,262" stroke="#C9A47A" stroke-width="9" fill="none" stroke-linecap="round"/>')
     g.append('<path d="M330,262 C560,272 760,272 1000,262" stroke="#8A6A3A" stroke-width="2" fill="none" stroke-dasharray="6 8"/>')
-    g.append('<rect x="745" y="250" width="14" height="34" rx="3" fill="#B3202A"/><path d="M650,300 L650,240" stroke="#FFE7A6" stroke-width="3" stroke-dasharray="6 6"/>')
-    g.append('<g transform="rotate(-10 300 400)">' + person('john',300,400,1.0,arm='hold',mood='shock') + '</g>')
+    g.append('<path d="M650,386 L650,446" stroke="#B3202A" stroke-width="5" stroke-dasharray="10 8"/><text x="650" y="378" text-anchor="middle" style="font:800 13px sans-serif;fill:#7A0F1A;letter-spacing:.12em">CENTRE</text>'
+             '<rect x="812" y="252" width="14" height="36" rx="3" fill="#B3202A"/><path d="M819,252 L819,226 L846,236 L819,246" fill="#FFE7A6" stroke="#B3202A" stroke-width="2"/>'
+             '<path d="M196,404 L276,402 M206,412 L270,410 M214,396 L262,395" stroke="#B9C2CC" stroke-width="4" stroke-linecap="round"/>' + ''.join(f'<circle cx="{x}" cy="{y}" r="{r}" fill="#FFFFFF" opacity=".9"/>' for x, y, r in ((268,392,7),(282,384,5),(256,386,4),(292,394,4)))
+             + '<path d="M420,200 L580,200" stroke="#FF6F6B" stroke-width="6" stroke-linecap="round"/><path d="M580,186 L604,200 L580,214Z" fill="#FF6F6B"/><text x="500" y="186" text-anchor="middle" style="font:900 22px Georgia;fill:#FF8A86">Losing ground</text>')
+    g.append('<g transform="translate(24,0) rotate(12 300 400)">' + person('john',300,400,1.0,arm='hold',mood='shock') + '</g>')
     for k, (kind, nm) in enumerate([('rc','Compound'), ('rr','Risk'), ('rt','Tax')]):
         x = 850 + k*140
-        g.append(f'<g transform="rotate(9 {x} 400)">' + person(kind, x, 400, .95, arm=None) + f'<rect x="{x-60}" y="{286}" width="120" height="34" rx="7" fill="#FBF6EA" stroke="#B3202A" stroke-width="2.5"/><text x="{x}" y="{310}" text-anchor="middle" style="font:900 21px Georgia;fill:#B3202A">{nm}</text></g>')
+        g.append(f'<g transform="rotate(13 {x} 400)">' + person(kind, x, 400, .95, arm=None) + f'<rect x="{x-60}" y="{286}" width="120" height="34" rx="7" fill="#FBF6EA" stroke="#B3202A" stroke-width="2.5"/><text x="{x}" y="{310}" text-anchor="middle" style="font:900 21px Georgia;fill:#B3202A">{nm}</text></g>')
     g.append('<path d="M640,350 L560,350" stroke="#FF6F6B" stroke-width="5" marker-end="url(#tgArr)" opacity=".0"/>')
     g.append(label(300,442,'John',size=20))
     return scene(ground(1300,400) + ''.join(g), 450)
@@ -301,21 +331,19 @@ COURT = court()
 
 # 2 HOOK
 slide(f'''
-<div class="kick red">A real case &middot; Ontario &middot; Reported by CTV News, 2025</div>
-<h2>Every year, Canadian families give the biggest gift of their lives&hellip;</h2>
-<p class="big f">&hellip;to the taxman. <span class="red">Most never meant to.</span></p>
-<p class="f mid realC">This is not part of John&rsquo;s story. <b>This really happened to a family in Ontario.</b></p>
-<div class="split hookS">
-  <div class="sp f">{HOOK_SCENE}</div>
-  <div class="hookCol">
-    <div class="hookCard f"><span>Their parents&rsquo; RRSPs</span><b>&asymp; $715,000</b></div>
-    <div class="hookCard tax f"><span>Tax bill</span><b>$660,000+</b></div>
-    <div class="hookCard left f"><span>What was left</span><b>Almost nothing</b></div>
-  </div>
+{HOOK_HALF}
+<div class="kick red">A real case &middot; Ontario &middot; CTV News, 2025</div>
+<h2 class="lft">Every year, Canadian families give the biggest gift of their lives&hellip;</h2>
+<p class="lft big f">&hellip;to the taxman. <span class="red">Most never meant to.</span></p>
+<p class="lft f realC">This is not part of John&rsquo;s story. <b>This really happened to a family in Ontario.</b></p>
+<div class="hookCol f">
+  <div class="hookCard"><span>Their parents&rsquo; RRSPs</span><b>&asymp; $715,000</b></div>
+  <div class="hookCard tax"><span>Tax bill</span><b>$660,000+</b></div>
+  <div class="hookCard left"><span>What was left</span><b>Almost nothing</b></div>
 </div>
-<p class="f mid">Both parents died in the same year. Their daughter used nearly all of their retirement savings to pay the tax. <b>There was no plan for it.</b></p>
-<div class="src">Source: CTV News Toronto, &ldquo;Daughter hit with $660,000 tax bill when both parents died in same year&rdquo; (September 2025), ctvnews.ca/toronto/consumer-alert/article/daughter-hit-with-660000-tax-bill-when-both-parents-died-in-same-year/</div>
-''', 'sHook')
+<p class="lft f hkEnd">Both parents died in the same year. Their daughter used nearly all of their retirement savings to pay the tax. <b>There was no plan for it.</b></p>
+<div class="src srcR">Source: CTV News Toronto, &ldquo;Daughter hit with $660,000 tax bill when both parents died in same year&rdquo; (September 2025).</div>
+''', 'sHook sHalf')
 
 # 2b HOW TONIGHT WORKS
 slide('''
@@ -338,12 +366,14 @@ slide(f'''
 ''', 'sTwo')
 
 # 4b MEET JOHN
-MEET = scene(ground(560,420) + house(120,410,.6) + person('john',262,410,1.0) + person('emma',360,410,.93) + person('lily',446,410,.6) + person('max',518,410,.5)
-  + label(262,452,'John, 40') + label(360,452,'Emma, 39') + label(446,452,'Lily, 6') + label(520,452,'Max, 4'), 470).replace('viewBox="0 0 1300 470" width="1300"','viewBox="0 0 560 470" width="560"')
+MEET = half_svg('<rect x="-400" y="-900" width="1520" height="905" fill="#14101E"/><rect width="720" height="810" fill="url(#mtSky)"/>' + STARS(34, 330, 8)
+  + house(130, 640, 1.0) + snow_floor(630)
+  + person('john', 285, 650, 1.45) + person('emma', 405, 650, 1.36) + person('lily', 500, 650, .9) + person('max', 572, 650, .76)
+  + label(285, 690, 'John, 40', size=22) + label(405, 690, 'Emma, 39', size=22) + label(500, 690, 'Lily, 6', size=20) + label(574, 690, 'Max, 4', size=20),
+  '<linearGradient id="mtSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14101E"/><stop offset="1" stop-color="#3A1A28"/></linearGradient>')
 slide(f'''
-<div class="split meetS">
-  <div class="sp">{MEET}</div>
-  <div class="sp2">
+{MEET}
+<div class="meetR">
     <div class="kick" style="text-align:left">Meet John</div>
     <h2 class="lft">A dentist in BC who gives everything to his patients.</h2>
     <ul class="meetL">
@@ -353,13 +383,13 @@ slide(f'''
       <li class="f"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="9" cy="7" rx="5" ry="2.5"/><path d="M4 7v4c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5V7"/><ellipse cx="15" cy="13.5" rx="5" ry="2.5"/><path d="M10 13.5v4c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5v-4"/></svg></i><span>A great income, a disciplined saver, and <b>no real plan</b> tying it all together</span></li>
     </ul>
     <p class="meetQ f">&ldquo;I built a great practice. I just never had time to build a plan.&rdquo;</p>
-  </div>
+    <p class="f lft meetSF">Sound familiar?</p>
 </div>
-<p class="f mid">Sound familiar?</p>
-''', 'sMeet', hud=H(40, NW(40)))
+''', 'sMeet sHalf', hud=H(40, NW(40)))
 
 # ---- full-screen chapter title pages
-def full_svg(inner, defs=''):
+def full_svg(inner, defs='', top='#1A0A10'):
+    inner = f'<rect x="-600" y="-900" width="2640" height="905" fill="{top}"/>' + inner
     return f'<svg class="ratSvg" viewBox="0 0 1440 810" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs>{defs}</defs>{inner}</svg>'
 def chap_full(num, when, title, svg, cls, hud=None, chips=''):
     ch = f'<div class="fChips">{chips}</div>' if chips else ''
@@ -400,7 +430,7 @@ def ch2():
     bg, d = office()
     paper = '<g transform="translate(700,552) rotate(-4)"><rect x="-70" y="-14" width="140" height="22" rx="2" fill="#F4E7C8" stroke="#C9A227" stroke-width="2"/><text y="2" text-anchor="middle" style="font:700 12px Georgia;fill:#7A0F1A">John&#8217;s wishlist</text></g>'
     return full_svg(bg + calendar(560, 380, '28') + person('john', 420, 690, 1.3, arm='hold') + person('mehar', 1020, 690, 1.3) + big_desk() + paper
-                    + '<g transform="translate(900,556)"><rect x="-20" y="-18" width="40" height="22" rx="4" fill="#FFF"/><path d="M20,-12 c10,0 10,12 0,12" stroke="#FFF" stroke-width="4" fill="none"/></g>', d)
+                    + '<g transform="translate(900,556)"><rect x="-20" y="-18" width="40" height="22" rx="4" fill="#FFF"/><path d="M20,-12 c10,0 10,12 0,12" stroke="#FFF" stroke-width="4" fill="none"/></g>', d, '#1F3A3A')
 
 # Chapter Three: He Starts Now
 def ch3():
@@ -410,7 +440,7 @@ def ch3():
     form = '<g transform="translate(740,552) rotate(-3)"><rect x="-80" y="-16" width="160" height="26" rx="2" fill="#FBF6EA" stroke="#B9AE96" stroke-width="2"/><text y="2" text-anchor="middle" style="font:700 11px Georgia;fill:#2E1E12">APPLICATION</text></g>'
     pen = '<path d="M806,548 L842,520" stroke="#1E1E24" stroke-width="6" stroke-linecap="round"/><path d="M806,548 L800,554" stroke="#E5B93C" stroke-width="4"/>'
     return full_svg(bg + calendar(480, 340, '30') + tree(1290, 640, .9) + person('john', 800, 690, 1.3, arm='hold') + person('mehar', 1000, 690, 1.25, arm='up')
-                    + big_desk() + gift(600, 560, 1.15, txt='THE PLAN') + form + pen, d)
+                    + big_desk() + gift(600, 560, 1.15, txt='THE PLAN') + form + pen, d, '#1F3A3A')
 
 # Chapter Four: Location #2
 def street(sky1, sky2):
@@ -426,7 +456,7 @@ def ch4():
     ribbon = '<path d="M820,600 C900,590 960,612 1000,598 C1060,612 1120,590 1180,600" stroke="#C62D3A" stroke-width="10" fill="none"/><path d="M990,590 l-24,30 M1010,590 l24,30" stroke="#C62D3A" stroke-width="8"/><circle cx="1000" cy="596" r="12" fill="#C62D3A"/>'
     sc = '<g transform="translate(1000,560) rotate(-20)"><path d="M0,0 L70,-14 M0,0 L70,14" stroke="#B9C2CC" stroke-width="8" stroke-linecap="round"/><circle cx="-14" cy="-10" r="12" fill="none" stroke="#E5B93C" stroke-width="6"/><circle cx="-14" cy="10" r="12" fill="none" stroke="#E5B93C" stroke-width="6"/></g>'
     return full_svg(g + clinic(330, 620, 1.35, 1) + clinic(1000, 620, 1.6, 2) + banner + person('emma', 560, 700, 1.0, arm='up') + person('lily', 640, 700, .66, arm='up') + person('max', 700, 700, .56)
-                    + ribbon + person('john', 900, 710, 1.15, 'coat', arm='hold') + person('raj', 1100, 710, 1.15, 'coat', arm='hold') + sc, d)
+                    + ribbon + person('john', 900, 710, 1.15, 'coat', arm='hold') + person('raj', 1100, 710, 1.15, 'coat', arm='hold') + sc, d, '#2A1E46')
 
 # Chapter Five: The Storm
 def ch5():
@@ -437,14 +467,14 @@ def ch5():
          + '<path d="M760,330 L720,430 L760,426 L726,520 L812,400 L770,404 L800,330Z" fill="#FFE08A" class="bolt"/>'
          + '<path d="M0,620 Q360,600 720,615 T1440,610 V810 H0Z" fill="#C9D2DC"/>'
          + clinic(250, 625, 1.25, 1) + clinic(1210, 625, 1.25, 2) + umbrella(720, 470, 1.25) + person('john', 670, 700, 1.15, arm='hold', mood='shock') + person('emma', 790, 700, 1.1))
-    return full_svg(g, d)
+    return full_svg(g, d, '#14141E')
 
 # Chapter Six: Retirement
 def ch6():
     g, d = street('#3A2050', '#E08A5A')
     keys = '<g transform="translate(724,560)"><circle r="12" fill="none" stroke="#E5B93C" stroke-width="5"/><path d="M8,8 L30,30 M22,22 L28,16 M26,26 L32,20" stroke="#E5B93C" stroke-width="5" stroke-linecap="round"/></g>'
     return full_svg(g + clinic(220, 610, 1.15, 1) + clinic(520, 610, 1.15, 2) + clinic(1260, 610, 1.15, 3)
-                    + person('john', 680, 710, 1.2, arm='hold') + keys + person('lily', 820, 710, 1.12, arm='hold') + person('emma', 960, 710, 1.05) + person('max', 1070, 710, 1.1), d)
+                    + person('john', 680, 710, 1.2, arm='hold') + keys + person('lily', 820, 710, 1.12, arm='hold') + person('emma', 960, 710, 1.05) + person('max', 1070, 710, 1.1), d, '#3A2050')
 
 # Chapter Seven: The Last Christmas
 def ch7():
@@ -457,7 +487,7 @@ def ch7():
                     + person('lily', 430, 700, 1.05) + person('lsp', 525, 700, 1.1)
                     + person('lily', 640, 712, .52) + person('max', 700, 712, .48) + person('lily', 770, 712, .5) + person('max', 830, 712, .44)
                     + person('max', 960, 700, 1.08) + person('msp', 1060, 700, 1.02)
-                    + label(200, 742, 'John, 90', size=20) + label(478, 742, 'Lily &amp; her husband', size=17) + label(1010, 742, 'Max &amp; his wife', size=17), d)
+                    , d, '#6B2A22')
 
 # 4 CHAPTER 1: THE RAT RACE (full-screen split)
 def rat_race():
@@ -507,7 +537,7 @@ def rat_race():
     L.append('</g>')
     # ---- divider + captions
     L.append('<rect x="714" y="0" width="12" height="810" fill="#C9962A"/><rect x="718" y="0" width="4" height="810" fill="#FFE7A6"/>')
-    return '<svg class="ratSvg" viewBox="0 0 1440 810" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' + ''.join(L) + '</svg>'
+    return '<svg class="ratSvg" viewBox="0 0 1440 810" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect x="-600" y="-900" width="1320" height="905" fill="#1A2230"/><rect x="720" y="-900" width="1320" height="905" fill="#7A3424"/>' + ''.join(L) + '</svg>'
 slide(f'''
 {rat_race()}
 <div class="ratC l">9:47 p.m. &middot; still at the clinic</div><div class="ratC r">At home &middot; waiting for Dad</div>
@@ -555,22 +585,29 @@ slide(f'''
 chap_full('Chapter Two', 'December 28, 2026 &middot; John is 40', 'The Meeting', ch2(), 'sChap', hud=H(40, NW(40)))
 
 # 8a TEN YEARS EARLIER
-FLASH = scene(ground(560,420) + desk(280,410,.9) + person('john',150,410,.95) + person('mehar',410,410,.95)
-  + '<g transform="translate(250,300)"><rect x="-26" y="-6" width="52" height="34" rx="3" fill="#FBF6EA" transform="rotate(-6)"/><path d="M-18,4 H14 M-18,12 H10 M-18,20 H16" stroke="#B9AE96" stroke-width="3" transform="rotate(-6)"/></g>'
-  + label(150,452,'John, 30') + label(410,452,'Mehar'), 470).replace('viewBox="0 0 1300 470" width="1300"','viewBox="0 0 560 470" width="560"')
+def _office_half(x0, sep):
+    g = []
+    g.append(f'<rect x="{x0}" y="0" width="650" height="520" fill="{"#3A3424" if sep else "#1F3A3A"}"/>' + ''.join(f'<path d="M{x},0 V440" stroke="rgba(255,255,255,.04)" stroke-width="16"/>' for x in range(x0+20, x0+650, 48)))
+    g.append(f'<rect x="{x0}" y="440" width="650" height="80" fill="{"#5A4A32" if sep else "#5A3A22"}"/><rect x="{x0}" y="434" width="650" height="9" fill="#E8D6B0"/>')
+    g.append(f'<rect x="{x0+40}" y="130" width="170" height="150" fill="#0E1A30" stroke="#E8D6B0" stroke-width="9"/><path d="M{x0+125},130 V280 M{x0+40},205 H{x0+210}" stroke="#E8D6B0" stroke-width="5"/>')
+    g.append(f'<rect x="{x0+500}" y="150" width="130" height="290" fill="#5A3A22"/>' + ''.join(f'<rect x="{x0+508+k*20}" y="{170+r*72}" width="14" height="54" fill="{["#9E1B26","#2F6E4C","#C9962A","#3E5C76","#E8D6B0","#6B4A8A"][(k+r)%6]}"/>' for r in range(4) for k in range(6)))
+    return ''.join(g)
+def flash_split():
+    defs = '<filter id="sepF"><feColorMatrix type="matrix" values=".39 .77 .19 0 0  .35 .69 .17 0 0  .27 .53 .13 0 0  0 0 0 1 0"/></filter>'
+    L = '<g filter="url(#sepF)">' + _office_half(0, True) + person('john', 150, 470, 1.18) + person('mehar', 440, 470, 1.12) + '<rect x="160" y="380" width="360" height="20" rx="4" fill="#7A4A2A"/><rect x="175" y="400" width="330" height="120" fill="#5E3820"/>' + '</g>'
+    Rh = _office_half(650, False) + person('john', 800, 470, 1.18, mood='sad') + person('mehar', 1100, 470, 1.12) + '<rect x="810" y="380" width="360" height="20" rx="4" fill="#7A4A2A"/><rect x="825" y="400" width="330" height="120" fill="#5E3820"/>'
+    tags = ('<g><rect x="20" y="460" width="210" height="40" rx="20" fill="rgba(40,24,10,.85)" stroke="#C9A47A"/><text x="125" y="487" text-anchor="middle" style="font:700 21px Caveat,cursive;fill:#FFE7A6">2016 &#183; John is 30</text></g>'
+            '<g><rect x="1070" y="460" width="210" height="40" rx="20" fill="rgba(10,30,30,.85)" stroke="#7BE3AE"/><text x="1175" y="487" text-anchor="middle" style="font:700 21px Caveat,cursive;fill:#CFF5E0">2026 &#183; John is 40</text></g>')
+    div = '<rect x="646" y="0" width="8" height="520" fill="#C9962A"/><rect x="649" y="0" width="2" height="520" fill="#FFE7A6"/>'
+    b1 = '<g class="f">' + bubble(40, 24, 280, ['&#8220;Let me think', 'about it&#8230;&#8221;'], 160, 162, size=22) + '</g>'
+    b2 = '<g class="f">' + bubble(668, 18, 300, ['&#8220;I wish I&#8217;d listened', 'to you ten years ago.&#8221;'], 800, 162, size=20) + '</g>'
+    b3 = '<g class="f">' + bubble(980, 10, 300, ['&#8220;That&#8217;s okay. We can&#8217;t', 'change the past. Let&#8217;s', 'focus on today, and', 'on your future.&#8221;'], 1100, 172, size=19, bold_last=True) + '</g>'
+    return f'<svg class="flashSvg" viewBox="0 0 1300 520" width="1300" height="520" aria-hidden="true"><defs>{defs}</defs>{L}{Rh}{div}{tags}{b1}{b2}{b3}</svg>'
+FLASH = flash_split()
 slide(f'''
 <div class="kick">But this wasn&rsquo;t their first meeting</div>
 <h2>Ten years earlier, Mehar had shown John these same strategies.</h2>
-<div class="split flashS">
-  <div class="sp flash f">{FLASH}<div class="flTag">2016 &middot; John is 30</div></div>
-  <div class="sp2">
-    <p class="lft big f">John liked the ideas. Then he said what most of us say: <b>&ldquo;Let me think about it.&rdquo;</b> Life got busy, and ten years went by.</p>
-    <div class="dlTalk lftT">
-      <p class="f j2"><span class="who">John</span>&ldquo;I wish I&rsquo;d listened to you ten years ago.&rdquo;</p>
-      <p class="f"><span class="who">Mehar</span>&ldquo;That&rsquo;s okay. We can&rsquo;t change the past. <b>Let&rsquo;s focus on today, and on your future.</b>&rdquo;</p>
-    </div>
-  </div>
-</div>
+{FLASH}
 ''', 'sFlash')
 
 # 8b MEHAR'S PROCESS
@@ -600,10 +637,9 @@ slide('''
     <li><b>The 3 goals of money:</b><div class="fdTags"><em class="g">Protection</em><em class="g">Income</em><em class="g">Legacy</em></div>Every dollar should serve at least one of them.</li>
   </ul></div>
   <div class="fdC paper f"><h3>A complete plan for the family</h3><ul>
-    <li><b>John:</b> his $500K of term life and $50K of critical illness was a good start, but a proper needs analysis showed big gaps. He agreed to <b>$2.5M of personal life insurance, permanent plus term, and $250K of critical illness</b>.</li>
+    <li><b>John:</b> his $500K of term life and $50K of critical illness was a good start, but a proper needs analysis showed big gaps. He agreed to <b>$2.5M of personal life insurance, permanent plus term, and $250K of critical illness</b>. He also started a <b>flexible savings and investment plan</b> (more on that later).</li>
     <li><b>Emma:</b> her own protection, savings and retirement plan.</li>
     <li><b>Lily and Max:</b> education savings and their own coverage, locked in young.</li>
-    <li><b>All of it:</b> reviewed with Sarah and David: wills, powers of attorney and tax.</li>
   </ul></div>
 </div>
 <p class="focus f">A complete job means the whole family. <b>Tonight, we&rsquo;re focusing on what Mehar did for John&rsquo;s corporation.</b></p>
@@ -629,7 +665,7 @@ slide('''
 # 9a CORPORATE DOLLAR VS PERSONAL DOLLAR
 def LOON(tax, cls):
     d = tax * 6.283 * 120
-    return (f'<svg viewBox="-140 -140 280 280" width="250" height="250" class="lnS {cls}"><defs><clipPath id="lc{cls}"><polygon points="0.0,-120.0 64.9,-101.0 109.2,-49.8 118.8,17.1 90.7,78.6 33.8,115.1 -33.8,115.1 -90.7,78.6 -118.8,17.1 -109.2,-49.8 -64.9,-101.0"/></clipPath></defs>'
+    return (f'<svg viewBox="-140 -140 280 280" width="300" height="300" class="lnS {cls}"><defs><clipPath id="lc{cls}"><polygon points="0.0,-120.0 64.9,-101.0 109.2,-49.8 118.8,17.1 90.7,78.6 33.8,115.1 -33.8,115.1 -90.7,78.6 -118.8,17.1 -109.2,-49.8 -64.9,-101.0"/></clipPath></defs>'
             f'<polygon points="0.0,-120.0 64.9,-101.0 109.2,-49.8 118.8,17.1 90.7,78.6 33.8,115.1 -33.8,115.1 -90.7,78.6 -118.8,17.1 -109.2,-49.8 -64.9,-101.0" fill="url(#gLoon)" stroke="#8A6510" stroke-width="5"/><polygon points="0.0,-104.0 56.2,-87.5 94.6,-43.2 102.9,14.8 78.6,68.1 29.3,99.8 -29.3,99.8 -78.6,68.1 -102.9,14.8 -94.6,-43.2 -56.2,-87.5" fill="none" stroke="rgba(120,80,10,.55)" stroke-width="3"/>'
             f'<text y="22" text-anchor="middle" style="font:900 64px Georgia;fill:#7A5A10">$1</text>'
             f'<g clip-path="url(#lc{cls})"><circle r="120" fill="none" class="tW" stroke-width="240" style="--d:{d:.0f}px" transform="rotate(-90)"/></g></svg>')
@@ -671,13 +707,13 @@ def cda_bucket(p, w=300, h=420, cls=''):
       '</g></g></g>' + coins +
       '<path d="M-120,-220 L120,-220 L94,0 L-94,0Z" fill="none" stroke="#F2CC5A" stroke-width="7" stroke-linejoin="round"/>'
       '<text x="0" y="-104" text-anchor="middle" class="bkTxt">CDA</text></svg>')
-CDA_BUCKET = cda_bucket('A', 240, 336)
+CDA_BUCKET = cda_bucket('A', 300, 420)
 
 slide('''
 <div class="kick">What Mehar showed him</div>
 <h2>Every dollar in John&rsquo;s corporation sits in one of <span class="gold">two buckets.</span></h2>
 <div class="bkRow">
-  <div class="bkC f"><svg viewBox="-160 -260 320 330" width="232" height="240"><path d="M-120,-220 L120,-220 L94,0 L-94,0Z" fill="rgba(179,32,42,.18)" stroke="#E0303E" stroke-width="7" stroke-linejoin="round"/><text x="0" y="-92" text-anchor="middle" style="font:900 68px Georgia;fill:#FF7D78">%</text><g class="drip"><circle class="leak" style="animation-delay:0.0s" cx="-40" cy="20" r="11" fill="#E5B93C"/><circle class="leak" style="animation-delay:0.5s" cx="-20" cy="20" r="11" fill="#E5B93C"/><circle class="leak" style="animation-delay:1.0s" cx="0" cy="20" r="11" fill="#E5B93C"/><circle class="leak" style="animation-delay:1.5s" cx="20" cy="20" r="11" fill="#E5B93C"/><circle class="leak" style="animation-delay:2.0s" cx="40" cy="20" r="11" fill="#E5B93C"/></g></svg><b class="red">Taxable bucket</b><span>Salary, dividends, investment income: <strong>taxed on the way out</strong>, up to about half.</span></div>
+  <div class="bkC f"><svg viewBox="-160 -260 320 330" width="300" height="310"><path d="M-120,-220 L120,-220 L94,0 L-94,0Z" fill="rgba(179,32,42,.18)" stroke="#E0303E" stroke-width="7" stroke-linejoin="round"/><text x="0" y="-92" text-anchor="middle" style="font:900 68px Georgia;fill:#FF7D78">%</text><g class="drip"><circle class="leak" style="animation-delay:0.0s" cx="-40" cy="20" r="11" fill="#E5B93C"/><circle class="leak" style="animation-delay:0.5s" cx="-20" cy="20" r="11" fill="#E5B93C"/><circle class="leak" style="animation-delay:1.0s" cx="0" cy="20" r="11" fill="#E5B93C"/><circle class="leak" style="animation-delay:1.5s" cx="20" cy="20" r="11" fill="#E5B93C"/><circle class="leak" style="animation-delay:2.0s" cx="40" cy="20" r="11" fill="#E5B93C"/></g></svg><b class="red">Taxable bucket</b><span>Salary, dividends, investment income: <strong>taxed on the way out</strong>, up to about half.</span></div>
   <div class="bkVs f">vs</div>
   <div class="bkC win f">'''+CDA_BUCKET+'''<b class="gold">Tax-free bucket</b><span>The Capital Dividend Account: <strong>every dollar comes out tax-free.</strong></span></div>
 </div>
@@ -689,8 +725,9 @@ slide('''
 <p class="f mid">And how much of it could be in the <b class="gold">tax-free bucket</b> instead?</p>
 ''', 'sAsk')
 
-BUBBLE='<g transform="translate(-40,-128)"><g class="f"><path d="M150,92 L330,92 Q350,92 350,112 L350,160 Q350,180 330,180 L240,180 L210,214 L214,180 L150,180 Q130,180 130,160 L130,112 Q130,92 150,92Z" fill="#FBF3E2" stroke="#E5B93C" stroke-width="3"/><text x="240" y="128" text-anchor="middle" style="font:700 italic 20px Georgia;fill:#6B1218">A tax-free bucket?</text><text x="240" y="156" text-anchor="middle" style="font:700 italic 20px Georgia;fill:#6B1218">Nobody ever told me!</text></g></g>'
-SHOCK=scene(ground(620,420)+person('john',200,410,1.1,mood='shock')+person('mehar',440,410,1.05)+BUBBLE, 470).replace('viewBox="0 0 1300 470" width="1300" height="470"','viewBox="0 -100 620 570" width="620" height="570"')
+BUBBLE = '<g class="f">' + bubble(30, -110, 300, ['A tax-free bucket?', 'Nobody ever told me!'], 200, 118, size=22) + '</g>'
+MBUB = '<g class="f">' + bubble(350, -124, 320, ['&#8220;We talked about this ten', 'years ago, my friend. You', 'weren&#8217;t ready then, and', 'that&#8217;s okay. You&#8217;re ready now.&#8221;'], 470, 132, size=19, bold_last=True) + '</g>'
+SHOCK = scene(ground(700,420) + person('john',200,410,1.1,mood='shock') + person('mehar',470,410,1.05) + BUBBLE + MBUB, 470).replace('viewBox="0 0 1300 470" width="1300" height="470"','viewBox="0 -140 700 610" width="700" height="610"')
 slide(f'''
 <div class="split shockS">
   <div class="sp">{SHOCK}</div>

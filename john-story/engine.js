@@ -10,6 +10,11 @@ function fit(){
   stage.style.transform='scale('+sc+')';
   stage.style.setProperty('--ex',((h-810)/2)+'px');stage.style.setProperty('--exw',((w-1440)/2)+'px');
   window.FITINFO={W:W,H:Hh,dpr:window.devicePixelRatio||1,sc:sc};
+  var narrow=(w/h)<1.7,wide=(w/h)>1.9,parH=narrow?'xMidYMax meet':'xMidYMax slice',parF=(narrow||wide)?'xMidYMax meet':'xMidYMax slice';
+  [].slice.call(document.querySelectorAll('.halfL svg')).forEach(function(v){if(v.getAttribute('preserveAspectRatio')!==parH)v.setAttribute('preserveAspectRatio',parH);});
+  [].slice.call(document.querySelectorAll('.ratSvg')).forEach(function(v){if(v.getAttribute('preserveAspectRatio')!==parF)v.setAttribute('preserveAspectRatio',parF);});
+  stage.classList.toggle('narrow',narrow);stage.classList.toggle('wide',wide);
+  if(wide){var pad=((w-1440)/2)/w*100;stage.style.setProperty('--wfa',(pad-1)+'%');stage.style.setProperty('--wfb',(pad+5)+'%');}
 }
 window.__refit=fit;
 addEventListener('resize',fit);addEventListener('orientationchange',function(){setTimeout(fit,200);});
