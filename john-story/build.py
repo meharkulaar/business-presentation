@@ -369,11 +369,13 @@ def rat_race():
              '<radialGradient id="rFire" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="rgba(255,170,80,.55)"/><stop offset="1" stop-color="rgba(255,170,80,0)"/></radialGradient>'
              '<clipPath id="rcL"><rect width="720" height="810"/></clipPath><clipPath id="rcR"><rect x="720" width="720" height="810"/></clipPath></defs>')
     L.append('<g clip-path="url(#rcL)"><rect width="720" height="810" fill="url(#rOff)"/>')
-    L.append('<rect x="40" y="300" width="210" height="200" fill="#0A1426" stroke="#3A4558" stroke-width="10"/><path d="M145,300 V500 M40,400 H250" stroke="#3A4558" stroke-width="6"/>'
-             + ''.join(f'<circle cx="{_r.randint(50,240)}" cy="{_r.randint(310,490)}" r="{_r.choice([1.5,2,2.5])}" fill="#DDE6F0" opacity=".8"/>' for _ in range(22)))
+    L.append('<g transform="translate(26,0)"><rect x="30" y="280" width="270" height="260" fill="#0A1426"/><path d="M30,500 Q100,486 165,494 T300,490 V540 H30Z" fill="#DCE6F0"/><rect x="30" y="280" width="270" height="260" fill="none" stroke="#4A5568" stroke-width="14"/><path d="M165,280 V540 M30,410 H300" stroke="#4A5568" stroke-width="8"/><rect x="20" y="536" width="290" height="14" fill="#3A4558"/></g>'
+             + ''.join(f'<circle cx="{_r.randint(68,316)}" cy="{_r.randint(292,480)}" r="{_r.choice([1.5,2,2.5])}" fill="#DDE6F0" opacity=".85"/>' for _ in range(28)))
     L.append('<g transform="translate(612,372)"><circle r="46" fill="#F4ECD6" stroke="#8A6510" stroke-width="6"/>' + ''.join(f'<line y1="-38" y2="-31" stroke="#3A2A1A" stroke-width="3" transform="rotate({k*30})"/>' for k in range(12))
              + '<line y1="4" y2="-22" stroke="#3A2A1A" stroke-width="6" stroke-linecap="round" transform="rotate(292)"/><line y1="6" y2="-34" stroke="#3A2A1A" stroke-width="4" stroke-linecap="round" transform="rotate(282)"/><circle r="4" fill="#3A2A1A"/></g>')
-    L.append('<path d="M150,470 L360,250 L570,470Z" fill="url(#rLamp)"/>')
+    L.append('<ellipse cx="470" cy="560" rx="200" ry="70" fill="url(#rLamp)"/>')
+    L.append('<g class="dLamp"><ellipse cx="600" cy="558" rx="40" ry="9" fill="#2A2E36"/><path d="M600,556 L566,470 L512,432" stroke="#3A3F48" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'
+             '<circle cx="566" cy="470" r="8" fill="#4A505A"/><path d="M470,452 L512,410 L548,446 Z" fill="#2F6E4C" stroke="#1F4A30" stroke-width="3"/><ellipse cx="496" cy="456" rx="22" ry="7" fill="#FFE9A0" transform="rotate(45 496 456)"/></g>')
     L.append(person('john', 360, 690, 1.35, 'coat', mood='sad', arm='hold'))
     L.append('<path d="M326,388 C318,376 322,368 330,364" stroke="#BFE3F5" stroke-width="5" fill="none" stroke-linecap="round"/>')
     L.append('<rect x="40" y="560" width="660" height="30" rx="6" fill="#5A3A22"/><rect x="60" y="590" width="620" height="230" fill="#4A2E1A"/><rect x="60" y="590" width="620" height="230" fill="url(#gShade)" opacity=".5"/>')
