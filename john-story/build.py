@@ -288,7 +288,7 @@ def tug():
     rope = 'M395,297 C520,322 760,326 1225,323'
     g.append(f'<path d="{rope}" stroke="#6E4A22" stroke-width="22" fill="none" stroke-linecap="round"/><path d="{rope}" stroke="#C9A066" stroke-width="16" fill="none" stroke-linecap="round"/>'
              f'<path d="{rope}" stroke="#8A6236" stroke-width="16" fill="none" stroke-dasharray="7 9" stroke-linecap="butt"/>')
-    g.append('<g class="tugFlag"><path d="M760,328 L760,394" stroke="#7A0F1A" stroke-width="4"/><path d="M760,336 L812,350 L760,366Z" fill="#E8433A" stroke="#7A0F1A" stroke-width="2"/></g>'
+    g.append('<g class="tugFlag"><path d="M760,326 L760,262" stroke="#7A0F1A" stroke-width="4" stroke-linecap="round"/><path d="M760,264 L814,278 L760,294Z" fill="#E8433A" stroke="#7A0F1A" stroke-width="2"/></g>'
              '<circle cx="760" cy="327" r="9" fill="#B3202A" stroke="#FFE7A6" stroke-width="2"/>')
     g.append('<g transform="translate(24,0) rotate(12 300 400)">' + person('john',300,400,1.0,arm='hold',mood='shock') + '</g>')
     for k, (kind, nm) in enumerate([('rc','Compound'), ('rr','Risk'), ('rt','Tax')]):
@@ -507,7 +507,6 @@ def rat_race():
     L.append('<g transform="translate(612,372)"><circle r="46" fill="#F4ECD6" stroke="#8A6510" stroke-width="6"/>' + ''.join(f'<line y1="-38" y2="-31" stroke="#3A2A1A" stroke-width="3" transform="rotate({k*30})"/>' for k in range(12))
              + '<line y1="4" y2="-22" stroke="#3A2A1A" stroke-width="6" stroke-linecap="round" transform="rotate(229)"/><line y1="6" y2="-34" stroke="#3A2A1A" stroke-width="4" stroke-linecap="round" transform="rotate(234)"/><circle r="4" fill="#3A2A1A"/></g>')
     L.append(person('john', 360, 690, 1.35, 'coat', mood='sad', arm='hold'))
-    L.append('<path d="M326,388 C318,376 322,368 330,364" stroke="#BFE3F5" stroke-width="5" fill="none" stroke-linecap="round"/>')
     L.append('<rect x="40" y="560" width="660" height="30" rx="6" fill="#5A3A22"/><rect x="60" y="590" width="620" height="230" fill="#4A2E1A"/><rect x="60" y="590" width="620" height="230" fill="url(#gShade)" opacity=".5"/>')
     for bx, n in ((95, 9), (520, 7), (600, 11)):
         L.append(''.join(f'<rect x="{bx + _r.randint(-4,4)}" y="{556 - k*13}" width="{70 + _r.randint(-6,6)}" height="12" rx="2" fill="{_r.choice(["#E8E2D2","#D9C9A4","#F4EBDD","#C9B79C"])}" stroke="#8A7A5A" stroke-width="1.5"/>' for k in range(n)))
@@ -665,11 +664,11 @@ slide(f'''
 <h2>A <span class="red">personal</span> dollar vs a <span class="gold">corporate</span> dollar</h2>
 <svg width="0" height="0" style="position:absolute"><defs><radialGradient id="gLoon" cx=".4" cy=".35" r=".75"><stop offset="0" stop-color="#FFF0B0"/><stop offset=".5" stop-color="#E5B93C"/><stop offset="1" stop-color="#A87A12"/></radialGradient></defs></svg>
 <div class="dlR">
-  <div class="dlFig">{DL_MEHAR}</div>
+  <div class="dlFig">{DL_JOHN}</div>
   <div class="dlC f"><div class="dlT red">Personal dollar</div>{LOON(.5,'p')}<div class="dlV"><b class="red">50&cent;</b><span>left after personal tax</span></div></div>
   <div class="dlVs f">vs</div>
   <div class="dlC win f"><div class="dlT gold">Corporate dollar</div>{LOON(.12,'c')}<div class="dlV"><b class="green">88&cent;</b><span>left after corporate tax</span></div></div>
-  <div class="dlFig">{DL_JOHN}</div>
+  <div class="dlFig">{DL_MEHAR}</div>
 </div>
 <div class="dlTalk">
   <p class="f"><span class="who">Mehar</span>&ldquo;John, if you could pay for your future with either dollar, <b>which one would you use?</b>&rdquo;</p>
@@ -714,8 +713,8 @@ slide('''
 <p class="f mid">And how much of it could be in the <b class="gold">tax-free bucket</b> instead?</p>
 ''', 'sAsk')
 
-BUBBLE = '<g class="f">' + bubble(46, -110, 260, ['Why didn&#8217;t anyone tell me', 'about this back then?'], 200, 118, size=20) + '</g>'
-MBUB = '<g class="f">' + bubble(312, -196, 340, ['&#8220;We talked about this ten years', 'ago, my friend. The difference', 'today is that you&#8217;ve opened your', 'mind to learn. That&#8217;s okay. Let&#8217;s', 'learn from it, and focus on today', 'and your future.&#8221;'], 470, 132, size=18, bold_last=True) + '</g>'
+BUBBLE = '<g class="f">' + bubble(24, -110, 310, ['Why didn&#8217;t anyone tell me', 'about this back then?'], 200, 118, size=19) + '</g>'
+MBUB = '<g class="f">' + bubble(352, -196, 324, ['&#8220;We talked about this ten years', 'ago, my friend. The difference', 'today is that you&#8217;ve opened your', 'mind to learn. That&#8217;s okay. Let&#8217;s', 'learn from it, and focus on today', 'and your future.&#8221;'], 470, 132, size=17, bold_last=True) + '</g>'
 SHOCK = scene(ground(700,420) + person('john',200,410,1.1,mood='shock') + person('mehar',470,410,1.05) + BUBBLE + MBUB, 470).replace('viewBox="0 0 1300 470" width="1300" height="470"','viewBox="0 -206 700 676" width="700" height="676"')
 slide(f'''
 <div class="split shockS">
@@ -776,10 +775,10 @@ slide(f'''
 <div class="kick">What Mehar found</div>
 <h2>Three hidden problems in John&rsquo;s business</h2>
 <div class="probs">
-  <div class="pb f"><div class="pbN">1</div><b>Double taxation</b><span>When John dies, his shares are taxed on his final return, and the same money is taxed again when the corporation pays it out to his family.</span></div>
+  <div class="pb f"><div class="pbN">1</div><svg viewBox="0 0 160 120" width="150" height="112" class="pbI"><g transform="translate(80,70)"><ellipse cy="30" rx="44" ry="10" fill="#B8860B"/><rect x="-44" y="-6" width="88" height="36" fill="#E5B93C"/><ellipse cy="-6" rx="44" ry="10" fill="#F6D77A" stroke="#B8860B" stroke-width="2"/><path d="M-44,6 Q0,16 44,6 M-44,18 Q0,28 44,18" stroke="#B8860B" stroke-width="2" fill="none"/></g><g transform="translate(40,32) rotate(-16)"><rect x="-30" y="-14" width="60" height="28" rx="4" fill="none" stroke="#B3202A" stroke-width="4"/><text y="7" text-anchor="middle" style="font:900 17px sans-serif;fill:#B3202A">TAX</text></g><g transform="translate(118,30) rotate(14)"><rect x="-30" y="-14" width="60" height="28" rx="4" fill="none" stroke="#B3202A" stroke-width="4"/><text y="7" text-anchor="middle" style="font:900 17px sans-serif;fill:#B3202A">TAX</text></g><text x="80" y="22" text-anchor="middle" style="font:900 22px Georgia;fill:#B3202A">&#215;2</text></svg><b>Double taxation &amp; no estate plan</b><span>No updated will, holding company or estate freeze. When John dies, his shares are taxed on his final return, the same money is taxed again when paid to his family, and probate adds more.</span></div>
   <div class="pb f"><div class="pbN">2</div>{SAFE}<b>Trapped money</b><span>Taking cash out of the corporation costs him about half. His dollar is worth 88&cent; inside, only 50&cent; outside.</span>
     <div class="loons"><div class="loon"><i style="--p:50%"></i></div><b class="red">50&cent;</b><div class="loon"><i style="--p:12%"></i></div><b class="green">88&cent;</b></div></div>
-  <div class="pb f"><div class="pbN">3</div><b>Money not multiplying</b><span>His corporate savings sit in GICs, taxed every year. Nothing there is building on its own.</span></div>
+  <div class="pb f"><div class="pbN">3</div><svg viewBox="0 0 160 120" width="150" height="112" class="pbI"><rect x="18" y="14" width="124" height="80" rx="8" fill="#FBF6EA" stroke="#B9AE96" stroke-width="3"/><path d="M30,80 L60,76 L90,74 L130,72" stroke="#B3202A" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M30,80 L60,64 L90,44 L130,22" stroke="#7BE3AE" stroke-width="3" stroke-dasharray="5 5" fill="none"/><text x="80" y="36" text-anchor="middle" style="font:900 15px sans-serif;fill:#8A6510">GIC</text><g transform="translate(118,104)"><ellipse rx="18" ry="6" fill="#8A6A3A"/><circle cx="6" cy="-10" r="11" fill="#C9A066" stroke="#8A6A3A" stroke-width="3"/><path d="M-16,-2 C-22,-12 -16,-16 -12,-8" stroke="#8A6A3A" stroke-width="3" fill="none"/></g></svg><b>Money not multiplying</b><span>His corporate savings sit in GICs, taxed every year. Nothing there is building on its own.</span></div>
 </div>
 ''', 'sProbs', hud=H(40, NW(40)))
 
@@ -923,7 +922,7 @@ slide(f'''
 <div class="rog">
   <div class="f">{COURT}</div>
   <div class="rogBig f">{counter(102, '$', 'M')}<span>through the CDA, tax-free</span></div>
-  <div class="rogTxt">
+  <div class="rogTxt paper">
     <p class="f">Corporate-owned life insurance on Ted Rogers, held in the family&rsquo;s private companies.</p>
     <p class="f">On his passing, about $102 million was credited to the CDA and paid out as tax-free capital dividends.</p>
     <p class="f">The CRA challenged it. <b>The Tax Court ruled for the family.</b></p>
@@ -1288,7 +1287,7 @@ cmp = [('Planning', 'Full corporate + personal plan', 'None: just $500K of term 
        ('Investing', 'Flexible plan: seg funds, about 12% a year', 'Bank TFSA/RRSP + random mutual funds'),
        ('Age 46', 'Opened clinic #2', 'Cash stuck in the corporation'),
        ('Age 48: crash', 'Guaranteed floor, policy untouched', 'Panic-sold at the bottom, then a tax bill'),
-       ('Debt-free', 'At 50', 'At 58'),
+       ('Debt-free', 'At 50', 'At 63: his partner&rsquo;s death set him back'),
        ('Age 55: partner dies', 'Buy-sell funded, business saved', 'No agreement: went into debt'),
        ('Age 65: insurance', 'Covered for life', 'Term expired; renewal very expensive'),
        ('Retired', 'At 65, 3 clinics', 'At 70, 1 clinic'),
@@ -1328,7 +1327,7 @@ slide(f'''
 
 # 31 WEALTH GAP + TAX AT DEATH
 def _jake_nw(a):
-    home = 1.6e6*1.03**(a-40); mort = 1e6*max(0, (58-a)/18); loan = 5e5*max(0, (58-a)/18)
+    home = 1.6e6*1.03**(a-40); mort = 1e6*max(0, (63-a)/23); loan = 5e5*max(0, (63-a)/23)
     bus = 9e5*1.04**(min(a, 70)-40)
     corp = 5e5*1.02**(a-40) + sum(60000*1.02**(min(a,90)-y) for y in range(41, min(a,60)+1))
     t, r, n = 109000, 150000, 0
@@ -1361,8 +1360,14 @@ slide(f'''
   {_bar('What reached the family', J_FAM, JN_FAM, MXW, 'green')}
 </div>
 <p class="f mid">John&rsquo;s {money(JN_TAX)} tax bill was paid by his policies. Jake never used his CDA, so his family paid his tax bill, and his corporate savings were taxed twice. <b class="green">{money(JN_FAM - J_FAM)} more</b> reached John&rsquo;s family.</p>
+<div class="frR">
+  <div class="frC paper f"><b>Time</b><span class="jn">John: retired at 65, three clinics run by his team</span><span class="jk">Jake: worked until 70, still at the clinic</span></div>
+  <div class="frC paper f"><b>Money</b><span class="jn">John: tax-free income from his policies and investments</span><span class="jk">Jake: drawing down savings, paying renewal premiums</span></div>
+  <div class="frC paper f"><b>Family time</b><span class="jn">John: every trip, game and graduation</span><span class="jk">Jake: missed the moments that mattered</span></div>
+  <div class="frC paper f"><b>Peace of mind</b><span class="jn">John: every need covered, a plan for everyone</span><span class="jk">Jake: stress, a tax bill and no plan</span></div>
+</div>
 <p class="f mid wgTie">The difference wasn&rsquo;t luck. John was <b>open to learning</b>, and he <b>took action</b>, because he understood the value of time.</p>
-<div class="src">Illustrative. Jake: no whole life; $500K term expired at 65, then about $45K/yr to renew; corporate savings in GICs (about 2% after tax); TFSA/RRSP at the bank and irregular mutual-fund investing at about 3.5%; panic-sold 25% lower in the 2034 crash; a rental condo bought at 46 (about 2.5% growth), one clinic, debt-free at 58; tax at death about 50% on corporate assets and RRSP, 25% on non-registered gains. John: net worth from the story bar; both policies&rsquo; death benefits paid through the CDA. Not tax advice.</div>
+<div class="src">Illustrative. Jake: no whole life; $500K term expired at 65, then about $45K/yr to renew; corporate savings in GICs (about 2% after tax); TFSA/RRSP at the bank and irregular mutual-fund investing at about 3.5%; panic-sold 25% lower in the 2034 crash; a rental condo bought at 46 (about 2.5% growth), one clinic, debt-free at 63; tax at death about 50% on corporate assets and RRSP, 25% on non-registered gains. John: net worth from the story bar; both policies&rsquo; death benefits paid through the CDA. Not tax advice.</div>
 ''', 'sBars')
 
 # 30 TWO DOCTORS

@@ -328,3 +328,17 @@ New opening order: Cover → The real Ontario case → **How tonight works** →
 - **Ten years earlier:** moved to just before Chapter Three (when John applies).
 - **Two lives (split screen):** Jake's side is now in red. New rows: Planning (full corporate + personal plan vs just $500K of term life) · Investing (flexible plan with seg funds at about 12% vs bank TFSA/RRSP and random mutual funds) · Age 65 insurance (covered for life vs term expired, very expensive to renew) · Policies at 90 ($19.79M cash value + $23.19M death benefit vs $0).
 - **The wealth gap at 90 (Jake vs John):** net worth $15.3M vs $52.1M · whole life cash value combined $0 vs $19.8M · death benefit tax-free through the CDA combined $0 vs $23.2M · tax bill the family must pay $2.05M vs $0 (John's $4.92M bill was paid by his policies) · reached the family $13.2M vs $47.2M. That's $34M more for John's family.
+
+## Updates in version 33
+- **Chapter title pages:** the story bar is hidden so the scene and title stand alone. It comes back on the next slide.
+- **Rat Race:** removed the stray line on John's face.
+- **Tug of war:** the flag now stands up from the rope, pulled past the centre line.
+- **Personal vs corporate dollar:** John is now on the left and Mehar on the right.
+- **The moment:** John's bubble now fits fully.
+- **Three hidden problems:** each card has a picture.
+  1. **Double taxation & no estate plan:** a coin stack stamped TAX ×2. No updated will, holding company or estate freeze; the money is taxed twice, and probate adds more.
+  2. **Trapped money:** the locked safe.
+  3. **Money not multiplying:** a flat GIC line next to the growth he's missing, plus a snail.
+- **Rogers:** the story text is now on torn paper.
+- **Two lives:** Jake is debt-free at 63, not 58, because his partner's death set him back.
+- **Wealth gap:** four new cards compare John and Jake on time, money, family time and peace of mind.

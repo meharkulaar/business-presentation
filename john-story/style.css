@@ -1056,3 +1056,12 @@ html,body{background:#000}
 .slide.active .half.jake{animation:none!important;filter:none!important}
 .half.jake svg,.half.jake .hName{filter:grayscale(1) brightness(.85)}
 .half.jake{background:rgba(30,14,16,.6)!important}
+/* v33 */
+.shockS .sp .scene{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 3%,#000 97%,transparent 100%)!important;mask-image:linear-gradient(90deg,transparent 0,#000 3%,#000 97%,transparent 100%)!important}
+.pbI{display:block;margin:2px auto 6px}
+.rogTxt.paper{padding:18px 28px}.rogTxt.paper p{color:#3A2A1A!important;font-size:20px}.rogTxt.paper b{color:#6B1218!important}
+.frR{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;width:1180px;margin-top:6px}
+.frC{padding:10px 14px}.frC b{display:block;font:900 18px Georgia,serif;color:#6B1218;margin-bottom:4px}
+.frC span{display:block;font-size:13.5px;line-height:1.3;margin-top:3px}.frC .jn{color:#1F6B44;font-weight:700}.frC .jk{color:#B3202A}
+.sBars .wg{gap:14px}.sBars .wgB{height:30px}.sBars .wgB b{font-size:16px}.sBars .mid{font-size:18px!important;margin:6px 0 0}
+.frC span{font-size:15px}.frC b{font-size:19px}
