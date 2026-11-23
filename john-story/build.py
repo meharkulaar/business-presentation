@@ -22,7 +22,7 @@ def money(v, short=True):
 
 # ------------------------------------------------------------------ characters
 SKIN = {'john': '#F2C9A5', 'emma': '#EDBE98', 'lily': '#F4CFAE', 'max': '#F4CFAE',
-        'mehar': '#C48A5C', 'david': '#EBC39C', 'sarah': '#8E5B3C', 'raj': '#B57B52', 'jake': '#F2C9A5', 'tax': '#E8BE98', 'dau': '#F0C8A4', 'rc': '#D9A57E', 'rr': '#E8BE98', 'rt': '#C48A5C'}
+        'mehar': '#C48A5C', 'david': '#EBC39C', 'sarah': '#8E5B3C', 'raj': '#B57B52', 'jake': '#F2C9A5', 'tax': '#E8BE98', 'lsp': '#D9A57E', 'msp': '#F2C9A5', 'dau': '#F0C8A4', 'rc': '#D9A57E', 'rr': '#E8BE98', 'rt': '#C48A5C'}
 
 def hair(style, col):
     cap = 'M-37,-186 C-44,-232 -22,-246 0,-246 C22,-246 44,-232 37,-186 C33,-208 22,-220 0,-220 C-22,-220 -33,-208 -37,-186Z'
@@ -452,10 +452,12 @@ def ch7():
     fire = ('<rect x="560" y="390" width="320" height="250" fill="#8A3A2A"/><rect x="540" y="372" width="360" height="24" rx="4" fill="#5A3A22"/><rect x="630" y="460" width="180" height="180" rx="90" fill="#1A0A06"/><rect x="630" y="550" width="180" height="90" fill="#1A0A06"/>'
             '<path class="tFl" d="M680,638 C660,600 676,566 700,540 C704,566 720,574 720,592 C732,576 740,552 732,530 C762,566 768,610 758,638Z" fill="#FF9A3A"/><path class="tFl" d="M700,638 C690,614 698,594 712,582 C714,600 726,604 728,618 C736,606 738,592 736,580 C750,602 752,624 744,638Z" fill="#FFD27A"/>'
             '<path d="M540,372 Q600,392 660,372 T780,372 T900,372" stroke="#2F6E4C" stroke-width="12" fill="none"/>' + ''.join(f'<circle cx="{560+k*44}" cy="{378 + (6 if k%2 else 0)}" r="6" fill="{["#FF4D5E","#FFD27A","#7BE3AE"][k%3]}"/>' for k in range(8)))
-    return full_svg(bg + win(90, 300, 300, 240) + fire + tree(1270, 640, 1.1)
-                    + person('john', 260, 700, 1.15, 'old') + person('emma', 380, 700, 1.08, 'old') + person('lily', 1000, 700, 1.05) + person('max', 1110, 700, 1.05)
-                    + person('lily', 540, 710, .55) + person('max', 610, 710, .5) + person('lily', 830, 710, .52) + person('max', 900, 710, .46)
-                    + label(260, 742, 'John, 90', size=20), d)
+    return full_svg(bg + win(90, 300, 300, 240) + fire + tree(1290, 640, 1.0)
+                    + person('john', 200, 700, 1.15, 'old') + person('emma', 310, 700, 1.08, 'old')
+                    + person('lily', 430, 700, 1.05) + person('lsp', 525, 700, 1.1)
+                    + person('lily', 640, 712, .52) + person('max', 700, 712, .48) + person('lily', 770, 712, .5) + person('max', 830, 712, .44)
+                    + person('max', 960, 700, 1.08) + person('msp', 1060, 700, 1.02)
+                    + label(200, 742, 'John, 90', size=20) + label(478, 742, 'Lily &amp; her husband', size=17) + label(1010, 742, 'Max &amp; his wife', size=17), d)
 
 # 4 CHAPTER 1: THE RAT RACE (full-screen split)
 def rat_race():

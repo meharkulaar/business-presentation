@@ -283,3 +283,4 @@ New opening order: Cover → The real Ontario case → **How tonight works** →
 6. **Retirement, Right on Time:** three lit clinics at sunset, with John handing Lily the keys.
    - Chips under the title: three clinics at about $1M each · Sarah · David · Mehar.
 7. **The Last Christmas:** the family home, with John and Emma at 90, Lily and Max, and four grandkids by the fire and the tree.
+- **The Last Christmas:** Lily's husband and Max's wife now stand with them.

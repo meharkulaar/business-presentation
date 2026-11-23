@@ -21,6 +21,8 @@ def person(kind, x, y, s=1.0, outfit=None, extra='', mood='smile', arm=None):
         'david': dict(hair=('short', '#9A8F86'), top='#5E6B78', bottom='#2E3440', acc=['glasses', 'tie']),
         'sarah': dict(hair=('bun', '#2A1A12'), top='#6B1F2A', bottom='#2B2B33'),
         'raj':   dict(hair=('short', '#1E1A18'), top='#FAFAFA', bottom='#2E3440', acc=['coat']),
+        'lsp':   dict(hair=('short', '#3A2A20'), top='#3E5C76', bottom='#2E3440'),
+        'msp':   dict(hair=('long', '#C98A3A'), top='#8E4A6A', bottom='#33302C'),
         'tax':   dict(hair=('short', '#2A2A2A'), top='#3A3F48', bottom='#2A2D33', acc=['tie', 'glasses']),
         'dau':   dict(hair=('long', '#4A2E1E'), top='#5E7FA3', bottom='#2E3440'),
         'rc':    dict(hair=('short', '#3A2A20'), top='#9E1B26', bottom='#3B2228'),
