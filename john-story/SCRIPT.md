@@ -310,3 +310,15 @@ New opening order: Cover → The real Ontario case → **How tonight works** →
 - **Bigger:** the two buckets, the loonies on the personal vs corporate dollar slide, and the "Nobody ever told me!" scene.
 - **The moment:** Mehar now replies in his own bubble: "We talked about this ten years ago, my friend. You weren't ready then, and that's okay. You're ready now."
 - **Screen-shape checks:** every slide was checked on MacBook, 16:9 TV, ultrawide and 4:3. On narrow screens the full-screen pictures show whole instead of being cropped. On very wide screens they're shown whole with soft edges.
+
+## Updates in version 31
+- **Rat Race:** the clock and caption now read **7:39 p.m.**
+- **Tug of war:** a thick braided rope, with every player gripping it and a red flag tied to the rope past the centre line on their side.
+- **Christmas list:** a new picture of John on the phone, with Mehar in a circle answering: "Mehar, it's John. Can we meet this week?"
+- **A complete plan for the family:** now a checklist: John's protection ($500K term + $50K CI up to $2.5M life + $250K CI) · John's flexible plan (more on that later) · Emma · Lily & Max.
+- **Two buckets:** moved higher.
+- **The moment:** John: "Why didn't anyone tell me about this back then?" Mehar: "We talked about this ten years ago, my friend. The difference today is that you've opened your mind to learn. That's okay. Let's learn from it, and focus on today and your future." The heading is now "This time, John was ready."
+- **The CDA:** a notional account the corporation tracks for tax purposes. It's filled by the non-taxable half of capital gains, capital dividends received, and life insurance proceeds minus the policy's cost base. It's paid out to Canadian-resident shareholders as tax-free capital dividends once the corporation files an election (Form T2054). It's available to Canadian-controlled private corporations. A green "TAX FREE ✓" seal sits beside the bucket. Source: Investopedia and the CRA.
+- **Two lives (split screen):** new rows. Investing: John's seg funds and flexible plan at about 12% vs Jake's rental condos and bank mutual funds with low returns. Crash: Jake panic-sold at the bottom and then got a tax bill. Protection: seg fund guarantees and skipping probate vs no guarantees and probate fees.
+- **The wealth gap (replaces the $100K bars):** at 90, John vs Jake: net worth $52.1M vs $24.0M · paid out tax-free through the CDA $23.2M vs $0 · estimated tax at death $4.9M vs $6.9M · reached the family $47.2M vs $17.1M. "The difference wasn't luck. John was open to learning, and he took action, because he understood the value of time." (Illustrative assumptions are in the footnote.)
+- **Let's Write Your Story:** "Today is the second-best day to start. The best day was yesterday."

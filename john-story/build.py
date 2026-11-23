@@ -281,20 +281,29 @@ HOOK_SCENE = scene(ground(620,420) + peace_tower(200,410,.82)
 
 def tug():
     g = []
-    g.append('<path d="M330,262 C560,272 760,272 1000,262" stroke="#C9A47A" stroke-width="9" fill="none" stroke-linecap="round"/>')
-    g.append('<path d="M330,262 C560,272 760,272 1000,262" stroke="#8A6A3A" stroke-width="2" fill="none" stroke-dasharray="6 8"/>')
-    g.append('<path d="M650,386 L650,446" stroke="#B3202A" stroke-width="5" stroke-dasharray="10 8"/><text x="650" y="378" text-anchor="middle" style="font:800 13px sans-serif;fill:#7A0F1A;letter-spacing:.12em">CENTRE</text>'
-             '<rect x="812" y="252" width="14" height="36" rx="3" fill="#B3202A"/><path d="M819,252 L819,226 L846,236 L819,246" fill="#FFE7A6" stroke="#B3202A" stroke-width="2"/>'
-             '<path d="M196,404 L276,402 M206,412 L270,410 M214,396 L262,395" stroke="#B9C2CC" stroke-width="4" stroke-linecap="round"/>' + ''.join(f'<circle cx="{x}" cy="{y}" r="{r}" fill="#FFFFFF" opacity=".9"/>' for x, y, r in ((268,392,7),(282,384,5),(256,386,4),(292,394,4)))
-             + '<path d="M420,200 L580,200" stroke="#FF6F6B" stroke-width="6" stroke-linecap="round"/><path d="M580,186 L604,200 L580,214Z" fill="#FF6F6B"/><text x="500" y="186" text-anchor="middle" style="font:900 22px Georgia;fill:#FF8A86">Losing ground</text>')
+    # ground centre line + skid marks + losing arrow
+    g.append('<path d="M650,392 L650,448" stroke="#B3202A" stroke-width="5" stroke-dasharray="10 8"/><text x="650" y="466" text-anchor="middle" style="font:800 13px sans-serif;fill:#7A0F1A;letter-spacing:.12em">CENTRE</text>')
+    g.append('<path d="M196,404 L276,402 M206,412 L270,410 M214,396 L262,395" stroke="#B9C2CC" stroke-width="4" stroke-linecap="round"/>' + ''.join(f'<circle cx="{x}" cy="{y}" r="{r}" fill="#FFFFFF" opacity=".9"/>' for x, y, r in ((268,392,7),(282,384,5),(256,386,4),(292,394,4))))
+    g.append('<path d="M420,196 L580,196" stroke="#FF6F6B" stroke-width="6" stroke-linecap="round"/><path d="M580,182 L604,196 L580,210Z" fill="#FF6F6B"/><text x="500" y="182" text-anchor="middle" style="font:900 22px Georgia;fill:#FF8A86">Losing ground</text>')
+    # people
     g.append('<g transform="translate(24,0) rotate(12 300 400)">' + person('john',300,400,1.0,arm='hold',mood='shock') + '</g>')
+    xs = [850, 990, 1130]
     for k, (kind, nm) in enumerate([('rc','Compound'), ('rr','Risk'), ('rt','Tax')]):
-        x = 850 + k*140
-        g.append(f'<g transform="rotate(13 {x} 400)">' + person(kind, x, 400, .95, arm=None) + f'<rect x="{x-60}" y="{286}" width="120" height="34" rx="7" fill="#FBF6EA" stroke="#B3202A" stroke-width="2.5"/><text x="{x}" y="{310}" text-anchor="middle" style="font:900 21px Georgia;fill:#B3202A">{nm}</text></g>')
-    g.append('<path d="M640,350 L560,350" stroke="#FF6F6B" stroke-width="5" marker-end="url(#tgArr)" opacity=".0"/>')
+        x = xs[k]
+        g.append(f'<g transform="rotate(13 {x} 400)">' + person(kind, x, 400, .95, arm=None) + f'<rect x="{x-60}" y="232" width="120" height="34" rx="7" fill="#FBF6EA" stroke="#B3202A" stroke-width="2.5"/><text x="{x}" y="256" text-anchor="middle" style="font:900 21px Georgia;fill:#B3202A">{nm}</text></g>')
+    # thick braided rope on top, at hand height
+    rope = 'M372,318 C560,328 760,326 1210,316'
+    g.append(f'<path d="{rope}" stroke="#6E4A22" stroke-width="22" fill="none" stroke-linecap="round"/><path d="{rope}" stroke="#C9A066" stroke-width="16" fill="none" stroke-linecap="round"/>'
+             f'<path d="{rope}" stroke="#8A6236" stroke-width="16" fill="none" stroke-dasharray="7 9" stroke-linecap="butt"/>')
+    # hands gripping the rope
+    for hx, hy in ((372,318),(398,319),(842,322),(872,322),(982,321),(1012,321),(1122,319),(1152,318)):
+        g.append(f'<circle cx="{hx}" cy="{hy}" r="12" fill="#F1C9A0" stroke="#B88A60" stroke-width="2"/>')
+    # flag tied to the rope, pulled past centre toward their side
+    g.append('<g class="tugFlag"><path d="M760,326 L760,392" stroke="#7A0F1A" stroke-width="4"/><path d="M760,334 L812,348 L760,364Z" fill="#E8433A" stroke="#7A0F1A" stroke-width="2"/></g>'
+             '<circle cx="760" cy="326" r="9" fill="#B3202A" stroke="#FFE7A6" stroke-width="2"/>')
     g.append(label(300,442,'John',size=20))
-    return scene(ground(1300,400) + ''.join(g), 450)
-TUG_SCENE = tug().replace('viewBox="0 0 1300 450" width="1300" height="450"','viewBox="200 130 1060 320" width="1060" height="320"')
+    return scene(ground(1300,400) + ''.join(g), 470)
+TUG_SCENE = tug().replace('viewBox="0 0 1300 470" width="1300" height="470"','viewBox="180 160 1080 320" width="1080" height="320"')
 
 SAFE = ('<svg viewBox="0 0 160 130" width="150" height="122" class="safeI"><rect x="18" y="14" width="124" height="104" rx="10" fill="#5A5F68" stroke="#2E3238" stroke-width="4"/>'
         '<rect x="30" y="26" width="100" height="80" rx="6" fill="#6E747E" stroke="#3E434C" stroke-width="3"/>'
@@ -503,7 +512,7 @@ def rat_race():
     L.append('<g transform="translate(26,0)"><rect x="30" y="280" width="270" height="260" fill="#0A1426"/><path d="M30,500 Q100,486 165,494 T300,490 V540 H30Z" fill="#DCE6F0"/><rect x="30" y="280" width="270" height="260" fill="none" stroke="#4A5568" stroke-width="14"/><path d="M165,280 V540 M30,410 H300" stroke="#4A5568" stroke-width="8"/><rect x="20" y="536" width="290" height="14" fill="#3A4558"/></g>'
              + ''.join(f'<circle cx="{_r.randint(68,316)}" cy="{_r.randint(292,480)}" r="{_r.choice([1.5,2,2.5])}" fill="#DDE6F0" opacity=".85"/>' for _ in range(28)))
     L.append('<g transform="translate(612,372)"><circle r="46" fill="#F4ECD6" stroke="#8A6510" stroke-width="6"/>' + ''.join(f'<line y1="-38" y2="-31" stroke="#3A2A1A" stroke-width="3" transform="rotate({k*30})"/>' for k in range(12))
-             + '<line y1="4" y2="-22" stroke="#3A2A1A" stroke-width="6" stroke-linecap="round" transform="rotate(292)"/><line y1="6" y2="-34" stroke="#3A2A1A" stroke-width="4" stroke-linecap="round" transform="rotate(282)"/><circle r="4" fill="#3A2A1A"/></g>')
+             + '<line y1="4" y2="-22" stroke="#3A2A1A" stroke-width="6" stroke-linecap="round" transform="rotate(229)"/><line y1="6" y2="-34" stroke="#3A2A1A" stroke-width="4" stroke-linecap="round" transform="rotate(234)"/><circle r="4" fill="#3A2A1A"/></g>')
     L.append(person('john', 360, 690, 1.35, 'coat', mood='sad', arm='hold'))
     L.append('<path d="M326,388 C318,376 322,368 330,364" stroke="#BFE3F5" stroke-width="5" fill="none" stroke-linecap="round"/>')
     L.append('<rect x="40" y="560" width="660" height="30" rx="6" fill="#5A3A22"/><rect x="60" y="590" width="620" height="230" fill="#4A2E1A"/><rect x="60" y="590" width="620" height="230" fill="url(#gShade)" opacity=".5"/>')
@@ -540,7 +549,7 @@ def rat_race():
     return '<svg class="ratSvg" viewBox="0 0 1440 810" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect x="-600" y="-900" width="1320" height="905" fill="#1A2230"/><rect x="720" y="-900" width="1320" height="905" fill="#7A3424"/>' + ''.join(L) + '</svg>'
 slide(f'''
 {rat_race()}
-<div class="ratC l">9:47 p.m. &middot; still at the clinic</div><div class="ratC r">At home &middot; waiting for Dad</div>
+<div class="ratC l">7:39 p.m. &middot; still at the clinic</div><div class="ratC r">At home &middot; waiting for Dad</div>
 <div class="ratTop"><div class="chNum">Chapter One</div><div class="chWhen">Christmas Eve, 2026 &middot; John is 40</div><h1>The Rat Race</h1></div>
 ''', 'sChap sRat', hud=H(40, NW(40)))
 
@@ -572,12 +581,24 @@ slide(f'''
 ''', 'sRules', hud=H(40, NW(40)))
 
 # 7 WISH LIST
+def _phone(x, y, rot=0):
+    return f'<g transform="translate({x},{y}) rotate({rot})"><rect x="-9" y="-17" width="18" height="34" rx="4" fill="#1E1E24" stroke="#5A5F68" stroke-width="2"/><rect x="-6" y="-12" width="12" height="22" rx="2" fill="#7FB4E0"/></g>'
+CALL = ('<svg viewBox="0 0 620 290" width="600" height="281" aria-hidden="true">'
+  '<defs><clipPath id="clc"><circle cx="490" cy="150" r="100"/></clipPath></defs>'
+  '<rect x="0" y="0" width="620" height="290" rx="18" fill="rgba(20,4,8,.45)" stroke="rgba(229,185,60,.45)"/>'
+  + '<g transform="translate(0,-8)">' + person('john', 150, 280, .95, arm='hold') + _phone(196, 142, -18) + '</g>'
+  + '<path d="M232,108 q12,-10 24,0 M240,92 q18,-16 36,0 M248,76 q24,-22 48,0" stroke="#F6D77A" stroke-width="4" fill="none" stroke-linecap="round" class="ring"/>'
+  + '<circle cx="490" cy="150" r="104" fill="#E5B93C"/><g clip-path="url(#clc)"><rect x="380" y="40" width="220" height="220" fill="#1F3A3A"/>'
+  + person('mehar', 490, 380, 1.3, arm='hold') + _phone(546, 205, 18) + '</g>'
+  + bubble(250, 10, 210, ['&#8220;Mehar, it&#8217;s John.', 'Can we meet', 'this week?&#8221;'], 214, 120, size=16)
+  + '</svg>')
+
 wl = ['Pay off every debt in 10 years', 'Open more locations', 'Retire by 65', 'Take care of Emma and the kids, forever']
 wlh = ''.join(f'<li class="f"><i class="box"></i>{w}</li>' for w in wl)
 slide(f'''
 <div class="split">
   <div class="scroll"><div class="scT">John&rsquo;s Christmas List</div><ul class="wl">{wlh}</ul><div class="scSig">&mdash; J.</div></div>
-  <div class="sp2"><h2 class="lft">He wasn&rsquo;t asking for a sports car.</h2><p class="lft big">He wanted his <b>time</b> back, and a future his family could count on.</p><p class="lft f mid">So that same week, between Christmas and New Year&rsquo;s, <b>he called Mehar again.</b></p></div>
+  <div class="sp2"><h2 class="lft">He wasn&rsquo;t asking for a sports car.</h2><p class="lft big">He wanted his <b>time</b> back, and a future his family could count on.</p><p class="lft f mid">So that same week, between Christmas and New Year&rsquo;s, <b>he called Mehar again.</b></p><div class="f callS">{CALL}</div></div>
 </div>
 ''', 'sList', hud=H(40, NW(40)))
 
@@ -636,10 +657,11 @@ slide('''
     <li><b>The 3 rules of money:</b><div class="fdTags"><em>Compound</em><em>Risk</em><em>Tax</em></div>Make all three work <i>for</i> you, not against you.</li>
     <li><b>The 3 goals of money:</b><div class="fdTags"><em class="g">Protection</em><em class="g">Income</em><em class="g">Legacy</em></div>Every dollar should serve at least one of them.</li>
   </ul></div>
-  <div class="fdC paper f"><h3>A complete plan for the family</h3><ul>
-    <li><b>John:</b> his $500K of term life and $50K of critical illness was a good start, but a proper needs analysis showed big gaps. He agreed to <b>$2.5M of personal life insurance, permanent plus term, and $250K of critical illness</b>. He also started a <b>flexible savings and investment plan</b> (more on that later).</li>
-    <li><b>Emma:</b> her own protection, savings and retirement plan.</li>
-    <li><b>Lily and Max:</b> education savings and their own coverage, locked in young.</li>
+  <div class="fdC paper f famCk"><h3>A complete plan for the family</h3><ul>
+    <li><i class="ck">&#10003;</i><span><b>John&rsquo;s protection:</b> from $500K term + $50K critical illness up to <b>$2.5M life (permanent + term) + $250K critical illness</b></span></li>
+    <li><i class="ck">&#10003;</i><span><b>John&rsquo;s flexible plan:</b> savings and investments, <em>more on that later</em></span></li>
+    <li><i class="ck">&#10003;</i><span><b>Emma:</b> her own protection, savings and retirement plan</span></li>
+    <li><i class="ck">&#10003;</i><span><b>Lily &amp; Max:</b> education savings and coverage, locked in young</span></li>
   </ul></div>
 </div>
 <p class="focus f">A complete job means the whole family. <b>Tonight, we&rsquo;re focusing on what Mehar did for John&rsquo;s corporation.</b></p>
@@ -725,16 +747,16 @@ slide('''
 <p class="f mid">And how much of it could be in the <b class="gold">tax-free bucket</b> instead?</p>
 ''', 'sAsk')
 
-BUBBLE = '<g class="f">' + bubble(30, -110, 300, ['A tax-free bucket?', 'Nobody ever told me!'], 200, 118, size=22) + '</g>'
-MBUB = '<g class="f">' + bubble(350, -124, 320, ['&#8220;We talked about this ten', 'years ago, my friend. You', 'weren&#8217;t ready then, and', 'that&#8217;s okay. You&#8217;re ready now.&#8221;'], 470, 132, size=19, bold_last=True) + '</g>'
-SHOCK = scene(ground(700,420) + person('john',200,410,1.1,mood='shock') + person('mehar',470,410,1.05) + BUBBLE + MBUB, 470).replace('viewBox="0 0 1300 470" width="1300" height="470"','viewBox="0 -140 700 610" width="700" height="610"')
+BUBBLE = '<g class="f">' + bubble(46, -110, 260, ['Why didn&#8217;t anyone tell me', 'about this back then?'], 200, 118, size=20) + '</g>'
+MBUB = '<g class="f">' + bubble(312, -196, 340, ['&#8220;We talked about this ten years', 'ago, my friend. The difference', 'today is that you&#8217;ve opened your', 'mind to learn. That&#8217;s okay. Let&#8217;s', 'learn from it, and focus on today', 'and your future.&#8221;'], 470, 132, size=18, bold_last=True) + '</g>'
+SHOCK = scene(ground(700,420) + person('john',200,410,1.1,mood='shock') + person('mehar',470,410,1.05) + BUBBLE + MBUB, 470).replace('viewBox="0 0 1300 470" width="1300" height="470"','viewBox="0 -206 700 676" width="700" height="676"')
 slide(f'''
 <div class="split shockS">
   <div class="sp">{SHOCK}</div>
   <div class="sp2">
     <div class="kick" style="text-align:left">The moment</div>
-    <h2 class="lft">John had never heard of it.</h2>
-    <p class="lft big f">Ten years in business. An accountant. A bank. <b>Nobody had ever shown him the tax-free bucket.</b></p>
+    <h2 class="lft">This time, John was ready.</h2>
+    <p class="lft big f">Mehar had shown him the tax-free bucket ten years earlier. <b>This time, John was ready to listen, and to learn.</b></p>
     <p class="lft big f"><b class="gold">&ldquo;How do I fill it?&rdquo;</b> he asked. <b>&ldquo;And how soon can we start?&rdquo;</b></p>
   </div>
 </div>
@@ -745,14 +767,16 @@ slide(f'''
 <div class="kick">The secret weapon</div>
 <h2>The Capital Dividend Account (CDA)</h2>
 <div class="split">
-  <div class="sp cdaAuto">{cda_bucket('B', 380, 520)}</div>
+  <div class="sp cdaAuto cdaTF">{cda_bucket('B', 360, 490)}<div class="tfSeal"><b>TAX</b><b>FREE</b><span>&#10003;</span></div></div>
   <div class="cdaPts">
-    <div class="f"><b>A notional account.</b> Not a bank account: a running tally of tax-free dollars in John&rsquo;s corporation.</div>
-    <div class="f"><b>What fills it:</b> the tax-free half of capital gains, capital dividends received, and the big one: <b class="gold">life insurance paid to the corporation.</b></div>
-    <div class="f"><b>What it does:</b> every dollar in it can be paid to John&rsquo;s family as a <b class="green">tax-free capital dividend.</b></div>
+    <div class="f"><b>A notional account.</b> Not a bank account: a special tax account the corporation tracks, adding up the tax-free surpluses it has built.</div>
+    <div class="f"><b>What fills it:</b> the non-taxable half of capital gains, capital dividends received from other corporations, and the big one: <b class="gold">life insurance paid to the corporation</b> (minus the policy&rsquo;s cost base).</div>
+    <div class="f"><b>What it does:</b> the balance can be paid to Canadian-resident shareholders as <b class="green">capital dividends, completely tax-free</b>, once the corporation files an election with the CRA (Form T2054).</div>
+    <div class="f"><b>Who can use it:</b> Canadian-controlled private corporations, like John&rsquo;s dental corporation.</div>
     <div class="f note3">David tracks the balance and files the election. Mehar fills it.</div>
   </div>
 </div>
+<div class="src">Source: Investopedia, &ldquo;Capital Dividend Account (CDA)&rdquo;, investopedia.com/terms/c/cda.asp; Canada Revenue Agency, capital dividend accounts.</div>
 ''', 'sCda', hud=H(40, NW(40)))
 
 # 15b WHAT FILLS THE CDA
@@ -1266,8 +1290,10 @@ slide(f'''
 ''', 'sJake')
 
 # 29 SPLIT SCREEN
-cmp = [('Age 46', 'Opened clinic #2', 'Cash stuck in the corporation'),
-       ('Age 48: crash', 'Guaranteed floor, policy untouched', 'Lost 25% overnight'),
+cmp = [('Investing', 'Seg funds + flexible plan, about 12% a year', 'Rental condos + bank mutual funds, low returns'),
+       ('Age 46', 'Opened clinic #2', 'Cash stuck in the corporation'),
+       ('Age 48: crash', 'Guaranteed floor, policy untouched', 'Panic-sold at the bottom, then a tax bill'),
+       ('Protection', 'Seg fund guarantees, skips probate', 'No guarantees, probate fees'),
        ('Debt-free', 'At 50', 'At 58'),
        ('Age 55: partner dies', 'Buy-sell funded, business saved', 'No agreement: went into debt'),
        ('Locations', '3', '1'),
@@ -1305,20 +1331,39 @@ slide(f'''
 <p class="f mid">Same start as John. Same income. Same family. <b class="gold">One simple decision apart.</b></p>
 ''', 'sJake90')
 
-# 31 THE $100K DECISION
-fv60 = sum(100000 * 1.04 ** (60 - y) for y in range(41, 61))
-jake90 = fv60 * 1.04 ** 30
-jake_fam = jake90 * 0.5
-john_fam = i90['totalDB']
+# 31 WEALTH GAP + TAX AT DEATH
+def _jake_nw(a):
+    home = 1.6e6*1.03**(a-40); mort = 1e6*max(0, (58-a)/18); loan = 5e5*max(0, (58-a)/18)
+    bus = 9e5*1.04**(min(a, 70)-40)
+    corp = 5e5*1.04**(a-40) + sum(100000*1.04**(min(a,90)-y) for y in range(41, min(a,60)+1))
+    t, r, n = 109000, 150000, 0
+    for y in range(41, a+1):
+        if y <= 65: t = t*1.05 + 7000; r = r*1.05 + 33810; n = n*1.05 + 15000
+        else: t *= 1.05*.9; r *= 1.05*.9; n *= 1.05*.9
+        if y == 48: n *= .75
+    return home - mort + bus - loan + corp + t + r + n, corp, r, n
+J_NW, J_CORP, J_RRSP, J_NR = _jake_nw(90)
+J_TAX = 0.5*J_CORP + 0.5*J_RRSP + 0.25*J_NR
+J_FAM = J_NW - J_TAX
+JN_NW = NW(90)
+JN_TAX = 0.5*SAV[90][1] + 0.25*SAV[90][2]
+JN_FAM = JN_NW - JN_TAX
+def _bar(lbl, j, k, mx, cls=''):
+    return (f'<div class="wgR f"><span class="wgL">{lbl}</span><div class="wgB"><i class="jk" style="width:{j/mx*100:.1f}%"><b>{money(j)}</b></i><em>Jake</em></div>'
+            f'<div class="wgB"><i class="jn {cls}" style="width:{k/mx*100:.1f}%"><b>{money(k)}</b></i><em>John</em></div></div>')
+MXW = max(JN_NW, J_NW)
 slide(f'''
-<div class="kick">What the same $100,000 a year became</div>
-<h2>At age 90, for each family</h2>
-<div class="bars">
-  <div class="bc f"><div class="bb" style="height:{jake_fam/john_fam*310:.0f}px"><b>{money(jake_fam)}</b></div><span>Jake&rsquo;s family</span><em>Taxable investments, about half lost to tax at death</em></div>
-  <div class="bc f win"><div class="bb" style="height:310px"><b>{money(john_fam)}</b></div><span>John&rsquo;s family</span><em>Death benefit through the CDA, tax-free</em></div>
+<div class="kick">At 90: two families, one difference</div>
+<h2>The wealth gap, and the tax bill Jake never planned for</h2>
+<div class="wg">
+  {_bar('Net worth', J_NW, JN_NW, MXW)}
+  {_bar('Paid out tax-free through the CDA', 0, TOT90, MXW, 'gold')}
+  {_bar('Estimated tax at death', J_TAX, JN_TAX, MXW, 'red')}
+  {_bar('What reached the family', J_FAM, JN_FAM, MXW, 'green')}
 </div>
-<p class="f mid">Same $2 million saved. <b class="green">{money(john_fam-jake_fam)} more</b> for John&rsquo;s family.</p>
-<div class="src">Jake: $100K/yr ages 41&ndash;60 in taxable corporate investments at an assumed 4% after-tax growth, held to 90 ({money(jake90)}), about 50% combined tax at death. Illustrative only. John: illustration death benefit at 90.</div>
+<p class="f mid">Jake never used his CDA, so his corporate savings were taxed again on the way out. <b class="green">{money(JN_FAM - J_FAM)} more</b> reached John&rsquo;s family.</p>
+<p class="f mid wgTie">The difference wasn&rsquo;t luck. John was <b>open to learning</b>, and he <b>took action</b>, because he understood the value of time.</p>
+<div class="src">Illustrative. Jake: same income and savings, 5% average return (real estate and bank mutual funds), panic-sold 25% lower in the 2034 crash, one clinic, debt-free at 58; tax at death about 50% on corporate assets and RRSP, 25% on non-registered gains. John: net worth from the story bar; both policies&rsquo; death benefits paid through the CDA. Not tax advice.</div>
 ''', 'sBars')
 
 # 30 TWO DOCTORS
@@ -1368,6 +1413,7 @@ slide(f'''
 slide(f'''
 <div class="kick">Your move</div>
 <h2>Let&rsquo;s Write Your Story</h2>
+<p class="ctaQ">&ldquo;Today is the second-best day to start. <b>The best day was yesterday.</b>&rdquo;</p>
 <p class="big">No matter your age, your income, or your goals, this belongs in your plan.</p>
 <div class="cta">
   <div class="f"><i>1</i><b>Book a One-on-One</b><span>A private, no-pressure conversation about your business and your goals.</span></div>
