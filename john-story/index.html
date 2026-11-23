@@ -977,6 +977,7 @@ html,body{background:#000}
 #ui{opacity:0!important;transition:opacity .35s ease}
 #ui::before{content:"";position:absolute;inset:-26px -30px -30px -40px}
 #ui:hover,#ui:focus-within,#stage:has(.panel.open) #ui{opacity:1!important}
+#ui::before{z-index:0}#ui button{position:relative;z-index:1}
 </style></head>
 <body>
 <div id="stage">
