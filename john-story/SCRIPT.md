@@ -289,3 +289,13 @@ New opening order: Cover → The real Ontario case → **How tonight works** →
 - **Every chapter title page opens with a theatre curtain:** red velvet curtains with gold trim close over the screen, then sweep apart as the scene comes into focus. If the clock fast-forward plays first, the curtain waits for it. Turning Smooth animations off in Settings skips the curtain.
 - **The title animates in:** "Chapter X" spreads into place, the date fades up, and the title pops in.
 - **Characters breathe and sway gently, out of step with each other:** a little more on the chapter pages, very subtle everywhere else. The snow, fires, fireworks, rain, lightning and tree lights keep moving too.
+
+## Updates in version 28
+- **The curtain now opens only twice:** on the first slide after the title (the Ontario hook), and on the final Happy Holidays slide. The chapter pages no longer have curtains.
+- **Settings → Screen (new):**
+  - **Auto screen optimizer (on by default):** re-fits the slides automatically when you AirPlay, plug in HDMI, change resolution, or resize the window. It checks for changes about once a second, even when the TV doesn't announce them.
+  - **Keep exact 16:9 shape:** shows black bars instead of filling the screen. Use it if a TV crops or stretches the picture.
+  - **TV safe margins (0–10%):** shrinks the slide evenly if the TV cuts off the edges (overscan). 3–5% usually fixes it.
+  - **Re-fit now,** plus a readout of the detected window and screen size.
+- **Toolbar (slides list, edit, settings, full screen):** hidden until you move the mouse to the top-right corner. It stays visible while a panel is open.
+- **Tip for AirPlay or HDMI:** connect first, then press F for full screen on the TV display. If the edges look cut off, open Settings (S) and add 3–5% safe margins.

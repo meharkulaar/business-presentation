@@ -966,6 +966,17 @@ body.reduce #act{transition:none}
 .slide.active.sFull .ratTop .chWhen{animation:fadeUp .9s ease .5s both}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 body.reduce .pp{animation:none!important}
+/* v28: screen optimizer settings */
+.sHead{padding:12px 14px 4px;font:800 12px "Segoe UI";letter-spacing:.2em;text-transform:uppercase;color:#E5B93C;border-top:1px solid rgba(229,185,60,.3);margin-top:6px}
+.stp{display:flex;align-items:center;gap:8px}.stp button,.rfB{background:#2A0A10;color:#FFE7A6;border:1px solid rgba(229,185,60,.6);border-radius:8px;padding:4px 11px;cursor:pointer;font-size:15px}
+.stp b{min-width:34px;text-align:center;color:#FFF4DC}
+#scrInfo{font-size:12px;opacity:.75}
+html,body{background:#000}
+#setL{max-height:560px}
+/* v28b: toolbar hidden until hover */
+#ui{opacity:0!important;transition:opacity .35s ease}
+#ui::before{content:"";position:absolute;inset:-26px -30px -30px -40px}
+#ui:hover,#ui:focus-within,#stage:has(.panel.open) #ui{opacity:1!important}
 </style></head>
 <body>
 <div id="stage">
@@ -1518,14 +1529,22 @@ body.reduce .pp{animation:none!important}
 </div>
 <script>(function(){
 var stage=document.getElementById('stage');
+window.FITOPT=window.FITOPT||{safe:0,exact:false};
 function fit(){
-  var W=innerWidth,Hh=innerHeight,a=W/Hh,w,h;
-  if(a>=1440/810){h=810;w=Math.round(810*a);}else{w=1440;h=Math.round(1440/a);}
+  var o=window.FITOPT,m=Math.max(0,Math.min(.12,+o.safe||0));
+  var W=innerWidth,Hh=innerHeight,W2=W*(1-2*m),H2=Hh*(1-2*m),a=W2/H2,w,h,sc;
+  if(o.exact){w=1440;h=810;sc=Math.min(W2/1440,H2/810);}
+  else{if(a>=1440/810){h=810;w=Math.round(810*a);}else{w=1440;h=Math.round(1440/a);}sc=W2/w;}
   stage.style.width=w+'px';stage.style.height=h+'px';stage.style.marginLeft=(-w/2)+'px';stage.style.marginTop=(-h/2)+'px';
-  stage.style.transform='scale('+(W/w)+')';
+  stage.style.transform='scale('+sc+')';
   stage.style.setProperty('--ex',((h-810)/2)+'px');stage.style.setProperty('--exw',((w-1440)/2)+'px');
+  window.FITINFO={W:W,H:Hh,dpr:window.devicePixelRatio||1,sc:sc};
 }
-addEventListener('resize',fit);document.addEventListener('fullscreenchange',function(){setTimeout(fit,60);});fit();
+window.__refit=fit;
+addEventListener('resize',fit);addEventListener('orientationchange',function(){setTimeout(fit,200);});
+document.addEventListener('fullscreenchange',function(){setTimeout(fit,60);setTimeout(fit,400);});
+document.addEventListener('visibilitychange',function(){if(!document.hidden)setTimeout(fit,100);});
+fit();
 
 var slides=[].slice.call(document.querySelectorAll('.slide')),i=0;
 var NEED_TOTAL=7, nwShown=0, cdaMax=23185466;
@@ -1593,7 +1612,7 @@ function timePass(a0,a1){
 var curt=document.getElementById('curt'),curtT;
 function curtain(s,dir,clocked){
   clearTimeout(curtT);curt.classList.remove('shut','open');
-  if(dir<=0||!(s.classList.contains('sFull')||s.classList.contains('sRat'))||document.body.classList.contains('reduce'))return;
+  if(dir<=0||!(s===slides[1]||s===slides[slides.length-1])||document.body.classList.contains('reduce'))return;
   curt.classList.add('shut');void curt.offsetWidth;
   curtT=setTimeout(function(){curt.classList.remove('shut');curt.classList.add('open');
     if(slides[i]===s){s.classList.remove('active');void s.offsetWidth;s.classList.add('active');}},clocked?2600:120);
@@ -1714,18 +1733,34 @@ var OPTS=[['snow','Snow & sparkle effects','Turn off on slower laptops',true],
   ['intl','“For internal use only” tag','',true],
   ['click','Click anywhere to advance','Off = keyboard or clicker only',true],
   ['timer','Presenter timer','Counts up to your 40-minute target',false]];
+var SCR=[['autofit','Auto screen optimizer','Re-fits automatically when you AirPlay, plug in HDMI, change resolution or resize',true],
+  ['exact','Keep exact 16:9 shape','Adds black bars instead of stretching to the screen; use if a TV crops or distorts',false]];
 var st={};try{st=JSON.parse(localStorage.getItem('jsSet')||'{}');}catch(_){}
-OPTS.forEach(function(o){if(!(o[0] in st))st[o[0]]=o[3];});
+OPTS.concat(SCR).forEach(function(o){if(!(o[0] in st))st[o[0]]=o[3];});if(!('safe' in st))st.safe=0;
 function applyS(){B.classList.toggle('lite',!st.snow);B.classList.toggle('reduce',!st.motion);B.classList.toggle('nohud',!st.hud);
   B.classList.toggle('nobadge',!st.badge);B.classList.toggle('nointl',!st.intl);B.classList.toggle('noclick',!st.click);B.classList.toggle('timer',!!st.timer);
+  window.FITOPT.safe=(+st.safe||0)/100;window.FITOPT.exact=!!st.exact;if(window.__refit)window.__refit();
   try{localStorage.setItem('jsSet',JSON.stringify(st));}catch(_){}}
+var lastSig='';setInterval(function(){if(!st.autofit)return;var sig=[innerWidth,innerHeight,window.devicePixelRatio,screen.width,screen.height,screen.availWidth,screen.availHeight].join('x');
+  if(sig!==lastSig){lastSig=sig;if(window.__refit)window.__refit();var inf=document.getElementById('scrInfo');if(inf)inf.textContent=scrText();}},700);
+function scrText(){var f=window.FITINFO||{};return 'Detected: '+f.W+' \u00d7 '+f.H+' window \u00b7 '+screen.width+' \u00d7 '+screen.height+' screen \u00b7 scale '+(f.sc||1).toFixed(2);}
 function build(){var L=$('setL');L.innerHTML='';
   var r=document.createElement('button');r.className='sBig';r.textContent='↻  Restart presentation from the beginning';r.onclick=function(){restartAll();$('set').classList.remove('open');};L.appendChild(r);
   OPTS.forEach(function(o){var d=document.createElement('div');d.className='sRow';d.innerHTML='<span></span><i class="tg"></i>';
     d.querySelector('span').innerHTML=o[1]+(o[2]?'<em>'+o[2]+'</em>':'');var t=d.querySelector('.tg');t.classList.toggle('on',!!st[o[0]]);
     t.onclick=function(){st[o[0]]=!st[o[0]];t.classList.toggle('on',st[o[0]]);applyS();};L.appendChild(d);});
+  var hd=document.createElement('div');hd.className='sHead';hd.textContent='Screen';L.appendChild(hd);
+  SCR.forEach(function(o){var d=document.createElement('div');d.className='sRow';d.innerHTML='<span></span><i class="tg"></i>';
+    d.querySelector('span').innerHTML=o[1]+'<em>'+o[2]+'</em>';var t=d.querySelector('.tg');t.classList.toggle('on',!!st[o[0]]);
+    t.onclick=function(){st[o[0]]=!st[o[0]];t.classList.toggle('on',st[o[0]]);applyS();inf.textContent=scrText();};L.appendChild(d);});
+  var sm=document.createElement('div');sm.className='sRow';sm.innerHTML='<span>TV safe margins<em>Shrinks the slide slightly if the TV cuts off the edges (overscan)</em></span><div class="stp"><button>&minus;</button><b></b><button>+</button></div>';
+  var sb=sm.querySelector('b');sb.textContent=st.safe+'%';var bs=sm.querySelectorAll('button');
+  bs[0].onclick=function(){st.safe=Math.max(0,st.safe-1);sb.textContent=st.safe+'%';applyS();inf.textContent=scrText();};
+  bs[1].onclick=function(){st.safe=Math.min(10,st.safe+1);sb.textContent=st.safe+'%';applyS();inf.textContent=scrText();};L.appendChild(sm);
+  var rf=document.createElement('div');rf.className='sRow';rf.innerHTML='<span id="scrInfo"></span><button class="rfB">Re-fit now</button>';var inf=rf.querySelector('#scrInfo');inf.textContent=scrText();
+  rf.querySelector('.rfB').onclick=function(){if(window.__refit)window.__refit();inf.textContent=scrText();};L.appendChild(rf);
   var k=document.createElement('div');k.className='sRow';k.innerHTML='<span>Keys<em>→ next · ← back · F full screen · B black screen · R restart · T slides · S settings</em></span>';L.appendChild(k);}
-$('setReset').onclick=function(){st={};OPTS.forEach(function(o){st[o[0]]=o[3];});applyS();build();};
+$('setReset').onclick=function(){st={};OPTS.concat(SCR).forEach(function(o){st[o[0]]=o[3];});st.safe=0;applyS();build();};
 var t0=null;function fmt(ms){var s=Math.floor(ms/1000);return Math.floor(s/60)+':'+('0'+s%60).slice(-2);}
 setInterval(function(){var el=$('timer');if(!el)return;if(t0===null){el.textContent='0:00 / 40:00';return;}var ms=Date.now()-t0;el.textContent=fmt(ms)+' / 40:00';el.classList.toggle('over',ms>40*60000);},500);
 $('timer').onclick=function(e){e.stopPropagation();t0=Date.now();};

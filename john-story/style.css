@@ -963,3 +963,14 @@ body.reduce #act{transition:none}
 .slide.active.sFull .ratTop .chWhen{animation:fadeUp .9s ease .5s both}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 body.reduce .pp{animation:none!important}
+/* v28: screen optimizer settings */
+.sHead{padding:12px 14px 4px;font:800 12px "Segoe UI";letter-spacing:.2em;text-transform:uppercase;color:#E5B93C;border-top:1px solid rgba(229,185,60,.3);margin-top:6px}
+.stp{display:flex;align-items:center;gap:8px}.stp button,.rfB{background:#2A0A10;color:#FFE7A6;border:1px solid rgba(229,185,60,.6);border-radius:8px;padding:4px 11px;cursor:pointer;font-size:15px}
+.stp b{min-width:34px;text-align:center;color:#FFF4DC}
+#scrInfo{font-size:12px;opacity:.75}
+html,body{background:#000}
+#setL{max-height:560px}
+/* v28b: toolbar hidden until hover */
+#ui{opacity:0!important;transition:opacity .35s ease}
+#ui::before{content:"";position:absolute;inset:-26px -30px -30px -40px}
+#ui:hover,#ui:focus-within,#stage:has(.panel.open) #ui{opacity:1!important}
