@@ -1385,7 +1385,7 @@ slide(f'''
   <div class="frC paper f"><b>Peace of mind</b><span class="jn">John: every need covered, a plan for everyone</span><span class="jk">Jake: stress, a tax bill and no plan</span></div>
 </div>
 <p class="f mid wgTie">The difference wasn&rsquo;t luck. John was <b>open to learning</b>, and he <b>took action</b>, because he understood the value of time.</p>
-<div class="src">Illustrative. Jake: no whole life, term expired at 65; GICs, little investing, real estate on advice; no succession plan. Tax at death (BC top rates): deemed disposition, 50% capital gains inclusion, RRSP fully taxed, corporate shares taxed twice without planning (about 63%), probate 1.4%. Not tax advice.</div>
+<div class="src">Illustrative. Jake: no whole life; $500K term expired at 65, then about $45K/yr to renew; corporate savings in GICs (about 2% after tax); barely invested (small, irregular TFSA/RRSP and mutual-fund deposits); real estate on advice: a cottage at 45 ($800K, 3.5%/yr), a clinic building in his corporation at 50 ($1.5M), a rental condo at 46 that fell 20%; panic-sold 30% lower in the crash; $600K partner buyout; home borrowing from 71. Tax at death (BC, top rates): deemed disposition at fair market value, 50% capital gains inclusion (the proposed increase was cancelled in March 2025) about 26.75%; RRSP fully taxed at 53.5%; corporate shares without post-mortem planning taxed twice, about 63% combined; CCA recapture on the rental; probate 1.4% above $50K; principal residence exempt. John: both policies&rsquo; death benefits paid through the CDA. Not tax advice.</div>
 ''', 'sBars')
 
 # 30 TWO DOCTORS
