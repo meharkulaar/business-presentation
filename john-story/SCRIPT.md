@@ -253,3 +253,16 @@ New opening order: Cover → The real Ontario case → **How tonight works** →
   - [click] Mehar: "That's okay. We can't change the past. Let's focus on today, and on your future."
   - This sets up Jake later: Jake also "decided to think about it", and he never came back.
 - **From saving to spending (age 65):** a new paper note: "Plus: income from his policies' cash value. In retirement John also draws from the cash value of his personal permanent policy. And over the years he used some of the corporate policy's cash value for personal needs too, borrowing against it with David's help, while the policies kept growing." The action banner now mentions both policies.
+
+## Updates in version 24 (57 slides)
+- **Three hidden problems:** problem #1 is now **Double taxation**. "When John dies, his shares are taxed on his final return, and the same money is taxed again when the corporation pays it out to his family."
+- **Policy #2 (new, right after Debt-free at 50):** it shows the real illustration, with ages 55 and 65 highlighted.
+  - "No more debt payments, so Mehar puts that cash flow to work. A second corporate policy: $150K a year for 15 years, with money that used to go to the bank."
+  - "$5.76M of coverage from day one. By 55 its cash value, $722K, helps fund clinic #3. $3.06M of cash value by 65, more tax-efficient money he can access. And $9.0M more for the CDA by 90."
+  - Action banner: starts a second corporate policy.
+- **The legacy now counts both policies:** $14.18M + $9.00M = **$23.19M** to his family tax-free. This applies on the gift reveal, the legacy slide and the scoreboard. (The $100K bars slide still compares the same $100K a year, so it keeps $14.18M.)
+- **Story bar:** the future CDA credit includes policy #2 from age 50. Net worth includes its cash value.
+- **Time (new, right before Chapter Seven):** five polaroids drop in: family trips, front row at every game, every recital, every graduation, home for every Christmas.
+  - Say it slowly: "Because his money was working, John didn't have to work every hour. From the first year, he took Emma and the kids away a few times a year. He never missed a game, a recital or a parent-teacher night. He was there for every first day of school, and he cheered at every graduation."
+  - [click] "Remember the concert I missed when Lily was six? I never missed another one."
+  - [pause]

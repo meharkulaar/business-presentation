@@ -10,7 +10,7 @@ function fit(){
 addEventListener('resize',fit);document.addEventListener('fullscreenchange',function(){setTimeout(fit,60);});fit();
 
 var slides=[].slice.call(document.querySelectorAll('.slide')),i=0;
-var NEED_TOTAL=7, nwShown=0, cdaMax=14183158;
+var NEED_TOTAL=7, nwShown=0, cdaMax=23185466;
 function frags(s){return [].slice.call(s.querySelectorAll('.f'));}
 function fmt(v){return '$'+Math.round(v).toLocaleString('en-CA');}
 function short(v){return v>=1e6?'$'+(v/1e6).toFixed(2)+'M':fmt(v);}

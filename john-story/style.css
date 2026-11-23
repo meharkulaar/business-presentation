@@ -902,3 +902,15 @@ body.reduce #act{transition:none}
 .cvInc{max-width:1180px;margin:6px auto 0;padding:10px 22px;text-align:center}
 .cvInc b{display:block;font:900 19px Georgia,serif;color:#6B1218}.cvInc span{font-size:15.5px;color:#4A3A2A}.cvInc strong{color:#2E1E12}
 .sSave .svW{margin-top:2px}.sSave .svSvg{height:340px;width:auto}
+/* v24: policy #2 + family time */
+.p2S{gap:30px;align-items:center}.p2Snap img{width:600px}
+.famP{font-size:21px!important;max-width:1180px;margin-top:0}
+.polR{display:flex;gap:18px;justify-content:center;margin-top:16px}
+.pol{background:#FBF8F0;padding:10px 10px 8px;width:240px;box-shadow:0 12px 26px rgba(0,0,0,.5),0 0 20px rgba(229,185,60,.2);transform:rotate(var(--r)) translateY(20px)}
+.pol.on{transform:rotate(var(--r))}
+.pol svg{display:block;width:220px;height:161px}
+.pol span{display:block;text-align:center;font:700 23px "Caveat",cursive;color:#3A2A1A;margin-top:6px;line-height:1.05}
+.famQ{font:italic 26px Georgia,serif;color:#F6D77A;margin-top:18px;text-align:center;text-shadow:0 0 14px rgba(229,185,60,.4)}
+.famQ b{color:#FFF4DC}
+.famP{font-size:22px!important}.polR{margin-top:30px;gap:14px}.pol{width:248px}.pol svg{width:228px;height:167px}.pol span{font-size:25px}
+.famQ{font-size:30px;margin-top:34px}
